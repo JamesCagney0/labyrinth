@@ -1,490 +1,395 @@
-2025-10-08 16:26:14,293 - ERROR - Fatal error: 'int' object is not callable
-2025-10-08 16:28:35,126 - ERROR - Fatal error: 'int' object is not callable
-2025-10-08 16:31:02,165 - ERROR - Fatal error: 'int' object is not callable
-2025-10-08 16:35:01,375 - INFO -  TEXT ADVENTURE RPG - 10 FLOOR EDITION
-2025-10-08 16:35:01,375 - INFO -  Version 5.0.0
-2025-10-08 16:35:01,375 - INFO - 
-1. New Game | 2. Load Game
-2025-10-08 16:35:14,621 - INFO - 
-=== Choose Class ===
-2025-10-08 16:35:14,621 - INFO - 1. Warrior - High HP, strength-based
-2025-10-08 16:35:14,621 - INFO - 2. Mage - High mana, intelligence-based
-2025-10-08 16:35:14,622 - INFO - 3. Rogue - Balanced, agility-based
-2025-10-08 16:35:31,333 - INFO - 
-=== Choose Weapon ===
-2025-10-08 16:35:31,333 - INFO - 1. Iron Sword - 18 dmg
-2025-10-08 16:35:31,333 - INFO - 2. Steel Axe - 20 dmg
-2025-10-08 16:35:31,333 - INFO - 3. Bronze Hammer - 22 dmg
-2025-10-08 16:35:36,429 - INFO - You equipped: Bronze Hammer
-2025-10-08 16:35:36,429 - INFO - 
-*** Generating 10-floor dungeon...
-2025-10-08 16:35:36,430 - ERROR - Creation error: Logger._log() got an unexpected keyword argument 'end'
-2025-10-08 16:35:36,430 - INFO - 
-*** Generating 10-floor dungeon...
-2025-10-08 16:35:36,430 - ERROR - Fatal error: Logger._log() got an unexpected keyword argument 'end'
-2025-10-08 16:35:36,430 - INFO - 
+2026-05-16 20:36:48,579 [INFO] delete_save:2008 - Save file deleted: slot 1
+2026-05-16 20:48:53,829 [ERROR] _create_character:395 - Character creation error: 'berserker'
+Traceback (most recent call last):
+  File "C:\Users\James Cagney\labyrinth\labyrinth\game.py", line 371, in _create_character
+    weapons = WeaponSystem.create_starting_weapons()[char_class]
+              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'berserker'
+2026-05-16 20:48:53,830 [INFO] _generate_dungeon:410 - Starting dungeon generation (NG+0)...
+2026-05-16 20:48:53,832 [ERROR] main:25 - Fatal error: 'floor10_start'
+Traceback (most recent call last):
+  File "C:\Users\James Cagney\labyrinth\labyrinth\game.py", line 371, in _create_character
+    weapons = WeaponSystem.create_starting_weapons()[char_class]
+              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'berserker'
 
-Fatal error: Logger._log() got an unexpected keyword argument 'end'
-2025-10-08 16:35:36,430 - INFO - Please report this bug!
-2025-10-08 17:01:04,546 [INFO] _create_character:1353 - New character: J (warrior) with Bronze Hammer
-2025-10-08 17:01:04,546 [INFO] _generate_dungeon:1368 - Starting dungeon generation...
-2025-10-08 17:01:04,548 [INFO] _generate_dungeon:1434 - Dungeon generated: 10 floors, 118 total rooms
-2025-10-08 17:25:21,365 [INFO] _create_character:1353 - New character: J (warrior) with Bronze Hammer
-2025-10-08 17:25:21,365 [INFO] _generate_dungeon:1368 - Starting dungeon generation...
-2025-10-08 17:25:21,367 [INFO] _generate_dungeon:1434 - Dungeon generated: 10 floors, 119 total rooms
-2025-10-08 17:37:16,230 [INFO] _create_character:1596 - New character: J (warrior) with Bronze Hammer
-2025-10-08 17:37:16,230 [INFO] _generate_dungeon:1611 - Starting dungeon generation...
-2025-10-08 17:37:16,232 [INFO] _generate_dungeon:1672 - Dungeon generated: 10 floors, 118 total rooms
-2025-10-08 17:42:24,787 [INFO] _create_character:1596 - New character: J (warrior) with Bronze Hammer
-2025-10-08 17:42:24,787 [INFO] _generate_dungeon:1611 - Starting dungeon generation...
-2025-10-08 17:42:24,789 [INFO] _generate_dungeon:1672 - Dungeon generated: 10 floors, 116 total rooms
-2025-10-08 17:46:46,077 [INFO] fight_enemy:1205 - Combat started: J (Lvl 1, HP 120) vs skeleton (HP 30)
-2025-10-08 17:46:46,077 [INFO] fight_enemy:1219 - Victory: J defeated skeleton in 2 turns. Gained 30 XP
-2025-10-08 17:46:46,078 [INFO] gain_experience:807 - Player gained 30 XP. Total: 30/100
-2025-10-08 17:46:46,078 [INFO] fight_enemy:1205 - Combat started: J (Lvl 1, HP 113) vs sewer rat (HP 15)
-2025-10-08 17:46:46,078 [INFO] fight_enemy:1219 - Victory: J defeated sewer rat in 1 turns. Gained 15 XP
-2025-10-08 17:46:46,078 [INFO] gain_experience:807 - Player gained 15 XP. Total: 45/100
-2025-10-08 18:01:06,443 [INFO] _create_character:1520 - New character: J (warrior) with Bronze Hammer
-2025-10-08 18:01:06,443 [INFO] _generate_dungeon:1535 - Starting dungeon generation...
-2025-10-08 18:01:06,445 [INFO] _generate_dungeon:1596 - Dungeon generated: 10 floors, 118 total rooms
-2025-10-08 18:01:56,943 [INFO] fight_enemy:1129 - Combat started: J (Lvl 1, HP 120) vs goblin (HP 25)
-2025-10-08 18:01:56,944 [INFO] fight_enemy:1143 - Victory: J defeated goblin in 2 turns. Gained 25 XP
-2025-10-08 18:01:56,944 [INFO] gain_experience:731 - Player gained 25 XP. Total: 25/100
-2025-10-08 18:01:56,944 [INFO] fight_enemy:1129 - Combat started: J (Lvl 1, HP 115) vs prison guard (HP 40)
-2025-10-08 18:01:56,945 [INFO] fight_enemy:1143 - Victory: J defeated prison guard in 2 turns. Gained 35 XP
-2025-10-08 18:01:56,945 [INFO] gain_experience:731 - Player gained 35 XP. Total: 60/100
-2025-10-08 18:15:07,132 [INFO] _create_character:1520 - New character: J (warrior) with Bronze Hammer
-2025-10-08 18:15:07,132 [INFO] _generate_dungeon:1535 - Starting dungeon generation...
-2025-10-08 18:15:07,134 [INFO] _generate_dungeon:1596 - Dungeon generated: 10 floors, 117 total rooms
-2025-10-08 18:15:26,978 [INFO] fight_enemy:1129 - Combat started: J (Lvl 1, HP 120) vs goblin (HP 25)
-2025-10-08 18:15:26,978 [INFO] fight_enemy:1143 - Victory: J defeated goblin in 2 turns. Gained 25 XP
-2025-10-08 18:15:26,978 [INFO] gain_experience:731 - Player gained 25 XP. Total: 25/100
-2025-10-08 18:15:26,978 [INFO] fight_enemy:1129 - Combat started: J (Lvl 1, HP 114) vs skeleton (HP 30)
-2025-10-08 18:15:26,979 [INFO] fight_enemy:1143 - Victory: J defeated skeleton in 2 turns. Gained 30 XP
-2025-10-08 18:15:26,979 [INFO] gain_experience:731 - Player gained 30 XP. Total: 55/100
-2025-10-08 18:17:34,413 [INFO] fight_enemy:1129 - Combat started: J (Lvl 1, HP 106) vs sewer rat (HP 15)
-2025-10-08 18:17:34,414 [INFO] fight_enemy:1143 - Victory: J defeated sewer rat in 1 turns. Gained 15 XP
-2025-10-08 18:17:34,414 [INFO] gain_experience:731 - Player gained 15 XP. Total: 70/100
-2025-10-08 18:18:10,122 [INFO] fight_enemy:1129 - Combat started: J (Lvl 1, HP 106) vs sewer rat (HP 15)
-2025-10-08 18:18:10,122 [INFO] fight_enemy:1143 - Victory: J defeated sewer rat in 1 turns. Gained 15 XP
-2025-10-08 18:18:10,123 [INFO] gain_experience:731 - Player gained 15 XP. Total: 85/100
-2025-10-08 18:18:31,933 [INFO] fight_enemy:1129 - Combat started: J (Lvl 1, HP 106) vs treasure guardian (HP 60)
-2025-10-08 18:18:31,934 [INFO] fight_enemy:1143 - Victory: J defeated treasure guardian in 3 turns. Gained 65 XP
-2025-10-08 18:18:31,934 [INFO] gain_experience:731 - Player gained 65 XP. Total: 150/100
-2025-10-08 18:18:31,934 [INFO] _level_up:757 - LEVEL UP: J reached level 2. HP: 135, MP: 60
-2025-10-08 18:18:31,935 [INFO] fight_enemy:1129 - Combat started: J (Lvl 2, HP 135) vs skeleton (HP 30)
-2025-10-08 18:18:31,935 [INFO] fight_enemy:1143 - Victory: J defeated skeleton in 2 turns. Gained 30 XP
-2025-10-08 18:18:31,936 [INFO] gain_experience:731 - Player gained 30 XP. Total: 80/140
-2025-10-08 18:18:57,701 [INFO] gain_experience:731 - Player gained 50 XP. Total: 130/140
-2025-10-08 18:20:06,953 [INFO] fight_enemy:1129 - Combat started: J (Lvl 2, HP 127) vs skeleton (HP 30)
-2025-10-08 18:20:06,954 [INFO] fight_enemy:1143 - Victory: J defeated skeleton in 2 turns. Gained 30 XP
-2025-10-08 18:20:06,954 [INFO] gain_experience:731 - Player gained 30 XP. Total: 160/140
-2025-10-08 18:20:06,954 [INFO] _level_up:757 - LEVEL UP: J reached level 3. HP: 150, MP: 70
-2025-10-08 18:20:06,954 [INFO] fight_enemy:1129 - Combat started: J (Lvl 3, HP 150) vs goblin (HP 25)
-2025-10-08 18:20:06,955 [INFO] fight_enemy:1143 - Victory: J defeated goblin in 1 turns. Gained 25 XP
-2025-10-08 18:20:06,955 [INFO] gain_experience:731 - Player gained 25 XP. Total: 45/196
-2025-10-08 18:22:42,330 [INFO] fight_enemy:1129 - Combat started: J (Lvl 3, HP 150) vs goblin (HP 25)
-2025-10-08 18:22:42,331 [INFO] fight_enemy:1143 - Victory: J defeated goblin in 1 turns. Gained 25 XP
-2025-10-08 18:22:42,331 [INFO] gain_experience:731 - Player gained 25 XP. Total: 70/196
-2025-10-08 18:22:42,331 [INFO] fight_enemy:1129 - Combat started: J (Lvl 3, HP 150) vs skeleton (HP 30)
-2025-10-08 18:22:42,331 [INFO] fight_enemy:1143 - Victory: J defeated skeleton in 2 turns. Gained 30 XP
-2025-10-08 18:22:42,331 [INFO] gain_experience:731 - Player gained 30 XP. Total: 100/196
-2025-10-08 18:24:44,976 [INFO] fight_boss:1190 - BOSS FIGHT: J (Lvl 3, HP 142) vs Arena Champion on floor 1
-2025-10-08 18:26:28,771 [INFO] fight_boss:1273 - BOSS VICTORY: J defeated Arena Champion in 6 turns on floor 1
-2025-10-08 18:26:28,771 [INFO] gain_experience:731 - Player gained 150 XP. Total: 250/196
-2025-10-08 18:26:28,771 [INFO] _level_up:757 - LEVEL UP: J reached level 4. HP: 165, MP: 80
-2025-10-08 18:26:28,772 [INFO] fight_boss:1293 - Boss reward: J received Gladius of Victory (32 dmg)
-2025-10-08 18:31:18,662 [INFO] _create_character:1520 - New character: K (mage) with Crystal Orb
-2025-10-08 18:31:18,662 [INFO] _generate_dungeon:1535 - Starting dungeon generation...
-2025-10-08 18:31:18,664 [INFO] _generate_dungeon:1596 - Dungeon generated: 10 floors, 119 total rooms
-2025-10-08 18:31:43,772 [INFO] _create_character:1520 - New character: l (rogue) with Steel Dagger
-2025-10-08 18:31:43,773 [INFO] _generate_dungeon:1535 - Starting dungeon generation...
-2025-10-08 18:31:43,775 [INFO] _generate_dungeon:1596 - Dungeon generated: 10 floors, 116 total rooms
-2025-10-08 18:31:47,903 [INFO] save_game:2268 - Game saved: l (Lvl 1, Floor 1)
-2025-10-08 18:31:56,483 [INFO] load_game:2327 - Game loaded: l (Lvl 1, Floor 1)
-2025-10-09 01:20:28,810 [INFO] _create_character:1596 - New character: J (warrior) with Bronze Hammer
-2025-10-09 01:20:28,836 [INFO] _generate_dungeon:1611 - Starting dungeon generation...
-2025-10-09 01:20:28,837 [INFO] _generate_dungeon:1689 - Dungeon generated: 10 floors, 119 total rooms
-2025-10-09 01:21:35,784 [INFO] fight_enemy:1163 - Combat started: J (Lvl 1, HP 120) vs prison guard (HP 40)
-2025-10-09 01:21:35,784 [INFO] fight_enemy:1177 - Victory: J defeated prison guard in 2 turns. Gained 35 XP
-2025-10-09 01:21:35,784 [INFO] gain_experience:756 - Player gained 35 XP. Total: 35/100
-2025-10-09 01:21:35,785 [INFO] fight_enemy:1163 - Combat started: J (Lvl 1, HP 109) vs skeleton (HP 30)
-2025-10-09 01:21:35,785 [INFO] fight_enemy:1177 - Victory: J defeated skeleton in 2 turns. Gained 30 XP
-2025-10-09 01:21:35,785 [INFO] gain_experience:756 - Player gained 30 XP. Total: 65/100
-2025-10-09 01:23:18,690 [INFO] fight_enemy:1163 - Combat started: J (Lvl 1, HP 100) vs sewer rat (HP 15)
-2025-10-09 01:23:18,690 [INFO] fight_enemy:1177 - Victory: J defeated sewer rat in 1 turns. Gained 15 XP
-2025-10-09 01:23:18,691 [INFO] gain_experience:756 - Player gained 15 XP. Total: 80/100
-2025-10-09 01:23:34,561 [INFO] fight_enemy:1163 - Combat started: J (Lvl 1, HP 100) vs goblin (HP 25)
-2025-10-09 01:23:34,562 [INFO] fight_enemy:1177 - Victory: J defeated goblin in 1 turns. Gained 25 XP
-2025-10-09 01:23:34,562 [INFO] gain_experience:756 - Player gained 25 XP. Total: 105/100
-2025-10-09 01:23:34,562 [INFO] _level_up:782 - LEVEL UP: J reached level 2. HP: 135, MP: 60
-2025-10-09 01:23:34,563 [INFO] fight_enemy:1163 - Combat started: J (Lvl 2, HP 135) vs prison guard (HP 40)
-2025-10-09 01:23:34,563 [INFO] fight_enemy:1177 - Victory: J defeated prison guard in 2 turns. Gained 35 XP
-2025-10-09 01:23:34,563 [INFO] gain_experience:756 - Player gained 35 XP. Total: 40/140
-2025-10-09 01:24:41,432 [INFO] fight_enemy:1163 - Combat started: J (Lvl 2, HP 126) vs prison guard (HP 40)
-2025-10-09 01:24:41,432 [INFO] fight_enemy:1177 - Victory: J defeated prison guard in 1 turns. Gained 35 XP
-2025-10-09 01:24:41,432 [INFO] gain_experience:756 - Player gained 35 XP. Total: 75/140
-2025-10-09 01:24:41,433 [INFO] fight_enemy:1163 - Combat started: J (Lvl 2, HP 126) vs sewer rat (HP 15)
-2025-10-09 01:24:41,433 [INFO] fight_enemy:1177 - Victory: J defeated sewer rat in 1 turns. Gained 15 XP
-2025-10-09 01:24:41,433 [INFO] gain_experience:756 - Player gained 15 XP. Total: 90/140
-2025-10-09 01:32:21,169 [INFO] _create_character:1614 - New character: J (warrior) with Bronze Hammer
-2025-10-09 01:32:21,169 [INFO] _generate_dungeon:1629 - Starting dungeon generation...
-2025-10-09 01:32:21,171 [INFO] _generate_dungeon:1708 - Dungeon generated: 10 floors, 119 total rooms
-2025-10-09 01:33:00,257 [INFO] fight_enemy:1176 - Combat started: J (Lvl 1, HP 120) vs treasure guardian (HP 60)
-2025-10-09 01:33:00,258 [INFO] fight_enemy:1190 - Victory: J defeated treasure guardian in 3 turns. Gained 65 XP
-2025-10-09 01:33:00,258 [INFO] gain_experience:762 - Player gained 65 XP. Total: 65/100
-2025-10-09 01:33:00,258 [INFO] fight_enemy:1176 - Combat started: J (Lvl 1, HP 85) vs goblin (HP 25)
-2025-10-09 01:33:00,258 [INFO] fight_enemy:1190 - Victory: J defeated goblin in 1 turns. Gained 25 XP
-2025-10-09 01:33:00,259 [INFO] gain_experience:762 - Player gained 25 XP. Total: 90/100
-2025-10-09 01:33:31,363 [INFO] gain_experience:762 - Player gained 50 XP. Total: 140/100
-2025-10-09 01:33:31,363 [INFO] _level_up:788 - LEVEL UP: J reached level 2. HP: 135, MP: 60
-2025-10-09 01:34:27,369 [INFO] fight_enemy:1176 - Combat started: J (Lvl 2, HP 135) vs goblin (HP 25)
-2025-10-09 01:34:27,369 [INFO] fight_enemy:1190 - Victory: J defeated goblin in 1 turns. Gained 25 XP
-2025-10-09 01:34:27,370 [INFO] gain_experience:762 - Player gained 25 XP. Total: 65/140
-2025-10-09 01:34:43,899 [INFO] fight_enemy:1176 - Combat started: J (Lvl 2, HP 135) vs goblin (HP 25)
-2025-10-09 01:34:43,899 [INFO] fight_enemy:1190 - Victory: J defeated goblin in 1 turns. Gained 25 XP
-2025-10-09 01:34:43,899 [INFO] gain_experience:762 - Player gained 25 XP. Total: 90/140
-2025-10-09 01:35:13,779 [INFO] fight_enemy:1176 - Combat started: J (Lvl 2, HP 135) vs skeleton (HP 30)
-2025-10-09 01:35:13,779 [INFO] fight_enemy:1190 - Victory: J defeated skeleton in 1 turns. Gained 30 XP
-2025-10-09 01:35:13,780 [INFO] gain_experience:762 - Player gained 30 XP. Total: 120/140
-2025-10-09 01:35:13,780 [INFO] fight_enemy:1176 - Combat started: J (Lvl 2, HP 135) vs sewer rat (HP 15)
-2025-10-09 01:35:13,780 [INFO] fight_enemy:1190 - Victory: J defeated sewer rat in 1 turns. Gained 15 XP
-2025-10-09 01:35:13,781 [INFO] gain_experience:762 - Player gained 15 XP. Total: 135/140
-2025-10-09 01:36:14,383 [INFO] fight_enemy:1176 - Combat started: J (Lvl 2, HP 135) vs skeleton (HP 30)
-2025-10-09 01:36:14,383 [INFO] fight_enemy:1190 - Victory: J defeated skeleton in 1 turns. Gained 30 XP
-2025-10-09 01:36:14,383 [INFO] gain_experience:762 - Player gained 30 XP. Total: 165/140
-2025-10-09 01:36:14,384 [INFO] _level_up:788 - LEVEL UP: J reached level 3. HP: 150, MP: 70
-2025-10-09 01:36:14,384 [INFO] fight_enemy:1176 - Combat started: J (Lvl 3, HP 150) vs prison guard (HP 40)
-2025-10-09 01:36:14,384 [INFO] fight_enemy:1190 - Victory: J defeated prison guard in 1 turns. Gained 35 XP
-2025-10-09 01:36:14,385 [INFO] gain_experience:762 - Player gained 35 XP. Total: 60/196
-2025-10-09 01:36:59,661 [INFO] fight_enemy:1176 - Combat started: J (Lvl 3, HP 150) vs skeleton (HP 30)
-2025-10-09 01:36:59,662 [INFO] fight_enemy:1190 - Victory: J defeated skeleton in 1 turns. Gained 30 XP
-2025-10-09 01:36:59,662 [INFO] gain_experience:762 - Player gained 30 XP. Total: 90/196
-2025-10-09 01:36:59,662 [INFO] fight_enemy:1176 - Combat started: J (Lvl 3, HP 150) vs prison guard (HP 40)
-2025-10-09 01:36:59,662 [INFO] fight_enemy:1190 - Victory: J defeated prison guard in 1 turns. Gained 35 XP
-2025-10-09 01:36:59,663 [INFO] gain_experience:762 - Player gained 35 XP. Total: 125/196
-2025-10-09 01:38:02,748 [INFO] fight_boss:1237 - BOSS FIGHT: J (Lvl 3, HP 150) vs Arena Champion on floor 1
-2025-10-09 01:38:10,070 [INFO] fight_boss:1323 - BOSS VICTORY: J defeated Arena Champion in 2 turns on floor 1
-2025-10-09 01:38:10,070 [INFO] gain_experience:762 - Player gained 150 XP. Total: 275/196
-2025-10-09 01:38:10,070 [INFO] _level_up:788 - LEVEL UP: J reached level 4. HP: 165, MP: 80
-2025-10-09 01:38:10,071 [INFO] fight_boss:1348 - Boss reward: J received Gladius of Victory (32 dmg)
-2025-10-09 01:39:47,236 [INFO] save_game:2468 - Game saved to slot 1: J (Lvl 4, Floor 2)
-2025-10-09 01:40:11,812 [INFO] _create_character:1614 - New character: J (mage) with Crystal Orb
-2025-10-09 01:40:11,812 [INFO] _generate_dungeon:1629 - Starting dungeon generation...
-2025-10-09 01:40:11,814 [INFO] _generate_dungeon:1708 - Dungeon generated: 10 floors, 118 total rooms
-2025-10-09 01:40:24,512 [INFO] save_game:2468 - Game saved to slot 2: J (Lvl 1, Floor 1)
-2025-10-09 01:40:38,217 [INFO] delete_save:2630 - Save file deleted: slot 2
-2025-10-10 00:46:35,330 [INFO] _create_character:1609 - New character: Yandhi (mage) with Wooden Staff
-2025-10-10 00:46:35,339 [INFO] _generate_dungeon:1624 - Starting dungeon generation...
-2025-10-10 00:46:35,341 [INFO] _generate_dungeon:1703 - Dungeon generated: 10 floors, 117 total rooms
-2025-10-10 00:48:59,265 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 1, HP 80) vs skeleton (HP 30)
-2025-10-10 00:48:59,265 [INFO] fight_enemy:1173 - Victory: Yandhi defeated skeleton in 2 turns. Gained 30 XP
-2025-10-10 00:48:59,266 [INFO] gain_experience:745 - Player gained 30 XP. Total: 30/100
-2025-10-10 00:48:59,266 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 1, HP 73) vs sewer rat (HP 15)
-2025-10-10 00:48:59,266 [INFO] fight_enemy:1173 - Victory: Yandhi defeated sewer rat in 1 turns. Gained 15 XP
-2025-10-10 00:48:59,267 [INFO] gain_experience:745 - Player gained 15 XP. Total: 45/100
-2025-10-10 00:49:46,122 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 1, HP 73) vs treasure guardian (HP 60)
-2025-10-10 00:49:46,122 [INFO] fight_enemy:1173 - Victory: Yandhi defeated treasure guardian in 4 turns. Gained 65 XP
-2025-10-10 00:49:46,123 [INFO] gain_experience:745 - Player gained 65 XP. Total: 110/100
-2025-10-10 00:49:46,123 [INFO] _level_up:771 - LEVEL UP: Yandhi reached level 2. HP: 88, MP: 160
-2025-10-10 00:49:46,123 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 2, HP 88) vs goblin (HP 25)
-2025-10-10 00:49:46,124 [INFO] fight_enemy:1173 - Victory: Yandhi defeated goblin in 2 turns. Gained 25 XP
-2025-10-10 00:49:46,124 [INFO] gain_experience:745 - Player gained 25 XP. Total: 35/140
-2025-10-10 00:50:01,751 [INFO] gain_experience:745 - Player gained 50 XP. Total: 85/140
-2025-10-10 00:50:54,666 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 2, HP 83) vs prison guard (HP 40)
-2025-10-10 00:50:54,667 [INFO] fight_enemy:1173 - Victory: Yandhi defeated prison guard in 1 turns. Gained 35 XP
-2025-10-10 00:50:54,667 [INFO] gain_experience:745 - Player gained 35 XP. Total: 120/140
-2025-10-10 00:50:54,667 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 2, HP 83) vs sewer rat (HP 15)
-2025-10-10 00:50:54,667 [INFO] fight_enemy:1173 - Victory: Yandhi defeated sewer rat in 1 turns. Gained 15 XP
-2025-10-10 00:50:54,667 [INFO] gain_experience:745 - Player gained 15 XP. Total: 135/140
-2025-10-10 00:51:07,618 [INFO] gain_experience:745 - Player gained 50 XP. Total: 185/140
-2025-10-10 00:51:07,618 [INFO] _level_up:771 - LEVEL UP: Yandhi reached level 3. HP: 96, MP: 170
-2025-10-10 00:52:13,244 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 3, HP 96) vs prison guard (HP 40)
-2025-10-10 00:52:13,244 [INFO] fight_enemy:1173 - Victory: Yandhi defeated prison guard in 1 turns. Gained 35 XP
-2025-10-10 00:52:13,244 [INFO] gain_experience:745 - Player gained 35 XP. Total: 80/196
-2025-10-10 00:52:13,245 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 3, HP 96) vs sewer rat (HP 15)
-2025-10-10 00:52:13,245 [INFO] fight_enemy:1173 - Victory: Yandhi defeated sewer rat in 1 turns. Gained 15 XP
-2025-10-10 00:52:13,245 [INFO] gain_experience:745 - Player gained 15 XP. Total: 95/196
-2025-10-10 00:55:10,774 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 3, HP 96) vs skeleton (HP 30)
-2025-10-10 00:55:10,774 [INFO] fight_enemy:1173 - Victory: Yandhi defeated skeleton in 1 turns. Gained 30 XP
-2025-10-10 00:55:10,775 [INFO] gain_experience:745 - Player gained 30 XP. Total: 125/196
-2025-10-10 00:55:57,875 [INFO] fight_boss:1220 - BOSS FIGHT: Yandhi (Lvl 3, HP 96) vs Arena Champion on floor 1
-2025-10-10 00:56:30,972 [INFO] fight_boss:1306 - BOSS VICTORY: Yandhi defeated Arena Champion in 2 turns on floor 1
-2025-10-10 00:56:30,972 [INFO] gain_experience:745 - Player gained 150 XP. Total: 275/196
-2025-10-10 00:56:30,972 [INFO] _level_up:771 - LEVEL UP: Yandhi reached level 4. HP: 104, MP: 180
-2025-10-10 00:56:30,973 [INFO] fight_boss:1331 - Boss reward: Yandhi received Champion's Scepter (28 dmg)
-2025-10-10 00:58:12,279 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 4, HP 104) vs goblin (HP 25)
-2025-10-10 00:58:12,280 [INFO] fight_enemy:1173 - Victory: Yandhi defeated goblin in 1 turns. Gained 25 XP
-2025-10-10 00:58:12,280 [INFO] gain_experience:745 - Player gained 25 XP. Total: 104/274
-2025-10-10 00:58:12,280 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 4, HP 104) vs skeleton (HP 30)
-2025-10-10 00:58:12,281 [INFO] fight_enemy:1173 - Victory: Yandhi defeated skeleton in 1 turns. Gained 30 XP
-2025-10-10 00:58:12,281 [INFO] gain_experience:745 - Player gained 30 XP. Total: 134/274
-2025-10-10 00:59:05,059 [INFO] save_game:2463 - Game saved to slot 2: Yandhi (Lvl 4, Floor 2)
-2025-10-10 01:00:27,647 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 4, HP 104) vs treasure guardian (HP 60)
-2025-10-10 01:00:27,647 [INFO] fight_enemy:1173 - Victory: Yandhi defeated treasure guardian in 1 turns. Gained 65 XP
-2025-10-10 01:00:27,647 [INFO] gain_experience:745 - Player gained 65 XP. Total: 199/274
-2025-10-10 01:00:27,648 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 4, HP 104) vs goblin (HP 25)
-2025-10-10 01:00:27,648 [INFO] fight_enemy:1173 - Victory: Yandhi defeated goblin in 1 turns. Gained 25 XP
-2025-10-10 01:00:27,648 [INFO] gain_experience:745 - Player gained 25 XP. Total: 224/274
-2025-10-10 01:00:50,667 [INFO] gain_experience:745 - Player gained 50 XP. Total: 274/274
-2025-10-10 01:00:50,667 [INFO] _level_up:771 - LEVEL UP: Yandhi reached level 5. HP: 112, MP: 190
-2025-10-10 01:01:10,329 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 5, HP 112) vs goblin (HP 25)
-2025-10-10 01:01:10,329 [INFO] fight_enemy:1173 - Victory: Yandhi defeated goblin in 1 turns. Gained 25 XP
-2025-10-10 01:01:10,329 [INFO] gain_experience:745 - Player gained 25 XP. Total: 25/383
-2025-10-10 01:02:02,260 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 5, HP 112) vs armored skeleton (HP 45)
-2025-10-10 01:02:02,260 [INFO] fight_enemy:1173 - Victory: Yandhi defeated armored skeleton in 1 turns. Gained 45 XP
-2025-10-10 01:02:02,260 [INFO] gain_experience:745 - Player gained 45 XP. Total: 70/383
-2025-10-10 01:02:02,260 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 5, HP 112) vs goblin (HP 25)
-2025-10-10 01:02:02,261 [INFO] fight_enemy:1173 - Victory: Yandhi defeated goblin in 1 turns. Gained 25 XP
-2025-10-10 01:02:02,261 [INFO] gain_experience:745 - Player gained 25 XP. Total: 95/383
-2025-10-10 01:02:49,417 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 5, HP 112) vs armored skeleton (HP 45)
-2025-10-10 01:02:49,417 [INFO] fight_enemy:1173 - Victory: Yandhi defeated armored skeleton in 1 turns. Gained 45 XP
-2025-10-10 01:02:49,417 [INFO] gain_experience:745 - Player gained 45 XP. Total: 140/383
-2025-10-10 01:02:49,418 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 5, HP 112) vs prison guard (HP 40)
-2025-10-10 01:02:49,418 [INFO] fight_enemy:1173 - Victory: Yandhi defeated prison guard in 1 turns. Gained 35 XP
-2025-10-10 01:02:49,418 [INFO] gain_experience:745 - Player gained 35 XP. Total: 175/383
-2025-10-10 01:05:08,352 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 5, HP 112) vs armored skeleton (HP 45)
-2025-10-10 01:05:08,353 [INFO] fight_enemy:1173 - Victory: Yandhi defeated armored skeleton in 1 turns. Gained 45 XP
-2025-10-10 01:05:08,353 [INFO] gain_experience:745 - Player gained 45 XP. Total: 220/383
-2025-10-10 01:05:08,353 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 5, HP 112) vs prison guard (HP 40)
-2025-10-10 01:05:08,353 [INFO] fight_enemy:1173 - Victory: Yandhi defeated prison guard in 1 turns. Gained 35 XP
-2025-10-10 01:05:08,354 [INFO] gain_experience:745 - Player gained 35 XP. Total: 255/383
-2025-10-10 01:06:13,239 [INFO] fight_boss:1220 - BOSS FIGHT: Yandhi (Lvl 5, HP 112) vs Necromancer Lord on floor 2
-2025-10-10 01:06:26,023 [INFO] fight_boss:1306 - BOSS VICTORY: Yandhi defeated Necromancer Lord in 3 turns on floor 2
-2025-10-10 01:06:26,024 [INFO] gain_experience:745 - Player gained 180 XP. Total: 435/383
-2025-10-10 01:06:26,024 [INFO] _level_up:771 - LEVEL UP: Yandhi reached level 6. HP: 120, MP: 200
-2025-10-10 01:06:26,024 [INFO] fight_boss:1331 - Boss reward: Yandhi received Death Staff (32 dmg)
-2025-10-10 01:09:47,151 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 6, HP 120) vs goblin (HP 25)
-2025-10-10 01:09:47,151 [INFO] fight_enemy:1173 - Victory: Yandhi defeated goblin in 1 turns. Gained 25 XP
-2025-10-10 01:09:47,152 [INFO] gain_experience:745 - Player gained 25 XP. Total: 77/536
-2025-10-10 01:09:47,152 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 6, HP 120) vs armored skeleton (HP 45)
-2025-10-10 01:09:47,152 [INFO] fight_enemy:1173 - Victory: Yandhi defeated armored skeleton in 1 turns. Gained 45 XP
-2025-10-10 01:09:47,152 [INFO] gain_experience:745 - Player gained 45 XP. Total: 122/536
-2025-10-10 01:10:48,033 [INFO] upgrade_class:815 - CLASS UPGRADE: Yandhi advanced from tier 1 to 2 (Sorcerer)
-2025-10-10 01:14:29,830 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 6, HP 150) vs prison guard (HP 40)
-2025-10-10 01:14:29,830 [INFO] fight_enemy:1173 - Victory: Yandhi defeated prison guard in 1 turns. Gained 35 XP
-2025-10-10 01:14:29,831 [INFO] gain_experience:745 - Player gained 35 XP. Total: 157/536
-2025-10-10 01:16:24,466 [INFO] save_game:2463 - Game saved to slot 2: Yandhi (Lvl 6, Floor 3)
-2025-10-10 01:18:52,361 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 6, HP 150) vs ghoul (HP 55)
-2025-10-10 01:18:52,362 [INFO] fight_enemy:1173 - Victory: Yandhi defeated ghoul in 1 turns. Gained 50 XP
-2025-10-10 01:18:52,362 [INFO] gain_experience:745 - Player gained 50 XP. Total: 207/536
-2025-10-10 01:18:52,362 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 6, HP 150) vs corrupted mage (HP 40)
-2025-10-10 01:18:52,362 [INFO] fight_enemy:1173 - Victory: Yandhi defeated corrupted mage in 1 turns. Gained 60 XP
-2025-10-10 01:18:52,363 [INFO] gain_experience:745 - Player gained 60 XP. Total: 267/536
-2025-10-10 01:20:05,528 [INFO] gain_experience:745 - Player gained 150 XP. Total: 417/536
-2025-10-10 01:21:07,131 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 6, HP 150) vs armored skeleton (HP 45)
-2025-10-10 01:21:07,132 [INFO] fight_enemy:1173 - Victory: Yandhi defeated armored skeleton in 1 turns. Gained 45 XP
-2025-10-10 01:21:07,132 [INFO] gain_experience:745 - Player gained 45 XP. Total: 462/536
-2025-10-10 01:21:07,132 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 6, HP 150) vs ghoul (HP 55)
-2025-10-10 01:21:07,132 [INFO] fight_enemy:1173 - Victory: Yandhi defeated ghoul in 1 turns. Gained 50 XP
-2025-10-10 01:21:07,133 [INFO] gain_experience:745 - Player gained 50 XP. Total: 512/536
-2025-10-10 01:21:35,020 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 6, HP 150) vs ghoul (HP 55)
-2025-10-10 01:21:35,020 [INFO] fight_enemy:1173 - Victory: Yandhi defeated ghoul in 1 turns. Gained 50 XP
-2025-10-10 01:21:35,020 [INFO] gain_experience:745 - Player gained 50 XP. Total: 562/536
-2025-10-10 01:21:35,020 [INFO] _level_up:771 - LEVEL UP: Yandhi reached level 7. HP: 158, MP: 235
-2025-10-10 01:22:02,747 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 7, HP 158) vs shadow wraith (HP 50)
-2025-10-10 01:22:02,747 [INFO] fight_enemy:1173 - Victory: Yandhi defeated shadow wraith in 1 turns. Gained 55 XP
-2025-10-10 01:22:02,747 [INFO] gain_experience:745 - Player gained 55 XP. Total: 81/750
-2025-10-10 01:22:56,337 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 7, HP 158) vs treasure guardian (HP 60)
-2025-10-10 01:22:56,337 [INFO] fight_enemy:1173 - Victory: Yandhi defeated treasure guardian in 1 turns. Gained 65 XP
-2025-10-10 01:22:56,338 [INFO] gain_experience:745 - Player gained 65 XP. Total: 146/750
-2025-10-10 01:22:56,338 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 7, HP 158) vs armored skeleton (HP 45)
-2025-10-10 01:22:56,338 [INFO] fight_enemy:1173 - Victory: Yandhi defeated armored skeleton in 1 turns. Gained 45 XP
-2025-10-10 01:22:56,338 [INFO] gain_experience:745 - Player gained 45 XP. Total: 191/750
-2025-10-10 01:23:17,326 [INFO] gain_experience:745 - Player gained 50 XP. Total: 241/750
-2025-10-10 01:23:33,782 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 7, HP 158) vs corrupted mage (HP 40)
-2025-10-10 01:23:33,782 [INFO] fight_enemy:1173 - Victory: Yandhi defeated corrupted mage in 1 turns. Gained 60 XP
-2025-10-10 01:23:33,782 [INFO] gain_experience:745 - Player gained 60 XP. Total: 301/750
-2025-10-10 01:23:33,783 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 7, HP 158) vs armored skeleton (HP 45)
-2025-10-10 01:23:33,783 [INFO] fight_enemy:1173 - Victory: Yandhi defeated armored skeleton in 1 turns. Gained 45 XP
-2025-10-10 01:23:33,783 [INFO] gain_experience:745 - Player gained 45 XP. Total: 346/750
-2025-10-10 01:24:35,131 [INFO] save_game:2463 - Game saved to slot 2: Yandhi (Lvl 7, Floor 3)
-2025-10-10 01:24:46,513 [INFO] save_game:2463 - Game saved to slot 2: Yandhi (Lvl 7, Floor 3)
-2025-10-10 21:48:34,895 [INFO] load_game:2564 - Game loaded from slot 2: Yandhi (Lvl 7, Floor 3)
-2025-10-10 21:49:08,558 [INFO] save_game:2463 - Game saved to slot 2: Yandhi (Lvl 7, Floor 3)
-2025-10-10 21:49:26,238 [INFO] load_game:2564 - Game loaded from slot 2: Yandhi (Lvl 7, Floor 3)
-2025-10-10 21:51:23,266 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 7, HP 158) vs armored skeleton (HP 45)
-2025-10-10 21:51:23,267 [INFO] fight_enemy:1173 - Victory: Yandhi defeated armored skeleton in 1 turns. Gained 45 XP
-2025-10-10 21:51:23,267 [INFO] gain_experience:745 - Player gained 45 XP. Total: 391/750
-2025-10-10 21:51:23,267 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 7, HP 158) vs ghoul (HP 55)
-2025-10-10 21:51:23,268 [INFO] fight_enemy:1173 - Victory: Yandhi defeated ghoul in 1 turns. Gained 50 XP
-2025-10-10 21:51:23,268 [INFO] gain_experience:745 - Player gained 50 XP. Total: 441/750
-2025-10-10 21:51:33,034 [INFO] gain_experience:745 - Player gained 100 XP. Total: 541/750
-2025-10-10 21:52:20,721 [INFO] fight_boss:1220 - BOSS FIGHT: Yandhi (Lvl 7, HP 158) vs Crypt Overlord on floor 3
-2025-10-10 21:52:31,730 [INFO] fight_boss:1306 - BOSS VICTORY: Yandhi defeated Crypt Overlord in 3 turns on floor 3
-2025-10-10 21:52:31,731 [INFO] gain_experience:745 - Player gained 210 XP. Total: 751/750
-2025-10-10 21:52:31,731 [INFO] _level_up:771 - LEVEL UP: Yandhi reached level 8. HP: 166, MP: 245
-2025-10-10 21:52:31,732 [INFO] fight_boss:1331 - Boss reward: Yandhi received Crypt Scepter (35 dmg)
-2025-10-10 21:53:55,369 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 8, HP 166) vs corrupted mage (HP 40)
-2025-10-10 21:53:55,370 [INFO] fight_enemy:1173 - Victory: Yandhi defeated corrupted mage in 1 turns. Gained 60 XP
-2025-10-10 21:53:55,370 [INFO] gain_experience:745 - Player gained 60 XP. Total: 61/1050
-2025-10-10 21:53:55,370 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 8, HP 166) vs armored skeleton (HP 45)
-2025-10-10 21:53:55,370 [INFO] fight_enemy:1173 - Victory: Yandhi defeated armored skeleton in 1 turns. Gained 45 XP
-2025-10-10 21:53:55,371 [INFO] gain_experience:745 - Player gained 45 XP. Total: 106/1050
-2025-10-10 21:57:00,227 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 8, HP 166) vs ghoul (HP 55)
-2025-10-10 21:57:00,228 [INFO] fight_enemy:1173 - Victory: Yandhi defeated ghoul in 1 turns. Gained 50 XP
-2025-10-10 21:57:00,228 [INFO] gain_experience:745 - Player gained 50 XP. Total: 156/1050
-2025-10-10 21:57:00,228 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 8, HP 166) vs corrupted mage (HP 40)
-2025-10-10 21:57:00,229 [INFO] fight_enemy:1173 - Victory: Yandhi defeated corrupted mage in 1 turns. Gained 60 XP
-2025-10-10 21:57:00,229 [INFO] gain_experience:745 - Player gained 60 XP. Total: 216/1050
-2025-10-10 21:57:59,878 [INFO] save_game:2463 - Game saved to slot 2: Yandhi (Lvl 8, Floor 4)
-2025-10-10 21:58:16,534 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 8, HP 166) vs shadow wraith (HP 50)
-2025-10-10 21:58:16,534 [INFO] fight_enemy:1173 - Victory: Yandhi defeated shadow wraith in 1 turns. Gained 55 XP
-2025-10-10 21:58:16,535 [INFO] gain_experience:745 - Player gained 55 XP. Total: 271/1050
-2025-10-10 21:58:28,925 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 8, HP 166) vs armored skeleton (HP 45)
-2025-10-10 21:58:28,925 [INFO] fight_enemy:1173 - Victory: Yandhi defeated armored skeleton in 1 turns. Gained 45 XP
-2025-10-10 21:58:28,926 [INFO] gain_experience:745 - Player gained 45 XP. Total: 316/1050
-2025-10-10 21:58:28,926 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 8, HP 166) vs ghoul (HP 55)
-2025-10-10 21:58:28,926 [INFO] fight_enemy:1173 - Victory: Yandhi defeated ghoul in 1 turns. Gained 50 XP
-2025-10-10 21:58:28,926 [INFO] gain_experience:745 - Player gained 50 XP. Total: 366/1050
-2025-10-10 21:58:59,895 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 8, HP 166) vs ghoul (HP 55)
-2025-10-10 21:58:59,896 [INFO] fight_enemy:1173 - Victory: Yandhi defeated ghoul in 1 turns. Gained 50 XP
-2025-10-10 21:58:59,896 [INFO] gain_experience:745 - Player gained 50 XP. Total: 416/1050
-2025-10-10 21:58:59,896 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 8, HP 166) vs corrupted mage (HP 40)
-2025-10-10 21:58:59,896 [INFO] fight_enemy:1173 - Victory: Yandhi defeated corrupted mage in 1 turns. Gained 60 XP
-2025-10-10 21:58:59,897 [INFO] gain_experience:745 - Player gained 60 XP. Total: 476/1050
-2025-10-10 22:00:07,723 [INFO] fight_boss:1220 - BOSS FIGHT: Yandhi (Lvl 8, HP 166) vs Shadow King on floor 4
-2025-10-10 22:00:22,810 [INFO] fight_boss:1306 - BOSS VICTORY: Yandhi defeated Shadow King in 3 turns on floor 4
-2025-10-10 22:00:22,810 [INFO] gain_experience:745 - Player gained 240 XP. Total: 716/1050
-2025-10-10 22:00:22,810 [INFO] fight_boss:1331 - Boss reward: Yandhi received Dark Orb (38 dmg)
-2025-10-10 22:04:26,015 [INFO] save_game:2463 - Game saved to slot 2: Yandhi (Lvl 8, Floor 5)
-2025-10-10 22:06:58,879 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 8, HP 166) vs stone golem (HP 80)
-2025-10-10 22:06:58,879 [INFO] fight_enemy:1173 - Victory: Yandhi defeated stone golem in 1 turns. Gained 65 XP
-2025-10-10 22:06:58,879 [INFO] gain_experience:745 - Player gained 65 XP. Total: 781/1050
-2025-10-10 22:06:58,879 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 8, HP 166) vs ice elemental (HP 58)
-2025-10-10 22:06:58,880 [INFO] fight_enemy:1173 - Victory: Yandhi defeated ice elemental in 1 turns. Gained 68 XP
-2025-10-10 22:06:58,880 [INFO] gain_experience:745 - Player gained 68 XP. Total: 849/1050
-2025-10-10 22:09:54,135 [INFO] fight_boss:1220 - BOSS FIGHT: Yandhi (Lvl 8, HP 166) vs Flame Lord on floor 5
-2025-10-10 22:09:54,136 [WARNING] fight_boss:1227 - Player Yandhi (Lvl 8) attempting Flame Lord (recommended Lvl 10)
-2025-10-10 22:10:07,701 [INFO] fight_boss:1306 - BOSS VICTORY: Yandhi defeated Flame Lord in 3 turns on floor 5
-2025-10-10 22:10:07,702 [INFO] gain_experience:745 - Player gained 270 XP. Total: 1119/1050
-2025-10-10 22:10:07,702 [INFO] _level_up:771 - LEVEL UP: Yandhi reached level 9. HP: 174, MP: 255
-2025-10-10 22:10:07,702 [INFO] fight_boss:1331 - Boss reward: Yandhi received Inferno Staff (41 dmg)
-2025-10-10 22:11:57,031 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 9, HP 174) vs stone golem (HP 80)
-2025-10-10 22:11:57,032 [INFO] fight_enemy:1173 - Victory: Yandhi defeated stone golem in 1 turns. Gained 65 XP
-2025-10-10 22:11:57,032 [INFO] gain_experience:745 - Player gained 65 XP. Total: 134/1470
-2025-10-10 22:11:57,032 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 9, HP 174) vs fire elemental (HP 60)
-2025-10-10 22:11:57,033 [INFO] fight_enemy:1173 - Victory: Yandhi defeated fire elemental in 1 turns. Gained 70 XP
-2025-10-10 22:11:57,033 [INFO] gain_experience:745 - Player gained 70 XP. Total: 204/1470
-2025-10-10 22:12:22,516 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 9, HP 174) vs stone golem (HP 80)
-2025-10-10 22:12:22,517 [INFO] fight_enemy:1173 - Victory: Yandhi defeated stone golem in 1 turns. Gained 65 XP
-2025-10-10 22:12:22,517 [INFO] gain_experience:745 - Player gained 65 XP. Total: 269/1470
-2025-10-10 22:12:22,517 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 9, HP 174) vs ice elemental (HP 58)
-2025-10-10 22:12:22,517 [INFO] fight_enemy:1173 - Victory: Yandhi defeated ice elemental in 1 turns. Gained 68 XP
-2025-10-10 22:12:22,517 [INFO] gain_experience:745 - Player gained 68 XP. Total: 337/1470
-2025-10-10 22:14:58,855 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 9, HP 174) vs treasure guardian (HP 60)
-2025-10-10 22:14:58,856 [INFO] fight_enemy:1173 - Victory: Yandhi defeated treasure guardian in 1 turns. Gained 65 XP
-2025-10-10 22:14:58,856 [INFO] gain_experience:745 - Player gained 65 XP. Total: 402/1470
-2025-10-10 22:14:58,856 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 9, HP 174) vs fire elemental (HP 60)
-2025-10-10 22:14:58,857 [INFO] fight_enemy:1173 - Victory: Yandhi defeated fire elemental in 1 turns. Gained 70 XP
-2025-10-10 22:14:58,857 [INFO] gain_experience:745 - Player gained 70 XP. Total: 472/1470
-2025-10-10 22:15:11,157 [INFO] gain_experience:745 - Player gained 50 XP. Total: 522/1470
-2025-10-10 22:16:59,354 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 9, HP 174) vs stone golem (HP 80)
-2025-10-10 22:16:59,355 [INFO] fight_enemy:1173 - Victory: Yandhi defeated stone golem in 1 turns. Gained 65 XP
-2025-10-10 22:16:59,355 [INFO] gain_experience:745 - Player gained 65 XP. Total: 587/1470
-2025-10-10 22:16:59,355 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 9, HP 174) vs ice elemental (HP 58)
-2025-10-10 22:16:59,355 [INFO] fight_enemy:1173 - Victory: Yandhi defeated ice elemental in 1 turns. Gained 68 XP
-2025-10-10 22:16:59,355 [INFO] gain_experience:745 - Player gained 68 XP. Total: 655/1470
-2025-10-10 22:17:43,301 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 9, HP 174) vs stone golem (HP 80)
-2025-10-10 22:17:43,301 [INFO] fight_enemy:1173 - Victory: Yandhi defeated stone golem in 1 turns. Gained 65 XP
-2025-10-10 22:17:43,301 [INFO] gain_experience:745 - Player gained 65 XP. Total: 720/1470
-2025-10-10 22:17:43,302 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 9, HP 174) vs lightning wisp (HP 50)
-2025-10-10 22:17:43,302 [INFO] fight_enemy:1173 - Victory: Yandhi defeated lightning wisp in 1 turns. Gained 75 XP
-2025-10-10 22:17:43,302 [INFO] gain_experience:745 - Player gained 75 XP. Total: 795/1470
-2025-10-10 22:17:59,843 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 9, HP 174) vs treasure guardian (HP 60)
-2025-10-10 22:17:59,843 [INFO] fight_enemy:1173 - Victory: Yandhi defeated treasure guardian in 1 turns. Gained 65 XP
-2025-10-10 22:17:59,844 [INFO] gain_experience:745 - Player gained 65 XP. Total: 860/1470
-2025-10-10 22:17:59,844 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 9, HP 174) vs lightning wisp (HP 50)
-2025-10-10 22:17:59,844 [INFO] fight_enemy:1173 - Victory: Yandhi defeated lightning wisp in 1 turns. Gained 75 XP
-2025-10-10 22:17:59,844 [INFO] gain_experience:745 - Player gained 75 XP. Total: 935/1470
-2025-10-10 22:18:07,693 [INFO] gain_experience:745 - Player gained 50 XP. Total: 985/1470
-2025-10-10 22:19:32,896 [INFO] fight_boss:1220 - BOSS FIGHT: Yandhi (Lvl 9, HP 174) vs Frost Titan on floor 6
-2025-10-10 22:19:32,896 [WARNING] fight_boss:1227 - Player Yandhi (Lvl 9) attempting Frost Titan (recommended Lvl 12)
-2025-10-10 22:19:50,070 [INFO] fight_boss:1306 - BOSS VICTORY: Yandhi defeated Frost Titan in 3 turns on floor 6
-2025-10-10 22:19:50,071 [INFO] gain_experience:745 - Player gained 300 XP. Total: 1285/1470
-2025-10-10 22:19:50,071 [INFO] fight_boss:1331 - Boss reward: Yandhi received Staff of Eternal Winter (44 dmg)
-2025-10-10 22:22:31,435 [INFO] save_game:2463 - Game saved to slot 2: Yandhi (Lvl 9, Floor 7)
-2025-10-10 22:24:56,010 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 9, HP 174) vs lesser demon (HP 70)
-2025-10-10 22:24:56,010 [INFO] fight_enemy:1173 - Victory: Yandhi defeated lesser demon in 1 turns. Gained 85 XP
-2025-10-10 22:24:56,011 [INFO] gain_experience:745 - Player gained 85 XP. Total: 1370/1470
-2025-10-10 22:25:27,728 [INFO] fight_boss:1220 - BOSS FIGHT: Yandhi (Lvl 9, HP 174) vs Demon Prince on floor 7
-2025-10-10 22:25:27,729 [WARNING] fight_boss:1227 - Player Yandhi (Lvl 9) attempting Demon Prince (recommended Lvl 14)
-2025-10-10 22:25:41,386 [INFO] fight_boss:1306 - BOSS VICTORY: Yandhi defeated Demon Prince in 3 turns on floor 7
-2025-10-10 22:25:41,386 [INFO] gain_experience:745 - Player gained 330 XP. Total: 1700/1470
-2025-10-10 22:25:41,386 [INFO] _level_up:771 - LEVEL UP: Yandhi reached level 10. HP: 182, MP: 265
-2025-10-10 22:25:41,387 [INFO] fight_boss:1331 - Boss reward: Yandhi received Abyssal Staff (47 dmg)
-2025-10-10 22:27:20,540 [INFO] upgrade_class:815 - CLASS UPGRADE: Yandhi advanced from tier 2 to 3 (Archmage)
-2025-10-10 22:28:05,525 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 10, HP 212) vs shadow beast (HP 75)
-2025-10-10 22:28:05,525 [INFO] fight_enemy:1173 - Victory: Yandhi defeated shadow beast in 1 turns. Gained 90 XP
-2025-10-10 22:28:05,526 [INFO] gain_experience:745 - Player gained 90 XP. Total: 320/2058
-2025-10-10 22:28:05,526 [INFO] fight_enemy:1159 - Combat started: Yandhi (Lvl 10, HP 212) vs dark cultist (HP 65)
-2025-10-10 22:28:05,526 [INFO] fight_enemy:1173 - Victory: Yandhi defeated dark cultist in 1 turns. Gained 80 XP
-2025-10-10 22:28:05,526 [INFO] gain_experience:745 - Player gained 80 XP. Total: 400/2058
-2025-10-10 22:28:48,698 [INFO] save_game:2463 - Game saved to slot 2: Yandhi (Lvl 10, Floor 8)
-2025-10-10 22:29:18,759 [INFO] save_game:2463 - Game saved to slot 2: Yandhi (Lvl 10, Floor 8)
-2025-10-10 22:50:08,313 [WARNING] load_game:2639 - Save version mismatch: 6.6.1 vs 6.6.9
-2025-10-10 22:50:08,314 [INFO] load_game:2680 - Game loaded from slot 1: J (Lvl 4, Floor 2)
-2025-10-10 22:50:40,021 [INFO] save_game:2579 - Game saved to slot 1: J (Lvl 4, Floor 2)
-2025-10-10 22:56:33,877 [WARNING] load_game:2639 - Save version mismatch: 6.6.2 vs 6.6.9
-2025-10-10 22:56:33,878 [INFO] load_game:2680 - Game loaded from slot 2: Yandhi (Lvl 10, Floor 8)
-2025-10-10 22:57:38,737 [INFO] save_game:2579 - Game saved to slot 2: Yandhi (Lvl 10, Floor 8)
-2025-10-10 22:59:54,659 [INFO] load_game:2680 - Game loaded from slot 2: Yandhi (Lvl 10, Floor 8)
-2025-10-10 23:02:12,193 [INFO] fight_enemy:1240 - Combat started: Yandhi (Lvl 10, HP 212) vs void spawn (HP 80)
-2025-10-10 23:02:12,194 [INFO] fight_enemy:1254 - Victory: Yandhi defeated void spawn in 1 turns. Gained 95 XP
-2025-10-10 23:02:12,194 [INFO] gain_experience:826 - Player gained 95 XP. Total: 495/2058
-2025-10-10 23:02:55,938 [INFO] fight_enemy:1240 - Combat started: Yandhi (Lvl 10, HP 212) vs lesser demon (HP 70)
-2025-10-10 23:02:55,938 [INFO] fight_enemy:1254 - Victory: Yandhi defeated lesser demon in 1 turns. Gained 85 XP
-2025-10-10 23:02:55,939 [INFO] gain_experience:826 - Player gained 85 XP. Total: 580/2058
-2025-10-10 23:02:55,939 [INFO] fight_enemy:1240 - Combat started: Yandhi (Lvl 10, HP 212) vs dark cultist (HP 65)
-2025-10-10 23:02:55,939 [INFO] fight_enemy:1254 - Victory: Yandhi defeated dark cultist in 1 turns. Gained 80 XP
-2025-10-10 23:02:55,939 [INFO] gain_experience:826 - Player gained 80 XP. Total: 660/2058
-2025-10-10 23:03:21,211 [INFO] fight_enemy:1240 - Combat started: Yandhi (Lvl 10, HP 212) vs lesser demon (HP 70)
-2025-10-10 23:03:21,212 [INFO] fight_enemy:1254 - Victory: Yandhi defeated lesser demon in 1 turns. Gained 85 XP
-2025-10-10 23:03:21,212 [INFO] gain_experience:826 - Player gained 85 XP. Total: 745/2058
-2025-10-10 23:03:21,212 [INFO] fight_enemy:1240 - Combat started: Yandhi (Lvl 10, HP 212) vs void spawn (HP 80)
-2025-10-10 23:03:21,213 [INFO] fight_enemy:1254 - Victory: Yandhi defeated void spawn in 1 turns. Gained 95 XP
-2025-10-10 23:03:21,213 [INFO] gain_experience:826 - Player gained 95 XP. Total: 840/2058
-2025-10-10 23:04:00,705 [INFO] fight_enemy:1240 - Combat started: Yandhi (Lvl 10, HP 212) vs shadow beast (HP 75)
-2025-10-10 23:04:00,705 [INFO] fight_enemy:1254 - Victory: Yandhi defeated shadow beast in 1 turns. Gained 90 XP
-2025-10-10 23:04:00,705 [INFO] gain_experience:826 - Player gained 90 XP. Total: 930/2058
-2025-10-10 23:04:00,705 [INFO] fight_enemy:1240 - Combat started: Yandhi (Lvl 10, HP 212) vs dark cultist (HP 65)
-2025-10-10 23:04:00,706 [INFO] fight_enemy:1254 - Victory: Yandhi defeated dark cultist in 1 turns. Gained 80 XP
-2025-10-10 23:04:00,706 [INFO] gain_experience:826 - Player gained 80 XP. Total: 1010/2058
-2025-10-10 23:05:33,801 [INFO] fight_enemy:1240 - Combat started: Yandhi (Lvl 10, HP 212) vs dark cultist (HP 65)
-2025-10-10 23:05:33,802 [INFO] fight_enemy:1254 - Victory: Yandhi defeated dark cultist in 1 turns. Gained 80 XP
-2025-10-10 23:05:33,802 [INFO] gain_experience:826 - Player gained 80 XP. Total: 1090/2058
-2025-10-10 23:05:33,802 [INFO] fight_enemy:1240 - Combat started: Yandhi (Lvl 10, HP 212) vs shadow beast (HP 75)
-2025-10-10 23:05:33,803 [INFO] fight_enemy:1254 - Victory: Yandhi defeated shadow beast in 1 turns. Gained 90 XP
-2025-10-10 23:05:33,803 [INFO] gain_experience:826 - Player gained 90 XP. Total: 1180/2058
-2025-10-10 23:05:51,421 [INFO] fight_enemy:1240 - Combat started: Yandhi (Lvl 10, HP 212) vs lesser demon (HP 70)
-2025-10-10 23:05:51,422 [INFO] fight_enemy:1254 - Victory: Yandhi defeated lesser demon in 1 turns. Gained 85 XP
-2025-10-10 23:05:51,422 [INFO] gain_experience:826 - Player gained 85 XP. Total: 1265/2058
-2025-10-10 23:06:18,463 [INFO] fight_enemy:1240 - Combat started: Yandhi (Lvl 10, HP 212) vs dark cultist (HP 65)
-2025-10-10 23:06:18,463 [INFO] fight_enemy:1254 - Victory: Yandhi defeated dark cultist in 1 turns. Gained 80 XP
-2025-10-10 23:06:18,464 [INFO] gain_experience:826 - Player gained 80 XP. Total: 1345/2058
-2025-10-10 23:06:18,464 [INFO] fight_enemy:1240 - Combat started: Yandhi (Lvl 10, HP 212) vs void spawn (HP 80)
-2025-10-10 23:06:18,464 [INFO] fight_enemy:1254 - Victory: Yandhi defeated void spawn in 1 turns. Gained 95 XP
-2025-10-10 23:06:18,464 [INFO] gain_experience:826 - Player gained 95 XP. Total: 1440/2058
-2025-10-10 23:06:26,737 [INFO] fight_enemy:1240 - Combat started: Yandhi (Lvl 10, HP 212) vs lesser demon (HP 70)
-2025-10-10 23:06:26,738 [INFO] fight_enemy:1254 - Victory: Yandhi defeated lesser demon in 1 turns. Gained 85 XP
-2025-10-10 23:06:26,738 [INFO] gain_experience:826 - Player gained 85 XP. Total: 1525/2058
-2025-10-10 23:06:26,738 [INFO] fight_enemy:1240 - Combat started: Yandhi (Lvl 10, HP 212) vs shadow beast (HP 75)
-2025-10-10 23:06:26,738 [INFO] fight_enemy:1254 - Victory: Yandhi defeated shadow beast in 1 turns. Gained 90 XP
-2025-10-10 23:06:26,738 [INFO] gain_experience:826 - Player gained 90 XP. Total: 1615/2058
-2025-10-10 23:08:24,746 [INFO] fight_enemy:1240 - Combat started: Yandhi (Lvl 10, HP 212) vs treasure guardian (HP 60)
-2025-10-10 23:08:24,746 [INFO] fight_enemy:1254 - Victory: Yandhi defeated treasure guardian in 1 turns. Gained 65 XP
-2025-10-10 23:08:24,746 [INFO] gain_experience:826 - Player gained 65 XP. Total: 1680/2058
-2025-10-10 23:08:24,747 [INFO] fight_enemy:1240 - Combat started: Yandhi (Lvl 10, HP 212) vs shadow beast (HP 75)
-2025-10-10 23:08:24,747 [INFO] fight_enemy:1254 - Victory: Yandhi defeated shadow beast in 1 turns. Gained 90 XP
-2025-10-10 23:08:24,748 [INFO] gain_experience:826 - Player gained 90 XP. Total: 1770/2058
-2025-10-10 23:09:40,566 [INFO] fight_boss:1301 - BOSS FIGHT: Yandhi (Lvl 10, HP 212) vs Void Archon on floor 8
-2025-10-10 23:09:40,566 [WARNING] fight_boss:1308 - Player Yandhi (Lvl 10) attempting Void Archon (recommended Lvl 16)
-2025-10-10 23:10:15,278 [INFO] fight_boss:1387 - BOSS VICTORY: Yandhi defeated Void Archon in 2 turns on floor 8
-2025-10-10 23:10:15,279 [INFO] gain_experience:826 - Player gained 360 XP. Total: 2130/2058
-2025-10-10 23:10:15,279 [INFO] _level_up:852 - LEVEL UP: Yandhi reached level 11. HP: 220, MP: 300
-2025-10-10 23:10:15,279 [INFO] fight_boss:1412 - Boss reward: Yandhi received Reality Staff (50 dmg)
-2025-10-10 23:19:46,660 [INFO] save_game:2579 - Game saved to slot 2: Yandhi (Lvl 11, Floor 8)
-2025-10-10 23:20:00,003 [INFO] save_game:2579 - Game saved to slot 2: Yandhi (Lvl 11, Floor 8)
-2025-10-11 03:41:25,749 [WARNING] load_game:3080 - Save version mismatch: 6.6.9 vs 6.9.0
-2025-10-11 03:41:25,750 [INFO] load_game:3121 - Game loaded from slot 1: J (Lvl 4, Floor 2)
-2025-10-11 03:42:37,032 [INFO] save_game:3020 - Game saved to slot 1: J (Lvl 4, Floor 2)
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\James Cagney\labyrinth\labyrinth\main.py", line 21, in main
+    game.start_game()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\James Cagney\labyrinth\labyrinth\game.py", line 261, in start_game
+    self._create_character()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\James Cagney\labyrinth\labyrinth\game.py", line 397, in _create_character
+    self._generate_dungeon()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\James Cagney\labyrinth\labyrinth\game.py", line 548, in _generate_dungeon
+    self._connect_rooms(rooms, start_id)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\James Cagney\labyrinth\labyrinth\game.py", line 595, in _connect_rooms
+    available = [d for d in directions if d not in rooms[current].exits]
+                                                   ~~~~~^^^^^^^^^
+KeyError: 'floor10_start'
+2026-05-16 20:54:12,650 [ERROR] _create_character:415 - Character creation error: 'berserker'
+Traceback (most recent call last):
+  File "C:\Users\James Cagney\labyrinth\labyrinth\game.py", line 391, in _create_character
+    weapons = WeaponSystem.create_starting_weapons()[char_class]
+              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'berserker'
+2026-05-16 20:54:12,652 [INFO] _generate_dungeon:430 - Starting dungeon generation (NG+0)...
+2026-05-16 20:54:12,655 [INFO] _generate_dungeon:581 - Dungeon generated: 10 floors, 127 total rooms
+2026-05-16 21:17:55,896 [ERROR] _create_character:415 - Character creation error: 'berserker'
+Traceback (most recent call last):
+  File "C:\Users\James Cagney\labyrinth\labyrinth\game.py", line 391, in _create_character
+    weapons = WeaponSystem.create_starting_weapons()[char_class]
+              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'berserker'
+2026-05-16 21:17:55,897 [INFO] _generate_dungeon:430 - Starting dungeon generation (NG+0)...
+2026-05-16 21:17:55,899 [INFO] _generate_dungeon:581 - Dungeon generated: 10 floors, 125 total rooms
+2026-05-16 21:22:32,808 [INFO] _create_character:405 - New character: Deku (berserker) with Titan Club
+2026-05-16 21:22:32,808 [INFO] _generate_dungeon:430 - Starting dungeon generation (NG+0)...
+2026-05-16 21:22:32,810 [INFO] _generate_dungeon:581 - Dungeon generated: 10 floors, 150 total rooms
+2026-05-16 21:22:55,800 [INFO] fight_enemy:264 - Combat: Deku vs prison guard (HP 54)
+2026-05-16 21:22:55,800 [INFO] fight_enemy:358 - Victory: Deku defeated prison guard in 2 turns
+2026-05-16 21:22:55,800 [INFO] gain_experience:62 - Player gained 35 XP. Total: 35/80
+2026-05-16 21:22:55,800 [INFO] fight_enemy:264 - Combat: Deku vs goblin (HP 34)
+2026-05-16 21:22:55,801 [INFO] fight_enemy:358 - Victory: Deku defeated goblin in 1 turns
+2026-05-16 21:22:55,801 [INFO] gain_experience:62 - Player gained 25 XP. Total: 60/80
+2026-05-16 21:25:09,389 [INFO] fight_enemy:264 - Combat: Deku vs goblin (HP 34)
+2026-05-16 21:25:09,389 [INFO] fight_enemy:358 - Victory: Deku defeated goblin in 1 turns
+2026-05-16 21:25:09,389 [INFO] gain_experience:62 - Player gained 25 XP. Total: 85/80
+2026-05-16 21:25:09,390 [INFO] _level_up:91 - LEVEL UP: Deku reached level 2. HP: 158
+2026-05-16 21:25:09,390 [INFO] fight_enemy:264 - Combat: Deku vs skeleton (HP 41)
+2026-05-16 21:25:09,390 [INFO] fight_enemy:358 - Victory: Deku defeated skeleton in 1 turns
+2026-05-16 21:25:09,391 [INFO] gain_experience:62 - Player gained 30 XP. Total: 35/108
+2026-05-16 21:26:21,181 [INFO] fight_enemy:264 - Combat: Deku vs skeleton (HP 41)
+2026-05-16 21:26:21,182 [INFO] fight_enemy:358 - Victory: Deku defeated skeleton in 1 turns
+2026-05-16 21:26:21,182 [INFO] gain_experience:62 - Player gained 30 XP. Total: 65/108
+2026-05-16 21:26:21,182 [INFO] fight_enemy:264 - Combat: Deku vs prison guard (HP 54)
+2026-05-16 21:26:21,182 [INFO] fight_enemy:358 - Victory: Deku defeated prison guard in 1 turns
+2026-05-16 21:26:21,182 [INFO] gain_experience:62 - Player gained 35 XP. Total: 100/108
+2026-05-16 21:27:25,209 [INFO] fight_enemy:264 - Combat: Deku vs prison guard (HP 54)
+2026-05-16 21:27:25,209 [INFO] fight_enemy:358 - Victory: Deku defeated prison guard in 1 turns
+2026-05-16 21:27:25,209 [INFO] gain_experience:62 - Player gained 35 XP. Total: 135/108
+2026-05-16 21:27:25,209 [INFO] _level_up:91 - LEVEL UP: Deku reached level 3. HP: 176
+2026-05-16 21:27:30,963 [INFO] gain_experience:62 - Player gained 200 XP. Total: 227/145
+2026-05-16 21:27:30,963 [INFO] _level_up:91 - LEVEL UP: Deku reached level 4. HP: 194
+2026-05-16 21:27:48,742 [INFO] gain_experience:62 - Player gained 100 XP. Total: 182/195
+2026-05-16 21:28:18,368 [INFO] fight_enemy:264 - Combat: Deku vs skeleton (HP 41)
+2026-05-16 21:28:18,368 [INFO] fight_enemy:358 - Victory: Deku defeated skeleton in 1 turns
+2026-05-16 21:28:18,369 [INFO] gain_experience:62 - Player gained 30 XP. Total: 212/195
+2026-05-16 21:28:18,369 [INFO] _level_up:91 - LEVEL UP: Deku reached level 5. HP: 212
+2026-05-16 21:28:18,369 [INFO] fight_enemy:264 - Combat: Deku vs sewer rat (HP 20)
+2026-05-16 21:28:18,369 [INFO] fight_enemy:358 - Victory: Deku defeated sewer rat in 1 turns
+2026-05-16 21:28:18,369 [INFO] gain_experience:62 - Player gained 15 XP. Total: 32/263
+2026-05-16 21:28:33,488 [INFO] gain_experience:62 - Player gained 150 XP. Total: 182/263
+2026-05-16 21:32:28,761 [INFO] _create_character:405 - New character: Deku (berserker) with Titan Club
+2026-05-16 21:32:28,761 [INFO] _generate_dungeon:430 - Starting dungeon generation (NG+0)...
+2026-05-16 21:32:28,763 [INFO] _generate_dungeon:581 - Dungeon generated: 10 floors, 135 total rooms
+2026-05-16 21:32:46,781 [INFO] fight_enemy:264 - Combat: Deku vs sewer rat (HP 20)
+2026-05-16 21:32:46,782 [INFO] fight_enemy:358 - Victory: Deku defeated sewer rat in 1 turns
+2026-05-16 21:32:46,782 [INFO] gain_experience:62 - Player gained 15 XP. Total: 15/80
+2026-05-16 21:33:00,797 [INFO] fight_enemy:264 - Combat: Deku vs skeleton (HP 41)
+2026-05-16 21:33:00,797 [INFO] fight_enemy:358 - Victory: Deku defeated skeleton in 2 turns
+2026-05-16 21:33:00,797 [INFO] gain_experience:62 - Player gained 30 XP. Total: 45/80
+2026-05-16 21:33:00,798 [INFO] fight_enemy:264 - Combat: Deku vs sewer rat (HP 20)
+2026-05-16 21:33:00,798 [INFO] fight_enemy:358 - Victory: Deku defeated sewer rat in 1 turns
+2026-05-16 21:33:00,798 [INFO] gain_experience:62 - Player gained 15 XP. Total: 60/80
+2026-05-16 21:33:04,804 [INFO] gain_experience:62 - Player gained 150 XP. Total: 210/80
+2026-05-16 21:33:04,804 [INFO] _level_up:91 - LEVEL UP: Deku reached level 2. HP: 158
+2026-05-16 21:33:04,804 [INFO] _level_up:91 - LEVEL UP: Deku reached level 3. HP: 176
+2026-05-16 21:35:45,814 [INFO] _create_character:405 - New character: Deku (berserker) with Titan Club
+2026-05-16 21:35:45,814 [INFO] _generate_dungeon:430 - Starting dungeon generation (NG+0)...
+2026-05-16 21:35:45,817 [INFO] _generate_dungeon:581 - Dungeon generated: 10 floors, 135 total rooms
+2026-05-16 21:36:02,251 [INFO] fight_enemy:264 - Combat: Deku vs sewer rat (HP 20)
+2026-05-16 21:36:02,252 [INFO] fight_enemy:358 - Victory: Deku defeated sewer rat in 1 turns
+2026-05-16 21:36:02,252 [INFO] gain_experience:62 - Player gained 15 XP. Total: 15/80
+2026-05-16 21:36:02,252 [INFO] fight_enemy:264 - Combat: Deku vs skeleton (HP 41)
+2026-05-16 21:36:02,253 [INFO] fight_enemy:358 - Victory: Deku defeated skeleton in 2 turns
+2026-05-16 21:36:02,253 [INFO] gain_experience:62 - Player gained 30 XP. Total: 45/80
+2026-05-16 21:36:16,699 [INFO] fight_enemy:264 - Combat: Deku vs skeleton (HP 41)
+2026-05-16 21:36:16,699 [INFO] fight_enemy:358 - Victory: Deku defeated skeleton in 2 turns
+2026-05-16 21:36:16,700 [INFO] gain_experience:62 - Player gained 30 XP. Total: 75/80
+2026-05-16 21:36:16,700 [INFO] fight_enemy:264 - Combat: Deku vs sewer rat (HP 20)
+2026-05-16 21:36:16,700 [INFO] fight_enemy:358 - Victory: Deku defeated sewer rat in 1 turns
+2026-05-16 21:36:16,700 [INFO] gain_experience:62 - Player gained 15 XP. Total: 90/80
+2026-05-16 21:36:16,700 [INFO] _level_up:91 - LEVEL UP: Deku reached level 2. HP: 158
+2026-05-16 21:36:34,363 [INFO] fight_enemy:264 - Combat: Deku vs sewer rat (HP 20)
+2026-05-16 21:36:34,363 [INFO] fight_enemy:358 - Victory: Deku defeated sewer rat in 1 turns
+2026-05-16 21:36:34,364 [INFO] gain_experience:62 - Player gained 15 XP. Total: 25/108
+2026-05-16 21:36:37,969 [INFO] gain_experience:62 - Player gained 50 XP. Total: 75/108
+2026-05-16 21:37:08,741 [INFO] fight_enemy:264 - Combat: Deku vs prison guard (HP 54)
+2026-05-16 21:37:08,741 [INFO] fight_enemy:358 - Victory: Deku defeated prison guard in 2 turns
+2026-05-16 21:37:08,741 [INFO] gain_experience:62 - Player gained 35 XP. Total: 110/108
+2026-05-16 21:37:08,741 [INFO] _level_up:91 - LEVEL UP: Deku reached level 3. HP: 206
+2026-05-16 21:37:08,742 [INFO] fight_enemy:264 - Combat: Deku vs goblin (HP 34)
+2026-05-16 21:37:08,742 [INFO] fight_enemy:358 - Victory: Deku defeated goblin in 2 turns
+2026-05-16 21:37:08,742 [INFO] gain_experience:62 - Player gained 25 XP. Total: 27/145
+2026-05-16 21:37:49,006 [INFO] fight_enemy:264 - Combat: Deku vs skeleton (HP 41)
+2026-05-16 21:37:49,006 [INFO] fight_enemy:358 - Victory: Deku defeated skeleton in 1 turns
+2026-05-16 21:37:49,006 [INFO] gain_experience:62 - Player gained 30 XP. Total: 57/145
+2026-05-16 21:37:49,007 [INFO] fight_enemy:264 - Combat: Deku vs goblin (HP 34)
+2026-05-16 21:37:49,007 [INFO] fight_enemy:358 - Victory: Deku defeated goblin in 1 turns
+2026-05-16 21:37:49,007 [INFO] gain_experience:62 - Player gained 25 XP. Total: 82/145
+2026-05-16 21:38:02,062 [INFO] gain_experience:62 - Player gained 50 XP. Total: 132/145
+2026-05-16 21:38:14,512 [INFO] fight_enemy:264 - Combat: Deku vs sewer rat (HP 20)
+2026-05-16 21:38:14,512 [INFO] fight_enemy:358 - Victory: Deku defeated sewer rat in 1 turns
+2026-05-16 21:38:14,512 [INFO] gain_experience:62 - Player gained 15 XP. Total: 147/145
+2026-05-16 21:38:14,512 [INFO] _level_up:91 - LEVEL UP: Deku reached level 4. HP: 224
+2026-05-16 21:38:14,513 [INFO] fight_enemy:264 - Combat: Deku vs goblin (HP 34)
+2026-05-16 21:38:14,513 [INFO] fight_enemy:358 - Victory: Deku defeated goblin in 1 turns
+2026-05-16 21:38:14,513 [INFO] gain_experience:62 - Player gained 25 XP. Total: 27/195
+2026-05-16 21:38:52,977 [INFO] upgrade_class:247 - CLASS UPGRADE: Deku advanced from tier 1 to 2 (Bloodrage)
+2026-05-16 21:39:15,281 [INFO] fight_enemy:264 - Combat: Deku vs goblin (HP 34)
+2026-05-16 21:39:15,281 [INFO] fight_enemy:358 - Victory: Deku defeated goblin in 1 turns
+2026-05-16 21:39:15,281 [INFO] gain_experience:62 - Player gained 25 XP. Total: 52/195
+2026-05-16 21:39:15,281 [INFO] fight_enemy:264 - Combat: Deku vs sewer rat (HP 20)
+2026-05-16 21:39:15,281 [INFO] fight_enemy:358 - Victory: Deku defeated sewer rat in 1 turns
+2026-05-16 21:39:15,282 [INFO] gain_experience:62 - Player gained 15 XP. Total: 67/195
+2026-05-16 21:39:29,015 [INFO] fight_enemy:264 - Combat: Deku vs goblin (HP 34)
+2026-05-16 21:39:29,015 [INFO] fight_enemy:358 - Victory: Deku defeated goblin in 1 turns
+2026-05-16 21:39:29,015 [INFO] gain_experience:62 - Player gained 25 XP. Total: 92/195
+2026-05-16 21:39:29,016 [INFO] fight_enemy:264 - Combat: Deku vs skeleton (HP 41)
+2026-05-16 21:39:29,016 [INFO] fight_enemy:358 - Victory: Deku defeated skeleton in 1 turns
+2026-05-16 21:39:29,016 [INFO] gain_experience:62 - Player gained 30 XP. Total: 122/195
+2026-05-16 21:39:33,781 [INFO] gain_experience:62 - Player gained 150 XP. Total: 272/195
+2026-05-16 21:39:33,781 [INFO] _level_up:91 - LEVEL UP: Deku reached level 5. HP: 242
+2026-05-16 21:40:24,117 [INFO] fight_enemy:264 - Combat: Deku vs skeleton (HP 41)
+2026-05-16 21:40:24,117 [INFO] fight_enemy:358 - Victory: Deku defeated skeleton in 1 turns
+2026-05-16 21:40:24,117 [INFO] gain_experience:62 - Player gained 30 XP. Total: 107/263
+2026-05-16 21:40:24,117 [INFO] fight_enemy:264 - Combat: Deku vs goblin (HP 34)
+2026-05-16 21:40:24,118 [INFO] fight_enemy:358 - Victory: Deku defeated goblin in 1 turns
+2026-05-16 21:40:24,118 [INFO] gain_experience:62 - Player gained 25 XP. Total: 132/263
+2026-05-16 21:41:40,123 [INFO] fight_enemy:264 - Combat: Deku vs skeleton (HP 41)
+2026-05-16 21:41:40,123 [INFO] fight_enemy:358 - Victory: Deku defeated skeleton in 1 turns
+2026-05-16 21:41:40,123 [INFO] gain_experience:62 - Player gained 30 XP. Total: 162/263
+2026-05-16 21:41:40,123 [INFO] fight_enemy:264 - Combat: Deku vs prison guard (HP 54)
+2026-05-16 21:41:40,124 [INFO] fight_enemy:358 - Victory: Deku defeated prison guard in 1 turns
+2026-05-16 21:41:40,124 [INFO] gain_experience:62 - Player gained 35 XP. Total: 197/263
+2026-05-16 21:42:39,406 [INFO] fight_enemy:264 - Combat: Deku vs goblin (HP 34)
+2026-05-16 21:42:39,406 [INFO] fight_enemy:358 - Victory: Deku defeated goblin in 1 turns
+2026-05-16 21:42:39,406 [INFO] gain_experience:62 - Player gained 25 XP. Total: 222/263
+2026-05-16 21:42:50,349 [INFO] fight_enemy:264 - Combat: Deku vs skeleton (HP 41)
+2026-05-16 21:42:50,350 [INFO] fight_enemy:358 - Victory: Deku defeated skeleton in 1 turns
+2026-05-16 21:42:50,350 [INFO] gain_experience:62 - Player gained 30 XP. Total: 252/263
+2026-05-16 21:43:55,888 [INFO] fight_boss:713 - BOSS FIGHT: Deku (Lvl 5, HP 242) vs Arena Champion on floor 1
+2026-05-16 21:44:31,817 [INFO] fight_boss:856 - BOSS VICTORY: Deku defeated Arena Champion in 4 turns on floor 1
+2026-05-16 21:44:31,818 [INFO] gain_experience:62 - Player gained 150 XP. Total: 402/263
+2026-05-16 21:44:31,818 [INFO] _level_up:91 - LEVEL UP: Deku reached level 6. HP: 260
+2026-05-16 21:44:31,820 [ERROR] execute:44 - Command error: 'berserker'
+Traceback (most recent call last):
+  File "C:\Users\James Cagney\labyrinth\labyrinth\game.py", line 42, in execute
+    self.commands[cmd](game, *args)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\James Cagney\labyrinth\labyrinth\game.py", line 136, in cmd_fight
+    g._fight_enemy_command(' '.join(args))
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\James Cagney\labyrinth\labyrinth\game.py", line 1048, in _fight_enemy_command
+    success = self.combat.fight_boss(matching, self.player, room)
+  File "C:\Users\James Cagney\labyrinth\labyrinth\combat.py", line 878, in fight_boss
+    boss_weapon = BossConfig.generate_boss_weapon(floor, player)
+  File "C:\Users\James Cagney\labyrinth\labyrinth\constants.py", line 2503, in generate_boss_weapon
+    pool = cls.BOSS_WEAPON_POOLS[floor][player.character_class]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'berserker'
+2026-05-17 15:48:34,829 [INFO] _create_character:405 - New character: Deku (berserker) with Titan Club
+2026-05-17 15:48:34,831 [INFO] _generate_dungeon:430 - Starting dungeon generation (NG+0)...
+2026-05-17 15:48:34,833 [INFO] _generate_dungeon:581 - Dungeon generated: 10 floors, 134 total rooms
+2026-05-17 15:49:34,245 [INFO] fight_enemy:264 - Combat: Deku vs prison guard (HP 54)
+2026-05-17 15:49:34,246 [INFO] fight_enemy:358 - Victory: Deku defeated prison guard in 2 turns
+2026-05-17 15:49:34,246 [INFO] gain_experience:62 - Player gained 35 XP. Total: 35/80
+2026-05-17 15:49:34,246 [INFO] fight_enemy:264 - Combat: Deku vs sewer rat (HP 20)
+2026-05-17 15:49:34,246 [INFO] fight_enemy:358 - Victory: Deku defeated sewer rat in 1 turns
+2026-05-17 15:49:34,246 [INFO] gain_experience:62 - Player gained 15 XP. Total: 50/80
+2026-05-17 15:49:41,910 [INFO] gain_experience:62 - Player gained 150 XP. Total: 200/80
+2026-05-17 15:49:41,910 [INFO] _level_up:91 - LEVEL UP: Deku reached level 2. HP: 158
+2026-05-17 15:49:41,911 [INFO] _level_up:91 - LEVEL UP: Deku reached level 3. HP: 176
+2026-05-17 15:50:35,081 [INFO] fight_enemy:264 - Combat: Deku vs skeleton (HP 41)
+2026-05-17 15:50:35,082 [INFO] fight_enemy:358 - Victory: Deku defeated skeleton in 2 turns
+2026-05-17 15:50:35,082 [INFO] gain_experience:62 - Player gained 30 XP. Total: 42/145
+2026-05-17 15:51:09,510 [INFO] fight_enemy:264 - Combat: Deku vs skeleton (HP 41)
+2026-05-17 15:51:09,511 [INFO] fight_enemy:358 - Victory: Deku defeated skeleton in 2 turns
+2026-05-17 15:51:09,511 [INFO] gain_experience:62 - Player gained 30 XP. Total: 72/145
+2026-05-17 15:51:09,511 [INFO] fight_enemy:264 - Combat: Deku vs prison guard (HP 54)
+2026-05-17 15:51:09,511 [INFO] fight_enemy:358 - Victory: Deku defeated prison guard in 2 turns
+2026-05-17 15:51:09,512 [INFO] gain_experience:62 - Player gained 35 XP. Total: 107/145
+2026-05-17 15:52:36,118 [INFO] fight_enemy:264 - Combat: Deku vs prison guard (HP 54)
+2026-05-17 15:52:36,119 [INFO] fight_enemy:358 - Victory: Deku defeated prison guard in 2 turns
+2026-05-17 15:52:36,119 [INFO] gain_experience:62 - Player gained 35 XP. Total: 142/145
+2026-05-17 15:52:36,119 [INFO] fight_enemy:264 - Combat: Deku vs sewer rat (HP 20)
+2026-05-17 15:52:36,119 [INFO] fight_enemy:358 - Victory: Deku defeated sewer rat in 1 turns
+2026-05-17 15:52:36,120 [INFO] gain_experience:62 - Player gained 15 XP. Total: 157/145
+2026-05-17 15:52:36,120 [INFO] _level_up:91 - LEVEL UP: Deku reached level 4. HP: 194
+2026-05-17 15:54:56,229 [INFO] save_game:1816 - Game saved to slot 1: Deku (Lvl 4, Floor 1)
+2026-05-17 15:55:14,257 [INFO] load_game:1976 - Game loaded from slot 1: Deku (Lvl 4, Floor 1)
+2026-05-17 15:55:49,761 [INFO] fight_enemy:264 - Combat: Deku vs skeleton (HP 41)
+2026-05-17 15:55:49,761 [INFO] fight_enemy:358 - Victory: Deku defeated skeleton in 1 turns
+2026-05-17 15:55:49,761 [INFO] gain_experience:62 - Player gained 30 XP. Total: 42/195
+2026-05-17 15:55:59,245 [INFO] fight_enemy:264 - Combat: Deku vs skeleton (HP 41)
+2026-05-17 15:55:59,246 [INFO] fight_enemy:358 - Victory: Deku defeated skeleton in 1 turns
+2026-05-17 15:55:59,246 [INFO] gain_experience:62 - Player gained 30 XP. Total: 72/195
+2026-05-17 15:55:59,246 [INFO] fight_enemy:264 - Combat: Deku vs goblin (HP 34)
+2026-05-17 15:55:59,246 [INFO] fight_enemy:358 - Victory: Deku defeated goblin in 1 turns
+2026-05-17 15:55:59,246 [INFO] gain_experience:62 - Player gained 25 XP. Total: 97/195
+2026-05-17 15:56:08,301 [INFO] gain_experience:62 - Player gained 150 XP. Total: 247/195
+2026-05-17 15:56:08,301 [INFO] _level_up:91 - LEVEL UP: Deku reached level 5. HP: 212
+2026-05-17 15:56:41,225 [INFO] fight_enemy:264 - Combat: Deku vs sewer rat (HP 20)
+2026-05-17 15:56:41,225 [INFO] fight_enemy:358 - Victory: Deku defeated sewer rat in 1 turns
+2026-05-17 15:56:41,226 [INFO] gain_experience:62 - Player gained 15 XP. Total: 67/263
+2026-05-17 15:56:41,226 [INFO] fight_enemy:264 - Combat: Deku vs skeleton (HP 41)
+2026-05-17 15:56:41,226 [INFO] fight_enemy:358 - Victory: Deku defeated skeleton in 1 turns
+2026-05-17 15:56:41,226 [INFO] gain_experience:62 - Player gained 30 XP. Total: 97/263
+2026-05-17 15:56:47,859 [INFO] gain_experience:62 - Player gained 200 XP. Total: 297/263
+2026-05-17 15:56:47,859 [INFO] _level_up:91 - LEVEL UP: Deku reached level 6. HP: 230
+2026-05-17 15:56:53,578 [INFO] gain_experience:62 - Player gained 100 XP. Total: 134/355
+2026-05-17 15:58:08,305 [INFO] fight_enemy:264 - Combat: Deku vs sewer rat (HP 20)
+2026-05-17 15:58:08,305 [INFO] fight_enemy:358 - Victory: Deku defeated sewer rat in 1 turns
+2026-05-17 15:58:08,306 [INFO] gain_experience:62 - Player gained 15 XP. Total: 149/355
+2026-05-17 15:58:21,983 [INFO] gain_experience:62 - Player gained 50 XP. Total: 199/355
+2026-05-17 16:09:01,766 [INFO] load_game:1992 - Game loaded from slot 1: Deku (Lvl 4, Floor 1)
+2026-05-17 16:09:20,961 [INFO] fight_enemy:264 - Combat: Deku vs prison guard (HP 54)
+2026-05-17 16:09:20,961 [INFO] fight_enemy:358 - Victory: Deku defeated prison guard in 1 turns
+2026-05-17 16:09:20,961 [INFO] gain_experience:62 - Player gained 35 XP. Total: 47/195
+2026-05-17 16:09:20,961 [INFO] fight_enemy:264 - Combat: Deku vs skeleton (HP 41)
+2026-05-17 16:09:20,962 [INFO] fight_enemy:358 - Victory: Deku defeated skeleton in 1 turns
+2026-05-17 16:09:20,962 [INFO] gain_experience:62 - Player gained 30 XP. Total: 77/195
+2026-05-17 16:17:24,268 [INFO] save_game:1839 - Game saved to slot 1: Deku (Lvl 4, Floor 1)
+2026-05-17 16:17:45,886 [INFO] load_game:1959 - Game loaded from slot 1: Deku (Lvl 4, Floor 1)
+2026-05-17 16:20:51,685 [INFO] fight_enemy:264 - Combat: Deku vs sewer rat (HP 20)
+2026-05-17 16:20:51,686 [INFO] fight_enemy:358 - Victory: Deku defeated sewer rat in 1 turns
+2026-05-17 16:20:51,686 [INFO] gain_experience:62 - Player gained 15 XP. Total: 92/195
+2026-05-17 16:20:51,686 [INFO] fight_enemy:264 - Combat: Deku vs prison guard (HP 54)
+2026-05-17 16:20:51,686 [INFO] fight_enemy:358 - Victory: Deku defeated prison guard in 1 turns
+2026-05-17 16:20:51,686 [INFO] gain_experience:62 - Player gained 35 XP. Total: 127/195
+2026-05-17 16:21:50,982 [INFO] fight_enemy:264 - Combat: Deku vs sewer rat (HP 20)
+2026-05-17 16:21:50,983 [INFO] fight_enemy:358 - Victory: Deku defeated sewer rat in 1 turns
+2026-05-17 16:21:50,983 [INFO] gain_experience:62 - Player gained 15 XP. Total: 142/195
+2026-05-17 16:21:50,983 [INFO] fight_enemy:264 - Combat: Deku vs skeleton (HP 41)
+2026-05-17 16:21:50,983 [INFO] fight_enemy:358 - Victory: Deku defeated skeleton in 1 turns
+2026-05-17 16:21:50,983 [INFO] gain_experience:62 - Player gained 30 XP. Total: 172/195
+2026-05-17 16:22:20,332 [INFO] fight_enemy:264 - Combat: Deku vs sewer rat (HP 20)
+2026-05-17 16:22:20,333 [INFO] fight_enemy:358 - Victory: Deku defeated sewer rat in 1 turns
+2026-05-17 16:22:20,333 [INFO] gain_experience:62 - Player gained 15 XP. Total: 187/195
+2026-05-17 16:25:31,828 [INFO] load_game:1959 - Game loaded from slot 1: Deku (Lvl 4, Floor 1)
+2026-05-17 16:25:39,052 [INFO] fight_enemy:264 - Combat: Deku vs sewer rat (HP 20)
+2026-05-17 16:25:39,053 [INFO] fight_enemy:358 - Victory: Deku defeated sewer rat in 1 turns
+2026-05-17 16:25:39,053 [INFO] gain_experience:62 - Player gained 15 XP. Total: 92/195
+2026-05-17 16:25:39,053 [INFO] fight_enemy:264 - Combat: Deku vs prison guard (HP 54)
+2026-05-17 16:25:39,053 [INFO] fight_enemy:358 - Victory: Deku defeated prison guard in 1 turns
+2026-05-17 16:25:39,054 [INFO] gain_experience:62 - Player gained 35 XP. Total: 127/195
+2026-05-17 16:26:09,275 [INFO] fight_enemy:264 - Combat: Deku vs sewer rat (HP 20)
+2026-05-17 16:26:09,276 [INFO] fight_enemy:358 - Victory: Deku defeated sewer rat in 1 turns
+2026-05-17 16:26:09,276 [INFO] gain_experience:62 - Player gained 15 XP. Total: 142/195
+2026-05-17 16:26:09,276 [INFO] fight_enemy:264 - Combat: Deku vs skeleton (HP 41)
+2026-05-17 16:26:09,276 [INFO] fight_enemy:358 - Victory: Deku defeated skeleton in 1 turns
+2026-05-17 16:26:09,276 [INFO] gain_experience:62 - Player gained 30 XP. Total: 172/195
+2026-05-17 16:26:58,935 [INFO] gain_experience:62 - Player gained 50 XP. Total: 222/195
+2026-05-17 16:26:58,936 [INFO] _level_up:91 - LEVEL UP: Deku reached level 5. HP: 212
+2026-05-17 16:27:45,724 [INFO] fight_boss:713 - BOSS FIGHT: Deku (Lvl 5, HP 212) vs Arena Champion on floor 1
+2026-05-17 16:28:09,752 [INFO] fight_boss:856 - BOSS VICTORY: Deku defeated Arena Champion in 4 turns on floor 1
+2026-05-17 16:28:09,753 [INFO] gain_experience:62 - Player gained 150 XP. Total: 177/263
+2026-05-17 16:28:09,767 [INFO] fight_boss:879 - Boss reward: Deku received Carnage Axe (54 dmg)
+2026-05-17 16:28:09,767 [ERROR] execute:44 - Command error: name 'WeaponComparison' is not defined
+Traceback (most recent call last):
+  File "C:\Users\James Cagney\labyrinth\labyrinth\game.py", line 42, in execute
+    self.commands[cmd](game, *args)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\James Cagney\labyrinth\labyrinth\game.py", line 136, in cmd_fight
+    g._fight_enemy_command(' '.join(args))
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\James Cagney\labyrinth\labyrinth\game.py", line 1064, in _fight_enemy_command
+    success = self.combat.fight_boss(matching, self.player, room)
+  File "C:\Users\James Cagney\labyrinth\labyrinth\combat.py", line 889, in fight_boss
+    comparison = WeaponComparison.compare_weapons(boss_weapon, player.weapon, player)
+                 ^^^^^^^^^^^^^^^^
+NameError: name 'WeaponComparison' is not defined
+2026-05-17 16:29:48,052 [INFO] load_game:1959 - Game loaded from slot 1: Deku (Lvl 4, Floor 1)
+2026-05-17 16:29:52,903 [INFO] fight_enemy:265 - Combat: Deku vs sewer rat (HP 20)
+2026-05-17 16:29:52,903 [INFO] fight_enemy:359 - Victory: Deku defeated sewer rat in 1 turns
+2026-05-17 16:29:52,904 [INFO] gain_experience:62 - Player gained 15 XP. Total: 92/195
+2026-05-17 16:29:52,904 [INFO] fight_enemy:265 - Combat: Deku vs prison guard (HP 54)
+2026-05-17 16:29:52,904 [INFO] fight_enemy:359 - Victory: Deku defeated prison guard in 1 turns
+2026-05-17 16:29:52,904 [INFO] gain_experience:62 - Player gained 35 XP. Total: 127/195
+2026-05-17 16:30:21,902 [INFO] fight_enemy:265 - Combat: Deku vs sewer rat (HP 20)
+2026-05-17 16:30:21,903 [INFO] fight_enemy:359 - Victory: Deku defeated sewer rat in 1 turns
+2026-05-17 16:30:21,903 [INFO] gain_experience:62 - Player gained 15 XP. Total: 142/195
+2026-05-17 16:30:21,903 [INFO] fight_enemy:265 - Combat: Deku vs skeleton (HP 41)
+2026-05-17 16:30:21,903 [INFO] fight_enemy:359 - Victory: Deku defeated skeleton in 1 turns
+2026-05-17 16:30:21,903 [INFO] gain_experience:62 - Player gained 30 XP. Total: 172/195
+2026-05-17 16:30:55,665 [INFO] fight_enemy:265 - Combat: Deku vs sewer rat (HP 20)
+2026-05-17 16:30:55,666 [INFO] fight_enemy:359 - Victory: Deku defeated sewer rat in 1 turns
+2026-05-17 16:30:55,666 [INFO] gain_experience:62 - Player gained 15 XP. Total: 187/195
+2026-05-17 16:31:55,072 [INFO] delete_save:2038 - Save file deleted: slot 1
+2026-05-17 16:32:13,369 [INFO] _create_character:405 - New character: Deku (berserker) with Titan Club
+2026-05-17 16:32:13,369 [INFO] _generate_dungeon:430 - Starting dungeon generation (NG+0)...
+2026-05-17 16:32:13,371 [INFO] _generate_dungeon:597 - Dungeon generated: 10 floors, 138 total rooms
+2026-05-17 16:32:43,313 [INFO] fight_enemy:265 - Combat: Deku vs prison guard (HP 54)
+2026-05-17 16:32:43,314 [INFO] fight_enemy:359 - Victory: Deku defeated prison guard in 1 turns
+2026-05-17 16:32:43,314 [INFO] gain_experience:62 - Player gained 35 XP. Total: 35/80
+2026-05-17 16:32:56,381 [INFO] fight_enemy:265 - Combat: Deku vs goblin (HP 34)
+2026-05-17 16:32:56,382 [INFO] fight_enemy:359 - Victory: Deku defeated goblin in 1 turns
+2026-05-17 16:32:56,382 [INFO] gain_experience:62 - Player gained 25 XP. Total: 60/80
+2026-05-17 16:32:56,382 [INFO] fight_enemy:265 - Combat: Deku vs skeleton (HP 41)
+2026-05-17 16:32:56,382 [INFO] fight_enemy:359 - Victory: Deku defeated skeleton in 2 turns
+2026-05-17 16:32:56,383 [INFO] gain_experience:62 - Player gained 30 XP. Total: 90/80
+2026-05-17 16:32:56,383 [INFO] _level_up:91 - LEVEL UP: Deku reached level 2. HP: 158
+2026-05-17 16:33:35,843 [INFO] fight_enemy:265 - Combat: Deku vs skeleton (HP 41)
+2026-05-17 16:33:35,844 [INFO] fight_enemy:359 - Victory: Deku defeated skeleton in 2 turns
+2026-05-17 16:33:35,844 [INFO] gain_experience:62 - Player gained 30 XP. Total: 40/108
+2026-05-17 16:33:35,844 [INFO] fight_enemy:265 - Combat: Deku vs sewer rat (HP 20)
+2026-05-17 16:33:35,844 [INFO] fight_enemy:359 - Victory: Deku defeated sewer rat in 1 turns
+2026-05-17 16:33:35,844 [INFO] gain_experience:62 - Player gained 15 XP. Total: 55/108
+2026-05-17 16:33:46,516 [INFO] fight_enemy:265 - Combat: Deku vs prison guard (HP 54)
+2026-05-17 16:33:46,516 [INFO] fight_enemy:359 - Victory: Deku defeated prison guard in 2 turns
+2026-05-17 16:33:46,516 [INFO] gain_experience:62 - Player gained 35 XP. Total: 90/108
+2026-05-17 16:33:46,517 [INFO] fight_enemy:265 - Combat: Deku vs sewer rat (HP 20)
+2026-05-17 16:33:46,517 [INFO] fight_enemy:359 - Victory: Deku defeated sewer rat in 1 turns
+2026-05-17 16:33:46,517 [INFO] gain_experience:62 - Player gained 15 XP. Total: 105/108
+2026-05-17 16:34:05,450 [INFO] fight_enemy:265 - Combat: Deku vs treasure guardian (HP 81)
+2026-05-17 16:34:05,450 [INFO] fight_enemy:359 - Victory: Deku defeated treasure guardian in 3 turns
+2026-05-17 16:34:05,450 [INFO] gain_experience:62 - Player gained 65 XP. Total: 170/108
+2026-05-17 16:34:05,450 [INFO] _level_up:91 - LEVEL UP: Deku reached level 3. HP: 176
+2026-05-17 16:34:05,451 [INFO] fight_enemy:265 - Combat: Deku vs skeleton (HP 41)
+2026-05-17 16:34:05,451 [INFO] fight_enemy:359 - Victory: Deku defeated skeleton in 2 turns
+2026-05-17 16:34:05,451 [INFO] gain_experience:62 - Player gained 30 XP. Total: 92/145
+2026-05-17 16:34:10,910 [INFO] gain_experience:62 - Player gained 50 XP. Total: 142/145
+2026-05-17 16:34:46,119 [INFO] fight_enemy:265 - Combat: Deku vs goblin (HP 34)
+2026-05-17 16:34:46,120 [INFO] fight_enemy:359 - Victory: Deku defeated goblin in 1 turns
+2026-05-17 16:34:46,120 [INFO] gain_experience:62 - Player gained 25 XP. Total: 167/145
+2026-05-17 16:34:46,120 [INFO] _level_up:91 - LEVEL UP: Deku reached level 4. HP: 194
+2026-05-17 16:34:57,890 [INFO] fight_enemy:265 - Combat: Deku vs sewer rat (HP 20)
+2026-05-17 16:34:57,890 [INFO] fight_enemy:359 - Victory: Deku defeated sewer rat in 1 turns
+2026-05-17 16:34:57,890 [INFO] gain_experience:62 - Player gained 15 XP. Total: 37/195
+2026-05-17 16:34:57,891 [INFO] fight_enemy:265 - Combat: Deku vs skeleton (HP 41)
+2026-05-17 16:34:57,891 [INFO] fight_enemy:359 - Victory: Deku defeated skeleton in 2 turns
+2026-05-17 16:34:57,891 [INFO] gain_experience:62 - Player gained 30 XP. Total: 67/195
+2026-05-17 16:36:01,380 [INFO] fight_enemy:265 - Combat: Deku vs goblin (HP 34)
+2026-05-17 16:36:01,380 [INFO] fight_enemy:359 - Victory: Deku defeated goblin in 1 turns
+2026-05-17 16:36:01,380 [INFO] gain_experience:62 - Player gained 25 XP. Total: 92/195
+2026-05-17 16:36:01,380 [INFO] fight_enemy:265 - Combat: Deku vs skeleton (HP 41)
+2026-05-17 16:36:01,380 [INFO] fight_enemy:359 - Victory: Deku defeated skeleton in 1 turns
+2026-05-17 16:36:01,381 [INFO] gain_experience:62 - Player gained 30 XP. Total: 122/195
+2026-05-17 16:36:08,245 [INFO] gain_experience:62 - Player gained 50 XP. Total: 172/195
+2026-05-17 16:36:27,951 [INFO] fight_enemy:265 - Combat: Deku vs goblin (HP 34)
+2026-05-17 16:36:27,952 [INFO] fight_enemy:359 - Victory: Deku defeated goblin in 1 turns
+2026-05-17 16:36:27,952 [INFO] gain_experience:62 - Player gained 25 XP. Total: 197/195
+2026-05-17 16:36:27,952 [INFO] _level_up:91 - LEVEL UP: Deku reached level 5. HP: 212
+2026-05-17 16:36:27,952 [INFO] fight_enemy:265 - Combat: Deku vs prison guard (HP 54)
+2026-05-17 16:36:27,952 [INFO] fight_enemy:359 - Victory: Deku defeated prison guard in 1 turns
+2026-05-17 16:36:27,953 [INFO] gain_experience:62 - Player gained 35 XP. Total: 37/263
+2026-05-17 16:37:04,659 [INFO] gain_experience:62 - Player gained 50 XP. Total: 87/263
+2026-05-17 16:37:39,217 [INFO] gain_experience:62 - Player gained 50 XP. Total: 137/263
+2026-05-17 16:37:56,173 [INFO] fight_enemy:265 - Combat: Deku vs skeleton (HP 41)
+2026-05-17 16:37:56,174 [INFO] fight_enemy:359 - Victory: Deku defeated skeleton in 1 turns
+2026-05-17 16:37:56,174 [INFO] gain_experience:62 - Player gained 30 XP. Total: 167/263
+2026-05-17 16:37:56,174 [INFO] fight_enemy:265 - Combat: Deku vs goblin (HP 34)
+2026-05-17 16:37:56,174 [INFO] fight_enemy:359 - Victory: Deku defeated goblin in 1 turns
+2026-05-17 16:37:56,174 [INFO] gain_experience:62 - Player gained 25 XP. Total: 192/263
+2026-05-17 16:38:22,907 [INFO] upgrade_class:247 - CLASS UPGRADE: Deku advanced from tier 1 to 2 (Bloodrage)
+2026-05-17 16:38:36,558 [INFO] fight_boss:714 - BOSS FIGHT: Deku (Lvl 5, HP 242) vs Arena Champion on floor 1
+2026-05-17 16:38:51,445 [INFO] fight_boss:857 - BOSS VICTORY: Deku defeated Arena Champion in 2 turns on floor 1
+2026-05-17 16:38:51,445 [INFO] gain_experience:62 - Player gained 150 XP. Total: 342/263
+2026-05-17 16:38:51,445 [INFO] _level_up:91 - LEVEL UP: Deku reached level 6. HP: 260
+2026-05-17 16:38:51,446 [INFO] fight_boss:880 - Boss reward: Deku received Bloodlust Cleaver (50 dmg)

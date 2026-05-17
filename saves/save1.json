@@ -2,47 +2,52 @@
   "version": "6.9.0",
   "player": {
     "name": "J",
-    "character_class": "warrior",
+    "character_class": "rogue",
     "class_tier": 1,
-    "level": 4,
-    "experience": 79,
-    "experience_to_next": 274,
+    "level": 5,
+    "experience": 95,
+    "experience_to_next": 383,
     "stats": {
-      "strength": 35,
-      "intelligence": 13,
-      "agility": 15
+      "strength": 30,
+      "intelligence": 16,
+      "agility": 29
     },
-    "health": 165,
-    "max_health": 165,
-    "mana": 80,
-    "max_mana": 80,
+    "health": 148,
+    "max_health": 148,
+    "mana": 115,
+    "max_mana": 115,
     "inventory": [
-      "health potion",
       "rusty key",
+      "crystal shard",
+      "primordial rune",
+      "legendary artifact",
+      "bone key",
       "torch",
-      "health potion",
-      "vitality tonic",
-      "energy drink",
       "ultimate health potion",
-      "WEAPON: Elven Hammer"
+      "WEAPON: Infernal Bow"
     ],
     "inventory_weapons": [
       {
-        "name": "Elven Hammer",
-        "damage": 33,
-        "type": "melee",
-        "rarity": "rare",
-        "base_name": "Elven Hammer"
+        "name": "Infernal Bow",
+        "damage": 56,
+        "type": "stealth",
+        "rarity": "epic",
+        "base_name": "Infernal Bow"
       }
     ],
     "weapon": {
-      "name": "Gladius of Victory",
-      "damage": 32,
-      "type": "melee",
+      "name": "Twin Blades of Honor",
+      "damage": 60,
+      "type": "stealth",
       "rarity": "legendary",
-      "base_name": "Gladius of Victory"
+      "base_name": "Twin Blades of Honor"
     },
     "wearables": [
+      {
+        "item": "armor piece",
+        "stat": "strength",
+        "bonus": 5
+      },
       {
         "item": "armor piece",
         "stat": "strength",
@@ -54,35 +59,38 @@
         "bonus": 4
       }
     ],
-    "max_inventory": 13,
+    "max_inventory": 9,
     "current_floor": 2,
-    "current_room": "floor2_room8",
+    "current_room": "floor2_start",
     "visited_rooms": [
-      "floor1_room3",
-      "floor2_start",
-      "floor1_stairs",
-      "start",
-      "floor1_room6",
-      "floor1_boss",
-      "floor1_room4",
       "floor1_room1",
-      "floor1_room2",
+      "floor1_room3",
       "floor1_room5",
-      "floor2_room8"
+      "start",
+      "floor1_room12",
+      "floor1_room7",
+      "floor1_room10",
+      "floor1_room4",
+      "floor1_stairs",
+      "floor1_room2",
+      "floor1_room11",
+      "floor1_room8",
+      "floor2_start",
+      "floor1_room6",
+      "floor1_room9",
+      "floor1_boss"
     ],
     "bosses_defeated": [
       "Arena Champion"
     ],
     "rarity_boost": 0.0,
-    "gold_coins": 36,
+    "gold_coins": 61,
     "secret_room_unlocked": false,
     "special_items": [
       "old map"
     ],
     "unique_items_spawned": [
-      "bone key",
-      "torch",
-      "rusty key"
+      "torch"
     ]
   },
   "floors": {
@@ -92,10 +100,10 @@
         "enemies": [],
         "visited": true,
         "exits": {
-          "east": "floor1_room2",
-          "north": "floor1_room4",
-          "south": "floor1_room3",
-          "west": "floor1_room5"
+          "south": "floor1_room11",
+          "east": "floor1_room7",
+          "north": "floor1_room12",
+          "west": "floor1_room1"
         }
       },
       "floor1_room1": {
@@ -103,7 +111,8 @@
         "enemies": [],
         "visited": true,
         "exits": {
-          "east": "floor1_room3"
+          "east": "start",
+          "north": "floor1_room10"
         }
       },
       "floor1_room2": {
@@ -111,29 +120,29 @@
         "enemies": [],
         "visited": true,
         "exits": {
-          "west": "start",
-          "south": "floor1_room8",
-          "east": "floor1_room6",
-          "north": "floor1_room9"
+          "west": "floor1_room9"
         }
       },
       "floor1_room3": {
-        "items": [],
+        "items": [
+          "golden coin"
+        ],
         "enemies": [],
         "visited": true,
         "exits": {
-          "north": "start",
-          "west": "floor1_room1"
+          "south": "floor1_room12"
         }
       },
       "floor1_room4": {
-        "items": [],
+        "items": [
+          "energy drink",
+          "rusty key"
+        ],
         "enemies": [],
         "visited": true,
         "exits": {
-          "south": "start",
-          "east": "floor1_boss",
-          "west": "floor1_room6"
+          "north": "floor1_room5",
+          "west": "floor1_stairs"
         }
       },
       "floor1_room5": {
@@ -141,7 +150,8 @@
         "enemies": [],
         "visited": true,
         "exits": {
-          "east": "start"
+          "east": "floor1_room11",
+          "south": "floor1_room4"
         }
       },
       "floor1_room6": {
@@ -149,49 +159,69 @@
         "enemies": [],
         "visited": true,
         "exits": {
-          "west": "floor1_room2",
-          "east": "floor1_room4"
+          "east": "floor1_room9",
+          "south": "floor1_room10",
+          "north": "floor1_room7"
         }
       },
       "floor1_room7": {
-        "items": [
-          "cursed amulet",
-          "bone key"
-        ],
-        "enemies": [
-          "prison guard",
-          "goblin"
-        ],
-        "visited": false,
+        "items": [],
+        "enemies": [],
+        "visited": true,
         "exits": {
-          "south": "floor1_room9"
+          "west": "start",
+          "south": "floor1_room6"
         }
       },
       "floor1_room8": {
         "items": [
-          "weapon cache"
+          "energy drink"
         ],
-        "enemies": [
-          "prison guard",
-          "goblin"
-        ],
-        "visited": false,
+        "enemies": [],
+        "visited": true,
         "exits": {
-          "north": "floor1_room2"
+          "west": "floor1_room11",
+          "north": "floor1_boss"
         }
       },
       "floor1_room9": {
-        "items": [
-          "health potion"
-        ],
-        "enemies": [
-          "prison guard",
-          "sewer rat"
-        ],
-        "visited": false,
+        "items": [],
+        "enemies": [],
+        "visited": true,
         "exits": {
-          "south": "floor1_room2",
-          "north": "floor1_room7"
+          "north": "floor1_room11",
+          "south": "floor1_stairs",
+          "east": "floor1_room2",
+          "west": "floor1_room6"
+        }
+      },
+      "floor1_room10": {
+        "items": [],
+        "enemies": [],
+        "visited": true,
+        "exits": {
+          "north": "floor1_room6",
+          "south": "floor1_room1"
+        }
+      },
+      "floor1_room11": {
+        "items": [],
+        "enemies": [],
+        "visited": true,
+        "exits": {
+          "north": "start",
+          "east": "floor1_room8",
+          "west": "floor1_room5",
+          "south": "floor1_room9"
+        }
+      },
+      "floor1_room12": {
+        "items": [],
+        "enemies": [],
+        "visited": true,
+        "exits": {
+          "south": "start",
+          "north": "floor1_room3"
         }
       },
       "floor1_boss": {
@@ -199,8 +229,7 @@
         "enemies": [],
         "visited": true,
         "exits": {
-          "west": "floor1_room4",
-          "east": "floor1_stairs"
+          "south": "floor1_room8"
         }
       },
       "floor1_stairs": {
@@ -208,7 +237,8 @@
         "enemies": [],
         "visited": true,
         "exits": {
-          "west": "floor1_boss",
+          "north": "floor1_room9",
+          "east": "floor1_room4",
           "down": "floor2_start"
         }
       }
@@ -221,135 +251,123 @@
         "enemies": [],
         "visited": true,
         "exits": {
-          "north": "floor2_room8",
-          "east": "floor2_room4",
-          "west": "floor2_room6",
-          "south": "floor2_room1",
+          "south": "floor2_room3",
+          "north": "floor2_room4",
           "up": "floor1_stairs"
         }
       },
       "floor2_room1": {
         "items": [
-          "weapon cache",
+          "health potion",
           "golden coin"
         ],
         "enemies": [
-          "skeleton",
-          "prison guard"
+          "armored skeleton"
         ],
         "visited": false,
         "exits": {
-          "north": "floor2_start"
+          "east": "floor2_stairs"
         }
       },
       "floor2_room2": {
-        "items": [
-          "weapon cache",
-          "armor piece"
-        ],
-        "enemies": [
-          "prison guard",
-          "skeleton"
-        ],
-        "visited": false,
-        "exits": {
-          "east": "floor2_room3"
-        }
-      },
-      "floor2_room3": {
-        "items": [],
-        "enemies": [
-          "armored skeleton"
-        ],
-        "visited": false,
-        "exits": {
-          "south": "floor2_room5",
-          "west": "floor2_room2"
-        }
-      },
-      "floor2_room4": {
-        "items": [
-          "cursed amulet"
-        ],
-        "enemies": [
-          "prison guard",
-          "armored skeleton"
-        ],
-        "visited": false,
-        "exits": {
-          "west": "floor2_start",
-          "south": "floor2_boss"
-        }
-      },
-      "floor2_room5": {
-        "items": [
-          "weapon cache"
-        ],
-        "enemies": [
-          "goblin",
-          "armored skeleton"
-        ],
-        "visited": false,
-        "exits": {
-          "west": "floor2_room8",
-          "north": "floor2_room3"
-        }
-      },
-      "floor2_room6": {
         "items": [
           "health potion",
           "golden coin"
         ],
         "enemies": [
-          "prison guard"
-        ],
-        "visited": false,
-        "exits": {
-          "east": "floor2_start",
-          "north": "floor2_room9"
-        }
-      },
-      "floor2_room7": {
-        "items": [
-          "health potion"
-        ],
-        "enemies": [
-          "goblin",
-          "prison guard"
-        ],
-        "visited": false,
-        "exits": {
-          "north": "floor2_stairs",
-          "west": "floor2_boss"
-        }
-      },
-      "floor2_room8": {
-        "items": [
-          "energy drink"
-        ],
-        "enemies": [
-          "prison guard",
-          "goblin"
-        ],
-        "visited": true,
-        "exits": {
-          "south": "floor2_start",
-          "east": "floor2_room5"
-        }
-      },
-      "floor2_room9": {
-        "items": [
-          "golden coin",
-          "weapon cache",
-          "experience gem"
-        ],
-        "enemies": [
-          "treasure guardian",
+          "armored skeleton",
           "prison guard"
         ],
         "visited": false,
         "exits": {
           "south": "floor2_room6"
+        }
+      },
+      "floor2_room3": {
+        "items": [
+          "energy drink",
+          "rusty key"
+        ],
+        "enemies": [
+          "armored skeleton",
+          "goblin"
+        ],
+        "visited": false,
+        "exits": {
+          "north": "floor2_start",
+          "west": "floor2_room6",
+          "south": "floor2_stairs"
+        }
+      },
+      "floor2_room4": {
+        "items": [
+          "demon seal",
+          "soul crystal"
+        ],
+        "enemies": [
+          "goblin",
+          "armored skeleton"
+        ],
+        "visited": false,
+        "exits": {
+          "south": "floor2_start"
+        }
+      },
+      "floor2_room5": {
+        "items": [
+          "soul crystal",
+          "golden coin"
+        ],
+        "enemies": [
+          "prison guard",
+          "armored skeleton"
+        ],
+        "visited": false,
+        "exits": {
+          "west": "floor2_boss",
+          "east": "floor2_room7"
+        }
+      },
+      "floor2_room6": {
+        "items": [
+          "weapon cache",
+          "vitality tonic"
+        ],
+        "enemies": [
+          "prison guard",
+          "goblin"
+        ],
+        "visited": false,
+        "exits": {
+          "east": "floor2_room3",
+          "south": "floor2_room8",
+          "north": "floor2_room2"
+        }
+      },
+      "floor2_room7": {
+        "items": [
+          "energy drink"
+        ],
+        "enemies": [
+          "goblin",
+          "skeleton"
+        ],
+        "visited": false,
+        "exits": {
+          "west": "floor2_room5"
+        }
+      },
+      "floor2_room8": {
+        "items": [
+          "void essence",
+          "weapon cache"
+        ],
+        "enemies": [
+          "prison guard"
+        ],
+        "visited": false,
+        "exits": {
+          "north": "floor2_room6"
         }
       },
       "floor2_boss": {
@@ -361,9 +379,8 @@
         ],
         "visited": false,
         "exits": {
-          "north": "floor2_room4",
-          "west": "floor2_stairs",
-          "east": "floor2_room7"
+          "north": "floor2_stairs",
+          "east": "floor2_room5"
         }
       },
       "floor2_stairs": {
@@ -371,8 +388,9 @@
         "enemies": [],
         "visited": false,
         "exits": {
-          "east": "floor2_boss",
-          "south": "floor2_room7",
+          "north": "floor2_room3",
+          "south": "floor2_boss",
+          "west": "floor2_room1",
           "down": "floor3_start"
         }
       }
@@ -385,59 +403,59 @@
         "enemies": [],
         "visited": false,
         "exits": {
-          "south": "floor3_room7",
-          "east": "floor3_room6",
+          "south": "floor3_room8",
+          "east": "floor3_room7",
+          "north": "floor3_room3",
           "up": "floor2_stairs"
         }
       },
       "floor3_room1": {
         "items": [
           "soul crystal",
-          "weapon cache"
+          "ultimate health potion"
         ],
         "enemies": [
-          "corrupted mage",
-          "armored skeleton"
+          "armored skeleton",
+          "ghoul"
         ],
         "visited": false,
         "exits": {
-          "west": "floor3_room5",
-          "east": "floor3_boss",
-          "north": "floor3_room6"
+          "west": "floor3_room11",
+          "north": "floor3_room4"
         }
       },
       "floor3_room2": {
         "items": [
-          "cursed amulet"
+          "weapon cache",
+          "arcane pendant"
         ],
         "enemies": [
-          "ghoul",
-          "corrupted mage"
+          "shadow wraith",
+          "armored skeleton"
         ],
         "visited": false,
         "exits": {
-          "north": "floor3_room5"
+          "west": "floor3_boss",
+          "south": "floor3_room5"
         }
       },
       "floor3_room3": {
         "items": [
+          "soul crystal",
           "weapon cache"
         ],
         "enemies": [
-          "corrupted mage",
-          "ghoul"
+          "shadow wraith",
+          "corrupted mage"
         ],
         "visited": false,
         "exits": {
-          "east": "floor3_room5",
-          "south": "floor3_room4",
-          "west": "floor3_stairs"
+          "south": "floor3_start"
         }
       },
       "floor3_room4": {
         "items": [
-          "weapon cache",
-          "golden coin"
+          "weapon cache"
         ],
         "enemies": [
           "corrupted mage",
@@ -445,39 +463,72 @@
         ],
         "visited": false,
         "exits": {
-          "north": "floor3_room3",
-          "east": "floor3_room8"
+          "north": "floor3_room6",
+          "south": "floor3_room1"
         }
       },
       "floor3_room5": {
-        "items": [],
+        "items": [
+          "bone key",
+          "cursed amulet"
+        ],
         "enemies": [
-          "shadow wraith"
+          "ghoul",
+          "armored skeleton"
         ],
         "visited": false,
         "exits": {
-          "north": "floor3_room7",
-          "east": "floor3_room1",
-          "west": "floor3_room3",
-          "south": "floor3_room2"
+          "north": "floor3_room2"
         }
       },
       "floor3_room6": {
         "items": [
-          "health potion",
-          "golden coin"
+          "shadow cloak",
+          "experience gem"
         ],
         "enemies": [
+          "shadow wraith",
+          "armored skeleton"
+        ],
+        "visited": false,
+        "exits": {
+          "north": "floor3_room8",
+          "east": "floor3_stairs",
+          "south": "floor3_room4"
+        }
+      },
+      "floor3_room7": {
+        "items": [
+          "bone key",
+          "health potion"
+        ],
+        "enemies": [
+          "armored skeleton"
+        ],
+        "visited": false,
+        "exits": {
+          "west": "floor3_start",
+          "north": "floor3_room11"
+        }
+      },
+      "floor3_room8": {
+        "items": [
+          "demon seal",
+          "soul crystal"
+        ],
+        "enemies": [
+          "shadow wraith",
           "ghoul"
         ],
         "visited": false,
         "exits": {
-          "north": "floor3_room9",
-          "west": "floor3_start",
-          "south": "floor3_room1"
+          "north": "floor3_start",
+          "east": "floor3_boss",
+          "south": "floor3_room6",
+          "west": "floor3_room10"
         }
       },
-      "floor3_room7": {
+      "floor3_room9": {
         "items": [
           "golden coin",
           "weapon cache",
@@ -485,43 +536,40 @@
         ],
         "enemies": [
           "treasure guardian",
-          "armored skeleton"
+          "corrupted mage"
         ],
         "visited": false,
         "exits": {
-          "north": "floor3_start",
-          "south": "floor3_room5",
-          "east": "floor3_room9"
+          "east": "floor3_room11"
         }
       },
-      "floor3_room8": {
+      "floor3_room10": {
         "items": [
-          "health potion",
-          "wisdom gem"
+          "void essence",
+          "weapon cache"
         ],
         "enemies": [
-          "corrupted mage",
-          "ghoul"
+          "shadow wraith"
         ],
         "visited": false,
         "exits": {
-          "west": "floor3_room4"
+          "east": "floor3_room8",
+          "north": "floor3_stairs"
         }
       },
-      "floor3_room9": {
+      "floor3_room11": {
         "items": [
-          "energy drink",
-          "arcane pendant"
+          "crystal shard",
+          "energy drink"
         ],
         "enemies": [
-          "ghoul",
-          "armored skeleton"
+          "shadow wraith"
         ],
         "visited": false,
         "exits": {
-          "west": "floor3_room7",
-          "east": "floor3_stairs",
-          "south": "floor3_room6"
+          "south": "floor3_room7",
+          "east": "floor3_room1",
+          "west": "floor3_room9"
         }
       },
       "floor3_boss": {
@@ -533,7 +581,8 @@
         ],
         "visited": false,
         "exits": {
-          "west": "floor3_room1"
+          "west": "floor3_room8",
+          "east": "floor3_room2"
         }
       },
       "floor3_stairs": {
@@ -541,8 +590,8 @@
         "enemies": [],
         "visited": false,
         "exits": {
-          "west": "floor3_room9",
-          "east": "floor3_room3",
+          "west": "floor3_room6",
+          "south": "floor3_room10",
           "down": "floor4_start"
         }
       }
@@ -555,10 +604,9 @@
         "enemies": [],
         "visited": false,
         "exits": {
-          "south": "floor4_room2",
-          "north": "floor4_room3",
-          "west": "floor4_room1",
-          "east": "floor4_room4",
+          "south": "floor4_room9",
+          "north": "floor4_room1",
+          "east": "floor4_room2",
           "up": "floor3_stairs"
         }
       },
@@ -568,79 +616,64 @@
           "wisdom gem"
         ],
         "enemies": [
+          "armored skeleton",
+          "shadow wraith"
+        ],
+        "visited": false,
+        "exits": {
+          "south": "floor4_start"
+        }
+      },
+      "floor4_room2": {
+        "items": [
+          "energy drink",
+          "wisdom gem"
+        ],
+        "enemies": [
           "shadow wraith",
           "corrupted mage"
         ],
         "visited": false,
         "exits": {
-          "east": "floor4_start",
-          "south": "floor4_stairs",
-          "west": "floor4_room5"
-        }
-      },
-      "floor4_room2": {
-        "items": [
-          "weapon cache",
-          "golden coin"
-        ],
-        "enemies": [
-          "corrupted mage",
-          "armored skeleton"
-        ],
-        "visited": false,
-        "exits": {
-          "north": "floor4_start",
-          "west": "floor4_room7"
+          "west": "floor4_start",
+          "south": "floor4_room7"
         }
       },
       "floor4_room3": {
+        "items": [
+          "rusty key",
+          "weapon cache"
+        ],
+        "enemies": [
+          "armored skeleton",
+          "shadow wraith"
+        ],
+        "visited": false,
+        "exits": {
+          "east": "floor4_room5",
+          "north": "floor4_room4",
+          "west": "floor4_stairs"
+        }
+      },
+      "floor4_room4": {
         "items": [
           "energy drink",
           "arcane pendant"
         ],
         "enemies": [
-          "armored skeleton",
+          "ghoul",
           "corrupted mage"
         ],
         "visited": false,
         "exits": {
-          "south": "floor4_start",
-          "north": "floor4_room8",
-          "west": "floor4_boss"
-        }
-      },
-      "floor4_room4": {
-        "items": [
-          "soul crystal",
-          "weapon cache"
-        ],
-        "enemies": [
-          "corrupted mage",
-          "shadow wraith"
-        ],
-        "visited": false,
-        "exits": {
-          "west": "floor4_start"
+          "south": "floor4_room3",
+          "west": "floor4_room6"
         }
       },
       "floor4_room5": {
         "items": [
-          "health potion",
-          "golden coin"
-        ],
-        "enemies": [
-          "corrupted mage"
-        ],
-        "visited": false,
-        "exits": {
-          "north": "floor4_room6",
-          "east": "floor4_room1",
-          "south": "floor4_room9"
-        }
-      },
-      "floor4_room6": {
-        "items": [
-          "weapon cache"
+          "bone key",
+          "cursed amulet"
         ],
         "enemies": [
           "corrupted mage",
@@ -648,48 +681,66 @@
         ],
         "visited": false,
         "exits": {
-          "north": "floor4_room7",
-          "south": "floor4_room5"
+          "east": "floor4_room8",
+          "west": "floor4_room3"
+        }
+      },
+      "floor4_room6": {
+        "items": [
+          "weapon cache",
+          "golden coin"
+        ],
+        "enemies": [
+          "corrupted mage",
+          "armored skeleton"
+        ],
+        "visited": false,
+        "exits": {
+          "east": "floor4_room4"
         }
       },
       "floor4_room7": {
         "items": [
-          "golden coin",
-          "weapon cache",
+          "shadow cloak",
           "experience gem"
         ],
         "enemies": [
-          "treasure guardian",
+          "ghoul",
+          "armored skeleton"
+        ],
+        "visited": false,
+        "exits": {
+          "north": "floor4_room2"
+        }
+      },
+      "floor4_room8": {
+        "items": [
+          "primordial rune",
+          "legendary artifact"
+        ],
+        "enemies": [
           "shadow wraith"
         ],
         "visited": false,
         "exits": {
-          "east": "floor4_room2",
-          "south": "floor4_room6"
-        }
-      },
-      "floor4_room8": {
-        "items": [],
-        "enemies": [
-          "ghoul"
-        ],
-        "visited": false,
-        "exits": {
-          "south": "floor4_room3"
+          "east": "floor4_room9",
+          "south": "floor4_boss",
+          "west": "floor4_room5"
         }
       },
       "floor4_room9": {
         "items": [
-          "cursed amulet"
+          "soul crystal",
+          "weapon cache"
         ],
         "enemies": [
-          "corrupted mage",
+          "shadow wraith",
           "ghoul"
         ],
         "visited": false,
         "exits": {
-          "south": "floor4_boss",
-          "north": "floor4_room5"
+          "north": "floor4_start",
+          "west": "floor4_room8"
         }
       },
       "floor4_boss": {
@@ -701,8 +752,7 @@
         ],
         "visited": false,
         "exits": {
-          "east": "floor4_room3",
-          "north": "floor4_room9"
+          "north": "floor4_room8"
         }
       },
       "floor4_stairs": {
@@ -710,7 +760,7 @@
         "enemies": [],
         "visited": false,
         "exits": {
-          "north": "floor4_room1",
+          "east": "floor4_room3",
           "down": "floor5_start"
         }
       }
@@ -723,71 +773,31 @@
         "enemies": [],
         "visited": false,
         "exits": {
-          "east": "floor5_boss",
-          "north": "floor5_room2",
+          "south": "floor5_room11",
+          "west": "floor5_boss",
+          "north": "floor5_room6",
+          "east": "floor5_room5",
           "up": "floor4_stairs"
         }
       },
       "floor5_room1": {
         "items": [
-          "golden coin",
-          "weapon cache",
-          "experience gem"
+          "void essence",
+          "weapon cache"
         ],
         "enemies": [
-          "treasure guardian",
           "ice elemental"
         ],
         "visited": false,
         "exits": {
-          "east": "floor5_room8",
-          "south": "floor5_room4"
+          "east": "floor5_room7",
+          "north": "floor5_room4"
         }
       },
       "floor5_room2": {
-        "items": [],
-        "enemies": [
-          "ice elemental"
-        ],
-        "visited": false,
-        "exits": {
-          "south": "floor5_start",
-          "west": "floor5_room7",
-          "north": "floor5_room8"
-        }
-      },
-      "floor5_room3": {
         "items": [
-          "weapon cache",
-          "golden coin"
-        ],
-        "enemies": [
-          "ice elemental",
-          "stone golem"
-        ],
-        "visited": false,
-        "exits": {
-          "south": "floor5_room9",
-          "east": "floor5_room7"
-        }
-      },
-      "floor5_room4": {
-        "items": [
-          "health potion",
-          "golden coin"
-        ],
-        "enemies": [
-          "ice elemental"
-        ],
-        "visited": false,
-        "exits": {
-          "north": "floor5_room1"
-        }
-      },
-      "floor5_room5": {
-        "items": [
-          "weapon cache",
-          "titan gauntlet"
+          "energy drink",
+          "arcane pendant"
         ],
         "enemies": [
           "stone golem",
@@ -795,11 +805,10 @@
         ],
         "visited": false,
         "exits": {
-          "north": "floor5_boss",
-          "south": "floor5_room8"
+          "west": "floor5_room5"
         }
       },
-      "floor5_room6": {
+      "floor5_room3": {
         "items": [
           "weapon cache",
           "elixir of life"
@@ -810,41 +819,42 @@
         ],
         "visited": false,
         "exits": {
-          "west": "floor5_stairs"
+          "east": "floor5_boss",
+          "south": "floor5_room8",
+          "north": "floor5_room10"
         }
       },
-      "floor5_room7": {
+      "floor5_room4": {
         "items": [
-          "weapon cache"
-        ],
-        "enemies": [
-          "stone golem",
-          "lightning wisp"
-        ],
-        "visited": false,
-        "exits": {
-          "west": "floor5_room3",
-          "east": "floor5_room2"
-        }
-      },
-      "floor5_room8": {
-        "items": [
-          "energy drink",
+          "weapon cache",
           "power ring"
         ],
         "enemies": [
           "lightning wisp",
+          "ice elemental"
+        ],
+        "visited": false,
+        "exits": {
+          "north": "floor5_boss",
+          "south": "floor5_room1"
+        }
+      },
+      "floor5_room5": {
+        "items": [
+          "demon seal",
+          "soul crystal"
+        ],
+        "enemies": [
+          "stone golem",
           "fire elemental"
         ],
         "visited": false,
         "exits": {
-          "north": "floor5_room5",
-          "east": "floor5_stairs",
-          "west": "floor5_room1",
-          "south": "floor5_room2"
+          "west": "floor5_start",
+          "east": "floor5_room2"
         }
       },
-      "floor5_room9": {
+      "floor5_room6": {
         "items": [
           "power ring",
           "frozen artifact"
@@ -855,8 +865,81 @@
         ],
         "visited": false,
         "exits": {
-          "south": "floor5_boss",
+          "south": "floor5_start"
+        }
+      },
+      "floor5_room7": {
+        "items": [
+          "weapon cache",
+          "golden coin"
+        ],
+        "enemies": [
+          "stone golem",
+          "lightning wisp"
+        ],
+        "visited": false,
+        "exits": {
+          "east": "floor5_room11",
+          "west": "floor5_room1",
+          "north": "floor5_room9"
+        }
+      },
+      "floor5_room8": {
+        "items": [
+          "golden coin",
+          "weapon cache",
+          "experience gem"
+        ],
+        "enemies": [
+          "treasure guardian",
+          "fire elemental"
+        ],
+        "visited": false,
+        "exits": {
           "north": "floor5_room3"
+        }
+      },
+      "floor5_room9": {
+        "items": [
+          "titan gauntlet",
+          "armor piece"
+        ],
+        "enemies": [
+          "fire elemental",
+          "stone golem"
+        ],
+        "visited": false,
+        "exits": {
+          "south": "floor5_room7"
+        }
+      },
+      "floor5_room10": {
+        "items": [
+          "elixir of life",
+          "experience gem"
+        ],
+        "enemies": [
+          "lightning wisp",
+          "fire elemental"
+        ],
+        "visited": false,
+        "exits": {
+          "south": "floor5_room3"
+        }
+      },
+      "floor5_room11": {
+        "items": [
+          "power ring",
+          "weapon cache"
+        ],
+        "enemies": [
+          "ice elemental",
+          "fire elemental"
+        ],
+        "visited": false,
+        "exits": {
+          "north": "floor5_start",
+          "west": "floor5_room7"
         }
       },
       "floor5_boss": {
@@ -868,9 +951,10 @@
         ],
         "visited": false,
         "exits": {
-          "west": "floor5_start",
-          "south": "floor5_room5",
-          "north": "floor5_room9"
+          "east": "floor5_start",
+          "south": "floor5_room4",
+          "north": "floor5_stairs",
+          "west": "floor5_room3"
         }
       },
       "floor5_stairs": {
@@ -878,8 +962,7 @@
         "enemies": [],
         "visited": false,
         "exits": {
-          "west": "floor5_room8",
-          "east": "floor5_room6",
+          "south": "floor5_boss",
           "down": "floor6_start"
         }
       }
@@ -892,16 +975,15 @@
         "enemies": [],
         "visited": false,
         "exits": {
-          "south": "floor6_room7",
           "east": "floor6_room9",
-          "west": "floor6_stairs",
+          "west": "floor6_boss",
           "up": "floor5_stairs"
         }
       },
       "floor6_room1": {
         "items": [
           "weapon cache",
-          "titan gauntlet"
+          "golden coin"
         ],
         "enemies": [
           "lightning wisp",
@@ -909,14 +991,66 @@
         ],
         "visited": false,
         "exits": {
-          "south": "floor6_room9",
-          "west": "floor6_room8"
+          "west": "floor6_room9"
         }
       },
       "floor6_room2": {
         "items": [
+          "crystal shard",
+          "energy drink"
+        ],
+        "enemies": [
+          "ice elemental"
+        ],
+        "visited": false,
+        "exits": {
+          "west": "floor6_room11",
+          "south": "floor6_room4"
+        }
+      },
+      "floor6_room3": {
+        "items": [
+          "energy drink",
+          "power ring"
+        ],
+        "enemies": [
+          "stone golem",
+          "lightning wisp"
+        ],
+        "visited": false,
+        "exits": {
+          "east": "floor6_room7"
+        }
+      },
+      "floor6_room4": {
+        "items": [
+          "weapon cache"
+        ],
+        "enemies": [
+          "stone golem",
+          "fire elemental"
+        ],
+        "visited": false,
+        "exits": {
+          "north": "floor6_room2"
+        }
+      },
+      "floor6_room5": {
+        "items": [],
+        "enemies": [
+          "stone golem"
+        ],
+        "visited": false,
+        "exits": {
+          "north": "floor6_room9",
+          "west": "floor6_room10",
+          "south": "floor6_room7"
+        }
+      },
+      "floor6_room6": {
+        "items": [
           "weapon cache",
-          "golden coin"
+          "elixir of life"
         ],
         "enemies": [
           "ice elemental",
@@ -924,12 +1058,88 @@
         ],
         "visited": false,
         "exits": {
-          "north": "floor6_room7",
-          "west": "floor6_boss",
-          "east": "floor6_room6"
+          "south": "floor6_boss",
+          "east": "floor6_room12",
+          "north": "floor6_room10"
         }
       },
-      "floor6_room3": {
+      "floor6_room7": {
+        "items": [
+          "power ring",
+          "weapon cache"
+        ],
+        "enemies": [
+          "lightning wisp",
+          "fire elemental"
+        ],
+        "visited": false,
+        "exits": {
+          "north": "floor6_room5",
+          "west": "floor6_room3"
+        }
+      },
+      "floor6_room8": {
+        "items": [
+          "primordial rune",
+          "legendary artifact"
+        ],
+        "enemies": [
+          "stone golem"
+        ],
+        "visited": false,
+        "exits": {
+          "north": "floor6_boss"
+        }
+      },
+      "floor6_room9": {
+        "items": [
+          "weapon cache",
+          "wisdom gem"
+        ],
+        "enemies": [
+          "ice elemental",
+          "lightning wisp"
+        ],
+        "visited": false,
+        "exits": {
+          "west": "floor6_start",
+          "north": "floor6_room11",
+          "south": "floor6_room5",
+          "east": "floor6_room1"
+        }
+      },
+      "floor6_room10": {
+        "items": [
+          "golden coin",
+          "weapon cache",
+          "experience gem"
+        ],
+        "enemies": [
+          "treasure guardian",
+          "fire elemental"
+        ],
+        "visited": false,
+        "exits": {
+          "east": "floor6_room5",
+          "south": "floor6_room6"
+        }
+      },
+      "floor6_room11": {
+        "items": [
+          "power ring",
+          "frozen artifact"
+        ],
+        "enemies": [
+          "ice elemental",
+          "fire elemental"
+        ],
+        "visited": false,
+        "exits": {
+          "south": "floor6_room9",
+          "east": "floor6_room2"
+        }
+      },
+      "floor6_room12": {
         "items": [
           "health potion",
           "golden coin"
@@ -939,95 +1149,7 @@
         ],
         "visited": false,
         "exits": {
-          "north": "floor6_room8"
-        }
-      },
-      "floor6_room4": {
-        "items": [
-          "golden coin",
-          "weapon cache",
-          "experience gem"
-        ],
-        "enemies": [
-          "treasure guardian",
-          "lightning wisp"
-        ],
-        "visited": false,
-        "exits": {
-          "west": "floor6_room6",
-          "north": "floor6_room5"
-        }
-      },
-      "floor6_room5": {
-        "items": [
-          "power ring",
-          "frozen artifact"
-        ],
-        "enemies": [
-          "lightning wisp",
-          "fire elemental"
-        ],
-        "visited": false,
-        "exits": {
-          "east": "floor6_room7",
-          "south": "floor6_room4"
-        }
-      },
-      "floor6_room6": {
-        "items": [
-          "weapon cache"
-        ],
-        "enemies": [
-          "lightning wisp",
-          "stone golem"
-        ],
-        "visited": false,
-        "exits": {
-          "north": "floor6_stairs",
-          "east": "floor6_room4",
-          "west": "floor6_room2"
-        }
-      },
-      "floor6_room7": {
-        "items": [],
-        "enemies": [
-          "stone golem"
-        ],
-        "visited": false,
-        "exits": {
-          "north": "floor6_start",
-          "south": "floor6_room2",
-          "west": "floor6_room5"
-        }
-      },
-      "floor6_room8": {
-        "items": [
-          "energy drink",
-          "power ring"
-        ],
-        "enemies": [
-          "fire elemental",
-          "lightning wisp"
-        ],
-        "visited": false,
-        "exits": {
-          "east": "floor6_room1",
-          "south": "floor6_room3"
-        }
-      },
-      "floor6_room9": {
-        "items": [
-          "weapon cache",
-          "elixir of life"
-        ],
-        "enemies": [
-          "lightning wisp",
-          "ice elemental"
-        ],
-        "visited": false,
-        "exits": {
-          "west": "floor6_start",
-          "north": "floor6_room1"
+          "west": "floor6_room6"
         }
       },
       "floor6_boss": {
@@ -1039,7 +1161,10 @@
         ],
         "visited": false,
         "exits": {
-          "east": "floor6_room2"
+          "east": "floor6_start",
+          "south": "floor6_room8",
+          "west": "floor6_stairs",
+          "north": "floor6_room6"
         }
       },
       "floor6_stairs": {
@@ -1047,8 +1172,7 @@
         "enemies": [],
         "visited": false,
         "exits": {
-          "east": "floor6_start",
-          "south": "floor6_room6",
+          "east": "floor6_boss",
           "down": "floor7_start"
         }
       }
@@ -1061,28 +1185,87 @@
         "enemies": [],
         "visited": false,
         "exits": {
-          "west": "floor7_room9",
-          "south": "floor7_room1",
-          "north": "floor7_room6",
+          "north": "floor7_stairs",
+          "south": "floor7_room4",
           "up": "floor6_stairs"
         }
       },
       "floor7_room1": {
         "items": [
-          "health potion",
-          "golden coin"
+          "demon seal",
+          "arcane pendant"
         ],
         "enemies": [
+          "lesser demon",
+          "shadow beast"
+        ],
+        "visited": false,
+        "exits": {
+          "south": "floor7_room2",
+          "east": "floor7_room6"
+        }
+      },
+      "floor7_room2": {
+        "items": [
+          "weapon cache"
+        ],
+        "enemies": [
+          "shadow beast",
           "lesser demon"
         ],
         "visited": false,
         "exits": {
-          "north": "floor7_start",
-          "east": "floor7_room7",
-          "south": "floor7_room2"
+          "west": "floor7_stairs",
+          "east": "floor7_boss",
+          "north": "floor7_room1"
         }
       },
-      "floor7_room2": {
+      "floor7_room3": {
+        "items": [
+          "demon seal",
+          "soul crystal"
+        ],
+        "enemies": [
+          "void spawn",
+          "shadow beast"
+        ],
+        "visited": false,
+        "exits": {
+          "north": "floor7_room4",
+          "south": "floor7_room6"
+        }
+      },
+      "floor7_room4": {
+        "items": [
+          "void essence",
+          "wisdom gem"
+        ],
+        "enemies": [
+          "shadow beast",
+          "dark cultist"
+        ],
+        "visited": false,
+        "exits": {
+          "north": "floor7_start",
+          "west": "floor7_room5",
+          "south": "floor7_room3"
+        }
+      },
+      "floor7_room5": {
+        "items": [
+          "void essence",
+          "legendary artifact"
+        ],
+        "enemies": [
+          "lesser demon",
+          "dark cultist"
+        ],
+        "visited": false,
+        "exits": {
+          "east": "floor7_room4"
+        }
+      },
+      "floor7_room6": {
         "items": [
           "golden coin",
           "weapon cache",
@@ -1090,113 +1273,54 @@
         ],
         "enemies": [
           "treasure guardian",
-          "dark cultist"
+          "shadow beast"
         ],
         "visited": false,
         "exits": {
-          "north": "floor7_room1"
-        }
-      },
-      "floor7_room3": {
-        "items": [
-          "demon seal",
-          "weapon cache"
-        ],
-        "enemies": [
-          "shadow beast",
-          "lesser demon"
-        ],
-        "visited": false,
-        "exits": {
-          "east": "floor7_room9",
-          "north": "floor7_room8",
-          "west": "floor7_room6"
-        }
-      },
-      "floor7_room4": {
-        "items": [],
-        "enemies": [
-          "void spawn"
-        ],
-        "visited": false,
-        "exits": {
-          "west": "floor7_room7"
-        }
-      },
-      "floor7_room5": {
-        "items": [
-          "demon seal",
-          "arcane pendant"
-        ],
-        "enemies": [
-          "shadow beast",
-          "dark cultist"
-        ],
-        "visited": false,
-        "exits": {
-          "north": "floor7_room7",
-          "south": "floor7_boss"
-        }
-      },
-      "floor7_room6": {
-        "items": [
-          "weapon cache",
-          "ultimate health potion"
-        ],
-        "enemies": [
-          "lesser demon",
-          "dark cultist"
-        ],
-        "visited": false,
-        "exits": {
-          "east": "floor7_room3",
-          "south": "floor7_start"
+          "north": "floor7_room3",
+          "west": "floor7_room1",
+          "south": "floor7_room7"
         }
       },
       "floor7_room7": {
+        "items": [],
+        "enemies": [
+          "shadow beast"
+        ],
+        "visited": false,
+        "exits": {
+          "east": "floor7_stairs",
+          "west": "floor7_room9",
+          "south": "floor7_room8",
+          "north": "floor7_room6"
+        }
+      },
+      "floor7_room8": {
+        "items": [
+          "ultimate health potion",
+          "soul crystal"
+        ],
+        "enemies": [
+          "dark cultist",
+          "shadow beast"
+        ],
+        "visited": false,
+        "exits": {
+          "north": "floor7_room7"
+        }
+      },
+      "floor7_room9": {
         "items": [
           "weapon cache",
           "golden coin"
         ],
         "enemies": [
-          "void spawn",
-          "lesser demon"
-        ],
-        "visited": false,
-        "exits": {
-          "west": "floor7_room1",
-          "south": "floor7_room5",
-          "north": "floor7_boss",
-          "east": "floor7_room4"
-        }
-      },
-      "floor7_room8": {
-        "items": [
-          "shadow cloak",
-          "soul crystal"
-        ],
-        "enemies": [
-          "lesser demon",
-          "dark cultist"
-        ],
-        "visited": false,
-        "exits": {
-          "south": "floor7_room3"
-        }
-      },
-      "floor7_room9": {
-        "items": [
-          "weapon cache"
-        ],
-        "enemies": [
           "lesser demon",
           "void spawn"
         ],
         "visited": false,
         "exits": {
-          "east": "floor7_start",
-          "west": "floor7_room3",
-          "south": "floor7_stairs"
+          "east": "floor7_room7"
         }
       },
       "floor7_boss": {
@@ -1208,8 +1332,7 @@
         ],
         "visited": false,
         "exits": {
-          "south": "floor7_room7",
-          "north": "floor7_room5"
+          "west": "floor7_room2"
         }
       },
       "floor7_stairs": {
@@ -1217,7 +1340,9 @@
         "enemies": [],
         "visited": false,
         "exits": {
-          "north": "floor7_room9",
+          "south": "floor7_start",
+          "west": "floor7_room7",
+          "east": "floor7_room2",
           "down": "floor8_start"
         }
       }
@@ -1230,86 +1355,120 @@
         "enemies": [],
         "visited": false,
         "exits": {
-          "north": "floor8_room2",
+          "north": "floor8_room6",
           "west": "floor8_room3",
-          "south": "floor8_room5",
-          "east": "floor8_room1",
+          "east": "floor8_room7",
           "up": "floor7_stairs"
         }
       },
       "floor8_room1": {
+        "items": [
+          "weapon cache"
+        ],
+        "enemies": [
+          "lesser demon",
+          "shadow beast"
+        ],
+        "visited": false,
+        "exits": {
+          "north": "floor8_room9",
+          "east": "floor8_room10"
+        }
+      },
+      "floor8_room2": {
+        "items": [
+          "demon seal",
+          "arcane pendant"
+        ],
+        "enemies": [
+          "lesser demon",
+          "shadow beast"
+        ],
+        "visited": false,
+        "exits": {
+          "east": "floor8_stairs",
+          "west": "floor8_room9",
+          "south": "floor8_room11"
+        }
+      },
+      "floor8_room3": {
+        "items": [
+          "void essence",
+          "weapon cache"
+        ],
+        "enemies": [
+          "dark cultist"
+        ],
+        "visited": false,
+        "exits": {
+          "east": "floor8_start",
+          "north": "floor8_room8"
+        }
+      },
+      "floor8_room4": {
+        "items": [
+          "primordial rune",
+          "legendary artifact"
+        ],
+        "enemies": [
+          "dark cultist"
+        ],
+        "visited": false,
+        "exits": {
+          "north": "floor8_room5"
+        }
+      },
+      "floor8_room5": {
+        "items": [
+          "void essence",
+          "legendary artifact"
+        ],
+        "enemies": [
+          "void spawn",
+          "dark cultist"
+        ],
+        "visited": false,
+        "exits": {
+          "west": "floor8_room6",
+          "east": "floor8_room8",
+          "south": "floor8_room4",
+          "north": "floor8_room10"
+        }
+      },
+      "floor8_room6": {
+        "items": [
+          "demon seal",
+          "arcane pendant"
+        ],
+        "enemies": [
+          "dark cultist",
+          "void spawn"
+        ],
+        "visited": false,
+        "exits": {
+          "south": "floor8_start",
+          "north": "floor8_stairs",
+          "east": "floor8_room5",
+          "west": "floor8_boss"
+        }
+      },
+      "floor8_room7": {
         "items": [
           "weapon cache",
           "golden coin"
         ],
         "enemies": [
           "dark cultist",
-          "lesser demon"
+          "shadow beast"
         ],
         "visited": false,
         "exits": {
-          "west": "floor8_start",
-          "south": "floor8_boss",
-          "north": "floor8_stairs"
+          "west": "floor8_start"
         }
       },
-      "floor8_room2": {
+      "floor8_room8": {
         "items": [
-          "health potion",
-          "golden coin"
-        ],
-        "enemies": [
-          "void spawn"
-        ],
-        "visited": false,
-        "exits": {
-          "south": "floor8_start",
-          "east": "floor8_room7"
-        }
-      },
-      "floor8_room3": {
-        "items": [],
-        "enemies": [
-          "dark cultist"
-        ],
-        "visited": false,
-        "exits": {
-          "east": "floor8_start"
-        }
-      },
-      "floor8_room4": {
-        "items": [
-          "weapon cache"
-        ],
-        "enemies": [
-          "shadow beast",
-          "dark cultist"
-        ],
-        "visited": false,
-        "exits": {
-          "north": "floor8_boss"
-        }
-      },
-      "floor8_room5": {
-        "items": [
-          "golden coin",
-          "weapon cache",
-          "experience gem"
-        ],
-        "enemies": [
-          "treasure guardian",
-          "dark cultist"
-        ],
-        "visited": false,
-        "exits": {
-          "north": "floor8_start",
-          "south": "floor8_room9",
-          "west": "floor8_room6"
-        }
-      },
-      "floor8_room6": {
-        "items": [
-          "shadow cloak",
+          "demon seal",
           "soul crystal"
         ],
         "enemies": [
@@ -1318,52 +1477,51 @@
         ],
         "visited": false,
         "exits": {
-          "east": "floor8_room5"
-        }
-      },
-      "floor8_room7": {
-        "items": [
-          "demon seal",
-          "weapon cache"
-        ],
-        "enemies": [
-          "lesser demon",
-          "void spawn"
-        ],
-        "visited": false,
-        "exits": {
-          "west": "floor8_room2"
-        }
-      },
-      "floor8_room8": {
-        "items": [
-          "demon seal",
-          "arcane pendant"
-        ],
-        "enemies": [
-          "shadow beast",
-          "void spawn"
-        ],
-        "visited": false,
-        "exits": {
-          "west": "floor8_room9",
-          "east": "floor8_boss"
+          "west": "floor8_room5",
+          "south": "floor8_room3"
         }
       },
       "floor8_room9": {
         "items": [
-          "weapon cache",
-          "ultimate health potion"
+          "ultimate health potion",
+          "soul crystal"
         ],
         "enemies": [
-          "void spawn",
-          "lesser demon"
+          "lesser demon",
+          "dark cultist"
         ],
         "visited": false,
         "exits": {
-          "north": "floor8_room5",
-          "east": "floor8_room8",
-          "west": "floor8_boss"
+          "east": "floor8_room2",
+          "south": "floor8_room1"
+        }
+      },
+      "floor8_room10": {
+        "items": [
+          "health potion",
+          "golden coin"
+        ],
+        "enemies": [
+          "shadow beast"
+        ],
+        "visited": false,
+        "exits": {
+          "south": "floor8_room5",
+          "west": "floor8_room1"
+        }
+      },
+      "floor8_room11": {
+        "items": [
+          "shadow cloak",
+          "health potion"
+        ],
+        "enemies": [
+          "lesser demon",
+          "shadow beast"
+        ],
+        "visited": false,
+        "exits": {
+          "north": "floor8_room2"
         }
       },
       "floor8_boss": {
@@ -1375,10 +1533,7 @@
         ],
         "visited": false,
         "exits": {
-          "north": "floor8_room1",
-          "south": "floor8_room4",
-          "west": "floor8_room8",
-          "east": "floor8_room9"
+          "east": "floor8_room6"
         }
       },
       "floor8_stairs": {
@@ -1386,7 +1541,8 @@
         "enemies": [],
         "visited": false,
         "exits": {
-          "south": "floor8_room1",
+          "south": "floor8_room6",
+          "west": "floor8_room2",
           "down": "floor9_start"
         }
       }
@@ -1399,132 +1555,61 @@
         "enemies": [],
         "visited": false,
         "exits": {
-          "west": "floor9_room4",
-          "north": "floor9_room6",
-          "east": "floor9_room3",
-          "south": "floor9_room7",
+          "north": "floor9_boss",
+          "west": "floor9_room1",
+          "south": "floor9_room3",
+          "east": "floor9_room4",
           "up": "floor8_stairs"
         }
       },
       "floor9_room1": {
         "items": [
-          "void essence",
-          "ultimate health potion"
+          "crystal shard",
+          "energy drink"
         ],
         "enemies": [
-          "cosmic horror",
-          "ancient guardian"
+          "cosmic horror"
         ],
         "visited": false,
         "exits": {
-          "east": "floor9_room6"
+          "east": "floor9_start",
+          "south": "floor9_room6",
+          "west": "floor9_room2"
         }
       },
       "floor9_room2": {
         "items": [
-          "weapon cache"
-        ],
-        "enemies": [
-          "celestial knight",
-          "titan spawn"
-        ],
-        "visited": false,
-        "exits": {
-          "west": "floor9_room9",
-          "south": "floor9_room3"
-        }
-      },
-      "floor9_room3": {
-        "items": [],
-        "enemies": [
-          "titan spawn"
-        ],
-        "visited": false,
-        "exits": {
-          "west": "floor9_start",
-          "north": "floor9_room2"
-        }
-      },
-      "floor9_room4": {
-        "items": [
-          "golden coin",
-          "weapon cache",
-          "experience gem"
-        ],
-        "enemies": [
-          "treasure guardian",
-          "ancient guardian"
-        ],
-        "visited": false,
-        "exits": {
-          "east": "floor9_start"
-        }
-      },
-      "floor9_room5": {
-        "items": [
-          "primordial rune",
-          "titan gauntlet"
-        ],
-        "enemies": [
-          "celestial knight",
-          "cosmic horror"
-        ],
-        "visited": false,
-        "exits": {
-          "east": "floor9_room8",
-          "north": "floor9_room9"
-        }
-      },
-      "floor9_room6": {
-        "items": [
-          "weapon cache",
-          "golden coin"
+          "demon seal",
+          "soul crystal"
         ],
         "enemies": [
           "cosmic horror",
-          "ancient guardian"
+          "celestial knight"
         ],
         "visited": false,
         "exits": {
-          "south": "floor9_start",
-          "west": "floor9_room1",
-          "north": "floor9_room8"
+          "east": "floor9_room1",
+          "north": "floor9_room5"
         }
       },
-      "floor9_room7": {
+      "floor9_room3": {
         "items": [
-          "health potion",
-          "golden coin"
+          "void essence",
+          "primordial rune"
         ],
         "enemies": [
-          "cosmic horror"
+          "ancient guardian",
+          "titan spawn"
         ],
         "visited": false,
         "exits": {
           "north": "floor9_start"
         }
       },
-      "floor9_room8": {
+      "floor9_room4": {
         "items": [
           "soul crystal",
-          "legendary artifact"
-        ],
-        "enemies": [
-          "cosmic horror",
-          "ancient guardian"
-        ],
-        "visited": false,
-        "exits": {
-          "south": "floor9_room6",
-          "west": "floor9_room5",
-          "north": "floor9_boss",
-          "east": "floor9_stairs"
-        }
-      },
-      "floor9_room9": {
-        "items": [
-          "weapon cache",
-          "wisdom gem"
+          "experience gem"
         ],
         "enemies": [
           "ancient guardian",
@@ -1532,9 +1617,80 @@
         ],
         "visited": false,
         "exits": {
-          "south": "floor9_room5",
-          "north": "floor9_stairs",
-          "east": "floor9_room2"
+          "west": "floor9_start",
+          "south": "floor9_room7"
+        }
+      },
+      "floor9_room5": {
+        "items": [
+          "weapon cache",
+          "wisdom gem"
+        ],
+        "enemies": [
+          "cosmic horror",
+          "titan spawn"
+        ],
+        "visited": false,
+        "exits": {
+          "south": "floor9_room2",
+          "east": "floor9_stairs",
+          "north": "floor9_room9",
+          "west": "floor9_room8"
+        }
+      },
+      "floor9_room6": {
+        "items": [
+          "wisdom gem",
+          "legendary artifact"
+        ],
+        "enemies": [
+          "celestial knight",
+          "cosmic horror"
+        ],
+        "visited": false,
+        "exits": {
+          "north": "floor9_room1",
+          "east": "floor9_room8"
+        }
+      },
+      "floor9_room7": {
+        "items": [
+          "void essence",
+          "ultimate health potion"
+        ],
+        "enemies": [
+          "titan spawn",
+          "cosmic horror"
+        ],
+        "visited": false,
+        "exits": {
+          "north": "floor9_room4"
+        }
+      },
+      "floor9_room8": {
+        "items": [],
+        "enemies": [
+          "cosmic horror"
+        ],
+        "visited": false,
+        "exits": {
+          "west": "floor9_room6",
+          "east": "floor9_room5"
+        }
+      },
+      "floor9_room9": {
+        "items": [
+          "weapon cache",
+          "weapon cache"
+        ],
+        "enemies": [
+          "ancient guardian",
+          "titan spawn"
+        ],
+        "visited": false,
+        "exits": {
+          "east": "floor9_boss",
+          "south": "floor9_room5"
         }
       },
       "floor9_boss": {
@@ -1546,7 +1702,9 @@
         ],
         "visited": false,
         "exits": {
-          "south": "floor9_room8"
+          "south": "floor9_start",
+          "west": "floor9_room9",
+          "north": "floor9_stairs"
         }
       },
       "floor9_stairs": {
@@ -1554,8 +1712,8 @@
         "enemies": [],
         "visited": false,
         "exits": {
-          "south": "floor9_room9",
-          "west": "floor9_room8",
+          "south": "floor9_boss",
+          "west": "floor9_room5",
           "down": "floor10_start"
         }
       }
@@ -1568,134 +1726,27 @@
         "enemies": [],
         "visited": false,
         "exits": {
-          "east": "floor10_room5",
+          "south": "floor10_room8",
           "north": "floor10_boss",
+          "west": "floor10_room7",
           "up": "floor9_stairs"
         }
       },
       "floor10_room1": {
-        "items": [
-          "weapon cache",
-          "wisdom gem"
-        ],
+        "items": [],
         "enemies": [
-          "celestial knight",
-          "titan spawn"
+          "celestial knight"
         ],
         "visited": false,
         "exits": {
-          "west": "floor10_room5",
-          "east": "floor10_room6",
-          "north": "floor10_room4"
+          "west": "floor10_boss",
+          "south": "floor10_room6"
         }
       },
       "floor10_room2": {
         "items": [
-          "weapon cache",
-          "golden coin"
-        ],
-        "enemies": [
-          "titan spawn",
-          "celestial knight"
-        ],
-        "visited": false,
-        "exits": {
-          "east": "floor10_room8",
-          "north": "floor10_room6",
-          "west": "floor10_room9"
-        }
-      },
-      "floor10_room3": {
-        "items": [
-          "soul crystal",
-          "legendary artifact"
-        ],
-        "enemies": [
-          "ancient guardian",
-          "celestial knight"
-        ],
-        "visited": false,
-        "exits": {
-          "east": "floor10_boss",
-          "north": "floor10_room9"
-        }
-      },
-      "floor10_room4": {
-        "items": [
-          "health potion",
-          "golden coin"
-        ],
-        "enemies": [
-          "ancient guardian"
-        ],
-        "visited": false,
-        "exits": {
-          "south": "floor10_room1",
-          "west": "floor10_room6"
-        }
-      },
-      "floor10_room5": {
-        "items": [
           "void essence",
           "ultimate health potion"
-        ],
-        "enemies": [
-          "cosmic horror",
-          "titan spawn"
-        ],
-        "visited": false,
-        "exits": {
-          "west": "floor10_start",
-          "south": "floor10_room7",
-          "east": "floor10_room1",
-          "north": "floor10_room8"
-        }
-      },
-      "floor10_room6": {
-        "items": [
-          "golden coin",
-          "weapon cache",
-          "experience gem"
-        ],
-        "enemies": [
-          "treasure guardian",
-          "celestial knight"
-        ],
-        "visited": false,
-        "exits": {
-          "west": "floor10_room1",
-          "south": "floor10_room2",
-          "east": "floor10_room4"
-        }
-      },
-      "floor10_room7": {
-        "items": [
-          "primordial rune",
-          "titan gauntlet"
-        ],
-        "enemies": [
-          "ancient guardian",
-          "celestial knight"
-        ],
-        "visited": false,
-        "exits": {
-          "north": "floor10_room5"
-        }
-      },
-      "floor10_room8": {
-        "items": [],
-        "enemies": [
-          "ancient guardian"
-        ],
-        "visited": false,
-        "exits": {
-          "south": "floor10_room5",
-          "west": "floor10_room2"
-        }
-      },
-      "floor10_room9": {
-        "items": [
-          "weapon cache"
         ],
         "enemies": [
           "celestial knight",
@@ -1703,8 +1754,93 @@
         ],
         "visited": false,
         "exits": {
-          "south": "floor10_room3",
-          "east": "floor10_room2"
+          "east": "floor10_room8"
+        }
+      },
+      "floor10_room3": {
+        "items": [
+          "weapon cache",
+          "weapon cache"
+        ],
+        "enemies": [
+          "ancient guardian",
+          "titan spawn"
+        ],
+        "visited": false,
+        "exits": {
+          "north": "floor10_room7",
+          "east": "floor10_room6"
+        }
+      },
+      "floor10_room4": {
+        "items": [
+          "void essence",
+          "primordial rune"
+        ],
+        "enemies": [
+          "ancient guardian",
+          "cosmic horror"
+        ],
+        "visited": false,
+        "exits": {
+          "east": "floor10_boss"
+        }
+      },
+      "floor10_room5": {
+        "items": [
+          "weapon cache",
+          "wisdom gem"
+        ],
+        "enemies": [
+          "titan spawn",
+          "celestial knight"
+        ],
+        "visited": false,
+        "exits": {
+          "south": "floor10_boss"
+        }
+      },
+      "floor10_room6": {
+        "items": [
+          "soul crystal",
+          "legendary artifact"
+        ],
+        "enemies": [
+          "ancient guardian",
+          "titan spawn"
+        ],
+        "visited": false,
+        "exits": {
+          "west": "floor10_room3",
+          "north": "floor10_room1"
+        }
+      },
+      "floor10_room7": {
+        "items": [
+          "void essence",
+          "weapon cache"
+        ],
+        "enemies": [
+          "titan spawn"
+        ],
+        "visited": false,
+        "exits": {
+          "east": "floor10_start",
+          "south": "floor10_room3"
+        }
+      },
+      "floor10_room8": {
+        "items": [
+          "primordial rune",
+          "legendary artifact"
+        ],
+        "enemies": [
+          "ancient guardian"
+        ],
+        "visited": false,
+        "exits": {
+          "north": "floor10_start",
+          "west": "floor10_room2"
         }
       },
       "floor10_boss": {
@@ -1717,7 +1853,9 @@
         "visited": false,
         "exits": {
           "south": "floor10_start",
-          "west": "floor10_room3"
+          "west": "floor10_room4",
+          "north": "floor10_room5",
+          "east": "floor10_room1"
         }
       }
     }

@@ -1,123 +1,70 @@
 {
-  "version": "7.0.2",
+  "version": "7.5.2",
   "player": {
-    "name": "Jessie",
-    "character_class": "rogue",
+    "name": "Yandhi",
+    "character_class": "mage",
     "class_tier": 4,
-    "level": 13,
-    "experience": 641,
-    "experience_to_next": 5062,
+    "level": 12,
+    "experience": 3799,
+    "experience_to_next": 3889,
     "stats": {
-      "strength": 134,
-      "intelligence": 77,
-      "agility": 111,
-      "luck": 76,
-      "vitality": 58,
-      "arcane": 41,
-      "faith": 41
+      "strength": 49,
+      "intelligence": 81,
+      "agility": 42,
+      "luck": 44,
+      "vitality": 31,
+      "arcane": 57,
+      "faith": 26,
+      "lust": 26
     },
-    "health": 334,
-    "max_health": 334,
-    "mana": 215,
-    "max_mana": 215,
+    "health": 258,
+    "max_health": 258,
+    "mana": 335,
+    "max_mana": 335,
     "inventory": [
       "legendary artifact",
-      "legendary artifact",
-      "health potion",
-      "ultimate health potion",
+      "magic scroll",
+      "ice crystal",
+      "magic scroll",
       "elixir of life",
-      "health potion",
-      "health potion",
       "demon seal",
-      "swift boots",
-      "WEAPON: Shadow's Doom",
-      "demon seal",
-      "shadow cloak",
-      "arcane pendant",
-      "WEAPON: Soul Piercer",
-      "WEAPON: Void Archon's Claw",
-      "swift boots",
-      "WEAPON: Ancient Claw Dagger",
+      "primordial rune",
+      "vibrating butt plug",
+      "legendary artifact",
+      "WEAPON: Eternal Wand",
+      "WEAPON: Divine Staff",
+      "WEAPON: Beast King's Scepter",
+      "WEAPON: Infernal Crystal",
+      "WEAPON: The Eternal Splooger",
       "health potion",
+      "vitality tonic",
+      "WEAPON: Master Orb",
+      "WEAPON: Godforged Orb",
       "rusty key",
-      "rusty key",
-      "power ring",
-      "WEAPON: Undying Edge",
-      "WEAPON: Primordial Claws"
+      "rusty key"
     ],
     "inventory_weapons": [
       {
-        "name": "Shadow's Doom",
-        "damage": 152,
-        "type": "stealth",
+        "name": "The Eternal Splooger",
+        "damage": 68,
+        "type": "melee",
         "rarity": "mythic",
-        "base_name": "Shadow's Doom",
-        "tier_label": "INSANE",
+        "base_name": "The Eternal Splooger",
         "traits": [
-          "bleeding"
-        ]
-      },
-      {
-        "name": "Soul Piercer",
-        "damage": 200,
-        "type": "stealth",
-        "rarity": "legendary",
-        "base_name": "Soul Piercer",
-        "tier_label": "GOOD",
-        "traits": [
-          "bleeding"
-        ]
-      },
-      {
-        "name": "Void Archon's Claw",
-        "damage": 325,
-        "type": "stealth",
-        "rarity": "legendary",
-        "base_name": "Void Archon's Claw",
-        "tier_label": "GREAT",
-        "traits": [
-          "bleeding"
-        ]
-      },
-      {
-        "name": "Ancient Claw Dagger",
-        "damage": 448,
-        "type": "stealth",
-        "rarity": "legendary",
-        "base_name": "Ancient Claw Dagger",
-        "tier_label": "GOOD",
-        "traits": [
-          "swift"
-        ]
-      },
-      {
-        "name": "Undying Edge",
-        "damage": 65,
-        "type": "stealth",
-        "rarity": "mythic",
-        "base_name": "Undying Edge",
-        "tier_label": "INSANE"
-      },
-      {
-        "name": "Primordial Claws",
-        "damage": 105,
-        "type": "stealth",
-        "rarity": "legendary",
-        "base_name": "Primordial Claws",
-        "traits": [
-          "venomous"
+          "splooge",
+          "vampiric"
         ]
       }
     ],
     "weapon": {
-      "name": "Reality Breaker's Claw",
-      "damage": 757,
-      "type": "stealth",
+      "name": "Cosmos Staff",
+      "damage": 201,
+      "type": "magic",
       "rarity": "legendary",
-      "base_name": "Reality Breaker's Claw",
-      "tier_label": "GREAT",
+      "base_name": "Cosmos Staff",
+      "tier_label": "GOOD",
       "traits": [
-        "swift"
+        "venomous"
       ]
     },
     "wearables": [
@@ -132,11 +79,26 @@
         "bonus": 5
       },
       {
+        "item": "armor piece",
+        "stat": "strength",
+        "bonus": 5
+      },
+      {
+        "item": "armor piece",
+        "stat": "strength",
+        "bonus": 5
+      },
+      {
         "item": "cursed amulet",
         "stat": "intelligence",
         "bonus": 3
       },
       {
+        "item": "armor piece",
+        "stat": "strength",
+        "bonus": 5
+      },
+      {
         "item": "power ring",
         "stat": "strength",
         "bonus": 4
@@ -147,6 +109,16 @@
         "bonus": 3
       },
       {
+        "item": "arcane pendant",
+        "stat": "intelligence",
+        "bonus": 6
+      },
+      {
+        "item": "power ring",
+        "stat": "strength",
+        "bonus": 4
+      },
+      {
         "item": "power ring",
         "stat": "strength",
         "bonus": 4
@@ -160,6 +132,71 @@
         "item": "power ring",
         "stat": "strength",
         "bonus": 4
+      },
+      {
+        "item": "power ring",
+        "stat": "strength",
+        "bonus": 4
+      },
+      {
+        "item": "titan gauntlet",
+        "stat": "strength",
+        "bonus": 7
+      },
+      {
+        "item": "power ring",
+        "stat": "strength",
+        "bonus": 4
+      },
+      {
+        "item": "arcane pendant",
+        "stat": "intelligence",
+        "bonus": 6
+      },
+      {
+        "item": "power ring",
+        "stat": "strength",
+        "bonus": 4
+      },
+      {
+        "item": "power ring",
+        "stat": "strength",
+        "bonus": 4
+      },
+      {
+        "item": "power ring",
+        "stat": "strength",
+        "bonus": 4
+      },
+      {
+        "item": "power ring",
+        "stat": "strength",
+        "bonus": 4
+      },
+      {
+        "item": "power ring",
+        "stat": "strength",
+        "bonus": 4
+      },
+      {
+        "item": "power ring",
+        "stat": "strength",
+        "bonus": 4
+      },
+      {
+        "item": "titan gauntlet",
+        "stat": "strength",
+        "bonus": 7
+      },
+      {
+        "item": "arcane pendant",
+        "stat": "intelligence",
+        "bonus": 6
+      },
+      {
+        "item": "arcane pendant",
+        "stat": "intelligence",
+        "bonus": 6
       },
       {
         "item": "power ring",
@@ -175,159 +212,48 @@
         "item": "arcane pendant",
         "stat": "intelligence",
         "bonus": 6
-      },
-      {
-        "item": "power ring",
-        "stat": "strength",
-        "bonus": 4
-      },
-      {
-        "item": "arcane pendant",
-        "stat": "intelligence",
-        "bonus": 6
-      },
-      {
-        "item": "cursed amulet",
-        "stat": "intelligence",
-        "bonus": 3
-      },
-      {
-        "item": "arcane pendant",
-        "stat": "intelligence",
-        "bonus": 6
-      },
-      {
-        "item": "titan gauntlet",
-        "stat": "strength",
-        "bonus": 7
-      },
-      {
-        "item": "power ring",
-        "stat": "strength",
-        "bonus": 4
-      },
-      {
-        "item": "power ring",
-        "stat": "strength",
-        "bonus": 4
-      },
-      {
-        "item": "power ring",
-        "stat": "strength",
-        "bonus": 4
-      },
-      {
-        "item": "power ring",
-        "stat": "strength",
-        "bonus": 4
-      },
-      {
-        "item": "power ring",
-        "stat": "strength",
-        "bonus": 4
-      },
-      {
-        "item": "titan gauntlet",
-        "stat": "strength",
-        "bonus": 7
-      },
-      {
-        "item": "power ring",
-        "stat": "strength",
-        "bonus": 4
-      },
-      {
-        "item": "power ring",
-        "stat": "strength",
-        "bonus": 4
-      },
-      {
-        "item": "power ring",
-        "stat": "strength",
-        "bonus": 4
-      },
-      {
-        "item": "shadow cloak",
-        "stat": "agility",
-        "bonus": 6
-      },
-      {
-        "item": "arcane pendant",
-        "stat": "intelligence",
-        "bonus": 6
-      },
-      {
-        "item": "titan gauntlet",
-        "stat": "strength",
-        "bonus": 7
-      },
-      {
-        "item": "titan gauntlet",
-        "stat": "strength",
-        "bonus": 7
-      },
-      {
-        "item": "titan gauntlet",
-        "stat": "strength",
-        "bonus": 7
-      },
-      {
-        "item": "titan gauntlet",
-        "stat": "strength",
-        "bonus": 7
-      },
-      {
-        "item": "titan gauntlet",
-        "stat": "strength",
-        "bonus": 7
-      },
-      {
-        "item": "swift boots",
-        "stat": "agility",
-        "bonus": 5
-      },
-      {
-        "item": "armor piece",
-        "stat": "strength",
-        "bonus": 5
-      },
-      {
-        "item": "power ring",
-        "stat": "strength",
-        "bonus": 4
       }
     ],
-    "max_inventory": 26,
-    "current_floor": 1,
-    "current_room": "floor1_boss",
+    "max_inventory": 22,
+    "current_floor": 2,
+    "current_room": "floor2_start",
     "visited_rooms": [
+      "floor2_start",
+      "floor1_room3",
+      "floor1_room4",
+      "floor1_room5",
+      "floor1_boss",
+      "floor1_stairs",
       "start",
+      "floor1_room6",
       "floor1_room7",
       "floor1_room2",
-      "floor1_room3",
       "floor1_room8",
-      "floor1_boss",
-      "floor1_room5"
+      "floor1_room1"
     ],
     "bosses_defeated": [
-      "The First Abbot"
+      "The Tide Warden"
     ],
     "rarity_boost": 0.15000000000000002,
-    "gold_coins": 95,
+    "gold_coins": 578,
     "secret_room_unlocked": false,
     "special_items": [
       "old map"
     ],
-    "unique_items_spawned": [],
-    "ng_plus": 1,
-    "ng_world": "plague_cathedral",
-    "item_hints_shown": [
-      "rusty key",
-      "demon seal"
+    "unique_items_spawned": [
+      "journal_3",
+      "journal_4",
+      "journal_5",
+      "journal_2",
+      "journal_1"
     ],
+    "ng_plus": 1,
+    "ng_world": "drowned_kingdom",
+    "item_hints_shown": [],
+    "status_effects": {},
     "fusion_parents": [],
-    "ng_weapon_scale": 3.44,
-    "total_gold_earned": 51
+    "ng_weapon_scale": 1.0,
+    "total_gold_earned": 482
   },
   "floors": {
     "1": {
@@ -336,130 +262,117 @@
         "enemies": [],
         "visited": true,
         "exits": {
-          "north": "floor1_room3",
-          "west": "floor1_room7",
-          "south": "floor1_stairs"
+          "south": "floor1_room5",
+          "west": "floor1_room6"
         }
       },
       "floor1_room1": {
         "items": [
-          "armor piece"
-        ],
-        "enemies": [
-          "plague rat",
-          "plague monk"
-        ],
-        "visited": false,
-        "exits": {
-          "south": "floor1_room3"
-        }
-      },
-      "floor1_room2": {
-        "items": [],
-        "enemies": [],
-        "visited": true,
-        "exits": {
-          "south": "floor1_room8"
-        }
-      },
-      "floor1_room3": {
-        "items": [
-          "health potion",
-          "weapon cache",
           "weapon cache"
         ],
         "enemies": [],
         "visited": true,
         "exits": {
-          "south": "start",
-          "east": "floor1_boss",
-          "west": "floor1_room6",
-          "north": "floor1_room1"
+          "south": "floor1_room6"
+        }
+      },
+      "floor1_room2": {
+        "items": [
+          "armor piece",
+          "energy drink",
+          "weapon cache"
+        ],
+        "enemies": [],
+        "visited": true,
+        "exits": {
+          "west": "floor1_room8"
+        }
+      },
+      "floor1_room3": {
+        "items": [
+          "magic scroll"
+        ],
+        "enemies": [],
+        "visited": true,
+        "exits": {
+          "north": "floor1_room6"
         }
       },
       "floor1_room4": {
         "items": [
           "weapon cache"
         ],
-        "enemies": [
-          "plague monk",
-          "plague rat"
-        ],
-        "visited": false,
+        "enemies": [],
+        "visited": true,
         "exits": {
-          "north": "floor1_stairs"
+          "west": "floor1_stairs",
+          "north": "floor1_room7"
         }
       },
       "floor1_room5": {
         "items": [
+          "weapon cache",
           "weapon cache"
         ],
         "enemies": [],
         "visited": true,
         "exits": {
-          "west": "floor1_room8",
-          "east": "floor1_room7",
-          "south": "floor1_boss"
+          "north": "start",
+          "south": "floor1_boss",
+          "east": "floor1_room7"
         }
       },
       "floor1_room6": {
         "items": [
-          "weapon cache",
-          "experience gem"
-        ],
-        "enemies": [
-          "plague monk",
-          "plague rat"
-        ],
-        "visited": false,
-        "exits": {
-          "east": "floor1_room3"
-        }
-      },
-      "floor1_room7": {
-        "items": [
-          "health potion",
-          "golden coin",
           "weapon cache"
         ],
         "enemies": [],
         "visited": true,
         "exits": {
           "east": "start",
-          "north": "floor1_room8",
-          "west": "floor1_room5"
+          "south": "floor1_room3",
+          "north": "floor1_room1"
         }
       },
-      "floor1_room8": {
+      "floor1_room7": {
         "items": [
+          "golden coin",
+          "weapon cache",
           "weapon cache"
         ],
         "enemies": [],
         "visited": true,
         "exits": {
-          "south": "floor1_room7",
-          "north": "floor1_room2",
-          "east": "floor1_room5"
+          "west": "floor1_room5",
+          "south": "floor1_room4"
         }
       },
-      "floor1_boss": {
-        "items": [
-          "ultimate health potion"
-        ],
+      "floor1_room8": {
+        "items": [],
         "enemies": [],
         "visited": true,
         "exits": {
-          "west": "floor1_room3",
-          "north": "floor1_room5"
+          "west": "floor1_boss",
+          "east": "floor1_room2"
+        }
+      },
+      "floor1_boss": {
+        "items": [],
+        "enemies": [],
+        "visited": true,
+        "exits": {
+          "north": "floor1_room5",
+          "east": "floor1_room8",
+          "south": "floor1_stairs"
         }
       },
       "floor1_stairs": {
         "items": [],
         "enemies": [],
-        "visited": false,
+        "visited": true,
         "exits": {
-          "north": "start",
-          "south": "floor1_room4",
+          "north": "floor1_boss",
+          "east": "floor1_room4",
           "down": "floor2_start"
         }
       }
@@ -470,125 +383,129 @@
           "health potion"
         ],
         "enemies": [],
-        "visited": false,
+        "visited": true,
         "exits": {
           "north": "floor2_room1",
-          "west": "floor2_room2",
+          "south": "floor2_room8",
+          "east": "floor2_room3",
+          "west": "floor2_room5",
           "up": "floor1_stairs"
         }
       },
       "floor2_room1": {
         "items": [
-          "rusty key",
-          "power ring"
+          "weapon cache"
         ],
         "enemies": [
-          "plague rat",
-          "plague monk"
+          "drowned soldier",
+          "coral horror"
         ],
         "visited": false,
         "exits": {
           "south": "floor2_start",
-          "west": "floor2_room5",
-          "north": "floor2_stairs",
-          "east": "floor2_boss"
+          "west": "floor2_room2"
         }
       },
       "floor2_room2": {
         "items": [
-          "weapon cache"
-        ],
-        "enemies": [
-          "plague rat",
-          "plague monk"
-        ],
-        "visited": false,
-        "exits": {
-          "east": "floor2_start"
-        }
-      },
-      "floor2_room3": {
-        "items": [
-          "golden coin"
-        ],
-        "enemies": [
-          "plague monk",
-          "plague rat"
-        ],
-        "visited": false,
-        "exits": {
-          "east": "floor2_stairs",
-          "west": "floor2_room7"
-        }
-      },
-      "floor2_room4": {
-        "items": [
           "experience gem"
         ],
         "enemies": [
-          "plague rat",
-          "plague monk"
-        ],
-        "visited": false,
-        "exits": {
-          "north": "floor2_room8"
-        }
-      },
-      "floor2_room5": {
-        "items": [
-          "armor piece"
-        ],
-        "enemies": [
-          "diseased knight",
-          "plague rat"
+          "coral horror",
+          "tide crawler"
         ],
         "visited": false,
         "exits": {
           "east": "floor2_room1",
+          "north": "floor2_room7"
+        }
+      },
+      "floor2_room3": {
+        "items": [
+          "weapon cache"
+        ],
+        "enemies": [
+          "coral horror",
+          "tide crawler"
+        ],
+        "visited": false,
+        "exits": {
+          "west": "floor2_start",
+          "south": "floor2_room4"
+        }
+      },
+      "floor2_room4": {
+        "items": [
+          "armor piece"
+        ],
+        "enemies": [
+          "coral horror",
+          "tide crawler"
+        ],
+        "visited": false,
+        "exits": {
+          "north": "floor2_room3"
+        }
+      },
+      "floor2_room5": {
+        "items": [
+          "golden coin"
+        ],
+        "enemies": [
+          "coral horror",
+          "drowned soldier"
+        ],
+        "visited": false,
+        "exits": {
+          "east": "floor2_start",
           "west": "floor2_room6"
         }
       },
       "floor2_room6": {
         "items": [
-          "weapon cache",
-          "experience gem"
+          "rusty key",
+          "power ring"
         ],
         "enemies": [
-          "diseased knight",
-          "plague monk"
+          "tide crawler",
+          "coral horror"
         ],
         "visited": false,
         "exits": {
-          "east": "floor2_room5",
-          "south": "floor2_stairs"
+          "east": "floor2_room5"
         }
       },
       "floor2_room7": {
         "items": [
-          "rusty key",
-          "armor piece"
+          "weapon cache",
+          "experience gem"
         ],
         "enemies": [
-          "plague monk",
-          "diseased knight"
+          "tide crawler",
+          "drowned soldier"
         ],
         "visited": false,
         "exits": {
-          "east": "floor2_room3"
+          "west": "floor2_room8",
+          "south": "floor2_room2"
         }
       },
       "floor2_room8": {
         "items": [
-          "weapon cache"
+          "rusty key",
+          "armor piece",
+          "journal_1"
         ],
         "enemies": [
-          "diseased knight",
-          "plague monk"
+          "tide crawler",
+          "coral horror"
         ],
         "visited": false,
         "exits": {
+          "north": "floor2_start",
           "west": "floor2_stairs",
-          "south": "floor2_room4"
+          "east": "floor2_room7",
+          "south": "floor2_boss"
         }
       },
       "floor2_boss": {
@@ -596,11 +513,11 @@
           "ultimate health potion"
         ],
         "enemies": [
-          "The Plague Bishop"
+          "The Drowned Admiral"
         ],
         "visited": false,
         "exits": {
-          "west": "floor2_room1"
+          "north": "floor2_room8"
         }
       },
       "floor2_stairs": {
@@ -608,10 +525,7 @@
         "enemies": [],
         "visited": false,
         "exits": {
-          "south": "floor2_room1",
-          "west": "floor2_room3",
           "east": "floor2_room8",
-          "north": "floor2_room6",
           "down": "floor3_start"
         }
       }
@@ -624,127 +538,127 @@
         "enemies": [],
         "visited": false,
         "exits": {
-          "east": "floor3_room8",
-          "north": "floor3_room6",
-          "south": "floor3_stairs",
-          "west": "floor3_room4",
+          "east": "floor3_boss",
+          "west": "floor3_stairs",
+          "north": "floor3_room2",
           "up": "floor2_stairs"
         }
       },
       "floor3_room1": {
         "items": [
-          "wisdom gem",
-          "weapon cache"
+          "weapon cache",
+          "arcane pendant"
         ],
         "enemies": [
-          "plague inquisitor",
-          "diseased knight"
+          "sea wraith",
+          "coral horror"
         ],
         "visited": false,
         "exits": {
-          "east": "floor3_room3"
+          "east": "floor3_room7",
+          "north": "floor3_stairs"
         }
       },
       "floor3_room2": {
         "items": [
           "soul crystal",
-          "ultimate health potion"
+          "weapon cache"
         ],
         "enemies": [
-          "rot wraith",
-          "plague inquisitor"
+          "depth stalker",
+          "sea wraith"
         ],
         "visited": false,
         "exits": {
-          "west": "floor3_room5",
-          "east": "floor3_room7"
+          "south": "floor3_start",
+          "west": "floor3_room8",
+          "east": "floor3_room4",
+          "north": "floor3_room7"
         }
       },
       "floor3_room3": {
         "items": [
+          "health potion",
           "wisdom gem"
         ],
         "enemies": [
-          "plague inquisitor",
-          "rot wraith"
+          "coral horror",
+          "sea wraith"
         ],
         "visited": false,
         "exits": {
-          "north": "floor3_room8",
-          "west": "floor3_room1"
+          "north": "floor3_boss"
         }
       },
       "floor3_room4": {
-        "items": [
-          "magic scroll",
-          "arcane pendant"
-        ],
-        "enemies": [
-          "rot wraith",
-          "diseased knight"
-        ],
-        "visited": false,
-        "exits": {
-          "east": "floor3_start",
-          "south": "floor3_room5"
-        }
-      },
-      "floor3_room5": {
-        "items": [
-          "weapon cache",
-          "torch"
-        ],
-        "enemies": [
-          "diseased knight",
-          "rot wraith"
-        ],
-        "visited": false,
-        "exits": {
-          "north": "floor3_room4",
-          "east": "floor3_room2"
-        }
-      },
-      "floor3_room6": {
-        "items": [
-          "weapon cache",
-          "arcane pendant"
-        ],
-        "enemies": [
-          "plague inquisitor",
-          "diseased knight"
-        ],
-        "visited": false,
-        "exits": {
-          "south": "floor3_start"
-        }
-      },
-      "floor3_room7": {
         "items": [
           "shadow cloak",
           "experience gem"
         ],
         "enemies": [
-          "diseased knight",
-          "plague inquisitor"
+          "coral horror",
+          "sea wraith"
         ],
         "visited": false,
         "exits": {
           "west": "floor3_room2"
         }
       },
-      "floor3_room8": {
+      "floor3_room5": {
         "items": [
-          "soul crystal",
-          "weapon cache"
+          "magic scroll",
+          "arcane pendant"
         ],
         "enemies": [
-          "diseased knight",
-          "plague inquisitor"
+          "depth stalker",
+          "coral horror"
         ],
         "visited": false,
         "exits": {
-          "west": "floor3_start",
-          "south": "floor3_room3"
+          "south": "floor3_boss"
+        }
+      },
+      "floor3_room6": {
+        "items": [
+          "wisdom gem",
+          "weapon cache"
+        ],
+        "enemies": [
+          "sea wraith",
+          "depth stalker"
+        ],
+        "visited": false,
+        "exits": {
+          "west": "floor3_boss"
+        }
+      },
+      "floor3_room7": {
+        "items": [
+          "weapon cache",
+          "torch"
+        ],
+        "enemies": [
+          "sea wraith",
+          "coral horror"
+        ],
+        "visited": false,
+        "exits": {
+          "south": "floor3_room2",
+          "west": "floor3_room1"
+        }
+      },
+      "floor3_room8": {
+        "items": [
+          "soul crystal",
+          "ultimate health potion"
+        ],
+        "enemies": [
+          "depth stalker",
+          "coral horror"
+        ],
+        "visited": false,
+        "exits": {
+          "east": "floor3_room2"
         }
       },
       "floor3_boss": {
@@ -752,11 +666,14 @@
           "ultimate health potion"
         ],
         "enemies": [
-          "The Blight Cardinal"
+          "The Coral Throne"
         ],
         "visited": false,
         "exits": {
-          "north": "floor3_stairs"
+          "west": "floor3_start",
+          "east": "floor3_room6",
+          "south": "floor3_room3",
+          "north": "floor3_room5"
         }
       },
       "floor3_stairs": {
@@ -764,8 +681,8 @@
         "enemies": [],
         "visited": false,
         "exits": {
-          "north": "floor3_start",
-          "south": "floor3_boss",
+          "east": "floor3_start",
+          "south": "floor3_room1",
           "down": "floor4_start"
         }
       }
@@ -778,40 +695,38 @@
         "enemies": [],
         "visited": false,
         "exits": {
-          "east": "floor4_room8",
-          "west": "floor4_boss",
-          "south": "floor4_room5",
+          "north": "floor4_room4",
           "up": "floor3_stairs"
         }
       },
       "floor4_room1": {
         "items": [
-          "health potion",
-          "wisdom gem"
+          "soul crystal",
+          "weapon cache"
         ],
         "enemies": [
-          "plague inquisitor",
-          "rot wraith"
+          "depth stalker",
+          "siren wraith"
         ],
         "visited": false,
         "exits": {
+          "west": "floor4_room4",
           "north": "floor4_boss",
-          "east": "floor4_room5",
-          "south": "floor4_room4"
+          "south": "floor4_stairs"
         }
       },
       "floor4_room2": {
         "items": [
           "soul crystal",
-          "weapon cache"
+          "ultimate health potion"
         ],
         "enemies": [
-          "plague inquisitor",
-          "rot wraith"
+          "siren wraith",
+          "depth stalker"
         ],
         "visited": false,
         "exits": {
-          "north": "floor4_stairs"
+          "east": "floor4_room7"
         }
       },
       "floor4_room3": {
@@ -820,12 +735,12 @@
           "experience gem"
         ],
         "enemies": [
-          "rot wraith",
-          "plague inquisitor"
+          "tide mage",
+          "depth stalker"
         ],
         "visited": false,
         "exits": {
-          "west": "floor4_stairs"
+          "west": "floor4_boss"
         }
       },
       "floor4_room4": {
@@ -834,74 +749,76 @@
           "arcane pendant"
         ],
         "enemies": [
-          "pus mage",
-          "rot wraith"
+          "depth stalker",
+          "tide mage"
         ],
         "visited": false,
         "exits": {
-          "west": "floor4_room7",
-          "north": "floor4_room1"
+          "south": "floor4_start",
+          "west": "floor4_room5",
+          "north": "floor4_stairs",
+          "east": "floor4_room1"
         }
       },
       "floor4_room5": {
-        "items": [
-          "weapon cache",
-          "arcane pendant"
-        ],
-        "enemies": [
-          "pus mage",
-          "plague inquisitor"
-        ],
-        "visited": false,
-        "exits": {
-          "west": "floor4_room1",
-          "north": "floor4_start"
-        }
-      },
-      "floor4_room6": {
-        "items": [
-          "soul crystal",
-          "ultimate health potion"
-        ],
-        "enemies": [
-          "plague inquisitor",
-          "pus mage"
-        ],
-        "visited": false,
-        "exits": {
-          "west": "floor4_room8"
-        }
-      },
-      "floor4_room7": {
-        "items": [
-          "weapon cache",
-          "torch"
-        ],
-        "enemies": [
-          "plague inquisitor",
-          "rot wraith"
-        ],
-        "visited": false,
-        "exits": {
-          "south": "floor4_room8",
-          "east": "floor4_room4"
-        }
-      },
-      "floor4_room8": {
         "items": [
           "wisdom gem",
           "weapon cache"
         ],
         "enemies": [
-          "rot wraith",
-          "plague inquisitor"
+          "depth stalker",
+          "tide mage"
         ],
         "visited": false,
         "exits": {
-          "west": "floor4_start",
-          "south": "floor4_stairs",
-          "east": "floor4_room6",
-          "north": "floor4_room7"
+          "east": "floor4_room4",
+          "north": "floor4_room6",
+          "west": "floor4_room8"
+        }
+      },
+      "floor4_room6": {
+        "items": [
+          "weapon cache",
+          "arcane pendant",
+          "journal_2"
+        ],
+        "enemies": [
+          "tide mage",
+          "siren wraith"
+        ],
+        "visited": false,
+        "exits": {
+          "south": "floor4_room5"
+        }
+      },
+      "floor4_room7": {
+        "items": [
+          "health potion",
+          "wisdom gem"
+        ],
+        "enemies": [
+          "depth stalker",
+          "siren wraith"
+        ],
+        "visited": false,
+        "exits": {
+          "east": "floor4_stairs",
+          "west": "floor4_room2"
+        }
+      },
+      "floor4_room8": {
+        "items": [
+          "weapon cache",
+          "torch"
+        ],
+        "enemies": [
+          "tide mage",
+          "siren wraith"
+        ],
+        "visited": false,
+        "exits": {
+          "west": "floor4_stairs",
+          "east": "floor4_room5"
         }
       },
       "floor4_boss": {
@@ -909,12 +826,12 @@
           "ultimate health potion"
         ],
         "enemies": [
-          "The Rot Archon"
+          "The Siren Queen"
         ],
         "visited": false,
         "exits": {
-          "east": "floor4_start",
-          "south": "floor4_room1"
+          "south": "floor4_room1",
+          "east": "floor4_room3"
         }
       },
       "floor4_stairs": {
@@ -922,9 +839,10 @@
         "enemies": [],
         "visited": false,
         "exits": {
-          "north": "floor4_room8",
-          "south": "floor4_room2",
-          "east": "floor4_room3",
+          "south": "floor4_room4",
+          "west": "floor4_room7",
+          "east": "floor4_room8",
+          "north": "floor4_room1",
           "down": "floor5_start"
         }
       }
@@ -938,40 +856,40 @@
         "visited": false,
         "exits": {
           "south": "floor5_room5",
-          "north": "floor5_room8",
-          "west": "floor5_room1",
-          "east": "floor5_room6",
+          "west": "floor5_room2",
+          "east": "floor5_room8",
           "up": "floor4_stairs"
         }
       },
       "floor5_room1": {
         "items": [
-          "titan gauntlet",
-          "wisdom gem"
-        ],
-        "enemies": [
-          "blight golem",
-          "cathedral spawn"
-        ],
-        "visited": false,
-        "exits": {
-          "east": "floor5_start",
-          "west": "floor5_stairs",
-          "north": "floor5_room4"
-        }
-      },
-      "floor5_room2": {
-        "items": [
           "elixir of life",
           "soul crystal"
         ],
         "enemies": [
-          "blight golem",
-          "fever elemental"
+          "pressure elemental",
+          "kraken spawn"
         ],
         "visited": false,
         "exits": {
-          "west": "floor5_room5"
+          "west": "floor5_room5",
+          "east": "floor5_room7",
+          "south": "floor5_room2"
+        }
+      },
+      "floor5_room2": {
+        "items": [
+          "weapon cache",
+          "titan gauntlet"
+        ],
+        "enemies": [
+          "kraken spawn",
+          "abyssal shark"
+        ],
+        "visited": false,
+        "exits": {
+          "east": "floor5_start",
+          "north": "floor5_room1"
         }
       },
       "floor5_room3": {
@@ -980,46 +898,43 @@
           "frozen artifact"
         ],
         "enemies": [
-          "cathedral spawn",
-          "fever elemental"
+          "pressure elemental",
+          "kraken spawn"
         ],
         "visited": false,
         "exits": {
-          "west": "floor5_room4",
-          "south": "floor5_stairs"
+          "south": "floor5_room7"
         }
       },
       "floor5_room4": {
         "items": [
-          "weapon cache",
-          "titan gauntlet"
+          "magic scroll",
+          "power ring"
         ],
         "enemies": [
-          "fever elemental",
-          "blight golem"
+          "abyssal shark",
+          "pressure elemental"
         ],
         "visited": false,
         "exits": {
-          "south": "floor5_room1",
-          "east": "floor5_room3",
-          "north": "floor5_room5"
+          "north": "floor5_stairs"
         }
       },
       "floor5_room5": {
         "items": [
-          "ice crystal",
-          "weapon cache"
+          "weapon cache",
+          "arcane pendant"
         ],
         "enemies": [
-          "cathedral spawn",
-          "fever elemental"
+          "kraken spawn",
+          "pressure elemental"
         ],
         "visited": false,
         "exits": {
           "north": "floor5_start",
-          "east": "floor5_room2",
-          "west": "floor5_boss",
-          "south": "floor5_room4"
+          "east": "floor5_room1",
+          "south": "floor5_room6",
+          "west": "floor5_boss"
         }
       },
       "floor5_room6": {
@@ -1028,40 +943,45 @@
           "elixir of life"
         ],
         "enemies": [
-          "fever elemental",
-          "cathedral spawn"
+          "pressure elemental",
+          "kraken spawn"
         ],
         "visited": false,
         "exits": {
-          "west": "floor5_start"
+          "north": "floor5_room5",
+          "west": "floor5_room8"
         }
       },
       "floor5_room7": {
         "items": [
-          "weapon cache",
-          "arcane pendant"
+          "ice crystal",
+          "weapon cache"
         ],
         "enemies": [
-          "fever elemental",
-          "cathedral spawn"
+          "pressure elemental",
+          "kraken spawn"
         ],
         "visited": false,
         "exits": {
-          "east": "floor5_boss"
+          "west": "floor5_room1",
+          "north": "floor5_room3",
+          "south": "floor5_stairs"
         }
       },
       "floor5_room8": {
         "items": [
-          "magic scroll",
-          "power ring"
+          "titan gauntlet",
+          "wisdom gem",
+          "journal_3"
         ],
         "enemies": [
-          "cathedral spawn",
-          "fever elemental"
+          "pressure elemental",
+          "abyssal shark"
         ],
         "visited": false,
         "exits": {
-          "south": "floor5_start"
+          "east": "floor5_room6",
+          "west": "floor5_start"
         }
       },
       "floor5_boss": {
@@ -1069,12 +989,11 @@
           "ultimate health potion"
         ],
         "enemies": [
-          "The Plague Titan"
+          "The Pressure God"
         ],
         "visited": false,
         "exits": {
-          "east": "floor5_room5",
-          "west": "floor5_room7"
+          "east": "floor5_room5"
         }
       },
       "floor5_stairs": {
@@ -1082,8 +1001,8 @@
         "enemies": [],
         "visited": false,
         "exits": {
-          "east": "floor5_room1",
-          "north": "floor5_room3",
+          "north": "floor5_room7",
+          "south": "floor5_room4",
           "down": "floor6_start"
         }
       }
@@ -1096,86 +1015,84 @@
         "enemies": [],
         "visited": false,
         "exits": {
-          "south": "floor6_room2",
+          "south": "floor6_room8",
           "west": "floor6_boss",
           "up": "floor5_stairs"
         }
       },
       "floor6_room1": {
         "items": [
-          "elixir of life",
-          "soul crystal"
+          "titan gauntlet",
+          "wisdom gem"
         ],
         "enemies": [
-          "blight golem",
-          "blessed plague"
+          "pressure elemental",
+          "abyssal shark"
         ],
         "visited": false,
         "exits": {
-          "east": "floor6_room4"
+          "north": "floor6_room8",
+          "east": "floor6_stairs"
         }
       },
       "floor6_room2": {
         "items": [
           "weapon cache",
-          "arcane pendant"
+          "titan gauntlet"
         ],
         "enemies": [
-          "blight golem",
-          "blessed plague"
+          "abyssal shark",
+          "pressure elemental"
         ],
         "visited": false,
         "exits": {
-          "north": "floor6_start",
-          "east": "floor6_room8",
-          "west": "floor6_room3",
-          "south": "floor6_room5"
+          "south": "floor6_boss"
         }
       },
       "floor6_room3": {
+        "items": [
+          "ice crystal",
+          "frozen artifact"
+        ],
+        "enemies": [
+          "current golem",
+          "pressure elemental"
+        ],
+        "visited": false,
+        "exits": {
+          "east": "floor6_room8",
+          "south": "floor6_room4",
+          "west": "floor6_room5",
+          "north": "floor6_room7"
+        }
+      },
+      "floor6_room4": {
+        "items": [
+          "elixir of life",
+          "soul crystal"
+        ],
+        "enemies": [
+          "pressure elemental",
+          "current golem"
+        ],
+        "visited": false,
+        "exits": {
+          "north": "floor6_room3"
+        }
+      },
+      "floor6_room5": {
         "items": [
           "magic scroll",
           "power ring"
         ],
         "enemies": [
-          "blessed plague",
-          "blight golem"
+          "current golem",
+          "abyssal shark"
         ],
         "visited": false,
         "exits": {
-          "east": "floor6_room2",
-          "south": "floor6_stairs",
-          "north": "floor6_room7",
+          "east": "floor6_room3",
           "west": "floor6_room6"
-        }
-      },
-      "floor6_room4": {
-        "items": [
-          "weapon cache",
-          "elixir of life"
-        ],
-        "enemies": [
-          "fever elemental",
-          "blessed plague"
-        ],
-        "visited": false,
-        "exits": {
-          "east": "floor6_stairs",
-          "west": "floor6_room1"
-        }
-      },
-      "floor6_room5": {
-        "items": [
-          "weapon cache",
-          "titan gauntlet"
-        ],
-        "enemies": [
-          "blessed plague",
-          "blight golem"
-        ],
-        "visited": false,
-        "exits": {
-          "north": "floor6_room2"
         }
       },
       "floor6_room6": {
@@ -1184,43 +1101,44 @@
           "weapon cache"
         ],
         "enemies": [
-          "blight golem",
-          "blessed plague"
+          "abyssal shark",
+          "pressure elemental"
         ],
         "visited": false,
         "exits": {
-          "east": "floor6_room3",
-          "north": "floor6_room8"
+          "west": "floor6_room8",
+          "east": "floor6_room5"
         }
       },
       "floor6_room7": {
         "items": [
-          "ice crystal",
-          "frozen artifact"
+          "weapon cache",
+          "elixir of life"
         ],
         "enemies": [
-          "fever elemental",
-          "blessed plague"
+          "pressure elemental",
+          "current golem"
         ],
         "visited": false,
         "exits": {
-          "south": "floor6_room3",
-          "east": "floor6_boss"
+          "south": "floor6_room3"
         }
       },
       "floor6_room8": {
         "items": [
-          "titan gauntlet",
-          "wisdom gem"
+          "weapon cache",
+          "arcane pendant"
         ],
         "enemies": [
-          "fever elemental",
-          "blessed plague"
+          "current golem",
+          "abyssal shark"
         ],
         "visited": false,
         "exits": {
-          "west": "floor6_room2",
-          "south": "floor6_room6"
+          "north": "floor6_start",
+          "west": "floor6_room3",
+          "east": "floor6_room6",
+          "south": "floor6_room1"
         }
       },
       "floor6_boss": {
@@ -1228,12 +1146,12 @@
           "ultimate health potion"
         ],
         "enemies": [
-          "The Cathedral God"
+          "The Abyssal Duke"
         ],
         "visited": false,
         "exits": {
           "east": "floor6_start",
-          "west": "floor6_room7"
+          "north": "floor6_room2"
         }
       },
       "floor6_stairs": {
@@ -1241,8 +1159,7 @@
         "enemies": [],
         "visited": false,
         "exits": {
-          "north": "floor6_room3",
-          "west": "floor6_room4",
+          "west": "floor6_room1",
           "down": "floor7_start"
         }
       }
@@ -1255,26 +1172,28 @@
         "enemies": [],
         "visited": false,
         "exits": {
-          "south": "floor7_room6",
-          "north": "floor7_room5",
-          "west": "floor7_room2",
-          "east": "floor7_room3",
+          "south": "floor7_room2",
+          "west": "floor7_room1",
+          "east": "floor7_room7",
+          "north": "floor7_room8",
           "up": "floor6_stairs"
         }
       },
       "floor7_room1": {
         "items": [
-          "demon seal",
-          "soul crystal"
+          "shadow cloak",
+          "soul crystal",
+          "journal_4"
         ],
         "enemies": [
-          "null bishop",
-          "divine plague"
+          "deep cultist",
+          "abyss devourer"
         ],
         "visited": false,
         "exits": {
-          "north": "floor7_boss",
-          "west": "floor7_room8"
+          "east": "floor7_start",
+          "west": "floor7_room5",
+          "north": "floor7_room4"
         }
       },
       "floor7_room2": {
@@ -1283,101 +1202,100 @@
           "elixir of life"
         ],
         "enemies": [
-          "null bishop",
-          "divine plague"
+          "abyss devourer",
+          "tide demon"
         ],
         "visited": false,
         "exits": {
-          "east": "floor7_start"
+          "north": "floor7_start",
+          "south": "floor7_stairs"
         }
       },
       "floor7_room3": {
+        "items": [
+          "ultimate health potion",
+          "soul crystal"
+        ],
+        "enemies": [
+          "tide demon",
+          "deep cultist"
+        ],
+        "visited": false,
+        "exits": {
+          "west": "floor7_room4",
+          "north": "floor7_boss"
+        }
+      },
+      "floor7_room4": {
+        "items": [
+          "weapon cache",
+          "ultimate health potion"
+        ],
+        "enemies": [
+          "deep cultist",
+          "tide demon"
+        ],
+        "visited": false,
+        "exits": {
+          "south": "floor7_room1",
+          "east": "floor7_room3"
+        }
+      },
+      "floor7_room5": {
+        "items": [
+          "demon seal",
+          "soul crystal"
+        ],
+        "enemies": [
+          "deep cultist",
+          "abyss devourer"
+        ],
+        "visited": false,
+        "exits": {
+          "east": "floor7_room1",
+          "north": "floor7_room6"
+        }
+      },
+      "floor7_room6": {
         "items": [
           "void essence",
           "wisdom gem"
         ],
         "enemies": [
-          "divine plague",
-          "null bishop"
+          "tide demon",
+          "abyss devourer"
+        ],
+        "visited": false,
+        "exits": {
+          "south": "floor7_room5"
+        }
+      },
+      "floor7_room7": {
+        "items": [
+          "demon seal",
+          "weapon cache"
+        ],
+        "enemies": [
+          "tide demon",
+          "deep cultist"
         ],
         "visited": false,
         "exits": {
           "west": "floor7_start"
         }
       },
-      "floor7_room4": {
-        "items": [
-          "shadow cloak",
-          "soul crystal"
-        ],
-        "enemies": [
-          "contagion demon",
-          "divine plague"
-        ],
-        "visited": false,
-        "exits": {
-          "east": "floor7_room6",
-          "south": "floor7_stairs",
-          "north": "floor7_room8"
-        }
-      },
-      "floor7_room5": {
-        "items": [
-          "weapon cache",
-          "ultimate health potion"
-        ],
-        "enemies": [
-          "divine plague",
-          "contagion demon"
-        ],
-        "visited": false,
-        "exits": {
-          "south": "floor7_start"
-        }
-      },
-      "floor7_room6": {
-        "items": [
-          "demon seal",
-          "weapon cache"
-        ],
-        "enemies": [
-          "contagion demon",
-          "null bishop"
-        ],
-        "visited": false,
-        "exits": {
-          "north": "floor7_start",
-          "west": "floor7_room4"
-        }
-      },
-      "floor7_room7": {
+      "floor7_room8": {
         "items": [
           "demon seal",
           "arcane pendant"
         ],
         "enemies": [
-          "null bishop",
-          "divine plague"
+          "abyss devourer",
+          "tide demon"
         ],
         "visited": false,
         "exits": {
-          "west": "floor7_stairs",
-          "east": "floor7_boss"
-        }
-      },
-      "floor7_room8": {
-        "items": [
-          "ultimate health potion",
-          "soul crystal"
-        ],
-        "enemies": [
-          "divine plague",
-          "null bishop"
-        ],
-        "visited": false,
-        "exits": {
-          "south": "floor7_room4",
-          "east": "floor7_room1"
+          "south": "floor7_start"
         }
       },
       "floor7_boss": {
@@ -1385,12 +1303,12 @@
           "ultimate health potion"
         ],
         "enemies": [
-          "The Plague Prince"
+          "The Leviathan Prince"
         ],
         "visited": false,
         "exits": {
-          "west": "floor7_room7",
-          "south": "floor7_room1"
+          "south": "floor7_room3",
+          "west": "floor7_stairs"
         }
       },
       "floor7_stairs": {
@@ -1398,8 +1316,8 @@
         "enemies": [],
         "visited": false,
         "exits": {
-          "north": "floor7_room4",
-          "east": "floor7_room7",
+          "east": "floor7_boss",
+          "north": "floor7_room2",
           "down": "floor8_start"
         }
       }
@@ -1412,9 +1330,6 @@
         "enemies": [],
         "visited": false,
         "exits": {
-          "north": "floor8_room7",
-          "east": "floor8_room2",
-          "south": "floor8_room6",
           "west": "floor8_stairs",
           "up": "floor7_stairs"
         }
@@ -1422,121 +1337,120 @@
       "floor8_room1": {
         "items": [
           "weapon cache",
-          "elixir of life"
+          "ultimate health potion"
         ],
         "enemies": [
-          "contagion demon",
-          "divine plague"
+          "tide demon",
+          "abyss devourer"
         ],
         "visited": false,
         "exits": {
-          "west": "floor8_room2",
-          "south": "floor8_room3"
+          "north": "floor8_room5",
+          "east": "floor8_room3",
+          "south": "floor8_room2",
+          "west": "floor8_room4"
         }
       },
       "floor8_room2": {
         "items": [
-          "void essence",
-          "wisdom gem"
-        ],
-        "enemies": [
-          "divine plague",
-          "cathedral spawn"
-        ],
-        "visited": false,
-        "exits": {
-          "west": "floor8_start",
-          "east": "floor8_room1",
-          "north": "floor8_stairs"
-        }
-      },
-      "floor8_room3": {
-        "items": [
           "demon seal",
-          "soul crystal"
+          "weapon cache"
         ],
         "enemies": [
-          "divine plague",
-          "cathedral spawn"
+          "sea horror",
+          "tide demon"
         ],
         "visited": false,
         "exits": {
           "north": "floor8_room1"
         }
       },
-      "floor8_room4": {
-        "items": [
-          "shadow cloak",
-          "soul crystal"
-        ],
-        "enemies": [
-          "divine plague",
-          "contagion demon"
-        ],
-        "visited": false,
-        "exits": {
-          "south": "floor8_room5"
-        }
-      },
-      "floor8_room5": {
-        "items": [
-          "demon seal",
-          "weapon cache"
-        ],
-        "enemies": [
-          "contagion demon",
-          "divine plague"
-        ],
-        "visited": false,
-        "exits": {
-          "west": "floor8_room7",
-          "north": "floor8_room4",
-          "south": "floor8_room8"
-        }
-      },
-      "floor8_room6": {
+      "floor8_room3": {
         "items": [
           "ultimate health potion",
           "soul crystal"
         ],
         "enemies": [
-          "contagion demon",
-          "cathedral spawn"
+          "abyss devourer",
+          "tide demon"
         ],
         "visited": false,
         "exits": {
-          "north": "floor8_start"
+          "west": "floor8_room1",
+          "north": "floor8_boss"
         }
       },
-      "floor8_room7": {
+      "floor8_room4": {
+        "items": [
+          "demon seal",
+          "soul crystal"
+        ],
+        "enemies": [
+          "tide demon",
+          "sea horror"
+        ],
+        "visited": false,
+        "exits": {
+          "east": "floor8_room1"
+        }
+      },
+      "floor8_room5": {
+        "items": [
+          "void essence",
+          "wisdom gem"
+        ],
+        "enemies": [
+          "abyss devourer",
+          "tide demon"
+        ],
+        "visited": false,
+        "exits": {
+          "north": "floor8_room7",
+          "south": "floor8_room1"
+        }
+      },
+      "floor8_room6": {
         "items": [
           "demon seal",
           "arcane pendant"
         ],
         "enemies": [
-          "contagion demon",
-          "divine plague"
+          "sea horror",
+          "tide demon"
         ],
         "visited": false,
         "exits": {
-          "south": "floor8_start",
-          "north": "floor8_room8",
-          "east": "floor8_room5"
+          "east": "floor8_stairs",
+          "west": "floor8_boss"
+        }
+      },
+      "floor8_room7": {
+        "items": [
+          "shadow cloak",
+          "soul crystal"
+        ],
+        "enemies": [
+          "sea horror",
+          "abyss devourer"
+        ],
+        "visited": false,
+        "exits": {
+          "north": "floor8_stairs",
+          "south": "floor8_room5"
         }
       },
       "floor8_room8": {
         "items": [
           "weapon cache",
-          "ultimate health potion"
+          "elixir of life"
         ],
         "enemies": [
-          "divine plague",
-          "cathedral spawn"
+          "tide demon",
+          "abyss devourer"
         ],
         "visited": false,
         "exits": {
-          "south": "floor8_room7",
-          "north": "floor8_room5"
+          "south": "floor8_boss"
         }
       },
       "floor8_boss": {
@@ -1544,11 +1458,13 @@
           "ultimate health potion"
         ],
         "enemies": [
-          "The High Inquisitor"
+          "The Sunken God"
         ],
         "visited": false,
         "exits": {
-          "south": "floor8_stairs"
+          "south": "floor8_room3",
+          "north": "floor8_room8",
+          "east": "floor8_room6"
         }
       },
       "floor8_stairs": {
@@ -1557,8 +1473,8 @@
         "visited": false,
         "exits": {
           "east": "floor8_start",
-          "north": "floor8_boss",
-          "south": "floor8_room2",
+          "south": "floor8_room7",
+          "west": "floor8_room6",
           "down": "floor9_start"
         }
       }
@@ -1571,8 +1487,7 @@
         "enemies": [],
         "visited": false,
         "exits": {
-          "north": "floor9_room8",
-          "west": "floor9_boss",
+          "west": "floor9_room3",
           "south": "floor9_room5",
           "east": "floor9_room1",
           "up": "floor8_stairs"
@@ -1584,117 +1499,120 @@
           "weapon cache"
         ],
         "enemies": [
-          "rot guardian",
-          "saint of rot"
+          "void leviathan",
+          "drowned titan"
         ],
         "visited": false,
         "exits": {
-          "west": "floor9_start"
+          "west": "floor9_start",
+          "east": "floor9_room4"
         }
       },
       "floor9_room2": {
-        "items": [
-          "titan gauntlet",
-          "weapon cache"
-        ],
-        "enemies": [
-          "rot guardian",
-          "saint of rot"
-        ],
-        "visited": false,
-        "exits": {
-          "south": "floor9_boss",
-          "north": "floor9_room7",
-          "east": "floor9_stairs"
-        }
-      },
-      "floor9_room3": {
         "items": [
           "weapon cache",
           "wisdom gem"
         ],
         "enemies": [
-          "plague titan",
-          "saint of rot"
+          "abyssal guardian",
+          "void leviathan"
         ],
         "visited": false,
         "exits": {
-          "west": "floor9_room8",
-          "north": "floor9_room5"
+          "east": "floor9_room5",
+          "south": "floor9_stairs"
         }
       },
-      "floor9_room4": {
+      "floor9_room3": {
         "items": [
           "soul crystal",
           "legendary artifact"
         ],
         "enemies": [
-          "rot guardian",
-          "saint of rot"
+          "drowned titan",
+          "void leviathan"
         ],
         "visited": false,
         "exits": {
-          "east": "floor9_room8",
-          "north": "floor9_room6"
+          "east": "floor9_start",
+          "west": "floor9_room7"
         }
       },
-      "floor9_room5": {
-        "items": [
-          "primordial rune",
-          "titan gauntlet"
-        ],
-        "enemies": [
-          "saint of rot",
-          "rot guardian"
-        ],
-        "visited": false,
-        "exits": {
-          "north": "floor9_start",
-          "south": "floor9_room3"
-        }
-      },
-      "floor9_room6": {
+      "floor9_room4": {
         "items": [
           "soul crystal",
           "experience gem"
         ],
         "enemies": [
-          "rot guardian",
-          "plague titan"
+          "abyssal guardian",
+          "drowned titan"
         ],
         "visited": false,
         "exits": {
-          "south": "floor9_room4"
+          "west": "floor9_room1",
+          "north": "floor9_boss"
+        }
+      },
+      "floor9_room5": {
+        "items": [
+          "primordial rune",
+          "titan gauntlet",
+          "journal_5"
+        ],
+        "enemies": [
+          "abyssal guardian",
+          "void leviathan"
+        ],
+        "visited": false,
+        "exits": {
+          "north": "floor9_start",
+          "south": "floor9_room8",
+          "west": "floor9_room2",
+          "east": "floor9_stairs"
+        }
+      },
+      "floor9_room6": {
+        "items": [
+          "titan gauntlet",
+          "weapon cache"
+        ],
+        "enemies": [
+          "void leviathan",
+          "abyssal guardian"
+        ],
+        "visited": false,
+        "exits": {
+          "south": "floor9_room7"
         }
       },
       "floor9_room7": {
-        "items": [
-          "weapon cache",
-          "wisdom gem"
-        ],
-        "enemies": [
-          "rot guardian",
-          "saint of rot"
-        ],
-        "visited": false,
-        "exits": {
-          "south": "floor9_room2"
-        }
-      },
-      "floor9_room8": {
         "items": [
           "void essence",
           "ultimate health potion"
         ],
         "enemies": [
-          "rot guardian",
-          "saint of rot"
+          "void leviathan",
+          "abyssal guardian"
         ],
         "visited": false,
         "exits": {
-          "south": "floor9_start",
-          "west": "floor9_room4",
-          "east": "floor9_room3"
+          "east": "floor9_room3",
+          "north": "floor9_room6"
+        }
+      },
+      "floor9_room8": {
+        "items": [
+          "weapon cache",
+          "wisdom gem"
+        ],
+        "enemies": [
+          "drowned titan",
+          "void leviathan"
+        ],
+        "visited": false,
+        "exits": {
+          "north": "floor9_room5",
+          "east": "floor9_boss"
         }
       },
       "floor9_boss": {
@@ -1702,12 +1620,12 @@
           "ultimate health potion"
         ],
         "enemies": [
-          "The Plague Saint"
+          "The Deep Ancient"
         ],
         "visited": false,
         "exits": {
-          "east": "floor9_start",
-          "north": "floor9_room2"
+          "west": "floor9_room8",
+          "south": "floor9_room4"
         }
       },
       "floor9_stairs": {
@@ -1715,7 +1633,8 @@
         "enemies": [],
         "visited": false,
         "exits": {
-          "west": "floor9_room2",
+          "west": "floor9_room5",
+          "north": "floor9_room2",
           "down": "floor10_start"
         }
       }
@@ -1728,100 +1647,98 @@
         "enemies": [],
         "visited": false,
         "exits": {
-          "north": "floor10_room4",
-          "west": "floor10_room3",
-          "east": "floor10_room5",
-          "south": "floor10_room1",
+          "west": "floor10_room5",
+          "south": "floor10_room6",
+          "north": "floor10_room3",
           "up": "floor9_stairs"
         }
       },
       "floor10_room1": {
         "items": [
-          "soul crystal",
-          "experience gem"
-        ],
-        "enemies": [
-          "rot guardian",
-          "the high inquisitor"
-        ],
-        "visited": false,
-        "exits": {
-          "north": "floor10_start"
-        }
-      },
-      "floor10_room2": {
-        "items": [
-          "primordial rune",
-          "titan gauntlet"
-        ],
-        "enemies": [
-          "the high inquisitor",
-          "eternal pestilence"
-        ],
-        "visited": false,
-        "exits": {
-          "east": "floor10_room4",
-          "north": "floor10_room8",
-          "west": "floor10_room7"
-        }
-      },
-      "floor10_room3": {
-        "items": [
-          "weapon cache",
-          "weapon cache"
-        ],
-        "enemies": [
-          "the high inquisitor",
-          "eternal pestilence"
-        ],
-        "visited": false,
-        "exits": {
-          "east": "floor10_start"
-        }
-      },
-      "floor10_room4": {
-        "items": [
-          "void essence",
-          "ultimate health potion"
-        ],
-        "enemies": [
-          "eternal pestilence",
-          "the high inquisitor"
-        ],
-        "visited": false,
-        "exits": {
-          "south": "floor10_start",
-          "west": "floor10_room2",
-          "east": "floor10_room6"
-        }
-      },
-      "floor10_room5": {
-        "items": [
           "weapon cache",
           "wisdom gem"
         ],
         "enemies": [
-          "the high inquisitor",
-          "rot guardian"
+          "the drowned king",
+          "void leviathan"
         ],
         "visited": false,
         "exits": {
-          "west": "floor10_start"
+          "north": "floor10_room6"
         }
       },
-      "floor10_room6": {
+      "floor10_room2": {
         "items": [
           "soul crystal",
           "legendary artifact"
         ],
         "enemies": [
-          "the high inquisitor",
-          "eternal pestilence"
+          "void leviathan",
+          "the drowned king"
         ],
         "visited": false,
         "exits": {
-          "west": "floor10_room4",
-          "south": "floor10_boss"
+          "south": "floor10_room3"
+        }
+      },
+      "floor10_room3": {
+        "items": [
+          "soul crystal",
+          "experience gem"
+        ],
+        "enemies": [
+          "void leviathan",
+          "the drowned king"
+        ],
+        "visited": false,
+        "exits": {
+          "south": "floor10_start",
+          "north": "floor10_room2"
+        }
+      },
+      "floor10_room4": {
+        "items": [
+          "primordial rune",
+          "titan gauntlet"
+        ],
+        "enemies": [
+          "abyssal guardian",
+          "the drowned king"
+        ],
+        "visited": false,
+        "exits": {
+          "west": "floor10_room8"
+        }
+      },
+      "floor10_room5": {
+        "items": [
+          "void essence",
+          "ultimate health potion"
+        ],
+        "enemies": [
+          "the drowned king",
+          "abyssal guardian"
+        ],
+        "visited": false,
+        "exits": {
+          "east": "floor10_start",
+          "west": "floor10_boss"
+        }
+      },
+      "floor10_room6": {
+        "items": [
+          "weapon cache",
+          "wisdom gem"
+        ],
+        "enemies": [
+          "abyssal guardian",
+          "the drowned king"
+        ],
+        "visited": false,
+        "exits": {
+          "north": "floor10_start",
+          "south": "floor10_room1",
+          "east": "floor10_room8"
         }
       },
       "floor10_room7": {
@@ -1830,28 +1747,27 @@
           "weapon cache"
         ],
         "enemies": [
-          "eternal pestilence",
-          "rot guardian"
+          "void leviathan",
+          "abyssal guardian"
         ],
         "visited": false,
         "exits": {
-          "east": "floor10_room2",
-          "south": "floor10_room8"
+          "north": "floor10_boss"
         }
       },
       "floor10_room8": {
         "items": [
           "weapon cache",
-          "wisdom gem"
+          "weapon cache"
         ],
         "enemies": [
-          "rot guardian",
-          "eternal pestilence"
+          "void leviathan",
+          "abyssal guardian"
         ],
         "visited": false,
         "exits": {
-          "south": "floor10_room2",
-          "north": "floor10_room7"
+          "west": "floor10_room6",
+          "east": "floor10_room4"
         }
       },
       "floor10_boss": {
@@ -1859,11 +1775,12 @@
           "ultimate health potion"
         ],
         "enemies": [
-          "The Eternal Pestilence"
+          "The Drowned Eternal"
         ],
         "visited": false,
         "exits": {
-          "north": "floor10_room6"
+          "east": "floor10_room5",
+          "south": "floor10_room7"
         }
       }
     }
