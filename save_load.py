@@ -1,34 +1,22 @@
-"""
-================================================================================
-LABYRINTH — Save / Load System
-================================================================================
-Five-slot save system with full serialisation, migration, and delete.
-Methods mixed into Game via SaveLoadMixin.
-"""
+"""LABYRINTH — Save/Load/Delete"""
 from __future__ import annotations
-import random
-import json
-import os
-import logging
-from typing import Dict, List, Optional, Set, Tuple, Any, Callable
+import random, json, os, logging
+from typing import Dict, List, Optional, Set, Tuple, Any, TYPE_CHECKING, Callable
 from difflib import get_close_matches
 from dataclasses import dataclass, field
+if TYPE_CHECKING:
+    from game import Game
 
-logging.basicConfig(
-    filename='game.log',
-    level=logging.INFO,
-    format='%(asctime)s [%(levelname)s] %(funcName)s:%(lineno)d - %(message)s',
-    filemode='a'
-)
 logger = logging.getLogger(__name__)
-from constants import GameConstants
+
+from constants import GameConstants, BossConfig, RoomTemplateConfig
 from records import RecordsManager
 from player import Player
-from typing import Optional
+from room import Room
 
 
 class SaveLoadMixin:
-    """Save/load/delete methods. Mixed into Game."""
+    """Save, load and delete methods. Mixed into Game."""
 
     def save_game(self):
         """Save game state to selected slot"""
@@ -54,7 +42,7 @@ class SaveLoadMixin:
                             level = player_data.get('level', 1)
                             floor = player_data.get('current_floor', 1)
                             print(f"{slot}. {name} - Lvl {level} - Floor {floor}")
-                    except:
+                    except (json.JSONDecodeError, OSError, KeyError, TypeError):
                         print(f"{slot}. [Corrupted Save]")
                 else:
                     print(f"{slot}. [Empty Slot]")
@@ -95,10 +83,14 @@ class SaveLoadMixin:
             for floor_num, floor_rooms in self.floors.items():
                 save_data['floors'][str(floor_num)] = {
                     room_id: {
-                        'items': room.items,
-                        'enemies': room.enemies,
-                        'visited': room.visited,
-                        'exits': room.exits
+                        'name':        room.name,
+                        'description': room.description,
+                        'atmosphere':  room.atmosphere,
+                        'items':       room.items,
+                        'enemies':     room.enemies,
+                        'visited':     room.visited,
+                        'exits':       room.exits,
+                        '_activated':  getattr(room, '_activated', False),
                     } for room_id, room in floor_rooms.items()
                 }
             
@@ -107,11 +99,10 @@ class SaveLoadMixin:
             
             logger.info(f"Game saved to slot {choice}: {self.player.name} (Lvl {self.player.level}, Floor {self.player.current_floor})")
             print(f"✓ Game saved to slot {choice}!")
-        except Exception as e:
+        except (OSError, json.JSONEncodeError, TypeError) as e:
             logging.error(f"Save error: {e}", exc_info=True)
             print(f"✗ Save failed: {e}")
     
-
     def load_game(self) -> bool:
         """Load game state from selected slot"""
         try:
@@ -139,7 +130,7 @@ class SaveLoadMixin:
                             floor = player_data.get('current_floor', 1)
                             print(f"{slot}. {name} - {char_class.title()} Lvl {level} - Floor {floor}")
                             available_saves.append(slot)
-                    except:
+                    except (json.JSONDecodeError, OSError, KeyError, TypeError):
                         print(f"{slot}. [Corrupted Save]")
                 else:
                     print(f"{slot}. [Empty Slot]")
@@ -170,42 +161,57 @@ class SaveLoadMixin:
                 print("! Save version mismatch - may have issues")
             
             self.player = Player.from_dict(save_data['player'])
-            
+
             if self.player.weapon and self.player.weapon.get('special') == 'instant_kill':
                 if self.player.weapon.get('uses_remaining', 0) <= 0:
                     logger.info("Golden Gun depleted on load")
                     print("! Your Golden Gun has depleted...")
                     self.player.weapon = None
-            
+
+            # Determine if this is an NG+ save so room names load correctly
+            ng         = getattr(self.player, 'ng_plus', 0)
+            ng_world   = getattr(self.player, 'ng_world', 'fractured_labyrinth')
+            is_ng_plus = ng > 0
+
             self.floors = {}
             for floor_str, floor_data in save_data['floors'].items():
                 floor_num = int(floor_str)
                 self.floors[floor_num] = {}
-                
+
                 for room_id, room_data in floor_data.items():
-                    if room_id == 'start':
-                        name, desc, atmo = "Entrance Hall", "The dungeon entrance.", "Adamus the Loyal has set up shop here. Use 'shop' to trade."
-                    elif 'boss' in room_id:
-                        template = BossConfig.get_boss_room_template(floor_num)
-                        name, desc, atmo = template.name, template.description, template.atmosphere
-                    elif 'stairs' in room_id:
-                        name, desc, atmo = "Ancient Stairway", "Stone stairs descend deeper.", ""
-                    elif 'secret' in room_id:
-                        name, desc, atmo = "Secret Treasure Vault", "A hidden vault glitters with treasures!", "Countless riches!"
+                    # Use saved name/description/atmosphere if present (saves after this fix)
+                    # Fall back to reconstruction for older saves that lack these fields
+                    if 'name' in room_data:
+                        name = room_data['name']
+                        desc = room_data['description']
+                        atmo = room_data['atmosphere']
                     else:
-                        templates = RoomTemplateConfig.get_templates_for_floor(floor_num)
-                        if templates:
-                            template = random.choice(templates)
-                            name, desc, atmo = template.name, template.description, template.atmosphere
+                        # Legacy save fallback — reconstruct from room_id heuristics
+                        if room_id in ('start',) or room_id.endswith('_start'):
+                            name = "Entrance Hall" if room_id == 'start' else f"Floor {floor_num} Entrance"
+                            desc = "The dungeon entrance."
+                            atmo = "Adamus the Loyal has set up shop here. Use 'shop' to trade."
+                        elif 'boss' in room_id:
+                            tmpl = BossConfig.get_boss_room_template(floor_num)
+                            name, desc, atmo = tmpl.name, tmpl.description, tmpl.atmosphere
+                        elif 'stairs' in room_id:
+                            name, desc, atmo = "Ancient Stairway", "Stone stairs descend deeper.", ""
+                        elif 'secret' in room_id:
+                            name, desc, atmo = "Secret Treasure Vault", "A hidden vault glitters with treasures!", ""
                         else:
-                            name, desc, atmo = "Mysterious Room", "A dark room.", ""
-                    
-                    self.floors[floor_num][room_id] = Room(
-                        name, desc, floor_num,
-                        room_data['items'], room_data['exits'],
-                        room_data['enemies'], atmo
-                    )
-                    self.floors[floor_num][room_id].visited = room_data['visited']
+                            templates = RoomTemplateConfig.get_templates_for_floor(floor_num)
+                            tmpl = random.choice(templates) if templates else None
+                            name = tmpl.name if tmpl else "Mysterious Room"
+                            desc = tmpl.description if tmpl else "A dark room."
+                            atmo = tmpl.atmosphere if tmpl else ""
+
+                    room = Room(name, desc, floor_num,
+                                room_data['items'], room_data['exits'],
+                                room_data['enemies'], atmo)
+                    room.visited = room_data['visited']
+                    if room_data.get('_activated'):
+                        room._activated = True
+                    self.floors[floor_num][room_id] = room
             
             logger.info(f"Game loaded from slot {choice}: {self.player.name} (Lvl {self.player.level}, Floor {self.player.current_floor})")
             print(f"✓ Welcome back, {self.player.name} the {self.player.get_class_title()}!")
@@ -229,70 +235,8 @@ class SaveLoadMixin:
 
             return True
             
-        except Exception as e:
+        except (OSError, json.JSONDecodeError, KeyError, TypeError) as e:
             logging.error(f"Load error: {e}", exc_info=True)
             print(f"✗ Load failed: {e}")
             return False
     
-
-    def delete_save(self):
-        """Delete a save file"""
-        try:
-            if not os.path.exists(GameConstants.SAVE_DIRECTORY):
-                print("No save files found!")
-                return
-            
-            print("\n" + "="*40)
-            print("DELETE SAVE")
-            print("="*40)
-            
-            available_saves = []
-            for slot in range(1, GameConstants.MAX_SAVE_SLOTS + 1):
-                save_path = os.path.join(GameConstants.SAVE_DIRECTORY, f"save{slot}.json")
-                if os.path.exists(save_path):
-                    try:
-                        with open(save_path, 'r') as f:
-                            save_data = json.load(f)
-                            player_data = save_data.get('player', {})
-                            name = player_data.get('name', 'Unknown')
-                            level = player_data.get('level', 1)
-                            floor = player_data.get('current_floor', 1)
-                            print(f"{slot}. {name} - Lvl {level} - Floor {floor}")
-                            available_saves.append(slot)
-                    except:
-                        print(f"{slot}. [Corrupted Save]")
-                        available_saves.append(slot)
-                else:
-                    print(f"{slot}. [Empty Slot]")
-            
-            if not available_saves:
-                print("\nNo save files to delete!")
-                return
-            
-            print(f"{GameConstants.MAX_SAVE_SLOTS + 1}. Cancel")
-            
-            try:
-                choice = int(input(f"\nDelete slot (1-{GameConstants.MAX_SAVE_SLOTS}): ").strip())
-                if choice == GameConstants.MAX_SAVE_SLOTS + 1:
-                    return
-                if choice not in available_saves:
-                    print("Invalid or empty slot!")
-                    return
-            except (ValueError, KeyboardInterrupt):
-                return
-            
-            save_path = os.path.join(GameConstants.SAVE_DIRECTORY, f"save{choice}.json")
-            
-            confirm = input(f"Delete slot {choice}? This cannot be undone! (y/n): ").strip().lower()
-            if confirm in ['y', 'yes']:
-                os.remove(save_path)
-                print(f"✓ Slot {choice} deleted!")
-                logger.info(f"Save file deleted: slot {choice}")
-            else:
-                print("Cancelled.")
-        except Exception as e:
-            logging.error(f"Delete save error: {e}", exc_info=True)
-            print(f"✗ Delete failed: {e}")
-    
-
-    # ─────────────────────────────────────────────────────────────

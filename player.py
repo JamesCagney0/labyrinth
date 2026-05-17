@@ -5,6 +5,7 @@ from __future__ import annotations
 import random, json, os, logging
 from typing import Dict, List, Optional, Set, Tuple, Any, TYPE_CHECKING, Callable
 from difflib import get_close_matches
+from collections import Counter
 from dataclasses import dataclass, field
 
 logger = logging.getLogger(__name__)
@@ -485,9 +486,8 @@ class Player:
         print(f"Bosses: {len(self.bosses_defeated)}/{GameConstants.NUM_FLOORS}")
         
         if self.wearables:
-            from collections import Counter
-            stat_labels = {'strength':'STR','intelligence':'INT','agility':'AGI','luck':'LCK','vitality':'VIT','faith':'FTH','arcane':'ARC'}
-            counts = Counter(w['item'] for w in self.wearables)
+            stat_labels = {'strength':'STR','intelligence':'INT','agility':'AGI',
+                          'luck':'LCK','vitality':'VIT','faith':'FTH','arcane':'ARC'}
             seen = set()
             entries = []
             for w in self.wearables:

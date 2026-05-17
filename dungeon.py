@@ -1,31 +1,16 @@
-"""
-================================================================================
-LABYRINTH — Dungeon Generation
-================================================================================
-Generates all dungeon floors, rooms, connections and NG+ world dungeons.
-These methods are mixed into the Game class via DungeonMixin.
-"""
+"""LABYRINTH — Dungeon generation"""
 from __future__ import annotations
-import random
-import json
-import os
-import logging
-from typing import Dict, List, Optional, Set, Tuple, Any, Callable
+import random, json, os, logging
+from typing import Dict, List, Optional, Set, Tuple, Any, TYPE_CHECKING, Callable
 from difflib import get_close_matches
 from dataclasses import dataclass, field
+if TYPE_CHECKING:
+    from game import Game
 
-logging.basicConfig(
-    filename='game.log',
-    level=logging.INFO,
-    format='%(asctime)s [%(levelname)s] %(funcName)s:%(lineno)d - %(message)s',
-    filemode='a'
-)
 logger = logging.getLogger(__name__)
+
 from constants import GameConstants, BossConfig, RoomTemplateConfig
 from room import Room
-from typing import Dict, List, Optional, TYPE_CHECKING
-if TYPE_CHECKING:
-    from player import Player
 
 
 class DungeonMixin:
@@ -51,11 +36,17 @@ class DungeonMixin:
             return
 
         # Track unique items across entire dungeon (items that should only spawn once)
-        unique_item_types = {'rusty key', 'bone key', 'torch', 'ancient medallion'}
+        unique_item_types = {'rusty key', 'bone key', 'torch', 'ancient medallion',
+                              'journal_1','journal_2','journal_3','journal_4','journal_5',
+                              "gambler's d20"}
+        # Which floor each journal entry appears on
+        JOURNAL_FLOORS = {2: 'journal_1', 4: 'journal_2', 5: 'journal_3',
+                          7: 'journal_4', 9: 'journal_5'}
         
         # Pre-locate the special destination templates by name for injection
-        vault_tmpl      = next(t for t in RoomTemplateConfig.SPECIAL_ROOMS if t.name == 'Locked Vault')
-        bone_crypt_tmpl = next(t for t in RoomTemplateConfig.SPECIAL_ROOMS if t.name == 'Bone Crypt')
+        vault_tmpl          = next(t for t in RoomTemplateConfig.SPECIAL_ROOMS if t.name == 'Locked Vault')
+        bone_crypt_tmpl     = next(t for t in RoomTemplateConfig.SPECIAL_ROOMS if t.name == 'Bone Crypt')
+        forgotten_game_tmpl = RoomTemplateConfig.FORGOTTEN_GAME_ROOM
 
         # Track which floor each key lands on so we can guarantee a destination
         key_floor: dict = {}   # key_item_str -> floor_num
@@ -88,7 +79,7 @@ class DungeonMixin:
 
             # Filter out destination-only templates from the random pool so they
             # are only injected via the pairing logic below
-            DEST_NAMES = {'Locked Vault', 'Bone Crypt'}
+            DEST_NAMES = {'Locked Vault', 'Bone Crypt', 'Forgotten Game Room'}
             # Deduplicate by name — same template name can appear in both
             # the theme config and SPECIAL_ROOMS, which random.sample would
             # treat as distinct objects and potentially pick both.
@@ -111,16 +102,29 @@ class DungeonMixin:
 
                 items = self._filter_items_by_class(template.items.copy())
                 filtered_items = []
+
+                # Calculate wearable cap for dungeon generation
+                p_lvl      = self.player.level
+                max_stack  = 1 if p_lvl < 5 else 2 if p_lvl < 10 else 3 if p_lvl < 15 else 4
+                def _gen_at_cap(item_name):
+                    if item_name not in GameConstants.WEARABLE_ITEMS:
+                        return False
+                    if GameConstants.WEARABLE_ITEMS[item_name].get('cursed'):
+                        return False
+                    count = sum(1 for w in self.player.wearables if w['item'] == item_name)
+                    return count >= max_stack
+
                 for item in items:
                     if item in unique_item_types:
                         if item not in self.player.unique_items_spawned:
                             filtered_items.append(item)
                             self.player.unique_items_spawned.add(item)
-                            # Record which floor this key landed on
                             if item in ('rusty key', 'bone key'):
                                 key_floor[item] = floor_num
                     elif item in THINNED_ITEMS and random.random() < 0.5:
                         pass
+                    elif _gen_at_cap(item):
+                        pass  # skip wearables the player is already capped on
                     else:
                         filtered_items.append(item)
 
@@ -146,7 +150,7 @@ class DungeonMixin:
             room_enemies = self._get_unique_enemies(enemies, tmpl.enemy_count)
             frooms[room_id] = Room(tmpl.name, tmpl.description, fnum,
                                    tmpl.items.copy(), {}, room_enemies, tmpl.atmosphere)
-            print(f"  [injected {tmpl.name} on F{fnum}]", end=" ")
+            logger.debug(f"Injected {tmpl.name} on F{fnum}")
 
         # Rusty key → Locked Vault should appear on the same floor or the next
         if 'rusty key' in key_floor:
@@ -160,27 +164,42 @@ class DungeonMixin:
             dest_floors = list(range(kf, min(kf + 2, GameConstants.NUM_FLOORS) + 1))
             _inject_dest(bone_crypt_tmpl, 'bone key', dest_floors)
 
-        # Now finalise: move rooms back into self.floors with boss/stairs rooms
+        # Forgotten Game Room — always spawns once, on a random floor between 3 and 7
+        if "gambler's d20" not in self.player.unique_items_spawned:
+            fg_floor = random.randint(3, 7)
+            fg_rooms = all_floors_rooms[fg_floor]
+            fg_id    = f"floor{fg_floor}_forgotten"
+            fg_rooms[fg_id] = Room(
+                forgotten_game_tmpl.name,
+                forgotten_game_tmpl.description,
+                fg_floor,
+                list(forgotten_game_tmpl.items),
+                {}, [],
+                forgotten_game_tmpl.atmosphere
+            )
+            self.player.unique_items_spawned.add("gambler's d20")
+
+        # Finalise: add boss/stairs rooms then connect and store
         for floor_num in range(1, GameConstants.NUM_FLOORS + 1):
             rooms = all_floors_rooms[floor_num]
-            
+            floor_start_id = 'start' if floor_num == 1 else f"floor{floor_num}_start"
+
             boss_template = BossConfig.get_boss_room_template(floor_num)
-            boss_config = BossConfig.generate(floor_num)
-            boss_room_id = f"floor{floor_num}_boss"
-            # Don't include champion's prize in initial items - added after boss defeat
+            boss_config   = BossConfig.generate(floor_num)
+            boss_room_id  = f"floor{floor_num}_boss"
             rooms[boss_room_id] = Room(boss_template.name, boss_template.description, floor_num,
-                                       ['ultimate health potion'],  # FIXED: No champion's prize until boss defeated
+                                       ['ultimate health potion'],
                                        {}, [boss_config['name']], boss_template.atmosphere)
-            
+
             if floor_num < GameConstants.NUM_FLOORS:
                 stairs_id = f"floor{floor_num}_stairs"
                 rooms[stairs_id] = Room("Ancient Stairway", "Stone stairs descend deeper.", floor_num)
-            
-            self._connect_rooms(rooms, start_id)
-            
+
+            self._connect_rooms(rooms, floor_start_id)
+
             self.floors[floor_num] = rooms
             total_rooms += len(rooms)
-            print(f"{len(rooms)} rooms")
+            logger.debug(f"Floor {floor_num}: {len(rooms)} rooms")
         
         for floor_num in range(1, GameConstants.NUM_FLOORS):
             stairs_id = f"floor{floor_num}_stairs"
@@ -192,14 +211,12 @@ class DungeonMixin:
         logger.info(f"Dungeon generated: {GameConstants.NUM_FLOORS} floors, {total_rooms} total rooms")
         print("*** Complete!")
     
-
     def _get_unique_enemies(self, pool: List[str], count: int) -> List[str]:
         """Get unique enemies from pool"""
         available = pool.copy()
         random.shuffle(available)
         return available[:min(count, len(available))]
     
-
     def _filter_items_by_class(self, items: List[str]) -> List[str]:
         """Replace mana items for non-mages"""
         if self.player.character_class == 'mage':
@@ -212,7 +229,6 @@ class DungeonMixin:
         }
         return [replacements.get(i, i) for i in items]
     
-
     def _connect_rooms(self, rooms: Dict[str, Room], start_id: str):
         """Connect all rooms in floor"""
         directions = ['north', 'south', 'east', 'west']
@@ -248,13 +264,77 @@ class DungeonMixin:
                         rooms[r2].exits[reverse[direction]] = r1
     
 
+    def delete_save(self):
+        """Delete a save file"""
+        try:
+            if not os.path.exists(GameConstants.SAVE_DIRECTORY):
+                print("No save files found!")
+                return
+            
+            print("\n" + "="*40)
+            print("DELETE SAVE")
+            print("="*40)
+            
+            available_saves = []
+            for slot in range(1, GameConstants.MAX_SAVE_SLOTS + 1):
+                save_path = os.path.join(GameConstants.SAVE_DIRECTORY, f"save{slot}.json")
+                if os.path.exists(save_path):
+                    try:
+                        with open(save_path, 'r') as f:
+                            save_data = json.load(f)
+                            player_data = save_data.get('player', {})
+                            name = player_data.get('name', 'Unknown')
+                            level = player_data.get('level', 1)
+                            floor = player_data.get('current_floor', 1)
+                            print(f"{slot}. {name} - Lvl {level} - Floor {floor}")
+                            available_saves.append(slot)
+                    except (json.JSONDecodeError, OSError, KeyError, TypeError):
+                        print(f"{slot}. [Corrupted Save]")
+                        available_saves.append(slot)
+                else:
+                    print(f"{slot}. [Empty Slot]")
+            
+            if not available_saves:
+                print("\nNo save files to delete!")
+                return
+            
+            print(f"{GameConstants.MAX_SAVE_SLOTS + 1}. Cancel")
+            
+            try:
+                choice = int(input(f"\nDelete slot (1-{GameConstants.MAX_SAVE_SLOTS}): ").strip())
+                if choice == GameConstants.MAX_SAVE_SLOTS + 1:
+                    return
+                if choice not in available_saves:
+                    print("Invalid or empty slot!")
+                    return
+            except (ValueError, KeyboardInterrupt):
+                return
+            
+            save_path = os.path.join(GameConstants.SAVE_DIRECTORY, f"save{choice}.json")
+            
+            confirm = input(f"Delete slot {choice}? This cannot be undone! (y/n): ").strip().lower()
+            if confirm in ['y', 'yes']:
+                os.remove(save_path)
+                print(f"✓ Slot {choice} deleted!")
+                logger.info(f"Save file deleted: slot {choice}")
+            else:
+                print("Cancelled.")
+        except OSError as e:
+            logging.error(f"Delete save error: {e}", exc_info=True)
+            print(f"✗ Delete failed: {e}")
+    
+
+    # ─────────────────────────────────────────────────────────────
+
     def _generate_ng_plus_dungeon(self, ng: int):
         """Generate the selected NG+ world dungeon."""
-        weapon_scale = max(1.0, getattr(self.player, 'ng_weapon_scale', 1.0))
-        world_key   = getattr(self.player, 'ng_world', 'fractured_labyrinth')
-        world_data  = GameConstants.NG_PLUS_WORLDS.get(world_key,
-                      GameConstants.NG_PLUS_WORLDS['fractured_labyrinth'])
-        world_name  = world_data['display_name']
+        weapon_scale  = max(1.0, getattr(self.player, 'ng_weapon_scale', 1.0))
+        world_key     = getattr(self.player, 'ng_world', 'fractured_labyrinth')
+        world_data    = GameConstants.NG_PLUS_WORLDS.get(world_key,
+                        GameConstants.NG_PLUS_WORLDS['fractured_labyrinth'])
+        world_name    = world_data['display_name']
+        JOURNAL_FLOORS = {2: 'journal_1', 4: 'journal_2', 5: 'journal_3',
+                          7: 'journal_4', 9: 'journal_5'}
 
         # Map world keys to their room template configs
         room_config_map = {
@@ -334,6 +414,17 @@ class DungeonMixin:
                     "Steps down into something worse.", floor_num
                 )
 
+            # Inject journal entry if this floor has one
+            journal_key = JOURNAL_FLOORS.get(floor_num)
+            if journal_key and journal_key not in self.player.unique_items_spawned:
+                # Place in a non-boss, non-start room
+                candidates = [r for r_id, r in rooms.items()
+                              if 'boss' not in r_id and r_id != start_id]
+                if candidates:
+                    target_room = random.choice(candidates)
+                    target_room.items.append(journal_key)
+                    self.player.unique_items_spawned.add(journal_key)
+
             self._connect_rooms(rooms, start_id)
             self.floors[floor_num] = rooms
             total_rooms += len(rooms)
@@ -348,4 +439,5 @@ class DungeonMixin:
 
         logger.info(f"NG+ dungeon generated ({world_name}): {total_rooms} rooms")
         print(f"*** {world_name} is ready.")
+
 

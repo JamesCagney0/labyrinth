@@ -1,26 +1,14 @@
-"""
-================================================================================
-LABYRINTH — Shop
-================================================================================
-Adamus the Loyal's shop: buy items, sell weapons, rarity reactions.
-Mixed into Game via ShopMixin.
-"""
+"""LABYRINTH — Shop (Adamus the Loyal)"""
 from __future__ import annotations
-import random
-import json
-import os
-import logging
-from typing import Dict, List, Optional, Set, Tuple, Any, Callable
+import random, json, os, logging
+from typing import Dict, List, Optional, Set, Tuple, Any, TYPE_CHECKING, Callable
 from difflib import get_close_matches
 from dataclasses import dataclass, field
+if TYPE_CHECKING:
+    from game import Game
 
-logging.basicConfig(
-    filename='game.log',
-    level=logging.INFO,
-    format='%(asctime)s [%(levelname)s] %(funcName)s:%(lineno)d - %(message)s',
-    filemode='a'
-)
 logger = logging.getLogger(__name__)
+
 from constants import GameConstants
 from weapons import WeaponSystem, WeaponComparison
 from records import RecordsManager
@@ -80,9 +68,9 @@ class ShopMixin:
                 "I've met some real pieces of work in this dungeon. You're the whole furniture set.",
                 "If I wanted to hear from an ass, I'd fart. And yet here you are.",
             ]
-            import random as _r
-            greeting = _r.choice(ADAMUS_GREETINGS)
-            quip     = _r.choice(ADAMUS_QUIPS)
+
+            greeting = random.choice(ADAMUS_GREETINGS)
+            quip     = random.choice(ADAMUS_QUIPS)
             print("\n" + "="*50)
             print("  ☠  ADAMUS THE LOYAL — Purveyor of Fine Goods  ☠")
             print("="*50)
@@ -112,7 +100,7 @@ class ShopMixin:
                        (7,8):'Floors 7-8', (9,10):'Floors 9-10'}
         tier_name = next((v for (lo,hi),v in tier_labels.items() if lo<=floor<=hi), f'Floor {floor}')
 
-        import random as _r2
+
 
         def _weapon_sell_value(w) -> int:
             """Calculate sell value based on damage and rarity."""
@@ -155,11 +143,23 @@ class ShopMixin:
         ]
 
         while True:
-            print(f"\n  Stock: {tier_name}  |  {len(items)} items available")
-            print("-"*50)
-            for i, (name, price, desc) in enumerate(items, 1):
+            # Filter shop stock: remove wearables the player is already capped on
+            lvl = self.player.level
+            max_stack = 1 if lvl < 5 else 2 if lvl < 10 else 3 if lvl < 15 else 4
+            def _shop_at_cap(item_name):
+                if item_name not in GameConstants.WEARABLE_ITEMS:
+                    return False
+                if GameConstants.WEARABLE_ITEMS[item_name].get('cursed'):
+                    return False
+                count = sum(1 for w in self.player.wearables if w['item'] == item_name)
+                return count >= max_stack
+            cur_items = [(name, price, desc) for name, price, desc in items
+                         if not _shop_at_cap(name)]
+
+
+            print(f"\n  Stock: {tier_name}  |  {len(cur_items)} items available")
+            for i, (name, price, desc) in enumerate(cur_items, 1):
                 can_afford = "  " if self.player.gold_coins >= price else "✗ "
-                print(f"  {can_afford}{i:>2}. {name:<28} {price:>3}g   {desc}")
             print("-"*50)
             sell_opts = []
             if self.player.inventory_weapons:
@@ -203,7 +203,7 @@ class ShopMixin:
                     # Adamus reacts to rarity before confirming
                     if rarity == 'mythic':
                         print(f"\n  Adamus looks at {wname}.")
-                        print(f"  '{_r2.choice(ADAMUS_MYTHIC_CHECKS)}'")
+                        print(f"  '{random.choice(ADAMUS_MYTHIC_CHECKS)}'")
                         print(f"  'I'll give you {val}g. But I'm doing you a disservice.'")
                         print(f"  'Are you absolutely certain you want to sell this?'")
                         try:
@@ -216,7 +216,7 @@ class ShopMixin:
 
                     elif rarity == 'legendary':
                         print(f"\n  Adamus picks up {wname} and turns it over slowly.")
-                        print(f"  '{_r2.choice(ADAMUS_LEGENDARY_CHECKS)}'")
+                        print(f"  '{random.choice(ADAMUS_LEGENDARY_CHECKS)}'")
                         print(f"  'I can do {val}g. You sure about this?'")
                         try:
                             confirm = input("  Sell legendary weapon? (yes/no): ").strip().lower()
@@ -233,7 +233,7 @@ class ShopMixin:
                         self.player.inventory.remove(label)
                     self.player.gold_coins += val
                     self.player.total_gold_earned += val
-                    print(f"  '{_r2.choice(ADAMUS_BUYS)}'")
+                    print(f"  '{random.choice(ADAMUS_BUYS)}'")
                     print(f"  Sold {wname} for {val}g  |  Gold: {{self.player.gold_coins}}g")
                     sell_opts = list(self.player.inventory_weapons)
                     continue
@@ -280,7 +280,7 @@ class ShopMixin:
             else:
                 self.player.add_item(item)
 
-            sale_line = _r2.choice(ADAMUS_SALES).format(item=item)
+            sale_line = random.choice(ADAMUS_SALES).format(item=item)
             print(f"  '{sale_line}'")
             print(f"  Gold remaining: {{self.player.gold_coins}}g")
     

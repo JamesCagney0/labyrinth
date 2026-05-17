@@ -1,33 +1,20 @@
-"""
-================================================================================
-LABYRINTH — New Game Plus
-================================================================================
-Weapon audit, victory screen, glitch narrative, world selection,
-and NG+ run initialisation. Mixed into Game via NGPlusMixin.
-"""
+"""LABYRINTH — New Game Plus"""
 from __future__ import annotations
-import random
-import json
-import os
-import logging
-from typing import Dict, List, Optional, Set, Tuple, Any, Callable
+import random, json, os, logging
+from typing import Dict, List, Optional, Set, Tuple, Any, TYPE_CHECKING, Callable
 from difflib import get_close_matches
 from dataclasses import dataclass, field
+if TYPE_CHECKING:
+    from game import Game
 
-logging.basicConfig(
-    filename='game.log',
-    level=logging.INFO,
-    format='%(asctime)s [%(levelname)s] %(funcName)s:%(lineno)d - %(message)s',
-    filemode='a'
-)
 logger = logging.getLogger(__name__)
+
 from constants import GameConstants
 from records import RecordsManager
-from typing import Optional
 
 
 class NGPlusMixin:
-    """NG+ transition methods. Mixed into Game."""
+    """NG+ transition and victory methods. Mixed into Game."""
 
     def _audit_ng_weapons(self) -> None:
         """Check for overpowered weapons before NG+ and let the player decide.
@@ -149,7 +136,6 @@ class NGPlusMixin:
         except KeyboardInterrupt:
             pass
 
-
     def _victory_screen(self):
         """Display the endgame victory screen and credits."""
         p = self.player
@@ -227,10 +213,10 @@ class NGPlusMixin:
         elif choice == '2':
             self.player = None
             self.floors = None
-            self.start_game()
+            # Don't call start_game() recursively — just return.
+            # The original start_game loop will handle the menu naturally.
         else:
             self.quit_game()
-
 
     def _start_new_game_plus(self, preselected_world: str = None):
         """Transition into New Game+ with glitch narrative sequence."""
@@ -371,4 +357,5 @@ class NGPlusMixin:
         self.look_around()
         self.show_room_summary()
         self._game_loop()
+
 
