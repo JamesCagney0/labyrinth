@@ -2,15 +2,14 @@
 LABYRINTH — Player class
 """
 from __future__ import annotations
-import random, json, os, logging
-from typing import Dict, List, Optional, Set, Tuple, Any, TYPE_CHECKING, Callable
-from difflib import get_close_matches
+import random, logging
+from typing import Dict, List, Optional, Set
 from collections import Counter
-from dataclasses import dataclass, field
 
 logger = logging.getLogger(__name__)
 
 from constants import GameConstants
+from utils import safe_input
 
 class Player:
     """Player character with stats and inventory"""
@@ -23,7 +22,7 @@ class Player:
         self.experience = 0
         self.experience_to_next = GameConstants.BASE_EXPERIENCE_NEEDED
         
-        config = GameConstants.CLASSES[character_class]
+        config = GameConstants.CLASSES.get(character_class) or GameConstants.CLASSES['warrior']
         self.stats = config['base_stats'].copy()
         self.rarity_boost = 0.0
         
@@ -50,12 +49,45 @@ class Player:
         self.secret_room_unlocked = False
         self.unique_items_spawned: Set[str] = set()  # Track unique items spawned
         self.item_hints_shown:    Set[str] = set()  # Items whose full hint has been shown
+        self.shop_visits:         int = 0
         self.status_effects:      Dict[str, int] = {}  # name → turns remaining
         self.fight_damage_taken:  int   = 0    # total damage taken this fight (berserker's draught)
         self.combat_boost_turns:  int   = 0    # turns of battle tincture active
         self.combat_boost_mult:   float = 1.0  # active damage boost multiplier
         self.void_absorb_active:  bool  = False  # void tonic: absorb next hit → MP
     
+    def _base_class_config(self) -> dict:
+        """Return the CLASSES config entry for this character, fusion-safe.
+
+        Fusion classes (e.g. 'shadow_knight') are not in GameConstants.CLASSES.
+        For those, we return a synthesised config that averages both parents so
+        that level-up stat growth and HP scaling remain consistent.  Weapon type
+        falls back to the first parent's weapon type.
+        """
+        if self.character_class in GameConstants.CLASSES:
+            return GameConstants.CLASSES[self.character_class]
+
+        # Fusion class — average both parents
+        parents = getattr(self, 'fusion_parents', None)
+        p1_key = parents[0] if parents else 'warrior'
+        p2_key = parents[1] if parents and len(parents) > 1 else p1_key
+        c1 = GameConstants.CLASSES.get(p1_key, GameConstants.CLASSES['warrior'])
+        c2 = GameConstants.CLASSES.get(p2_key, GameConstants.CLASSES['warrior'])
+
+        avg_growth = {}
+        for stat in c1['stat_growth']:
+            avg_growth[stat] = (c1['stat_growth'].get(stat, 0) + c2['stat_growth'].get(stat, 0)) // 2
+
+        return {
+            'base_health':      (c1['base_health']      + c2['base_health'])      // 2,
+            'base_mana':        (c1['base_mana']         + c2['base_mana'])        // 2,
+            'health_per_level': (c1['health_per_level']  + c2['health_per_level']) // 2,
+            'inventory_slots':  max(c1['inventory_slots'], c2['inventory_slots']),
+            'weapon_types':     c1['weapon_types'],   # first parent's weapon type
+            'stat_growth':      avg_growth,
+            'base_stats':       c1['base_stats'],     # used only in migration, safe fallback
+        }
+
     def gain_experience(self, amount: int) -> None:
         """Add experience and handle level ups"""
         self.experience += amount
@@ -71,7 +103,7 @@ class Player:
         self.level += 1
         self.experience_to_next = int(self.experience_to_next * GameConstants.EXPERIENCE_MULTIPLIER)
         
-        config = GameConstants.CLASSES[self.character_class]
+        config = self._base_class_config()
         old_max_inv = self.max_inventory
         
         self.max_inventory = config['inventory_slots'] + (self.level - 1) * GameConstants.INVENTORY_SLOTS_PER_LEVEL + (self.class_tier - 1) * GameConstants.INVENTORY_SLOTS_PER_TIER
@@ -84,10 +116,13 @@ class Player:
         self.max_health += health_gain
         self.health = self.max_health
 
-        is_mage = self.character_class == 'mage'
+        is_mage   = self.character_class == 'mage'
+        is_paladin = self.character_class == 'paladin'
         if is_mage:
             self.max_mana += GameConstants.MANA_PER_LEVEL
             self.mana = self.max_mana
+        elif is_paladin:
+            self.mana = min(self.mana + 10, self.max_mana)  # Paladin regens 10 MP on level up
 
         logger.info(f"LEVEL UP: {self.name} reached level {self.level}. HP: {self.max_health}" + (f", MP: {self.max_mana}" if is_mage else ""))
 
@@ -96,7 +131,8 @@ class Player:
         faith_gain = config['stat_growth'].get('faith', 0)
 
         print(f"\n*** LEVEL UP! Now level {self.level}!")
-        mana_str = f" | Mana +{GameConstants.MANA_PER_LEVEL} (now {self.max_mana})" if is_mage else ""
+        mana_str = f" | Mana +{GameConstants.MANA_PER_LEVEL} (now {self.max_mana})" if is_mage else \
+                   f" | MP +10 (now {self.mana}/{self.max_mana})" if is_paladin else ""
         print(f"Health +{health_gain} (now {self.max_health}){mana_str}")
         # Show every stat that actually grew this level
         stat_labels = {
@@ -144,8 +180,8 @@ class Player:
         # Distribute bonus evenly across primary stats
         for stat in ['strength', 'intelligence', 'agility', 'luck', 'vitality']:
             self.stats[stat] = self.stats.get(stat, 0) + bonus
-        self.max_health += 15
-        self.health = min(self.health + 15, self.max_health)
+        self.max_health += 20  # +20 max HP per fusion tier
+        self.health = min(self.health + 20, self.max_health)
         return True
 
     def fuse_class(self, target_class: str) -> bool:
@@ -211,7 +247,7 @@ class Player:
         self.class_tier += 1
         self.rarity_boost += GameConstants.RARITY_BOOST_PER_TIER
         
-        config = GameConstants.CLASSES[self.character_class]
+        config = self._base_class_config()
         old_tier_bonus = (old_tier - 1) * 5
         growth = config['stat_growth']
 
@@ -240,18 +276,25 @@ class Player:
         self.max_health = config['base_health'] + (self.class_tier - 1) * 30 + (self.level - 1) * config['health_per_level']
         self.health = self.max_health
 
-        is_mage = self.character_class == 'mage'
+        is_mage    = self.character_class == 'mage'
+        is_paladin = self.character_class == 'paladin'
         if is_mage:
             self.max_mana = config['base_mana'] + (self.class_tier - 1) * 25 + (self.level - 1) * GameConstants.MANA_PER_LEVEL
             self.mana = self.max_mana
+        elif is_paladin:
+            self.mana = self.max_mana  # restore to full on tier upgrade
 
         logger.info(f"CLASS UPGRADE: {self.name} advanced from tier {old_tier} to {self.class_tier} ({self.get_class_title()})")
 
-        print(f"\n*** CLASS UPGRADE! Now a {self.get_class_title()}! (Tier {self.class_tier}/5)")
+        title = self.get_class_title()
+        article = "an" if title[0].lower() in "aeiou" else "a"
+        print(f"\n*** CLASS UPGRADE! Now {article} {title}! (Tier {self.class_tier}/5)")
         hp_gain = self.max_health - old_health
         if is_mage:
             mana_gain = self.max_mana - old_mana
             print(f"All stats +5 | Health +{hp_gain} | Mana +{mana_gain}")
+        elif is_paladin:
+            print(f"All stats +5 | Health +{hp_gain} | MP restored to {self.max_mana}")
         else:
             print(f"All stats +5 | Health +{hp_gain}")
         print(f"Loot drop boost: +{self.rarity_boost * 100:.0f}%")
@@ -289,12 +332,12 @@ class Player:
         return True
     
     def add_weapon_to_inventory(self, weapon: Dict) -> bool:
-        """Store weapon in inventory"""
-        if len(self.inventory) >= self.max_inventory:
-            print(f"X Inventory full!")
+        """Store weapon in dedicated weapon slots (separate from item inventory)"""
+        max_ws = getattr(self, 'max_weapon_slots', GameConstants.MAX_WEAPON_SLOTS)
+        if len(self.inventory_weapons) >= max_ws:
+            print(f"Weapon slots full! ({max_ws} max — sell or discard a weapon first)")
             return False
         self.inventory_weapons.append(weapon)
-        self.inventory.append(f"WEAPON: {weapon['name']}")
         print(f"Stored: {weapon['name']}")
         return True
     
@@ -333,7 +376,7 @@ class Player:
                 print(_fmt_w(w, f"  {i}. "))
             print("  0. Cancel")
             try:
-                choice = int(input("\nSwap to: ")) - 1
+                choice = int(safe_input("\nSwap to: ")) - 1
                 if choice == -1:
                     print("Cancelled")
                     return False
@@ -345,16 +388,7 @@ class Player:
         if target:
             if self.weapon:
                 self.inventory_weapons.append(self.weapon)
-                # Only add the inventory label if it isn't already there
-                label = f"WEAPON: {self.weapon['name']}"
-                if label not in self.inventory:
-                    self.inventory.append(label)
             self.inventory_weapons.remove(target)
-            # Safely remove the label — may be absent for weapons added
-            # before this tracking existed (boss rewards, NG+ pickups)
-            label = f"WEAPON: {target['name']}"
-            if label in self.inventory:
-                self.inventory.remove(label)
             self.weapon = target
             print(f"Equipped: {target['name']} ({target['damage']} dmg)")
             return True
@@ -436,32 +470,12 @@ class Player:
             trait_lines = []
             for t in w.get('traits', []):
                 td = GameConstants.WEAPON_TRAITS.get(t, {})
-                effect = td.get('effect', '')
-                name   = td.get('name', t)
-                desc   = td.get('desc', '')
-                if effect == 'cursed':
+                name = td.get('name', t)
+                desc = td.get('desc', '')
+                # Cursed weapons also contribute a damage multiplier to the preview
+                if td.get('effect') == 'cursed':
                     trait_mults.append(1 + td.get('damage_bonus', 0))
-                    trait_lines.append(f"  ✦ {name}: {desc}")
-                elif effect in ('first_hit_double',):
-                    trait_lines.append(f"  ✦ {name}: {desc}")
-                elif effect == 'berserker':
-                    trait_lines.append(f"  ✦ {name}: {desc}")
-                elif effect in ('on_hit_dot',):
-                    trait_lines.append(f"  ✦ {name}: {desc}")
-                elif effect == 'lifesteal':
-                    trait_lines.append(f"  ✦ {name}: {desc}")
-                elif effect == 'crit_boost':
-                    trait_lines.append(f"  ✦ {name}: {desc}")
-                elif effect == 'type_bonus':
-                    trait_lines.append(f"  ✦ {name}: {desc}")
-                elif effect == 'execute_bonus':
-                    trait_lines.append(f"  ✦ {name}: {desc}")
-                elif effect == 'opener_bonus':
-                    trait_lines.append(f"  ✦ {name}: {desc}")
-                elif effect == 'damage_reduction':
-                    trait_lines.append(f"  ✦ {name}: {desc}")
-                else:
-                    trait_lines.append(f"  ✦ {name}: {desc}")
+                trait_lines.append(f"  ✦ {name}: {desc}")
 
             total_mult = mult
             for tm in trait_mults:
@@ -482,12 +496,16 @@ class Player:
         else:
             print("  No weapon equipped  (unarmed: 1–5 damage)")
 
-        print(f"\n  Inventory: {len(self.inventory)}/{self.max_inventory} | Floor: {self.current_floor}/{GameConstants.NUM_FLOORS}")
+        max_ws = getattr(self, 'max_weapon_slots', GameConstants.MAX_WEAPON_SLOTS)
+        print(f"\n  Inventory: {len(self.inventory)}/{self.max_inventory} "
+              f"| Weapons: {len(self.inventory_weapons)}/{max_ws} "
+              f"| Floor: {self.current_floor}/{GameConstants.NUM_FLOORS}")
         print(f"Bosses: {len(self.bosses_defeated)}/{GameConstants.NUM_FLOORS}")
         
         if self.wearables:
             stat_labels = {'strength':'STR','intelligence':'INT','agility':'AGI',
                           'luck':'LCK','vitality':'VIT','faith':'FTH','arcane':'ARC'}
+            counts = Counter(w['item'] for w in self.wearables)
             seen = set()
             entries = []
             for w in self.wearables:
@@ -520,7 +538,7 @@ class Player:
             'name': self.name, 'character_class': self.character_class, 'class_tier': self.class_tier,
             'level': self.level, 'experience': self.experience, 'experience_to_next': self.experience_to_next,
             'stats': self.stats, 'health': self.health, 'max_health': self.max_health,
-            'mana': self.mana, 'max_mana': self.max_mana, 'inventory': self.inventory,
+            'mana': self.mana, 'max_mana': self.max_mana, 'inventory': [i for i in self.inventory if not i.startswith('WEAPON:')],
             'inventory_weapons': self.inventory_weapons, 'weapon': self.weapon, 'wearables': self.wearables,
             'max_inventory': self.max_inventory, 'current_floor': self.current_floor,
             'current_room': self.current_room, 'visited_rooms': list(self.visited_rooms),
@@ -529,7 +547,10 @@ class Player:
             'special_items': self.special_items, 'unique_items_spawned': list(self.unique_items_spawned),
             'ng_plus': getattr(self, 'ng_plus', 0),
             'ng_world': getattr(self, 'ng_world', 'fractured_labyrinth'),
+            'ng_world_queue': getattr(self, 'ng_world_queue', []),
             'item_hints_shown':   list(getattr(self, 'item_hints_shown', set())),
+            'shop_visits':        getattr(self, 'shop_visits', 0),
+            'save_version':       getattr(self, 'save_version', '7.6.5'),
             'status_effects':     getattr(self, 'status_effects', {}),
             'fusion_parents': list(getattr(self, 'fusion_parents', None) or []),
             'ng_weapon_scale': getattr(self, 'ng_weapon_scale', 1.0),
@@ -539,7 +560,16 @@ class Player:
     @classmethod
     def from_dict(cls, data: Dict) -> 'Player':
         """Deserialize from save, migrating old saves to current version."""
-        player = cls(data['name'], data['character_class'])
+        # Fusion classes (e.g. 'shadow_knight') are not in GameConstants.CLASSES so
+        # __init__ can't resolve their config.  We construct with the first fusion
+        # parent instead — all attributes are overwritten by the loop below anyway.
+        saved_class = data['character_class']
+        if saved_class not in GameConstants.CLASSES:
+            fp = data.get('fusion_parents') or []
+            init_class = fp[0] if fp and fp[0] in GameConstants.CLASSES else 'warrior'
+        else:
+            init_class = saved_class
+        player = cls(data['name'], init_class)
         for key, value in data.items():
             if key == 'visited_rooms':
                 setattr(player, key, set(value))
@@ -561,6 +591,26 @@ class Player:
         player.fusion_parents = tuple(fp) if fp else None
         if not hasattr(player, 'ng_weapon_scale'):
             player.ng_weapon_scale = 1.0
+        if not hasattr(player, 'ng_world_queue'):
+            player.ng_world_queue = []   # old saves start fresh — queue builds on next NG+
+        if not hasattr(player, 'shop_visits'):
+            player.shop_visits = 1
+        if not hasattr(player, 'max_weapon_slots'):
+            player.max_weapon_slots = GameConstants.MAX_WEAPON_SLOTS
+        # Migrate legacy WEAPON: labels — reconstruct any weapons that were
+        # stored as labels but are missing from inventory_weapons
+        legacy_labels = [i for i in player.inventory if i.startswith('WEAPON:')]
+        if legacy_labels:
+            existing_names = {w['name'] for w in player.inventory_weapons}
+            for label in legacy_labels:
+                wname = label[8:]
+                if wname not in existing_names:
+                    player.inventory_weapons.append({
+                        'name': wname, 'damage': 0, 'rarity': 'common',
+                        'type': 'melee', 'traits': [],
+                    })
+        # Strip the labels
+        player.inventory = [i for i in player.inventory if not i.startswith('WEAPON:')]
         for _attr, _default in [
             ('status_effects', {}), ('item_hints_shown', set()),
             ('fight_damage_taken', 0), ('combat_boost_turns', 0),
@@ -576,39 +626,24 @@ class Player:
         return player
 
     def _migrate_save(self) -> None:
-        """Backfill stats and weapon traits added after a save was created."""
+        """Backfill stats and fix exploits from pre-7.7.0 saves."""
         config  = GameConstants.CLASSES.get(self.character_class, {})
         base    = config.get('base_stats', {})
         growth  = config.get('stat_growth', {})
         levels  = max(0, self.level - 1)
         migrated = []
 
-        # ── Backfill any missing stat ────────────────────────────
+        # ── Backfill any legitimately missing stat ───────────────────
         for stat, base_val in base.items():
             if stat not in self.stats:
                 earned = base_val + growth.get(stat, 0) * levels
                 self.stats[stat] = earned
-                label = stat.capitalize()
-                migrated.append(f"{label} → {earned}")
+                migrated.append(f"{stat.capitalize()} added → {earned}")
 
-        # ── Fix stat loss from upgrade_class bug ──────────────────
-        # Old code rebuilt stats from scratch on tier-up, wiping any
-        # wearable/shrine/item bonuses. Recalculate what the stats
-        # *should* be from base+tier+growth, then ensure the player
-        # has at least that much (never reduce stats they legitimately have).
-        tier_bonus = (self.class_tier - 1) * 5
-        for stat, base_val in base.items():
-            minimum = base_val + tier_bonus + growth.get(stat, 0) * levels
-            if self.stats.get(stat, 0) < minimum:
-                old_val = self.stats.get(stat, 0)
-                self.stats[stat] = minimum
-                migrated.append(f"{stat.capitalize()} corrected {old_val} → {minimum}")
-
-        # ── Add trait to equipped weapon if it has none ──────────
+        # ── Add trait to equipped weapon if it has none ──────────────
         def _assign_trait(weapon):
             if weapon and not weapon.get('traits'):
                 wtype = weapon.get('type', 'melee')
-                # Pick a sensible default trait per weapon type
                 defaults = {
                     'melee':   ['bleeding', 'savage', 'shielded'],
                     'magic':   ['precise', 'elemental_fire', 'venomous'],
@@ -623,18 +658,77 @@ class Player:
             name = _assign_trait(self.weapon)
             if name:
                 migrated.append(f"Trait added to {name}")
-
         for w in getattr(self, 'inventory_weapons', []):
             name = _assign_trait(w)
             if name:
                 migrated.append(f"Trait added to {name}")
 
+        # ── v7.7.0 migration ─────────────────────────────────────────
+        save_ver = getattr(self, 'save_version', '0.0.0')
+        if save_ver < '7.7.0':
+
+            # Step 1: Enforce wearable stack cap retroactively
+            # Cap: L<5=1, L<10=2, L<15=3, L15+=4 per item type
+            lvl = self.level
+            max_stack = GameConstants.get_wearable_stack_cap(lvl)
+            from collections import Counter
+            wearable_counts = Counter(w['item'] for w in self.wearables
+                                      if not GameConstants.WEARABLE_ITEMS.get(w['item'], {}).get('cursed'))
+            capped_wearables = []
+            seen_counts = Counter()
+            for w in self.wearables:
+                item_name = w['item']
+                is_cursed = GameConstants.WEARABLE_ITEMS.get(item_name, {}).get('cursed', False)
+                if is_cursed:
+                    capped_wearables.append(w)  # cursed items: no cap
+                elif seen_counts[item_name] < max_stack:
+                    capped_wearables.append(w)
+                    seen_counts[item_name] += 1
+                else:
+                    migrated.append(f"Removed excess {item_name} (cap: {max_stack})")
+
+            self.wearables = capped_wearables
+
+            # Step 2: Recalculate stats from scratch using correct baseline
+            # base + tier bonus + level growth (clean slate)
+            tier_bonus = (self.class_tier - 1) * 5
+            new_stats = {}
+            for stat, base_val in base.items():
+                new_stats[stat] = base_val + tier_bonus + growth.get(stat, 0) * levels
+
+            # Step 3: Reapply only the capped wearables
+            for w in self.wearables:
+                s = w.get('stat')
+                b = w.get('bonus', 0)
+                if s in new_stats:
+                    new_stats[s] += b
+                elif s:
+                    new_stats[s] = b
+
+            # Step 4: Take the HIGHER of old vs new for each stat
+            # (player gets the benefit of new scaling if it's better)
+            for stat in new_stats:
+                old_val = self.stats.get(stat, 0)
+                new_val = new_stats[stat]
+                self.stats[stat] = max(old_val, new_val)
+                if new_val > old_val:
+                    migrated.append(f"{stat.title()} {old_val} → {new_val}")
+
+            # Step 5: Recalculate HP — take the higher of old vs new baseline
+            base_hp = (config.get('base_health', 100) +
+                       config.get('health_per_level', 10) * levels +
+                       (self.class_tier - 1) * 10)
+            if self.max_health < base_hp:
+                self.max_health = base_hp
+                self.health = min(self.health, self.max_health)
+                migrated.append(f"Max HP updated to {base_hp}")
+
+            self.save_version = '7.7.0'
+            migrated.append(f"Migrated to v7.7.0 (L{self.level} T{self.class_tier})")
+
         if migrated:
-            print("\n[Save migrated to v7.0.2]")
+            print(f"\n[Save migrated]")
             for m in migrated:
                 print(f"  + {m}")
 
-#################################################################################
-# ROOM CLASS
-#################################################################################
 

@@ -26,8 +26,16 @@ from game import Game
 
 def main():
     """Main entry point"""
+    debug  = '--debug'  in sys.argv
+    mature = '--mature' in sys.argv
     try:
         game = Game()
+        if debug:
+            game.debug_mode = True
+            print("  [DEBUG MODE ENABLED]")
+            print("  Commands: warp <floor> | give <item> | levelup <n> | fullheal | unlock | debugfuse | debugngplus [world]")
+        if mature:
+            game.mature_mode = True
         game.start_game()
     except KeyboardInterrupt:
         print("\n\nGame interrupted. Goodbye!")

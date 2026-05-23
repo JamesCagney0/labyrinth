@@ -1,15 +1,14 @@
 """LABYRINTH — Shop (Adamus the Loyal)"""
 from __future__ import annotations
-import random, json, os, logging
-from typing import Dict, List, Optional, Set, Tuple, Any, TYPE_CHECKING, Callable
-from difflib import get_close_matches
-from dataclasses import dataclass, field
+import random, logging
+from typing import Dict, List, Optional, TYPE_CHECKING
 if TYPE_CHECKING:
     from game import Game
 
 logger = logging.getLogger(__name__)
 
 from constants import GameConstants
+from utils import safe_input
 from weapons import WeaponSystem, WeaponComparison
 from records import RecordsManager
 
@@ -27,22 +26,31 @@ class ShopMixin:
             print("! No shop here. Return to the entrance hall to find a merchant.")
             return
         
+        # Track shop visits for first-visit dialogue
+        self.player.shop_visits = getattr(self.player, 'shop_visits', 0) + 1
+        is_first_visit = self.player.shop_visits == 1
+
         rec = RecordsManager.load()
         # One-time acknowledgment the first shop visit after clearing the game
         if rec.get('runs_completed', 0) > 0 and not rec.get('adamus_impressed', False):
             RecordsManager.update(adamus_impressed=True)
             print("\n" + "="*50)
             print("  ☠  ADAMUS THE LOYAL — Purveyor of Fine Goods  ☠")
-            print("="*50)
+            print("="*44)
             print(f"  '{self.player.name}.'")
             print(f"  Adamus pauses. Sets down whatever he was doing.")
             print(f"  He doesn't look at you.")
             print(f"  'You actually did it. I didn't think you had it in you.'")
             print(f"  A long pause.")
             print(f"  \"Don't make me say that again. Now. What do you need.\"")
-            print("-"*50)
+            print("-"*44)
             print(f"  Your Gold: {self.player.gold_coins}")
         else:
+            ADAMUS_FIRST_VISIT = [
+                f"...Oh. A new one. Sit down, stop touching things, and listen.",
+                f"Another adventurer. Wonderful. I'm Adamus. I sell things. You buy things. Don't make it weird.",
+                f"First time? Good. I'll keep this simple — I have what you need, you have gold, let's not complicate it.",
+            ]
             ADAMUS_GREETINGS = [
                 f"Well well well, look what the cat dragged in. What do ya want, {self.player.name}?",
                 f"Ah, {self.player.name}. My least favourite customer. What'll it be?",
@@ -69,14 +77,15 @@ class ShopMixin:
                 "If I wanted to hear from an ass, I'd fart. And yet here you are.",
             ]
 
-            greeting = random.choice(ADAMUS_GREETINGS)
-            quip     = random.choice(ADAMUS_QUIPS)
+            greeting = random.choice(ADAMUS_FIRST_VISIT if is_first_visit else ADAMUS_GREETINGS)
             print("\n" + "="*50)
             print("  ☠  ADAMUS THE LOYAL — Purveyor of Fine Goods  ☠")
-            print("="*50)
+            print("="*44)
             print(f"  '{greeting}'")
-            print(f"  '{quip}'")
-            print("-"*50)
+            if not is_first_visit:
+                quip = random.choice(ADAMUS_QUIPS)
+                print(f"  '{quip}'")
+            print("-"*44)
             print(f"  Your Gold: {self.player.gold_coins}")
         
         # Pick the right tier for this floor
@@ -145,7 +154,7 @@ class ShopMixin:
         while True:
             # Filter shop stock: remove wearables the player is already capped on
             lvl = self.player.level
-            max_stack = 1 if lvl < 5 else 2 if lvl < 10 else 3 if lvl < 15 else 4
+            max_stack = GameConstants.get_wearable_stack_cap(lvl)
             def _shop_at_cap(item_name):
                 if item_name not in GameConstants.WEARABLE_ITEMS:
                     return False
@@ -158,24 +167,33 @@ class ShopMixin:
 
 
             print(f"\n  Stock: {tier_name}  |  {len(cur_items)} items available")
-            for i, (name, price, desc) in enumerate(cur_items, 1):
-                can_afford = "  " if self.player.gold_coins >= price else "✗ "
-            print("-"*50)
+            print("-"*44)
+            for idx, (iname, iprice, idesc) in enumerate(cur_items, 1):
+                can_afford = "  " if self.player.gold_coins >= iprice else "✗ "
+                print(f"  {can_afford}{idx:>2}. {iname:<22} {iprice:>3}g")
+                print(f"        {idesc}", flush=True)
+            if not cur_items:
+                print("  (No items available at this tier)")
+            print("-"*44)
             sell_opts = []
             if self.player.inventory_weapons:
                 print(f"\n  Weapons you can sell:")
                 for j, w in enumerate(self.player.inventory_weapons):
                     val = _weapon_sell_value(w)
                     rar = w.get('rarity', 'common').upper()
-                    print(f"  S{j+1}. {w['name']:<28} {w.get('damage',0):>3}dmg  {rar:<10}  → {val}g")
+                    dmg = w.get('damage', 0)
+                    if dmg == 0:
+                        print(f"  S{j+1}. {w['name']:<28} [legacy — 5g]")
+                    else:
+                        print(f"  S{j+1}. {w['name']:<28} {dmg:>3}dmg  {rar:<10}  → {val}g")
                     sell_opts.append(w)
                 print()
-            print(f"  {len(items)+1}. Leave")
+            print(f"  0. Leave")
             print(f"  Your Gold: {self.player.gold_coins}g")
-            print("-"*50)
+            print("-"*44)
 
             try:
-                raw = input("\n  Choice (buy # or S# to sell): ").strip()
+                raw = safe_input("\n  Choice (buy # or S# to sell): ").strip()
             except KeyboardInterrupt:
                 print("  Adamus waves you off.")
                 return
@@ -184,7 +202,7 @@ class ShopMixin:
                 continue
 
             # ── Leave ───────────────────────────────────────────
-            if raw in (str(len(items)+1), 'leave', 'exit', 'q'):
+            if raw in ('0', 'leave', 'exit', 'quit', 'q', 'back', 'done'):
                 print("  Adamus doesn't say goodbye. He never does.")
                 return
 
@@ -207,7 +225,7 @@ class ShopMixin:
                         print(f"  'I'll give you {val}g. But I'm doing you a disservice.'")
                         print(f"  'Are you absolutely certain you want to sell this?'")
                         try:
-                            confirm = input("  Sell mythic weapon? (yes/no): ").strip().lower()
+                            confirm = safe_input("  Sell mythic weapon? (yes/no): ").strip().lower()
                         except KeyboardInterrupt:
                             confirm = 'no'
                         if confirm not in ('yes', 'y'):
@@ -219,7 +237,7 @@ class ShopMixin:
                         print(f"  '{random.choice(ADAMUS_LEGENDARY_CHECKS)}'")
                         print(f"  'I can do {val}g. You sure about this?'")
                         try:
-                            confirm = input("  Sell legendary weapon? (yes/no): ").strip().lower()
+                            confirm = safe_input("  Sell legendary weapon? (yes/no): ").strip().lower()
                         except KeyboardInterrupt:
                             confirm = 'no'
                         if confirm not in ('yes', 'y'):
@@ -228,13 +246,10 @@ class ShopMixin:
 
                     # Complete the sale
                     self.player.inventory_weapons.remove(w)
-                    label = f"WEAPON: {{w['name']}}"
-                    if label in self.player.inventory:
-                        self.player.inventory.remove(label)
                     self.player.gold_coins += val
                     self.player.total_gold_earned += val
                     print(f"  '{random.choice(ADAMUS_BUYS)}'")
-                    print(f"  Sold {wname} for {val}g  |  Gold: {{self.player.gold_coins}}g")
+                    print(f"  Sold {wname} for {val}g  |  Gold: {self.player.gold_coins}g")
                     sell_opts = list(self.player.inventory_weapons)
                     continue
                 except (ValueError, IndexError):
@@ -248,13 +263,13 @@ class ShopMixin:
                 print("  Adamus stares at you. 'That's not a number.'")
                 continue
 
-            if not (1 <= choice <= len(items)):
+            if not (1 <= choice <= len(cur_items)):
                 print("  Invalid choice.")
                 continue
 
-            item, price, desc = items[choice - 1]
+            item, price, desc = cur_items[choice - 1]
             if self.player.gold_coins < price:
-                print(f"  'Not enough gold. Need {{price}}g, you have {{self.player.gold_coins}}g.'")
+                print(f"  'Not enough gold. Need {price}g, you have {self.player.gold_coins}g.'")
                 continue
 
             if not self.player.can_add_item() and item not in GameConstants.WEARABLE_ITEMS:
@@ -263,11 +278,13 @@ class ShopMixin:
 
             self.player.gold_coins -= price
             if item == 'weapon cache':
-                new_weapon = WeaponSystem.generate_weapon(self.player)
+                _floor = getattr(self.player, 'current_floor', 1)
+                _floor_cap = 'uncommon' if _floor <= 2 else 'rare' if _floor <= 4 else None
+                new_weapon = WeaponSystem.generate_weapon(self.player, floor_cap=_floor_cap)
                 comparison = WeaponSystem.compare_weapons(new_weapon, self.player)
                 print(comparison)
                 try:
-                    if input("  Equip? (y/n): ").strip().lower() in ('y', 'yes'):
+                    if safe_input("  Equip? (y/n): ").strip().lower() in ('y', 'yes'):
                         if self.player.weapon:
                             self.player.inventory_weapons.append(self.player.weapon)
                         self.player.equip_weapon(new_weapon)
@@ -282,5 +299,5 @@ class ShopMixin:
 
             sale_line = random.choice(ADAMUS_SALES).format(item=item)
             print(f"  '{sale_line}'")
-            print(f"  Gold remaining: {{self.player.gold_coins}}g")
+            print(f"  Gold remaining: {self.player.gold_coins}g")
     

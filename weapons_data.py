@@ -1,9 +1,7 @@
 """LABYRINTH — Weapon trait and material definitions"""
 from __future__ import annotations
-import random, json, os, logging
-from typing import Dict, List, Optional, Set, Tuple, Any, TYPE_CHECKING, Callable
-from difflib import get_close_matches
-from dataclasses import dataclass, field
+import logging
+from typing import Dict, List
 
 logger = logging.getLogger(__name__)
 
@@ -137,6 +135,14 @@ class WeaponsData:
             'name': 'Berserker', 'rarity_min': 'rare',
             'desc': '+5% damage per 20% HP missing — max +25% at near death',
             'effect': 'berserker',
+        },
+        'splooge': {
+            'name': 'Splooge',
+            'rarity_min': 'mythic',
+            'desc': 'On hits dealing 40+ damage, erupts dealing +25 splash damage',
+            'effect': 'splooge',
+            'threshold': 40,
+            'splash': 25,
         },
     }
 

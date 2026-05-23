@@ -1,52 +1,175 @@
 {
-  "version": "6.9.0",
+  "version": "7.7.0",
   "player": {
-    "name": "J",
-    "character_class": "rogue",
-    "class_tier": 1,
-    "level": 5,
-    "experience": 95,
-    "experience_to_next": 383,
+    "name": "Deku",
+    "character_class": "shadow_knight",
+    "class_tier": 5,
+    "level": 18,
+    "experience": 4881,
+    "experience_to_next": 6383,
     "stats": {
-      "strength": 30,
-      "intelligence": 16,
-      "agility": 29
+      "strength": 144,
+      "intelligence": 109,
+      "agility": 119,
+      "luck": 72,
+      "vitality": 77,
+      "arcane": 33,
+      "faith": 76,
+      "lust": 27
     },
-    "health": 148,
-    "max_health": 148,
-    "mana": 115,
-    "max_mana": 115,
+    "health": 705,
+    "max_health": 705,
+    "mana": 24,
+    "max_mana": 60,
     "inventory": [
-      "rusty key",
-      "crystal shard",
-      "primordial rune",
-      "legendary artifact",
       "bone key",
-      "torch",
       "ultimate health potion",
-      "WEAPON: Infernal Bow"
+      "elixir of life",
+      "ultimate health potion",
+      "void essence",
+      "ultimate health potion",
+      "demon seal",
+      "void essence",
+      "armor piece",
+      "titan gauntlet",
+      "primordial rune",
+      "demon seal",
+      "health potion",
+      "ultimate health potion"
     ],
     "inventory_weapons": [
       {
-        "name": "Infernal Bow",
-        "damage": 56,
-        "type": "stealth",
+        "name": "Radiant Shadow Sword",
+        "damage": 111,
+        "type": "melee",
+        "rarity": "legendary",
+        "base_name": "Radiant Shadow Sword",
+        "tier_label": "GOOD",
+        "traits": [
+          "savage"
+        ]
+      },
+      {
+        "name": "Radiant Flame Warden",
+        "damage": 130,
+        "type": "melee",
+        "rarity": "legendary",
+        "base_name": "Radiant Flame Warden",
+        "tier_label": "GOOD",
+        "traits": [
+          "shielded"
+        ]
+      },
+      {
+        "name": "Blessed Purifier Sword",
+        "damage": 162,
+        "type": "melee",
+        "rarity": "legendary",
+        "base_name": "Blessed Purifier Sword",
+        "tier_label": "GOOD",
+        "traits": [
+          "savage"
+        ]
+      },
+      {
+        "name": "Primordial Greatsword",
+        "damage": 120,
+        "type": "melee",
+        "rarity": "legendary",
+        "base_name": "Primordial Greatsword",
+        "traits": [
+          "holy",
+          "elemental_ice"
+        ]
+      },
+      {
+        "name": "Divine Void Bane",
+        "damage": 190,
+        "type": "melee",
+        "rarity": "legendary",
+        "base_name": "Divine Void Bane",
+        "tier_label": "GOOD",
+        "traits": [
+          "shielded"
+        ]
+      },
+      {
+        "name": "Primordial Greatsword",
+        "damage": 125,
+        "type": "melee",
+        "rarity": "legendary",
+        "base_name": "Primordial Greatsword",
+        "traits": [
+          "cursed"
+        ]
+      },
+      {
+        "name": "Supreme Spear",
+        "damage": 147,
+        "type": "melee",
+        "rarity": "mythic",
+        "base_name": "Supreme Spear",
+        "traits": [
+          "vampiric",
+          "savage",
+          "elemental_fire"
+        ]
+      },
+      {
+        "name": "Blessed Combat Spear",
+        "damage": 50,
+        "type": "melee",
+        "rarity": "legendary",
+        "base_name": "Blessed Combat Spear",
+        "tier_label": "GOOD"
+      },
+      {
+        "name": "Infernal Axe",
+        "damage": 106,
+        "type": "melee",
         "rarity": "epic",
-        "base_name": "Infernal Bow"
+        "base_name": "Infernal Axe",
+        "traits": [
+          "elemental_ice"
+        ]
       }
     ],
     "weapon": {
-      "name": "Twin Blades of Honor",
-      "damage": 60,
-      "type": "stealth",
-      "rarity": "legendary",
-      "base_name": "Twin Blades of Honor"
+      "name": "Divine Eternal Warden",
+      "damage": 264,
+      "type": "melee",
+      "rarity": "mythic",
+      "base_name": "Divine Eternal Warden",
+      "tier_label": "INSANE",
+      "traits": [
+        "shielded"
+      ]
     },
     "wearables": [
       {
         "item": "armor piece",
         "stat": "strength",
         "bonus": 5
+      },
+      {
+        "item": "swift boots",
+        "stat": "agility",
+        "bonus": 5
+      },
+      {
+        "item": "power ring",
+        "stat": "strength",
+        "bonus": 4
+      },
+      {
+        "item": "power ring",
+        "stat": "strength",
+        "bonus": 4
+      },
+      {
+        "item": "cursed amulet",
+        "stat": "intelligence",
+        "bonus": 3
       },
       {
         "item": "armor piece",
@@ -57,1806 +180,2105 @@
         "item": "power ring",
         "stat": "strength",
         "bonus": 4
+      },
+      {
+        "item": "arcane pendant",
+        "stat": "intelligence",
+        "bonus": 6
+      },
+      {
+        "item": "shadow cloak",
+        "stat": "agility",
+        "bonus": 6
+      },
+      {
+        "item": "swift boots",
+        "stat": "agility",
+        "bonus": 5
+      },
+      {
+        "item": "cursed amulet",
+        "stat": "intelligence",
+        "bonus": 3
+      },
+      {
+        "item": "shadow cloak",
+        "stat": "agility",
+        "bonus": 6
+      },
+      {
+        "item": "titan gauntlet",
+        "stat": "strength",
+        "bonus": 7
+      },
+      {
+        "item": "swift boots",
+        "stat": "agility",
+        "bonus": 5
+      },
+      {
+        "item": "shadow cloak",
+        "stat": "agility",
+        "bonus": 6
+      },
+      {
+        "item": "swift boots",
+        "stat": "agility",
+        "bonus": 5
+      },
+      {
+        "item": "shadow cloak",
+        "stat": "agility",
+        "bonus": 6
+      },
+      {
+        "item": "power ring",
+        "stat": "strength",
+        "bonus": 4
+      },
+      {
+        "item": "arcane pendant",
+        "stat": "intelligence",
+        "bonus": 6
+      },
+      {
+        "item": "armor piece",
+        "stat": "strength",
+        "bonus": 5
+      },
+      {
+        "item": "armor piece",
+        "stat": "strength",
+        "bonus": 5
+      },
+      {
+        "item": "titan gauntlet",
+        "stat": "strength",
+        "bonus": 7
       }
     ],
-    "max_inventory": 9,
+    "max_inventory": 34,
     "current_floor": 2,
     "current_room": "floor2_start",
     "visited_rooms": [
-      "floor1_room1",
-      "floor1_room3",
-      "floor1_room5",
       "start",
-      "floor1_room12",
+      "floor1_room6",
       "floor1_room7",
-      "floor1_room10",
+      "floor1_room1",
+      "floor2_start",
       "floor1_room4",
       "floor1_stairs",
       "floor1_room2",
-      "floor1_room11",
       "floor1_room8",
-      "floor2_start",
-      "floor1_room6",
-      "floor1_room9",
+      "floor1_room5",
+      "floor1_room3",
       "floor1_boss"
     ],
     "bosses_defeated": [
-      "Arena Champion"
+      "The Cinder King"
     ],
-    "rarity_boost": 0.0,
-    "gold_coins": 61,
+    "rarity_boost": 0.2,
+    "gold_coins": 210,
     "secret_room_unlocked": false,
     "special_items": [
       "old map"
     ],
     "unique_items_spawned": [
-      "torch"
-    ]
+      "journal_2",
+      "journal_5",
+      "journal_1",
+      "journal_3",
+      "journal_4"
+    ],
+    "ng_plus": 1,
+    "ng_world": "ashen_wastes",
+    "item_hints_shown": [
+      "primordial rune",
+      "torch",
+      "demon seal",
+      "void essence"
+    ],
+    "shop_visits": 1,
+    "save_version": "7.7.0",
+    "status_effects": {},
+    "fusion_parents": [
+      "paladin",
+      "rogue"
+    ],
+    "ng_weapon_scale": 1.0,
+    "total_gold_earned": 1304
   },
   "floors": {
     "1": {
       "start": {
+        "name": "The Ashen Wastes \u2014 Entry",
+        "description": "Adamus is here, somehow. He looks unsurprised.",
+        "atmosphere": "Adamus the Loyal has set up shop here. Use 'shop' to trade.",
         "items": [],
         "enemies": [],
         "visited": true,
         "exits": {
-          "south": "floor1_room11",
-          "east": "floor1_room7",
-          "north": "floor1_room12",
-          "west": "floor1_room1"
-        }
+          "north": "floor1_stairs",
+          "east": "floor1_boss",
+          "south": "floor1_room8",
+          "west": "floor1_room2"
+        },
+        "_activated": false
       },
       "floor1_room1": {
-        "items": [],
-        "enemies": [],
+        "name": "The Hot Stone Passage",
+        "description": "Passage where the floor radiates heat through your boots.",
+        "atmosphere": "The heat has a direction. It's pointing at something.",
+        "items": [
+          "rusty key",
+          "power ring"
+        ],
+        "enemies": [
+          "soot wraith",
+          "cinder hound"
+        ],
+        "visited": true,
+        "exits": {
+          "south": "floor1_room2"
+        },
+        "_activated": false
+      },
+      "floor1_room2": {
+        "name": "The Burned Archive",
+        "description": "An archive where every record has burned except the ash.",
+        "atmosphere": "The ash forms legible words if you look long enough.",
+        "items": [
+          "rusty key",
+          "armor piece"
+        ],
+        "enemies": [
+          "ash walker",
+          "cinder hound"
+        ],
         "visited": true,
         "exits": {
           "east": "start",
-          "north": "floor1_room10"
-        }
-      },
-      "floor1_room2": {
-        "items": [],
-        "enemies": [],
-        "visited": true,
-        "exits": {
-          "west": "floor1_room9"
-        }
+          "north": "floor1_room1"
+        },
+        "_activated": false
       },
       "floor1_room3": {
+        "name": "The Cinder Barracks",
+        "description": "Soldiers' quarters melted into one another.",
+        "atmosphere": "The soldiers remain. In a technical sense.",
         "items": [
-          "golden coin"
+          "armor piece",
+          "experience gem"
         ],
         "enemies": [],
         "visited": true,
         "exits": {
-          "south": "floor1_room12"
-        }
+          "north": "floor1_room8"
+        },
+        "_activated": false
       },
       "floor1_room4": {
+        "name": "The Scorched Gate",
+        "description": "The entrance burned so completely the stone is glass.",
+        "atmosphere": "It still radiates heat. It will never stop.",
         "items": [
-          "energy drink",
-          "rusty key"
+          "weapon cache",
+          "health potion"
         ],
         "enemies": [],
         "visited": true,
         "exits": {
-          "north": "floor1_room5",
-          "west": "floor1_stairs"
-        }
+          "east": "floor1_stairs"
+        },
+        "_activated": false
       },
       "floor1_room5": {
-        "items": [],
+        "name": "The Ash Field",
+        "description": "A vast field of ash with no visible source.",
+        "atmosphere": "The ash moves against the (nonexistent) wind.",
+        "items": [
+          "golden coin",
+          "health potion",
+          "weapon cache"
+        ],
         "enemies": [],
         "visited": true,
         "exits": {
-          "east": "floor1_room11",
-          "south": "floor1_room4"
-        }
+          "east": "floor1_room8"
+        },
+        "_activated": false
       },
       "floor1_room6": {
+        "name": "The Soot Hall",
+        "description": "Soot two inches thick on every surface.",
+        "atmosphere": "Footprints in the soot. They lead deeper in.",
+        "items": [
+          "experience gem",
+          "health potion"
+        ],
+        "enemies": [],
+        "visited": true,
+        "exits": {
+          "west": "floor1_boss"
+        },
+        "_activated": false
+      },
+      "floor1_room7": {
+        "name": "The Ember Garden",
+        "description": "A garden where the flowers are made of compressed ember.",
+        "atmosphere": "They're beautiful. They're also on fire.",
         "items": [],
         "enemies": [],
         "visited": true,
         "exits": {
-          "east": "floor1_room9",
-          "south": "floor1_room10",
-          "north": "floor1_room7"
-        }
+          "south": "floor1_stairs"
+        },
+        "_activated": false
       },
-      "floor1_room7": {
+      "floor1_room8": {
+        "name": "The Char Corridor",
+        "description": "A corridor made of charred wood that should have collapsed.",
+        "atmosphere": "It hasn't. Something is holding it up.",
+        "items": [
+          "weapon cache",
+          "vitality tonic",
+          "weapon cache",
+          "health potion"
+        ],
+        "enemies": [],
+        "visited": true,
+        "exits": {
+          "north": "start",
+          "south": "floor1_room3",
+          "west": "floor1_room5"
+        },
+        "_activated": false
+      },
+      "floor1_boss": {
+        "name": "The Scorched Gate",
+        "description": "The entrance has been on fire for so long it forgot how to stop.",
+        "atmosphere": "The Cinder King steps from the flame.",
         "items": [],
         "enemies": [],
         "visited": true,
         "exits": {
           "west": "start",
-          "south": "floor1_room6"
-        }
+          "east": "floor1_room6"
+        },
+        "_activated": false
       },
-      "floor1_room8": {
-        "items": [
-          "energy drink"
-        ],
-        "enemies": [],
-        "visited": true,
-        "exits": {
-          "west": "floor1_room11",
-          "north": "floor1_boss"
-        }
-      },
-      "floor1_room9": {
-        "items": [],
-        "enemies": [],
-        "visited": true,
-        "exits": {
-          "north": "floor1_room11",
-          "south": "floor1_stairs",
-          "east": "floor1_room2",
-          "west": "floor1_room6"
-        }
-      },
-      "floor1_room10": {
-        "items": [],
-        "enemies": [],
-        "visited": true,
-        "exits": {
-          "north": "floor1_room6",
-          "south": "floor1_room1"
-        }
-      },
-      "floor1_room11": {
-        "items": [],
-        "enemies": [],
-        "visited": true,
-        "exits": {
-          "north": "start",
-          "east": "floor1_room8",
-          "west": "floor1_room5",
-          "south": "floor1_room9"
-        }
-      },
-      "floor1_room12": {
+      "floor1_stairs": {
+        "name": "The Ashen Wastes \u2014 Descent",
+        "description": "Steps down into something worse.",
+        "atmosphere": "",
         "items": [],
         "enemies": [],
         "visited": true,
         "exits": {
           "south": "start",
-          "north": "floor1_room3"
-        }
-      },
-      "floor1_boss": {
-        "items": [],
-        "enemies": [],
-        "visited": true,
-        "exits": {
-          "south": "floor1_room8"
-        }
-      },
-      "floor1_stairs": {
-        "items": [],
-        "enemies": [],
-        "visited": true,
-        "exits": {
-          "north": "floor1_room9",
-          "east": "floor1_room4",
+          "west": "floor1_room4",
+          "north": "floor1_room7",
           "down": "floor2_start"
-        }
+        },
+        "_activated": false
       }
     },
     "2": {
       "floor2_start": {
+        "name": "The Ashen Wastes \u2014 Floor 2",
+        "description": "Deeper into The Ashen Wastes.",
+        "atmosphere": "Adamus the Loyal has set up shop here. Use 'shop' to trade.",
         "items": [
           "health potion"
         ],
         "enemies": [],
         "visited": true,
         "exits": {
-          "south": "floor2_room3",
-          "north": "floor2_room4",
+          "south": "floor2_room1",
+          "east": "floor2_room5",
+          "west": "floor2_room4",
+          "north": "floor2_boss",
           "up": "floor1_stairs"
-        }
+        },
+        "_activated": false
       },
       "floor2_room1": {
+        "name": "The Cinder Barracks",
+        "description": "Soldiers' quarters melted into one another.",
+        "atmosphere": "The soldiers remain. In a technical sense.",
         "items": [
-          "health potion",
-          "golden coin"
+          "armor piece"
         ],
         "enemies": [
-          "armored skeleton"
-        ],
-        "visited": false,
-        "exits": {
-          "east": "floor2_stairs"
-        }
-      },
-      "floor2_room2": {
-        "items": [
-          "health potion",
-          "golden coin"
-        ],
-        "enemies": [
-          "armored skeleton",
-          "prison guard"
-        ],
-        "visited": false,
-        "exits": {
-          "south": "floor2_room6"
-        }
-      },
-      "floor2_room3": {
-        "items": [
-          "energy drink",
-          "rusty key"
-        ],
-        "enemies": [
-          "armored skeleton",
-          "goblin"
+          "ash walker",
+          "cinder hound"
         ],
         "visited": false,
         "exits": {
           "north": "floor2_start",
-          "west": "floor2_room6",
-          "south": "floor2_stairs"
-        }
+          "west": "floor2_stairs"
+        },
+        "_activated": false
       },
-      "floor2_room4": {
-        "items": [
-          "demon seal",
-          "soul crystal"
-        ],
-        "enemies": [
-          "goblin",
-          "armored skeleton"
-        ],
-        "visited": false,
-        "exits": {
-          "south": "floor2_start"
-        }
-      },
-      "floor2_room5": {
-        "items": [
-          "soul crystal",
-          "golden coin"
-        ],
-        "enemies": [
-          "prison guard",
-          "armored skeleton"
-        ],
-        "visited": false,
-        "exits": {
-          "west": "floor2_boss",
-          "east": "floor2_room7"
-        }
-      },
-      "floor2_room6": {
+      "floor2_room2": {
+        "name": "The Ember Garden",
+        "description": "A garden where the flowers are made of compressed ember.",
+        "atmosphere": "They're beautiful. They're also on fire.",
         "items": [
           "weapon cache",
-          "vitality tonic"
+          "experience gem"
         ],
         "enemies": [
-          "prison guard",
-          "goblin"
+          "ember knight",
+          "cinder hound"
         ],
         "visited": false,
         "exits": {
-          "east": "floor2_room3",
-          "south": "floor2_room8",
-          "north": "floor2_room2"
-        }
+          "west": "floor2_room8"
+        },
+        "_activated": false
       },
-      "floor2_room7": {
+      "floor2_room3": {
+        "name": "The Scorched Gate",
+        "description": "The entrance burned so completely the stone is glass.",
+        "atmosphere": "It still radiates heat. It will never stop.",
         "items": [
-          "energy drink"
-        ],
-        "enemies": [
-          "goblin",
-          "skeleton"
-        ],
-        "visited": false,
-        "exits": {
-          "west": "floor2_room5"
-        }
-      },
-      "floor2_room8": {
-        "items": [
-          "void essence",
           "weapon cache"
         ],
         "enemies": [
-          "prison guard"
+          "ember knight",
+          "cinder hound"
         ],
         "visited": false,
         "exits": {
+          "west": "floor2_room5",
           "north": "floor2_room6"
-        }
+        },
+        "_activated": false
+      },
+      "floor2_room4": {
+        "name": "The Hot Stone Passage",
+        "description": "Passage where the floor radiates heat through your boots.",
+        "atmosphere": "The heat has a direction. It's pointing at something.",
+        "items": [
+          "rusty key",
+          "power ring"
+        ],
+        "enemies": [
+          "cinder hound",
+          "ember knight"
+        ],
+        "visited": false,
+        "exits": {
+          "east": "floor2_start",
+          "west": "floor2_room7"
+        },
+        "_activated": false
+      },
+      "floor2_room5": {
+        "name": "The Soot Hall",
+        "description": "Soot two inches thick on every surface.",
+        "atmosphere": "Footprints in the soot. They lead deeper in.",
+        "items": [
+          "experience gem",
+          "health potion"
+        ],
+        "enemies": [
+          "cinder hound",
+          "ember knight"
+        ],
+        "visited": false,
+        "exits": {
+          "west": "floor2_start",
+          "east": "floor2_room3",
+          "south": "floor2_room8"
+        },
+        "_activated": false
+      },
+      "floor2_room6": {
+        "name": "The Char Corridor",
+        "description": "A corridor made of charred wood that should have collapsed.",
+        "atmosphere": "It hasn't. Something is holding it up.",
+        "items": [
+          "weapon cache",
+          "journal_1"
+        ],
+        "enemies": [
+          "cinder hound",
+          "ember knight"
+        ],
+        "visited": false,
+        "exits": {
+          "south": "floor2_room3"
+        },
+        "_activated": false
+      },
+      "floor2_room7": {
+        "name": "The Burned Archive",
+        "description": "An archive where every record has burned except the ash.",
+        "atmosphere": "The ash forms legible words if you look long enough.",
+        "items": [
+          "rusty key",
+          "armor piece"
+        ],
+        "enemies": [
+          "ash walker",
+          "cinder hound"
+        ],
+        "visited": false,
+        "exits": {
+          "east": "floor2_room4"
+        },
+        "_activated": false
+      },
+      "floor2_room8": {
+        "name": "The Ash Field",
+        "description": "A vast field of ash with no visible source.",
+        "atmosphere": "The ash moves against the (nonexistent) wind.",
+        "items": [
+          "golden coin"
+        ],
+        "enemies": [
+          "ember knight",
+          "ash walker"
+        ],
+        "visited": false,
+        "exits": {
+          "south": "floor2_stairs",
+          "east": "floor2_room2",
+          "north": "floor2_room5"
+        },
+        "_activated": false
       },
       "floor2_boss": {
+        "name": "The Pyre Hall",
+        "description": "A hall built for burning things. Still fulfilling its purpose.",
+        "atmosphere": "The Pyre Lord emerges from the largest flame.",
         "items": [
           "ultimate health potion"
         ],
         "enemies": [
-          "Necromancer Lord"
+          "The Pyre Lord"
         ],
         "visited": false,
         "exits": {
-          "north": "floor2_stairs",
-          "east": "floor2_room5"
-        }
+          "south": "floor2_start"
+        },
+        "_activated": false
       },
       "floor2_stairs": {
+        "name": "The Ashen Wastes \u2014 Descent",
+        "description": "Steps down into something worse.",
+        "atmosphere": "",
         "items": [],
         "enemies": [],
         "visited": false,
         "exits": {
-          "north": "floor2_room3",
-          "south": "floor2_boss",
-          "west": "floor2_room1",
+          "east": "floor2_room1",
+          "north": "floor2_room8",
           "down": "floor3_start"
-        }
+        },
+        "_activated": false
       }
     },
     "3": {
       "floor3_start": {
+        "name": "The Ashen Wastes \u2014 Floor 3",
+        "description": "Deeper into The Ashen Wastes.",
+        "atmosphere": "Adamus the Loyal has set up shop here. Use 'shop' to trade.",
         "items": [
           "health potion"
         ],
         "enemies": [],
         "visited": false,
         "exits": {
+          "north": "floor3_room5",
+          "east": "floor3_room4",
           "south": "floor3_room8",
-          "east": "floor3_room7",
-          "north": "floor3_room3",
           "up": "floor2_stairs"
-        }
+        },
+        "_activated": false
       },
       "floor3_room1": {
+        "name": "The Cinder Library",
+        "description": "Books burned to the shapes of books. Holding ash.",
+        "atmosphere": "One book still has pages. The words are warnings.",
         "items": [
-          "soul crystal",
-          "ultimate health potion"
-        ],
-        "enemies": [
-          "armored skeleton",
-          "ghoul"
-        ],
-        "visited": false,
-        "exits": {
-          "west": "floor3_room11",
-          "north": "floor3_room4"
-        }
-      },
-      "floor3_room2": {
-        "items": [
-          "weapon cache",
+          "magic scroll",
           "arcane pendant"
         ],
         "enemies": [
-          "shadow wraith",
-          "armored skeleton"
+          "pyro cultist",
+          "ember knight"
         ],
         "visited": false,
         "exits": {
-          "west": "floor3_boss",
-          "south": "floor3_room5"
-        }
+          "west": "floor3_room6",
+          "south": "floor3_boss"
+        },
+        "_activated": false
       },
-      "floor3_room3": {
-        "items": [
-          "soul crystal",
-          "weapon cache"
-        ],
-        "enemies": [
-          "shadow wraith",
-          "corrupted mage"
-        ],
-        "visited": false,
-        "exits": {
-          "south": "floor3_start"
-        }
-      },
-      "floor3_room4": {
-        "items": [
-          "weapon cache"
-        ],
-        "enemies": [
-          "corrupted mage",
-          "armored skeleton"
-        ],
-        "visited": false,
-        "exits": {
-          "north": "floor3_room6",
-          "south": "floor3_room1"
-        }
-      },
-      "floor3_room5": {
-        "items": [
-          "bone key",
-          "cursed amulet"
-        ],
-        "enemies": [
-          "ghoul",
-          "armored skeleton"
-        ],
-        "visited": false,
-        "exits": {
-          "north": "floor3_room2"
-        }
-      },
-      "floor3_room6": {
+      "floor3_room2": {
+        "name": "The Pyro Hall",
+        "description": "Cultist meeting space, still set up for a meeting.",
+        "atmosphere": "The candles are lit. Someone set them recently.",
         "items": [
           "shadow cloak",
           "experience gem"
         ],
         "enemies": [
-          "shadow wraith",
-          "armored skeleton"
+          "pyro cultist",
+          "soot wraith"
         ],
         "visited": false,
         "exits": {
-          "north": "floor3_room8",
-          "east": "floor3_stairs",
-          "south": "floor3_room4"
-        }
+          "north": "floor3_room3"
+        },
+        "_activated": false
       },
-      "floor3_room7": {
+      "floor3_room3": {
+        "name": "The Ember Crypt",
+        "description": "Crypts where the dead burned before burial was needed.",
+        "atmosphere": "The burning continues. The dead continue.",
         "items": [
-          "bone key",
-          "health potion"
+          "wisdom gem"
         ],
         "enemies": [
-          "armored skeleton"
+          "ember knight",
+          "pyro cultist"
+        ],
+        "visited": false,
+        "exits": {
+          "east": "floor3_room6",
+          "south": "floor3_room2",
+          "west": "floor3_room7"
+        },
+        "_activated": false
+      },
+      "floor3_room4": {
+        "name": "The Last Market",
+        "description": "A market that burned mid-transaction.",
+        "atmosphere": "The merchants are still waiting on payment.",
+        "items": [
+          "soul crystal",
+          "ultimate health potion"
+        ],
+        "enemies": [
+          "ember knight",
+          "pyro cultist"
         ],
         "visited": false,
         "exits": {
           "west": "floor3_start",
-          "north": "floor3_room11"
-        }
+          "south": "floor3_stairs"
+        },
+        "_activated": false
       },
-      "floor3_room8": {
+      "floor3_room5": {
+        "name": "The Glass Throne Room",
+        "description": "The heat fused everything to glass. The throne is beautiful.",
+        "atmosphere": "The throne is occupied. What sits in it is not glass.",
         "items": [
-          "demon seal",
-          "soul crystal"
-        ],
-        "enemies": [
-          "shadow wraith",
-          "ghoul"
-        ],
-        "visited": false,
-        "exits": {
-          "north": "floor3_start",
-          "east": "floor3_boss",
-          "south": "floor3_room6",
-          "west": "floor3_room10"
-        }
-      },
-      "floor3_room9": {
-        "items": [
-          "golden coin",
-          "weapon cache",
-          "experience gem"
-        ],
-        "enemies": [
-          "treasure guardian",
-          "corrupted mage"
-        ],
-        "visited": false,
-        "exits": {
-          "east": "floor3_room11"
-        }
-      },
-      "floor3_room10": {
-        "items": [
-          "void essence",
+          "soul crystal",
           "weapon cache"
         ],
         "enemies": [
-          "shadow wraith"
+          "ember knight",
+          "pyro cultist"
         ],
         "visited": false,
         "exits": {
-          "east": "floor3_room8",
-          "north": "floor3_stairs"
-        }
+          "south": "floor3_start",
+          "north": "floor3_room6"
+        },
+        "_activated": false
       },
-      "floor3_room11": {
+      "floor3_room6": {
+        "name": "The Cinder Armory",
+        "description": "Weapons that survived because they were already metal.",
+        "atmosphere": "They've been reforged by heat into something better or worse.",
         "items": [
-          "crystal shard",
-          "energy drink"
+          "wisdom gem",
+          "weapon cache"
         ],
         "enemies": [
-          "shadow wraith"
+          "soot wraith",
+          "ember knight"
         ],
         "visited": false,
         "exits": {
-          "south": "floor3_room7",
-          "east": "floor3_room1",
-          "west": "floor3_room9"
-        }
+          "south": "floor3_room5",
+          "west": "floor3_room3",
+          "east": "floor3_room1"
+        },
+        "_activated": false
+      },
+      "floor3_room7": {
+        "name": "The Ash Cathedral",
+        "description": "Dedicated to the principle of fire. Very serious about it.",
+        "atmosphere": "The congregation is still here. Ash takes interesting forms.",
+        "items": [
+          "weapon cache",
+          "arcane pendant"
+        ],
+        "enemies": [
+          "soot wraith",
+          "pyro cultist"
+        ],
+        "visited": false,
+        "exits": {
+          "east": "floor3_room3"
+        },
+        "_activated": false
+      },
+      "floor3_room8": {
+        "name": "The Slag Gallery",
+        "description": "Portraits melted to slag, faces still visible in the metal.",
+        "atmosphere": "The expressions are wrong for paintings. Too alive.",
+        "items": [
+          "weapon cache",
+          "torch"
+        ],
+        "enemies": [
+          "ember knight",
+          "pyro cultist"
+        ],
+        "visited": false,
+        "exits": {
+          "north": "floor3_start"
+        },
+        "_activated": false
       },
       "floor3_boss": {
+        "name": "The Char Chamber",
+        "description": "Everything in here has burned. Some of it is burning still.",
+        "atmosphere": "The Char Warden rises from the ash.",
         "items": [
           "ultimate health potion"
         ],
         "enemies": [
-          "Crypt Overlord"
+          "The Char Warden"
         ],
         "visited": false,
         "exits": {
-          "west": "floor3_room8",
-          "east": "floor3_room2"
-        }
+          "north": "floor3_room1"
+        },
+        "_activated": false
       },
       "floor3_stairs": {
+        "name": "The Ashen Wastes \u2014 Descent",
+        "description": "Steps down into something worse.",
+        "atmosphere": "",
         "items": [],
         "enemies": [],
         "visited": false,
         "exits": {
-          "west": "floor3_room6",
-          "south": "floor3_room10",
+          "north": "floor3_room4",
           "down": "floor4_start"
-        }
+        },
+        "_activated": false
       }
     },
     "4": {
       "floor4_start": {
+        "name": "The Ashen Wastes \u2014 Floor 4",
+        "description": "Deeper into The Ashen Wastes.",
+        "atmosphere": "Adamus the Loyal has set up shop here. Use 'shop' to trade.",
         "items": [
           "health potion"
         ],
         "enemies": [],
         "visited": false,
         "exits": {
-          "south": "floor4_room9",
-          "north": "floor4_room1",
+          "north": "floor4_room4",
           "east": "floor4_room2",
+          "west": "floor4_stairs",
+          "south": "floor4_room5",
           "up": "floor3_stairs"
-        }
+        },
+        "_activated": false
       },
       "floor4_room1": {
+        "name": "The Pyro Hall",
+        "description": "Cultist meeting space, still set up for a meeting.",
+        "atmosphere": "The candles are lit. Someone set them recently.",
+        "items": [
+          "shadow cloak",
+          "experience gem"
+        ],
+        "enemies": [
+          "lava golem",
+          "cinder mage"
+        ],
+        "visited": false,
+        "exits": {
+          "south": "floor4_room4"
+        },
+        "_activated": false
+      },
+      "floor4_room2": {
+        "name": "The Last Market",
+        "description": "A market that burned mid-transaction.",
+        "atmosphere": "The merchants are still waiting on payment.",
+        "items": [
+          "soul crystal",
+          "ultimate health potion"
+        ],
+        "enemies": [
+          "lava golem",
+          "pyro cultist"
+        ],
+        "visited": false,
+        "exits": {
+          "west": "floor4_start",
+          "south": "floor4_room7",
+          "east": "floor4_room3"
+        },
+        "_activated": false
+      },
+      "floor4_room3": {
+        "name": "The Cinder Library",
+        "description": "Books burned to the shapes of books. Holding ash.",
+        "atmosphere": "One book still has pages. The words are warnings.",
+        "items": [
+          "magic scroll",
+          "arcane pendant"
+        ],
+        "enemies": [
+          "cinder mage",
+          "lava golem"
+        ],
+        "visited": false,
+        "exits": {
+          "west": "floor4_room2"
+        },
+        "_activated": false
+      },
+      "floor4_room4": {
+        "name": "The Ember Crypt",
+        "description": "Crypts where the dead burned before burial was needed.",
+        "atmosphere": "The burning continues. The dead continue.",
         "items": [
           "health potion",
           "wisdom gem"
         ],
         "enemies": [
-          "armored skeleton",
-          "shadow wraith"
+          "pyro cultist",
+          "cinder mage"
         ],
         "visited": false,
         "exits": {
-          "south": "floor4_start"
-        }
+          "south": "floor4_start",
+          "north": "floor4_room1"
+        },
+        "_activated": false
       },
-      "floor4_room2": {
+      "floor4_room5": {
+        "name": "The Cinder Armory",
+        "description": "Weapons that survived because they were already metal.",
+        "atmosphere": "They've been reforged by heat into something better or worse.",
         "items": [
-          "energy drink",
-          "wisdom gem"
-        ],
-        "enemies": [
-          "shadow wraith",
-          "corrupted mage"
-        ],
-        "visited": false,
-        "exits": {
-          "west": "floor4_start",
-          "south": "floor4_room7"
-        }
-      },
-      "floor4_room3": {
-        "items": [
-          "rusty key",
+          "wisdom gem",
           "weapon cache"
         ],
         "enemies": [
-          "armored skeleton",
-          "shadow wraith"
+          "cinder mage",
+          "pyro cultist"
         ],
         "visited": false,
         "exits": {
-          "east": "floor4_room5",
-          "north": "floor4_room4",
-          "west": "floor4_stairs"
-        }
+          "north": "floor4_start"
+        },
+        "_activated": false
       },
-      "floor4_room4": {
+      "floor4_room6": {
+        "name": "The Ash Cathedral",
+        "description": "Dedicated to the principle of fire. Very serious about it.",
+        "atmosphere": "The congregation is still here. Ash takes interesting forms.",
         "items": [
-          "energy drink",
+          "weapon cache",
           "arcane pendant"
         ],
         "enemies": [
-          "ghoul",
-          "corrupted mage"
+          "pyro cultist",
+          "lava golem"
         ],
         "visited": false,
         "exits": {
-          "south": "floor4_room3",
-          "west": "floor4_room6"
-        }
-      },
-      "floor4_room5": {
-        "items": [
-          "bone key",
-          "cursed amulet"
-        ],
-        "enemies": [
-          "corrupted mage",
-          "armored skeleton"
-        ],
-        "visited": false,
-        "exits": {
-          "east": "floor4_room8",
-          "west": "floor4_room3"
-        }
-      },
-      "floor4_room6": {
-        "items": [
-          "weapon cache",
-          "golden coin"
-        ],
-        "enemies": [
-          "corrupted mage",
-          "armored skeleton"
-        ],
-        "visited": false,
-        "exits": {
-          "east": "floor4_room4"
-        }
+          "north": "floor4_stairs",
+          "south": "floor4_room8",
+          "east": "floor4_boss"
+        },
+        "_activated": false
       },
       "floor4_room7": {
-        "items": [
-          "shadow cloak",
-          "experience gem"
-        ],
-        "enemies": [
-          "ghoul",
-          "armored skeleton"
-        ],
-        "visited": false,
-        "exits": {
-          "north": "floor4_room2"
-        }
-      },
-      "floor4_room8": {
-        "items": [
-          "primordial rune",
-          "legendary artifact"
-        ],
-        "enemies": [
-          "shadow wraith"
-        ],
-        "visited": false,
-        "exits": {
-          "east": "floor4_room9",
-          "south": "floor4_boss",
-          "west": "floor4_room5"
-        }
-      },
-      "floor4_room9": {
+        "name": "The Glass Throne Room",
+        "description": "The heat fused everything to glass. The throne is beautiful.",
+        "atmosphere": "The throne is occupied. What sits in it is not glass.",
         "items": [
           "soul crystal",
-          "weapon cache"
+          "weapon cache",
+          "journal_2"
         ],
         "enemies": [
-          "shadow wraith",
-          "ghoul"
+          "cinder mage",
+          "pyro cultist"
         ],
         "visited": false,
         "exits": {
-          "north": "floor4_start",
-          "west": "floor4_room8"
-        }
+          "north": "floor4_room2",
+          "east": "floor4_room8"
+        },
+        "_activated": false
+      },
+      "floor4_room8": {
+        "name": "The Slag Gallery",
+        "description": "Portraits melted to slag, faces still visible in the metal.",
+        "atmosphere": "The expressions are wrong for paintings. Too alive.",
+        "items": [
+          "weapon cache",
+          "torch"
+        ],
+        "enemies": [
+          "pyro cultist",
+          "cinder mage"
+        ],
+        "visited": false,
+        "exits": {
+          "north": "floor4_room6",
+          "west": "floor4_room7"
+        },
+        "_activated": false
       },
       "floor4_boss": {
+        "name": "The Magma Throne",
+        "description": "A throne room with a throne made of cooled lava over old bones.",
+        "atmosphere": "The Slag Queen flows from the cracks in the floor.",
         "items": [
           "ultimate health potion"
         ],
         "enemies": [
-          "Shadow King"
+          "The Slag Queen"
         ],
         "visited": false,
         "exits": {
-          "north": "floor4_room8"
-        }
+          "west": "floor4_room6"
+        },
+        "_activated": false
       },
       "floor4_stairs": {
+        "name": "The Ashen Wastes \u2014 Descent",
+        "description": "Steps down into something worse.",
+        "atmosphere": "",
         "items": [],
         "enemies": [],
         "visited": false,
         "exits": {
-          "east": "floor4_room3",
+          "east": "floor4_start",
+          "south": "floor4_room6",
           "down": "floor5_start"
-        }
+        },
+        "_activated": false
       }
     },
     "5": {
       "floor5_start": {
+        "name": "The Ashen Wastes \u2014 Floor 5",
+        "description": "Deeper into The Ashen Wastes.",
+        "atmosphere": "Adamus the Loyal has set up shop here. Use 'shop' to trade.",
         "items": [
           "health potion"
         ],
         "enemies": [],
         "visited": false,
         "exits": {
-          "south": "floor5_room11",
-          "west": "floor5_boss",
-          "north": "floor5_room6",
-          "east": "floor5_room5",
+          "south": "floor5_boss",
+          "east": "floor5_room1",
           "up": "floor4_stairs"
-        }
+        },
+        "_activated": false
       },
       "floor5_room1": {
+        "name": "The Magma Chamber",
+        "description": "The heart of the volcano that decided to become a dungeon.",
+        "atmosphere": "The magma has opinions and occasionally expresses them.",
         "items": [
-          "void essence",
-          "weapon cache"
+          "ice crystal",
+          "frozen artifact"
         ],
         "enemies": [
-          "ice elemental"
-        ],
-        "visited": false,
-        "exits": {
-          "east": "floor5_room7",
-          "north": "floor5_room4"
-        }
-      },
-      "floor5_room2": {
-        "items": [
-          "energy drink",
-          "arcane pendant"
-        ],
-        "enemies": [
-          "stone golem",
-          "fire elemental"
-        ],
-        "visited": false,
-        "exits": {
-          "west": "floor5_room5"
-        }
-      },
-      "floor5_room3": {
-        "items": [
-          "weapon cache",
-          "elixir of life"
-        ],
-        "enemies": [
-          "ice elemental",
-          "fire elemental"
-        ],
-        "visited": false,
-        "exits": {
-          "east": "floor5_boss",
-          "south": "floor5_room8",
-          "north": "floor5_room10"
-        }
-      },
-      "floor5_room4": {
-        "items": [
-          "weapon cache",
-          "power ring"
-        ],
-        "enemies": [
-          "lightning wisp",
-          "ice elemental"
-        ],
-        "visited": false,
-        "exits": {
-          "north": "floor5_boss",
-          "south": "floor5_room1"
-        }
-      },
-      "floor5_room5": {
-        "items": [
-          "demon seal",
-          "soul crystal"
-        ],
-        "enemies": [
-          "stone golem",
+          "pyre elemental",
           "fire elemental"
         ],
         "visited": false,
         "exits": {
           "west": "floor5_start",
-          "east": "floor5_room2"
-        }
+          "north": "floor5_room5"
+        },
+        "_activated": false
       },
-      "floor5_room6": {
-        "items": [
-          "power ring",
-          "frozen artifact"
-        ],
-        "enemies": [
-          "lightning wisp",
-          "ice elemental"
-        ],
-        "visited": false,
-        "exits": {
-          "south": "floor5_start"
-        }
-      },
-      "floor5_room7": {
+      "floor5_room2": {
+        "name": "The Cinder Forge",
+        "description": "A forge that runs on something other than bellows.",
+        "atmosphere": "The something is angry and very hot.",
         "items": [
           "weapon cache",
-          "golden coin"
+          "arcane pendant"
         ],
         "enemies": [
-          "stone golem",
-          "lightning wisp"
+          "pyre elemental",
+          "ashen titan"
         ],
         "visited": false,
         "exits": {
-          "east": "floor5_room11",
-          "west": "floor5_room1",
-          "north": "floor5_room9"
-        }
+          "east": "floor5_stairs",
+          "north": "floor5_room4"
+        },
+        "_activated": false
       },
-      "floor5_room8": {
+      "floor5_room3": {
+        "name": "The Fire Nexus",
+        "description": "Every flame in the Ashen Wastes connects here.",
+        "atmosphere": "You can hear them all burning simultaneously.",
         "items": [
-          "golden coin",
           "weapon cache",
-          "experience gem"
-        ],
-        "enemies": [
-          "treasure guardian",
-          "fire elemental"
-        ],
-        "visited": false,
-        "exits": {
-          "north": "floor5_room3"
-        }
-      },
-      "floor5_room9": {
-        "items": [
-          "titan gauntlet",
-          "armor piece"
+          "titan gauntlet"
         ],
         "enemies": [
           "fire elemental",
-          "stone golem"
+          "pyre elemental"
         ],
         "visited": false,
         "exits": {
-          "south": "floor5_room7"
-        }
+          "north": "floor5_room6"
+        },
+        "_activated": false
       },
-      "floor5_room10": {
+      "floor5_room4": {
+        "name": "The Cooling Field",
+        "description": "Lava that cooled too fast and created a field of black glass.",
+        "atmosphere": "The glass shows reflections of things not present.",
         "items": [
-          "elixir of life",
-          "experience gem"
-        ],
-        "enemies": [
-          "lightning wisp",
-          "fire elemental"
-        ],
-        "visited": false,
-        "exits": {
-          "south": "floor5_room3"
-        }
-      },
-      "floor5_room11": {
-        "items": [
-          "power ring",
-          "weapon cache"
-        ],
-        "enemies": [
-          "ice elemental",
-          "fire elemental"
-        ],
-        "visited": false,
-        "exits": {
-          "north": "floor5_start",
-          "west": "floor5_room7"
-        }
-      },
-      "floor5_boss": {
-        "items": [
-          "ultimate health potion"
-        ],
-        "enemies": [
-          "Flame Lord"
-        ],
-        "visited": false,
-        "exits": {
-          "east": "floor5_start",
-          "south": "floor5_room4",
-          "north": "floor5_stairs",
-          "west": "floor5_room3"
-        }
-      },
-      "floor5_stairs": {
-        "items": [],
-        "enemies": [],
-        "visited": false,
-        "exits": {
-          "south": "floor5_boss",
-          "down": "floor6_start"
-        }
-      }
-    },
-    "6": {
-      "floor6_start": {
-        "items": [
-          "health potion"
-        ],
-        "enemies": [],
-        "visited": false,
-        "exits": {
-          "east": "floor6_room9",
-          "west": "floor6_boss",
-          "up": "floor5_stairs"
-        }
-      },
-      "floor6_room1": {
-        "items": [
-          "weapon cache",
-          "golden coin"
-        ],
-        "enemies": [
-          "lightning wisp",
-          "stone golem"
-        ],
-        "visited": false,
-        "exits": {
-          "west": "floor6_room9"
-        }
-      },
-      "floor6_room2": {
-        "items": [
-          "crystal shard",
-          "energy drink"
-        ],
-        "enemies": [
-          "ice elemental"
-        ],
-        "visited": false,
-        "exits": {
-          "west": "floor6_room11",
-          "south": "floor6_room4"
-        }
-      },
-      "floor6_room3": {
-        "items": [
-          "energy drink",
+          "magic scroll",
           "power ring"
         ],
         "enemies": [
-          "stone golem",
-          "lightning wisp"
+          "fire elemental",
+          "ashen titan"
         ],
         "visited": false,
         "exits": {
-          "east": "floor6_room7"
-        }
+          "south": "floor5_room2"
+        },
+        "_activated": false
       },
-      "floor6_room4": {
+      "floor5_room5": {
+        "name": "The Ember Field",
+        "description": "Embers the size of houses, drifting upward slowly.",
+        "atmosphere": "The source of the embers is below you.",
         "items": [
+          "ice crystal",
           "weapon cache"
         ],
         "enemies": [
-          "stone golem",
-          "fire elemental"
+          "pyre elemental",
+          "ashen titan"
         ],
         "visited": false,
         "exits": {
-          "north": "floor6_room2"
-        }
+          "north": "floor5_boss",
+          "east": "floor5_room7",
+          "south": "floor5_room1"
+        },
+        "_activated": false
       },
-      "floor6_room5": {
-        "items": [],
+      "floor5_room6": {
+        "name": "The Ash Sea",
+        "description": "A sea of fine ash that moves like water.",
+        "atmosphere": "Things swim in it. You can see their fins.",
+        "items": [
+          "elixir of life",
+          "soul crystal",
+          "journal_3"
+        ],
         "enemies": [
-          "stone golem"
+          "ashen titan",
+          "pyre elemental"
         ],
         "visited": false,
         "exits": {
-          "north": "floor6_room9",
-          "west": "floor6_room10",
-          "south": "floor6_room7"
-        }
+          "west": "floor5_boss",
+          "north": "floor5_stairs",
+          "south": "floor5_room3",
+          "east": "floor5_room8"
+        },
+        "_activated": false
       },
-      "floor6_room6": {
+      "floor5_room7": {
+        "name": "The Heat Cathedral",
+        "description": "The real place of worship in the Ashen Wastes.",
+        "atmosphere": "The idol is just fire. But it responds to prayer.",
+        "items": [
+          "titan gauntlet",
+          "wisdom gem"
+        ],
+        "enemies": [
+          "fire elemental",
+          "pyre elemental"
+        ],
+        "visited": false,
+        "exits": {
+          "west": "floor5_room5"
+        },
+        "_activated": false
+      },
+      "floor5_room8": {
+        "name": "The Lava Bridge",
+        "description": "A stone bridge over a sea of lava that never cooled.",
+        "atmosphere": "The bridge is holding. For now. The lava is patient.",
         "items": [
           "weapon cache",
           "elixir of life"
         ],
         "enemies": [
-          "ice elemental",
-          "stone golem"
+          "ashen titan",
+          "pyre elemental"
         ],
         "visited": false,
         "exits": {
-          "south": "floor6_boss",
-          "east": "floor6_room12",
-          "north": "floor6_room10"
-        }
+          "west": "floor5_room6"
+        },
+        "_activated": false
       },
-      "floor6_room7": {
-        "items": [
-          "power ring",
-          "weapon cache"
-        ],
-        "enemies": [
-          "lightning wisp",
-          "fire elemental"
-        ],
-        "visited": false,
-        "exits": {
-          "north": "floor6_room5",
-          "west": "floor6_room3"
-        }
-      },
-      "floor6_room8": {
-        "items": [
-          "primordial rune",
-          "legendary artifact"
-        ],
-        "enemies": [
-          "stone golem"
-        ],
-        "visited": false,
-        "exits": {
-          "north": "floor6_boss"
-        }
-      },
-      "floor6_room9": {
-        "items": [
-          "weapon cache",
-          "wisdom gem"
-        ],
-        "enemies": [
-          "ice elemental",
-          "lightning wisp"
-        ],
-        "visited": false,
-        "exits": {
-          "west": "floor6_start",
-          "north": "floor6_room11",
-          "south": "floor6_room5",
-          "east": "floor6_room1"
-        }
-      },
-      "floor6_room10": {
-        "items": [
-          "golden coin",
-          "weapon cache",
-          "experience gem"
-        ],
-        "enemies": [
-          "treasure guardian",
-          "fire elemental"
-        ],
-        "visited": false,
-        "exits": {
-          "east": "floor6_room5",
-          "south": "floor6_room6"
-        }
-      },
-      "floor6_room11": {
-        "items": [
-          "power ring",
-          "frozen artifact"
-        ],
-        "enemies": [
-          "ice elemental",
-          "fire elemental"
-        ],
-        "visited": false,
-        "exits": {
-          "south": "floor6_room9",
-          "east": "floor6_room2"
-        }
-      },
-      "floor6_room12": {
-        "items": [
-          "health potion",
-          "golden coin"
-        ],
-        "enemies": [
-          "stone golem"
-        ],
-        "visited": false,
-        "exits": {
-          "west": "floor6_room6"
-        }
-      },
-      "floor6_boss": {
+      "floor5_boss": {
+        "name": "The Pyroclast Field",
+        "description": "The remnants of an eruption that never fully finished.",
+        "atmosphere": "The Infernal Titan solidifies from the ejecta.",
         "items": [
           "ultimate health potion"
         ],
         "enemies": [
-          "Frost Titan"
+          "The Infernal Titan"
+        ],
+        "visited": false,
+        "exits": {
+          "north": "floor5_start",
+          "east": "floor5_room6",
+          "south": "floor5_room5",
+          "west": "floor5_stairs"
+        },
+        "_activated": false
+      },
+      "floor5_stairs": {
+        "name": "The Ashen Wastes \u2014 Descent",
+        "description": "Steps down into something worse.",
+        "atmosphere": "",
+        "items": [],
+        "enemies": [],
+        "visited": false,
+        "exits": {
+          "south": "floor5_room6",
+          "west": "floor5_room2",
+          "east": "floor5_boss",
+          "down": "floor6_start"
+        },
+        "_activated": false
+      }
+    },
+    "6": {
+      "floor6_start": {
+        "name": "The Ashen Wastes \u2014 Floor 6",
+        "description": "Deeper into The Ashen Wastes.",
+        "atmosphere": "Adamus the Loyal has set up shop here. Use 'shop' to trade.",
+        "items": [
+          "health potion"
+        ],
+        "enemies": [],
+        "visited": false,
+        "exits": {
+          "east": "floor6_room2",
+          "west": "floor6_room1",
+          "up": "floor5_stairs"
+        },
+        "_activated": false
+      },
+      "floor6_room1": {
+        "name": "The Ash Sea",
+        "description": "A sea of fine ash that moves like water.",
+        "atmosphere": "Things swim in it. You can see their fins.",
+        "items": [
+          "elixir of life",
+          "soul crystal"
+        ],
+        "enemies": [
+          "fire elemental",
+          "ashen titan"
         ],
         "visited": false,
         "exits": {
           "east": "floor6_start",
-          "south": "floor6_room8",
-          "west": "floor6_stairs",
+          "south": "floor6_room4",
+          "north": "floor6_stairs"
+        },
+        "_activated": false
+      },
+      "floor6_room2": {
+        "name": "The Cooling Field",
+        "description": "Lava that cooled too fast and created a field of black glass.",
+        "atmosphere": "The glass shows reflections of things not present.",
+        "items": [
+          "magic scroll",
+          "power ring"
+        ],
+        "enemies": [
+          "lava golem",
+          "fire elemental"
+        ],
+        "visited": false,
+        "exits": {
+          "west": "floor6_start",
+          "east": "floor6_room7"
+        },
+        "_activated": false
+      },
+      "floor6_room3": {
+        "name": "The Magma Chamber",
+        "description": "The heart of the volcano that decided to become a dungeon.",
+        "atmosphere": "The magma has opinions and occasionally expresses them.",
+        "items": [
+          "ice crystal",
+          "frozen artifact"
+        ],
+        "enemies": [
+          "ashen titan",
+          "lava golem"
+        ],
+        "visited": false,
+        "exits": {
+          "south": "floor6_room7"
+        },
+        "_activated": false
+      },
+      "floor6_room4": {
+        "name": "The Heat Cathedral",
+        "description": "The real place of worship in the Ashen Wastes.",
+        "atmosphere": "The idol is just fire. But it responds to prayer.",
+        "items": [
+          "titan gauntlet",
+          "wisdom gem"
+        ],
+        "enemies": [
+          "ashen titan",
+          "fire elemental"
+        ],
+        "visited": false,
+        "exits": {
+          "north": "floor6_room1"
+        },
+        "_activated": false
+      },
+      "floor6_room5": {
+        "name": "The Fire Nexus",
+        "description": "Every flame in the Ashen Wastes connects here.",
+        "atmosphere": "You can hear them all burning simultaneously.",
+        "items": [
+          "weapon cache",
+          "titan gauntlet"
+        ],
+        "enemies": [
+          "ashen titan",
+          "lava golem"
+        ],
+        "visited": false,
+        "exits": {
           "north": "floor6_room6"
-        }
+        },
+        "_activated": false
+      },
+      "floor6_room6": {
+        "name": "The Cinder Forge",
+        "description": "A forge that runs on something other than bellows.",
+        "atmosphere": "The something is angry and very hot.",
+        "items": [
+          "weapon cache",
+          "arcane pendant"
+        ],
+        "enemies": [
+          "ashen titan",
+          "lava golem"
+        ],
+        "visited": false,
+        "exits": {
+          "west": "floor6_stairs",
+          "south": "floor6_room5"
+        },
+        "_activated": false
+      },
+      "floor6_room7": {
+        "name": "The Ember Field",
+        "description": "Embers the size of houses, drifting upward slowly.",
+        "atmosphere": "The source of the embers is below you.",
+        "items": [
+          "ice crystal",
+          "weapon cache"
+        ],
+        "enemies": [
+          "fire elemental",
+          "lava golem"
+        ],
+        "visited": false,
+        "exits": {
+          "west": "floor6_room2",
+          "east": "floor6_stairs",
+          "south": "floor6_boss",
+          "north": "floor6_room3"
+        },
+        "_activated": false
+      },
+      "floor6_room8": {
+        "name": "The Lava Bridge",
+        "description": "A stone bridge over a sea of lava that never cooled.",
+        "atmosphere": "The bridge is holding. For now. The lava is patient.",
+        "items": [
+          "weapon cache",
+          "elixir of life"
+        ],
+        "enemies": [
+          "lava golem",
+          "fire elemental"
+        ],
+        "visited": false,
+        "exits": {
+          "north": "floor6_boss"
+        },
+        "_activated": false
+      },
+      "floor6_boss": {
+        "name": "The Ash Cathedral",
+        "description": "A cathedral dedicated to nothing but heat.",
+        "atmosphere": "The Ash God condenses from the smoke.",
+        "items": [
+          "ultimate health potion"
+        ],
+        "enemies": [
+          "The Ash God"
+        ],
+        "visited": false,
+        "exits": {
+          "north": "floor6_room7",
+          "south": "floor6_room8"
+        },
+        "_activated": false
       },
       "floor6_stairs": {
+        "name": "The Ashen Wastes \u2014 Descent",
+        "description": "Steps down into something worse.",
+        "atmosphere": "",
         "items": [],
         "enemies": [],
         "visited": false,
         "exits": {
-          "east": "floor6_boss",
+          "west": "floor6_room7",
+          "east": "floor6_room6",
+          "south": "floor6_room1",
           "down": "floor7_start"
-        }
+        },
+        "_activated": false
       }
     },
     "7": {
       "floor7_start": {
+        "name": "The Ashen Wastes \u2014 Floor 7",
+        "description": "Deeper into The Ashen Wastes.",
+        "atmosphere": "Adamus the Loyal has set up shop here. Use 'shop' to trade.",
         "items": [
           "health potion"
         ],
         "enemies": [],
         "visited": false,
         "exits": {
-          "north": "floor7_stairs",
-          "south": "floor7_room4",
+          "east": "floor7_room7",
+          "west": "floor7_room1",
           "up": "floor6_stairs"
-        }
+        },
+        "_activated": false
       },
       "floor7_room1": {
+        "name": "The Last Light",
+        "description": "The only light source in this section that isn't fire.",
+        "atmosphere": "It has been here since before the fire. It remembers the before.",
         "items": [
-          "demon seal",
-          "arcane pendant"
+          "weapon cache",
+          "elixir of life"
         ],
         "enemies": [
-          "lesser demon",
-          "shadow beast"
+          "smoldering demon",
+          "infernal knight"
         ],
         "visited": false,
         "exits": {
-          "south": "floor7_room2",
-          "east": "floor7_room6"
-        }
+          "east": "floor7_start"
+        },
+        "_activated": false
       },
       "floor7_room2": {
+        "name": "The Eternal Flame Hall",
+        "description": "Flames that have not been extinguished for millennia.",
+        "atmosphere": "They recognise you. This is bad.",
         "items": [
-          "weapon cache"
+          "shadow cloak",
+          "soul crystal"
         ],
         "enemies": [
-          "shadow beast",
-          "lesser demon"
+          "infernal knight",
+          "smoldering demon"
         ],
         "visited": false,
         "exits": {
-          "west": "floor7_stairs",
-          "east": "floor7_boss",
-          "north": "floor7_room1"
-        }
+          "south": "floor7_room4"
+        },
+        "_activated": false
       },
       "floor7_room3": {
+        "name": "The Cinder Abyss",
+        "description": "A drop into burning darkness.",
+        "atmosphere": "The burning darkness drops further than physics allows.",
         "items": [
           "demon seal",
           "soul crystal"
         ],
         "enemies": [
-          "void spawn",
-          "shadow beast"
+          "char beast",
+          "smoldering demon"
         ],
         "visited": false,
         "exits": {
-          "north": "floor7_room4",
           "south": "floor7_room6"
-        }
+        },
+        "_activated": false
       },
       "floor7_room4": {
+        "name": "The Incineration Chamber",
+        "description": "Designed to burn things. Currently burning.",
+        "atmosphere": "The things it's burning look back at you.",
+        "items": [
+          "demon seal",
+          "weapon cache"
+        ],
+        "enemies": [
+          "char beast",
+          "infernal knight"
+        ],
+        "visited": false,
+        "exits": {
+          "south": "floor7_room7",
+          "north": "floor7_room2",
+          "east": "floor7_boss",
+          "west": "floor7_stairs"
+        },
+        "_activated": false
+      },
+      "floor7_room5": {
+        "name": "The Heat Void",
+        "description": "Heat so intense it has eaten the space around it.",
+        "atmosphere": "Moving through this room takes more steps than it should.",
         "items": [
           "void essence",
           "wisdom gem"
         ],
         "enemies": [
-          "shadow beast",
-          "dark cultist"
+          "char beast",
+          "infernal knight"
         ],
         "visited": false,
         "exits": {
-          "north": "floor7_start",
-          "west": "floor7_room5",
-          "south": "floor7_room3"
-        }
-      },
-      "floor7_room5": {
-        "items": [
-          "void essence",
-          "legendary artifact"
-        ],
-        "enemies": [
-          "lesser demon",
-          "dark cultist"
-        ],
-        "visited": false,
-        "exits": {
-          "east": "floor7_room4"
-        }
+          "south": "floor7_stairs"
+        },
+        "_activated": false
       },
       "floor7_room6": {
+        "name": "The Pyre Core",
+        "description": "The original pyre from which everything spread.",
+        "atmosphere": "Still burning. Will always burn.",
         "items": [
-          "golden coin",
           "weapon cache",
-          "experience gem"
+          "ultimate health potion",
+          "journal_4"
         ],
         "enemies": [
-          "treasure guardian",
-          "shadow beast"
+          "char beast",
+          "infernal knight"
         ],
         "visited": false,
         "exits": {
+          "west": "floor7_room7",
           "north": "floor7_room3",
-          "west": "floor7_room1",
-          "south": "floor7_room7"
-        }
+          "east": "floor7_room8"
+        },
+        "_activated": false
       },
       "floor7_room7": {
-        "items": [],
+        "name": "The Char Sanctum",
+        "description": "A sanctum of ash and char that has become something holy.",
+        "atmosphere": "The holiness radiates heat.",
+        "items": [
+          "demon seal",
+          "arcane pendant"
+        ],
         "enemies": [
-          "shadow beast"
+          "smoldering demon",
+          "char beast"
         ],
         "visited": false,
         "exits": {
-          "east": "floor7_stairs",
-          "west": "floor7_room9",
-          "south": "floor7_room8",
-          "north": "floor7_room6"
-        }
+          "west": "floor7_start",
+          "north": "floor7_room4",
+          "east": "floor7_room6"
+        },
+        "_activated": false
       },
       "floor7_room8": {
+        "name": "The Sacrificial Kiln",
+        "description": "Built for something larger and older than sacrifice.",
+        "atmosphere": "Still in use. Still effective.",
         "items": [
           "ultimate health potion",
           "soul crystal"
         ],
         "enemies": [
-          "dark cultist",
-          "shadow beast"
+          "smoldering demon",
+          "infernal knight"
         ],
         "visited": false,
         "exits": {
-          "north": "floor7_room7"
-        }
-      },
-      "floor7_room9": {
-        "items": [
-          "weapon cache",
-          "golden coin"
-        ],
-        "enemies": [
-          "lesser demon",
-          "void spawn"
-        ],
-        "visited": false,
-        "exits": {
-          "east": "floor7_room7"
-        }
+          "west": "floor7_room6"
+        },
+        "_activated": false
       },
       "floor7_boss": {
+        "name": "The Burning Court",
+        "description": "The court of someone who believed fire was the answer to everything.",
+        "atmosphere": "The Burning Prince takes their charred throne.",
         "items": [
           "ultimate health potion"
         ],
         "enemies": [
-          "Demon Prince"
+          "The Burning Prince"
         ],
         "visited": false,
         "exits": {
-          "west": "floor7_room2"
-        }
+          "west": "floor7_room4"
+        },
+        "_activated": false
       },
       "floor7_stairs": {
+        "name": "The Ashen Wastes \u2014 Descent",
+        "description": "Steps down into something worse.",
+        "atmosphere": "",
         "items": [],
         "enemies": [],
         "visited": false,
         "exits": {
-          "south": "floor7_start",
-          "west": "floor7_room7",
-          "east": "floor7_room2",
+          "east": "floor7_room4",
+          "north": "floor7_room5",
           "down": "floor8_start"
-        }
+        },
+        "_activated": false
       }
     },
     "8": {
       "floor8_start": {
+        "name": "The Ashen Wastes \u2014 Floor 8",
+        "description": "Deeper into The Ashen Wastes.",
+        "atmosphere": "Adamus the Loyal has set up shop here. Use 'shop' to trade.",
         "items": [
           "health potion"
         ],
         "enemies": [],
         "visited": false,
         "exits": {
-          "north": "floor8_room6",
-          "west": "floor8_room3",
-          "east": "floor8_room7",
+          "west": "floor8_stairs",
+          "south": "floor8_room1",
+          "north": "floor8_room3",
+          "east": "floor8_room5",
           "up": "floor7_stairs"
-        }
+        },
+        "_activated": false
       },
       "floor8_room1": {
+        "name": "The Char Sanctum",
+        "description": "A sanctum of ash and char that has become something holy.",
+        "atmosphere": "The holiness radiates heat.",
         "items": [
-          "weapon cache"
+          "demon seal",
+          "arcane pendant"
         ],
         "enemies": [
-          "lesser demon",
-          "shadow beast"
+          "smoldering demon",
+          "pyroclast spawn"
         ],
         "visited": false,
         "exits": {
-          "north": "floor8_room9",
-          "east": "floor8_room10"
-        }
+          "north": "floor8_start",
+          "south": "floor8_room6"
+        },
+        "_activated": false
       },
       "floor8_room2": {
+        "name": "The Incineration Chamber",
+        "description": "Designed to burn things. Currently burning.",
+        "atmosphere": "The things it's burning look back at you.",
         "items": [
           "demon seal",
-          "arcane pendant"
-        ],
-        "enemies": [
-          "lesser demon",
-          "shadow beast"
-        ],
-        "visited": false,
-        "exits": {
-          "east": "floor8_stairs",
-          "west": "floor8_room9",
-          "south": "floor8_room11"
-        }
-      },
-      "floor8_room3": {
-        "items": [
-          "void essence",
           "weapon cache"
         ],
         "enemies": [
-          "dark cultist"
+          "smoldering demon",
+          "pyroclast spawn"
         ],
         "visited": false,
         "exits": {
-          "east": "floor8_start",
-          "north": "floor8_room8"
-        }
+          "north": "floor8_stairs",
+          "west": "floor8_room4"
+        },
+        "_activated": false
       },
-      "floor8_room4": {
+      "floor8_room3": {
+        "name": "The Last Light",
+        "description": "The only light source in this section that isn't fire.",
+        "atmosphere": "It has been here since before the fire. It remembers the before.",
         "items": [
-          "primordial rune",
-          "legendary artifact"
+          "weapon cache",
+          "elixir of life"
         ],
         "enemies": [
-          "dark cultist"
-        ],
-        "visited": false,
-        "exits": {
-          "north": "floor8_room5"
-        }
-      },
-      "floor8_room5": {
-        "items": [
-          "void essence",
-          "legendary artifact"
-        ],
-        "enemies": [
-          "void spawn",
-          "dark cultist"
-        ],
-        "visited": false,
-        "exits": {
-          "west": "floor8_room6",
-          "east": "floor8_room8",
-          "south": "floor8_room4",
-          "north": "floor8_room10"
-        }
-      },
-      "floor8_room6": {
-        "items": [
-          "demon seal",
-          "arcane pendant"
-        ],
-        "enemies": [
-          "dark cultist",
-          "void spawn"
+          "char beast",
+          "pyroclast spawn"
         ],
         "visited": false,
         "exits": {
           "south": "floor8_start",
-          "north": "floor8_stairs",
-          "east": "floor8_room5",
-          "west": "floor8_boss"
-        }
+          "west": "floor8_room8",
+          "east": "floor8_boss",
+          "north": "floor8_room5"
+        },
+        "_activated": false
       },
-      "floor8_room7": {
-        "items": [
-          "weapon cache",
-          "golden coin"
-        ],
-        "enemies": [
-          "dark cultist",
-          "shadow beast"
-        ],
-        "visited": false,
-        "exits": {
-          "west": "floor8_start"
-        }
-      },
-      "floor8_room8": {
-        "items": [
-          "demon seal",
-          "soul crystal"
-        ],
-        "enemies": [
-          "void spawn",
-          "shadow beast"
-        ],
-        "visited": false,
-        "exits": {
-          "west": "floor8_room5",
-          "south": "floor8_room3"
-        }
-      },
-      "floor8_room9": {
+      "floor8_room4": {
+        "name": "The Sacrificial Kiln",
+        "description": "Built for something larger and older than sacrifice.",
+        "atmosphere": "Still in use. Still effective.",
         "items": [
           "ultimate health potion",
           "soul crystal"
         ],
         "enemies": [
-          "lesser demon",
-          "dark cultist"
+          "pyroclast spawn",
+          "smoldering demon"
         ],
         "visited": false,
         "exits": {
-          "east": "floor8_room2",
-          "south": "floor8_room1"
-        }
+          "east": "floor8_room2"
+        },
+        "_activated": false
       },
-      "floor8_room10": {
+      "floor8_room5": {
+        "name": "The Pyre Core",
+        "description": "The original pyre from which everything spread.",
+        "atmosphere": "Still burning. Will always burn.",
         "items": [
-          "health potion",
-          "golden coin"
+          "weapon cache",
+          "ultimate health potion"
         ],
         "enemies": [
-          "shadow beast"
+          "smoldering demon",
+          "char beast"
         ],
         "visited": false,
         "exits": {
-          "south": "floor8_room5",
-          "west": "floor8_room1"
-        }
+          "west": "floor8_start",
+          "south": "floor8_room3"
+        },
+        "_activated": false
       },
-      "floor8_room11": {
+      "floor8_room6": {
+        "name": "The Cinder Abyss",
+        "description": "A drop into burning darkness.",
+        "atmosphere": "The burning darkness drops further than physics allows.",
+        "items": [
+          "demon seal",
+          "soul crystal"
+        ],
+        "enemies": [
+          "smoldering demon",
+          "char beast"
+        ],
+        "visited": false,
+        "exits": {
+          "north": "floor8_room1"
+        },
+        "_activated": false
+      },
+      "floor8_room7": {
+        "name": "The Heat Void",
+        "description": "Heat so intense it has eaten the space around it.",
+        "atmosphere": "Moving through this room takes more steps than it should.",
+        "items": [
+          "void essence",
+          "wisdom gem"
+        ],
+        "enemies": [
+          "pyroclast spawn",
+          "char beast"
+        ],
+        "visited": false,
+        "exits": {
+          "east": "floor8_stairs",
+          "north": "floor8_boss"
+        },
+        "_activated": false
+      },
+      "floor8_room8": {
+        "name": "The Eternal Flame Hall",
+        "description": "Flames that have not been extinguished for millennia.",
+        "atmosphere": "They recognise you. This is bad.",
         "items": [
           "shadow cloak",
-          "health potion"
+          "soul crystal"
         ],
         "enemies": [
-          "lesser demon",
-          "shadow beast"
+          "char beast",
+          "smoldering demon"
         ],
         "visited": false,
         "exits": {
-          "north": "floor8_room2"
-        }
+          "east": "floor8_room3"
+        },
+        "_activated": false
       },
       "floor8_boss": {
+        "name": "The Last City",
+        "description": "A city burned so completely it transcended destruction.",
+        "atmosphere": "The Last Conflagration ignites.",
         "items": [
           "ultimate health potion"
         ],
         "enemies": [
-          "Void Archon"
+          "The Last Conflagration"
         ],
         "visited": false,
         "exits": {
-          "east": "floor8_room6"
-        }
+          "south": "floor8_room7",
+          "west": "floor8_room3"
+        },
+        "_activated": false
       },
       "floor8_stairs": {
+        "name": "The Ashen Wastes \u2014 Descent",
+        "description": "Steps down into something worse.",
+        "atmosphere": "",
         "items": [],
         "enemies": [],
         "visited": false,
         "exits": {
-          "south": "floor8_room6",
-          "west": "floor8_room2",
+          "east": "floor8_start",
+          "west": "floor8_room7",
+          "south": "floor8_room2",
           "down": "floor9_start"
-        }
+        },
+        "_activated": false
       }
     },
     "9": {
       "floor9_start": {
+        "name": "The Ashen Wastes \u2014 Floor 9",
+        "description": "Deeper into The Ashen Wastes.",
+        "atmosphere": "Adamus the Loyal has set up shop here. Use 'shop' to trade.",
         "items": [
           "health potion"
+        ],
+        "enemies": [],
+        "visited": false,
+        "exits": {
+          "east": "floor9_room1",
+          "west": "floor9_room5",
+          "up": "floor8_stairs"
+        },
+        "_activated": false
+      },
+      "floor9_room1": {
+        "name": "The Pyroclast Hall",
+        "description": "A hall made from the hardened ejecta of the origin eruption.",
+        "atmosphere": "The walls show the history of fire in cross-section.",
+        "items": [
+          "void essence",
+          "ultimate health potion"
+        ],
+        "enemies": [
+          "ash titan",
+          "infernal guardian"
+        ],
+        "visited": false,
+        "exits": {
+          "west": "floor9_start",
+          "south": "floor9_boss",
+          "north": "floor9_room4"
+        },
+        "_activated": false
+      },
+      "floor9_room2": {
+        "name": "The Origin Vent",
+        "description": "The vent from which the first fire emerged.",
+        "atmosphere": "Still venting. Still original.",
+        "items": [
+          "titan gauntlet",
+          "weapon cache"
+        ],
+        "enemies": [
+          "slag guardian",
+          "ash titan"
+        ],
+        "visited": false,
+        "exits": {
+          "east": "floor9_boss",
+          "north": "floor9_room3"
+        },
+        "_activated": false
+      },
+      "floor9_room3": {
+        "name": "The Last Fire",
+        "description": "This is where fire ends. Or starts. Depends on direction.",
+        "atmosphere": "You are going the wrong direction.",
+        "items": [
+          "weapon cache",
+          "weapon cache"
+        ],
+        "enemies": [
+          "infernal guardian",
+          "slag guardian"
+        ],
+        "visited": false,
+        "exits": {
+          "south": "floor9_room2"
+        },
+        "_activated": false
+      },
+      "floor9_room4": {
+        "name": "The Primordial Hearth",
+        "description": "The first fire ever lit, still going.",
+        "atmosphere": "Everything that ever burned traces back to here.",
+        "items": [
+          "primordial rune",
+          "titan gauntlet"
+        ],
+        "enemies": [
+          "ash titan",
+          "infernal guardian"
+        ],
+        "visited": false,
+        "exits": {
+          "south": "floor9_room1",
+          "north": "floor9_stairs"
+        },
+        "_activated": false
+      },
+      "floor9_room5": {
+        "name": "The Final Ember",
+        "description": "One ember. The last. The one that would end everything if it went out.",
+        "atmosphere": "You are not allowed to extinguish it.",
+        "items": [
+          "soul crystal",
+          "legendary artifact"
+        ],
+        "enemies": [
+          "infernal guardian",
+          "slag guardian"
+        ],
+        "visited": false,
+        "exits": {
+          "east": "floor9_start",
+          "north": "floor9_room6",
+          "south": "floor9_room8"
+        },
+        "_activated": false
+      },
+      "floor9_room6": {
+        "name": "The Burning Throne Approach",
+        "description": "The approach to the burning throne. The heat is personal here.",
+        "atmosphere": "The heat specifically targets you. This is intentional.",
+        "items": [
+          "soul crystal",
+          "experience gem"
+        ],
+        "enemies": [
+          "ash titan",
+          "slag guardian"
+        ],
+        "visited": false,
+        "exits": {
+          "south": "floor9_room5",
+          "east": "floor9_room7"
+        },
+        "_activated": false
+      },
+      "floor9_room7": {
+        "name": "The Ash Observatory",
+        "description": "An observatory looking out onto nothing but ash.",
+        "atmosphere": "The ash forms constellations. They are not friendly ones.",
+        "items": [
+          "weapon cache",
+          "wisdom gem"
+        ],
+        "enemies": [
+          "infernal guardian",
+          "ash titan"
+        ],
+        "visited": false,
+        "exits": {
+          "west": "floor9_room6",
+          "north": "floor9_room8"
+        },
+        "_activated": false
+      },
+      "floor9_room8": {
+        "name": "The Cinder Core",
+        "description": "The core of the Ashen Wastes. Everything else is aftermath.",
+        "atmosphere": "The aftermath is impressive.",
+        "items": [
+          "weapon cache",
+          "wisdom gem"
+        ],
+        "enemies": [
+          "slag guardian",
+          "ash titan"
+        ],
+        "visited": false,
+        "exits": {
+          "north": "floor9_room5",
+          "south": "floor9_room7"
+        },
+        "_activated": false
+      },
+      "floor9_boss": {
+        "name": "The Pyre Core",
+        "description": "The source of all the fire. Still going.",
+        "atmosphere": "The Eternal Pyre opens its eyes. They are made of the oldest flame.",
+        "items": [
+          "ultimate health potion"
+        ],
+        "enemies": [
+          "The Eternal Pyre"
+        ],
+        "visited": false,
+        "exits": {
+          "north": "floor9_room1",
+          "west": "floor9_room2",
+          "south": "floor9_stairs"
+        },
+        "_activated": false
+      },
+      "floor9_stairs": {
+        "name": "The Ashen Wastes \u2014 Descent",
+        "description": "Steps down into something worse.",
+        "atmosphere": "",
+        "items": [
+          "journal_5"
         ],
         "enemies": [],
         "visited": false,
         "exits": {
           "north": "floor9_boss",
-          "west": "floor9_room1",
-          "south": "floor9_room3",
-          "east": "floor9_room4",
-          "up": "floor8_stairs"
-        }
-      },
-      "floor9_room1": {
-        "items": [
-          "crystal shard",
-          "energy drink"
-        ],
-        "enemies": [
-          "cosmic horror"
-        ],
-        "visited": false,
-        "exits": {
-          "east": "floor9_start",
-          "south": "floor9_room6",
-          "west": "floor9_room2"
-        }
-      },
-      "floor9_room2": {
-        "items": [
-          "demon seal",
-          "soul crystal"
-        ],
-        "enemies": [
-          "cosmic horror",
-          "celestial knight"
-        ],
-        "visited": false,
-        "exits": {
-          "east": "floor9_room1",
-          "north": "floor9_room5"
-        }
-      },
-      "floor9_room3": {
-        "items": [
-          "void essence",
-          "primordial rune"
-        ],
-        "enemies": [
-          "ancient guardian",
-          "titan spawn"
-        ],
-        "visited": false,
-        "exits": {
-          "north": "floor9_start"
-        }
-      },
-      "floor9_room4": {
-        "items": [
-          "soul crystal",
-          "experience gem"
-        ],
-        "enemies": [
-          "ancient guardian",
-          "cosmic horror"
-        ],
-        "visited": false,
-        "exits": {
-          "west": "floor9_start",
-          "south": "floor9_room7"
-        }
-      },
-      "floor9_room5": {
-        "items": [
-          "weapon cache",
-          "wisdom gem"
-        ],
-        "enemies": [
-          "cosmic horror",
-          "titan spawn"
-        ],
-        "visited": false,
-        "exits": {
-          "south": "floor9_room2",
-          "east": "floor9_stairs",
-          "north": "floor9_room9",
-          "west": "floor9_room8"
-        }
-      },
-      "floor9_room6": {
-        "items": [
-          "wisdom gem",
-          "legendary artifact"
-        ],
-        "enemies": [
-          "celestial knight",
-          "cosmic horror"
-        ],
-        "visited": false,
-        "exits": {
-          "north": "floor9_room1",
-          "east": "floor9_room8"
-        }
-      },
-      "floor9_room7": {
-        "items": [
-          "void essence",
-          "ultimate health potion"
-        ],
-        "enemies": [
-          "titan spawn",
-          "cosmic horror"
-        ],
-        "visited": false,
-        "exits": {
-          "north": "floor9_room4"
-        }
-      },
-      "floor9_room8": {
-        "items": [],
-        "enemies": [
-          "cosmic horror"
-        ],
-        "visited": false,
-        "exits": {
-          "west": "floor9_room6",
-          "east": "floor9_room5"
-        }
-      },
-      "floor9_room9": {
-        "items": [
-          "weapon cache",
-          "weapon cache"
-        ],
-        "enemies": [
-          "ancient guardian",
-          "titan spawn"
-        ],
-        "visited": false,
-        "exits": {
-          "east": "floor9_boss",
-          "south": "floor9_room5"
-        }
-      },
-      "floor9_boss": {
-        "items": [
-          "ultimate health potion"
-        ],
-        "enemies": [
-          "Primordial Beast"
-        ],
-        "visited": false,
-        "exits": {
-          "south": "floor9_start",
-          "west": "floor9_room9",
-          "north": "floor9_stairs"
-        }
-      },
-      "floor9_stairs": {
-        "items": [],
-        "enemies": [],
-        "visited": false,
-        "exits": {
-          "south": "floor9_boss",
-          "west": "floor9_room5",
+          "south": "floor9_room4",
           "down": "floor10_start"
-        }
+        },
+        "_activated": false
       }
     },
     "10": {
       "floor10_start": {
+        "name": "The Ashen Wastes \u2014 Floor 10",
+        "description": "Deeper into The Ashen Wastes.",
+        "atmosphere": "Adamus the Loyal has set up shop here. Use 'shop' to trade.",
         "items": [
           "health potion"
         ],
         "enemies": [],
         "visited": false,
         "exits": {
-          "south": "floor10_room8",
-          "north": "floor10_boss",
-          "west": "floor10_room7",
+          "west": "floor10_room2",
+          "east": "floor10_boss",
+          "south": "floor10_room5",
+          "north": "floor10_room4",
           "up": "floor9_stairs"
-        }
+        },
+        "_activated": false
       },
       "floor10_room1": {
-        "items": [],
-        "enemies": [
-          "celestial knight"
-        ],
-        "visited": false,
-        "exits": {
-          "west": "floor10_boss",
-          "south": "floor10_room6"
-        }
-      },
-      "floor10_room2": {
-        "items": [
-          "void essence",
-          "ultimate health potion"
-        ],
-        "enemies": [
-          "celestial knight",
-          "cosmic horror"
-        ],
-        "visited": false,
-        "exits": {
-          "east": "floor10_room8"
-        }
-      },
-      "floor10_room3": {
-        "items": [
-          "weapon cache",
-          "weapon cache"
-        ],
-        "enemies": [
-          "ancient guardian",
-          "titan spawn"
-        ],
-        "visited": false,
-        "exits": {
-          "north": "floor10_room7",
-          "east": "floor10_room6"
-        }
-      },
-      "floor10_room4": {
-        "items": [
-          "void essence",
-          "primordial rune"
-        ],
-        "enemies": [
-          "ancient guardian",
-          "cosmic horror"
-        ],
-        "visited": false,
-        "exits": {
-          "east": "floor10_boss"
-        }
-      },
-      "floor10_room5": {
-        "items": [
-          "weapon cache",
-          "wisdom gem"
-        ],
-        "enemies": [
-          "titan spawn",
-          "celestial knight"
-        ],
-        "visited": false,
-        "exits": {
-          "south": "floor10_boss"
-        }
-      },
-      "floor10_room6": {
+        "name": "The Final Ember",
+        "description": "One ember. The last. The one that would end everything if it went out.",
+        "atmosphere": "You are not allowed to extinguish it.",
         "items": [
           "soul crystal",
           "legendary artifact"
         ],
         "enemies": [
-          "ancient guardian",
-          "titan spawn"
+          "infernal guardian",
+          "the last flame"
         ],
         "visited": false,
         "exits": {
-          "west": "floor10_room3",
-          "north": "floor10_room1"
-        }
+          "north": "floor10_room2"
+        },
+        "_activated": false
       },
-      "floor10_room7": {
+      "floor10_room2": {
+        "name": "The Primordial Hearth",
+        "description": "The first fire ever lit, still going.",
+        "atmosphere": "Everything that ever burned traces back to here.",
         "items": [
-          "void essence",
-          "weapon cache"
+          "primordial rune",
+          "titan gauntlet"
         ],
         "enemies": [
-          "titan spawn"
+          "the burning throne",
+          "the last flame"
         ],
         "visited": false,
         "exits": {
           "east": "floor10_start",
-          "south": "floor10_room3"
-        }
+          "south": "floor10_room1",
+          "north": "floor10_room7",
+          "west": "floor10_room6"
+        },
+        "_activated": false
       },
-      "floor10_room8": {
+      "floor10_room3": {
+        "name": "The Last Fire",
+        "description": "This is where fire ends. Or starts. Depends on direction.",
+        "atmosphere": "You are going the wrong direction.",
         "items": [
-          "primordial rune",
-          "legendary artifact"
+          "weapon cache",
+          "weapon cache"
         ],
         "enemies": [
-          "ancient guardian"
+          "the burning throne",
+          "infernal guardian"
         ],
         "visited": false,
         "exits": {
-          "north": "floor10_start",
-          "west": "floor10_room2"
-        }
+          "west": "floor10_room7",
+          "north": "floor10_room6"
+        },
+        "_activated": false
+      },
+      "floor10_room4": {
+        "name": "The Burning Throne Approach",
+        "description": "The approach to the burning throne. The heat is personal here.",
+        "atmosphere": "The heat specifically targets you. This is intentional.",
+        "items": [
+          "soul crystal",
+          "experience gem"
+        ],
+        "enemies": [
+          "the last flame",
+          "the burning throne"
+        ],
+        "visited": false,
+        "exits": {
+          "south": "floor10_start"
+        },
+        "_activated": false
+      },
+      "floor10_room5": {
+        "name": "The Pyroclast Hall",
+        "description": "A hall made from the hardened ejecta of the origin eruption.",
+        "atmosphere": "The walls show the history of fire in cross-section.",
+        "items": [
+          "void essence",
+          "ultimate health potion"
+        ],
+        "enemies": [
+          "the burning throne",
+          "infernal guardian"
+        ],
+        "visited": false,
+        "exits": {
+          "north": "floor10_start"
+        },
+        "_activated": false
+      },
+      "floor10_room6": {
+        "name": "The Origin Vent",
+        "description": "The vent from which the first fire emerged.",
+        "atmosphere": "Still venting. Still original.",
+        "items": [
+          "titan gauntlet",
+          "weapon cache"
+        ],
+        "enemies": [
+          "the burning throne",
+          "infernal guardian"
+        ],
+        "visited": false,
+        "exits": {
+          "east": "floor10_room2",
+          "south": "floor10_room3"
+        },
+        "_activated": false
+      },
+      "floor10_room7": {
+        "name": "The Cinder Core",
+        "description": "The core of the Ashen Wastes. Everything else is aftermath.",
+        "atmosphere": "The aftermath is impressive.",
+        "items": [
+          "weapon cache",
+          "wisdom gem"
+        ],
+        "enemies": [
+          "the burning throne",
+          "the last flame"
+        ],
+        "visited": false,
+        "exits": {
+          "south": "floor10_room2",
+          "east": "floor10_room3"
+        },
+        "_activated": false
+      },
+      "floor10_room8": {
+        "name": "The Ash Observatory",
+        "description": "An observatory looking out onto nothing but ash.",
+        "atmosphere": "The ash forms constellations. They are not friendly ones.",
+        "items": [
+          "weapon cache",
+          "wisdom gem"
+        ],
+        "enemies": [
+          "the burning throne",
+          "infernal guardian"
+        ],
+        "visited": false,
+        "exits": {
+          "west": "floor10_boss"
+        },
+        "_activated": false
       },
       "floor10_boss": {
+        "name": "The Origin Point",
+        "description": "This is where fire was invented. It regrets nothing.",
+        "atmosphere": "The First Fire remembers you.",
         "items": [
           "ultimate health potion"
         ],
         "enemies": [
-          "Reality Breaker"
+          "The First Fire"
         ],
         "visited": false,
         "exits": {
-          "south": "floor10_start",
-          "west": "floor10_room4",
-          "north": "floor10_room5",
-          "east": "floor10_room1"
-        }
+          "west": "floor10_start",
+          "east": "floor10_room8"
+        },
+        "_activated": false
       }
     }
   }

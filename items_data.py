@@ -1,9 +1,7 @@
 """LABYRINTH — Item definitions"""
 from __future__ import annotations
-import random, json, os, logging
-from typing import Dict, List, Optional, Set, Tuple, Any, TYPE_CHECKING, Callable
-from difflib import get_close_matches
-from dataclasses import dataclass, field
+import logging
+from typing import Dict
 
 logger = logging.getLogger(__name__)
 
@@ -67,12 +65,15 @@ class ItemsData:
                                'cursed': True, 'desc': '+18 LCK / -20 max HP'},
         'soul chain':         {'stat': 'vitality',     'bonus': 10, 'dmg_taken_mult': 1.10,
                                'cursed': True, 'desc': '+10 VIT / take 10% more damage'},
+        # Pleasure Sanctum reward — lust aura distracts and weakens enemies
+        'vibrating butt plug': {'stat': 'lust', 'bonus': 8},
     }
     
 
     ACTIONABLE_ITEMS = {
         'rusty key': 'key',
         'bone key': 'bone_key',
+        'heart-shaped key': 'heart_key',
         'torch': 'light',
         'old map': 'map',
         'ancient medallion': 'offering',
@@ -86,7 +87,7 @@ class ItemsData:
     }
     
 
-    QUEST_ITEMS = ['rusty key', 'old map', 'legendary artifact', 'bone key', 
+    QUEST_ITEMS = ['rusty key', 'old map', 'legendary artifact', 'bone key', 'heart-shaped key', 
                    'ancient medallion', 'crystal shard', 'demon seal', 'void essence', 'primordial rune']
     
     # Tiered shop — each floor range unlocks new stock at scaled prices.

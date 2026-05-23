@@ -2,14 +2,13 @@
 LABYRINTH — Item handler
 """
 from __future__ import annotations
-import random, json, os, logging
-from typing import Dict, List, Optional, Set, Tuple, Any, TYPE_CHECKING, Callable
-from difflib import get_close_matches
-from dataclasses import dataclass, field
+import random, logging
+from typing import Dict, List, Optional, TYPE_CHECKING
 
 logger = logging.getLogger(__name__)
 
 from constants import GameConstants
+from utils import safe_input
 if TYPE_CHECKING:
     from player import Player
 
@@ -56,7 +55,7 @@ class ItemHandler:
             print(f"{i}. {item} - {desc}")
         
         try:
-            choice = int(input(f"Choose (1-{len(items)}): ")) - 1
+            choice = int(safe_input(f"Choose (1-{len(items)}): ")) - 1
             return items[choice] if 0 <= choice < len(items) else None
         except (ValueError, KeyboardInterrupt):
             print("Cancelled.")
@@ -149,8 +148,4 @@ class ItemHandler:
                 print(f"*** Equipped {item_name}! {label}")
 
         return True
-
-#################################################################################
-# CENTRALIZED DAMAGE CALCULATOR
-#################################################################################
 

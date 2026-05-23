@@ -1,15 +1,14 @@
 """LABYRINTH — Dungeon generation"""
 from __future__ import annotations
-import random, json, os, logging
-from typing import Dict, List, Optional, Set, Tuple, Any, TYPE_CHECKING, Callable
-from difflib import get_close_matches
-from dataclasses import dataclass, field
+import random, os, logging
+from typing import Dict, List, Optional, Any, TYPE_CHECKING
 if TYPE_CHECKING:
     from game import Game
 
 logger = logging.getLogger(__name__)
 
 from constants import GameConstants, BossConfig, RoomTemplateConfig
+from utils import safe_input
 from room import Room
 
 
@@ -36,7 +35,7 @@ class DungeonMixin:
             return
 
         # Track unique items across entire dungeon (items that should only spawn once)
-        unique_item_types = {'rusty key', 'bone key', 'torch', 'ancient medallion',
+        unique_item_types = {'rusty key', 'bone key', 'heart-shaped key', 'torch', 'ancient medallion',
                               'journal_1','journal_2','journal_3','journal_4','journal_5',
                               "gambler's d20"}
         # Which floor each journal entry appears on
@@ -79,7 +78,7 @@ class DungeonMixin:
 
             # Filter out destination-only templates from the random pool so they
             # are only injected via the pairing logic below
-            DEST_NAMES = {'Locked Vault', 'Bone Crypt', 'Forgotten Game Room'}
+            DEST_NAMES = {'Locked Vault', 'Bone Crypt', 'Forgotten Game Room', 'Pleasure Sanctum', 'Secret Vault'}
             # Deduplicate by name — same template name can appear in both
             # the theme config and SPECIAL_ROOMS, which random.sample would
             # treat as distinct objects and potentially pick both.
@@ -105,7 +104,7 @@ class DungeonMixin:
 
                 # Calculate wearable cap for dungeon generation
                 p_lvl      = self.player.level
-                max_stack  = 1 if p_lvl < 5 else 2 if p_lvl < 10 else 3 if p_lvl < 15 else 4
+                max_stack  = GameConstants.get_wearable_stack_cap(p_lvl)
                 def _gen_at_cap(item_name):
                     if item_name not in GameConstants.WEARABLE_ITEMS:
                         return False
@@ -195,6 +194,27 @@ class DungeonMixin:
                 stairs_id = f"floor{floor_num}_stairs"
                 rooms[stairs_id] = Room("Ancient Stairway", "Stone stairs descend deeper.", floor_num)
 
+            # Pleasure Sanctum — mature content, only spawns with --mature flag
+            if (6 <= floor_num <= 9
+                    and getattr(self, 'mature_mode', False)
+                    and random.random() < GameConstants.SEX_DUNGEON_SPAWN_CHANCE):
+                sex_tmpl = next((t for t in RoomTemplateConfig.SPECIAL_ROOMS
+                                 if t.name == 'Pleasure Sanctum'), None)
+                if sex_tmpl:
+                    sex_id = f"floor{floor_num}_pleasure"
+                    rooms[sex_id] = Room(
+                        sex_tmpl.name, sex_tmpl.description, floor_num,
+                        sex_tmpl.items.copy(), {}, [], sex_tmpl.atmosphere
+                    )
+                    normal_ids = [rid for rid in rooms
+                                  if 'boss' not in rid and 'stairs' not in rid
+                                  and rid != sex_id]
+                    if normal_ids:
+                        connector = random.choice(normal_ids)
+                        rooms[connector].exits['secret'] = sex_id
+                        rooms[sex_id].exits['out'] = connector
+                    logger.debug(f"Pleasure Sanctum seeded on F{floor_num}")
+
             self._connect_rooms(rooms, floor_start_id)
 
             self.floors[floor_num] = rooms
@@ -262,66 +282,6 @@ class DungeonMixin:
                     if reverse[direction] not in rooms[r2].exits:
                         rooms[r1].exits[direction] = r2
                         rooms[r2].exits[reverse[direction]] = r1
-    
-
-    def delete_save(self):
-        """Delete a save file"""
-        try:
-            if not os.path.exists(GameConstants.SAVE_DIRECTORY):
-                print("No save files found!")
-                return
-            
-            print("\n" + "="*40)
-            print("DELETE SAVE")
-            print("="*40)
-            
-            available_saves = []
-            for slot in range(1, GameConstants.MAX_SAVE_SLOTS + 1):
-                save_path = os.path.join(GameConstants.SAVE_DIRECTORY, f"save{slot}.json")
-                if os.path.exists(save_path):
-                    try:
-                        with open(save_path, 'r') as f:
-                            save_data = json.load(f)
-                            player_data = save_data.get('player', {})
-                            name = player_data.get('name', 'Unknown')
-                            level = player_data.get('level', 1)
-                            floor = player_data.get('current_floor', 1)
-                            print(f"{slot}. {name} - Lvl {level} - Floor {floor}")
-                            available_saves.append(slot)
-                    except (json.JSONDecodeError, OSError, KeyError, TypeError):
-                        print(f"{slot}. [Corrupted Save]")
-                        available_saves.append(slot)
-                else:
-                    print(f"{slot}. [Empty Slot]")
-            
-            if not available_saves:
-                print("\nNo save files to delete!")
-                return
-            
-            print(f"{GameConstants.MAX_SAVE_SLOTS + 1}. Cancel")
-            
-            try:
-                choice = int(input(f"\nDelete slot (1-{GameConstants.MAX_SAVE_SLOTS}): ").strip())
-                if choice == GameConstants.MAX_SAVE_SLOTS + 1:
-                    return
-                if choice not in available_saves:
-                    print("Invalid or empty slot!")
-                    return
-            except (ValueError, KeyboardInterrupt):
-                return
-            
-            save_path = os.path.join(GameConstants.SAVE_DIRECTORY, f"save{choice}.json")
-            
-            confirm = input(f"Delete slot {choice}? This cannot be undone! (y/n): ").strip().lower()
-            if confirm in ['y', 'yes']:
-                os.remove(save_path)
-                print(f"✓ Slot {choice} deleted!")
-                logger.info(f"Save file deleted: slot {choice}")
-            else:
-                print("Cancelled.")
-        except OSError as e:
-            logging.error(f"Delete save error: {e}", exc_info=True)
-            print(f"✗ Delete failed: {e}")
     
 
     # ─────────────────────────────────────────────────────────────

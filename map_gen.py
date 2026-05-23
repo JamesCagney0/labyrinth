@@ -2,10 +2,8 @@
 LABYRINTH — Map generator
 """
 from __future__ import annotations
-import random, json, os, logging
-from typing import Dict, List, Optional, Set, Tuple, Any, TYPE_CHECKING, Callable
-from difflib import get_close_matches
-from dataclasses import dataclass, field
+import logging
+from typing import Dict, Set, TYPE_CHECKING
 
 logger = logging.getLogger(__name__)
 
@@ -37,7 +35,7 @@ class MapGenerator:
         lines.append("╠" + "═" * 78 + "╣")
         
         # Get rooms in each direction from current room (with depth)
-        def get_room_chain(direction, max_depth=3):
+        def get_room_chain(direction, max_depth=2):
             """Get chain of rooms in a direction"""
             chain = []
             current_id = current_room
@@ -242,7 +240,7 @@ class MapGenerator:
             is_visited = room_id in visited_rooms
             
             marker = "►" if is_current else ("○" if is_visited else "·")
-            
+
             room_type = ""
             if 'boss' in room_id:
                 room_type = "⚔BOSS"
@@ -251,24 +249,29 @@ class MapGenerator:
             elif room_id == 'start' or 'start' in room_id:
                 room_type = "⬆START"
             elif 'secret' in room_id:
-                room_type = ""  # No hint on map
-            
+                room_type = ""
+
+            # Hide name and type of undiscovered rooms — no spoilers
+            display_name = room.name[:20] if is_visited else "???"
+            display_type = room_type if is_visited else ""
+
             all_rooms.append({
                 'marker': marker,
-                'name': room.name[:20],
-                'type': room_type,
-                'visited': is_visited
+                'name': display_name,
+                'type': display_type,
+                'visited': is_visited,
+                'sort_type': room_type  # keep original for sorting
             })
         
         # Sort: Start, Regular, Boss, Stairs, Secret
         def sort_key(r):
-            if 'START' in r['type']:
+            if 'START' in r['sort_type']:
                 return (0, r['name'])
-            elif 'BOSS' in r['type']:
+            elif 'BOSS' in r['sort_type']:
                 return (2, r['name'])
-            elif 'STAIRS' in r['type']:
+            elif 'STAIRS' in r['sort_type']:
                 return (3, r['name'])
-            elif 'SECRET' in r['type']:
+            elif 'SECRET' in r['sort_type']:
                 return (4, r['name'])
             else:
                 return (1, r['name'])
@@ -312,8 +315,4 @@ class MapGenerator:
         lines.append("╚" + "═" * 78 + "╝")
         
         return '\n'.join(lines)
-
-#################################################################################
-# PLAYER CLASS
-#################################################################################
 

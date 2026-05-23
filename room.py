@@ -2,16 +2,12 @@
 LABYRINTH — Room
 """
 from __future__ import annotations
-import random, json, os, logging
-from typing import Dict, List, Optional, Set, Tuple, Any, TYPE_CHECKING, Callable
-from difflib import get_close_matches
-from dataclasses import dataclass, field
+import logging
+from typing import Dict, List
 
 logger = logging.getLogger(__name__)
 
 from constants import GameConstants
-if TYPE_CHECKING:
-    from typing import Dict, List
 
 class Room:
     """Dungeon room"""
@@ -67,7 +63,4 @@ class Room:
                     formatted.append(d)
             print(f"Exits: {', '.join(formatted)}")
 
-#################################################################################
-# WEAPON SYSTEM
-#################################################################################
 

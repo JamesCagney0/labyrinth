@@ -1,350 +1,269 @@
-# text-adventure
+# LABYRINTH
+### A 10-Floor Text Dungeon RPG — v7.7.0
 
+> *The Dungeon Does Not Forgive. Will You?*
 
-## COMPLETE FEATURE LIST
+---
 
-### MULTI-FLOOR DUNGEON SYSTEM:
-- Ten unique floors with procedurally generated layouts (expanded from 3)
-- Each floor contains 10-15 randomly connected rooms (expanded from 8-10)
-- Floors connected via ancient stairways (use 'up'/'down' commands)
-- One unique boss per floor with escalating difficulty
-- Floor progression: Dungeon → Crypt → Elemental → Dark Magic → Cosmic
-- Each playthrough has completely different room layouts
+## Overview
 
-### CHARACTER CLASSES & PROGRESSION:
-- Three playable classes: Warrior, Mage, Rogue
-- Each class has unique stats, health, mana, and weapon types
-- Three-tier class progression system (upgrades at levels 5, 10, 15)
-  - Tier 1: Warrior/Mage/Rogue
-  - Tier 2: Berserker/Sorcerer/Assassin
-  - Tier 3: Paladin/Archmage/Shadow Master
-- Class upgrades grant: +5 all stats, +30 health, +25 mana, +5% rare drops
-- Different inventory capacities and growth rates per class
+LABYRINTH is a single-player text-based dungeon RPG written in Python. Descend 10 floors of a shifting dungeon, fight enemies and bosses, upgrade your character through 5 class tiers, and uncover the lore of what the dungeon actually is. Survive long enough and you'll unlock New Game Plus — five distinct worlds, harder enemies, and a class fusion system that pushes progression to Tier 10.
 
-### WEAPON SYSTEM:
-- Three starting weapons per class (game randomly shows 3 to choose from)
-  - Warrior weapons: 18-22 base damage (melee type)
-  - Mage weapons: 13-16 base damage (magic type)
-  - Rogue weapons: 14-18 base damage (stealth type)
-- Six rarity tiers with damage multipliers:
-  - Common (1.0x), Uncommon (1.3x), Rare (1.6x)
-  - Epic (2.0x), Legendary (2.5x), Mythic (3.0x)
-- Ultra-rare Golden Gun (0.02% drop chance):
-  - Instant kill on any enemy
-  - 6 uses before it crumbles to dust
-  - Divine rarity (999x multiplier)
-- Weapons scale with player level and rarity boosts
-- Class-specific weapon spawns (warriors get melee, mages get magic, etc.)
+---
 
-### COMBAT & LEVELING:
-- Turn-based combat system with strategic choices
-- Player actions: Attack, Magic (costs mana), Defend, Use Potion
-- Enemy count balanced for proper level progression per floor
-- Each floor has 15-25 enemies before boss encounter (scaled up)
-- Experience required increases per level (base 100, 1.4x multiplier)
-- Boss fights feature special attacks and health-based mechanics
-- Bosses reward legendary weapons, stat bonuses, and full heal
+## Requirements
 
-### ENHANCED ENEMY SYSTEM (NEW):
-- 20+ unique enemy types (expanded from 7)
-- Enemies organized by floor themes:
-  - Floors 1-2: Dungeon/Prison (Rats, Goblins, Skeletons, Guards)
-  - Floors 3-4: Crypt/Necromancy (Wraiths, Ghouls, Dark Mages)
-  - Floors 5-6: Elemental (Fire, Ice, Lightning, Stone)
-  - Floors 7-8: Dark Magic (Demons, Cultists, Void Spawn)
-  - Floors 9-10: Cosmic/Ancient (Guardians, Horrors, Titans)
-- NO DUPLICATE enemies per room (unique spawning system)
-- Each enemy has descriptive text that appears in combat
+- Python 3.8+
+- No external dependencies
 
-### ATMOSPHERIC DESCRIPTIONS (NEW):
-- Every room has two-part descriptions:
-  - Main description of the physical space
-  - Atmospheric text that sets the mood
-- Enhanced enemy introductions with flavor text
-- Thematic consistency per floor
+---
 
-### TEN BOSS FIGHTS (EXPANDED):
-- Floor 1: Arena Champion (gladiator theme)
-- Floor 2: Necromancer Lord (death magic)
-- Floor 3: Crypt Overlord (undead king)
-- Floor 4: Shadow King (darkness incarnate)
-- Floor 5: Flame Lord (fire elemental)
-- Floor 6: Frost Titan (ice giant)
-- Floor 7: Demon Prince (abyssal power)
-- Floor 8: Void Archon (reality warper)
-- Floor 9: Primordial Beast (ancient titan)
-- Floor 10: Reality Breaker (cosmic horror)
-- Each boss has unique legendary weapons for all 3 classes
+## Running the Game
 
-### PUZZLE & EXPLORATION SYSTEM (ORIGINAL FEATURES):
-- Interactive special items with 'use' command:
-  - Torch: Place in Hidden Alcove sconce to unlock secret vault
-  - Rusty Key: Opens Locked Vault chest for treasure cache
-  - Ancient Medallion: Offer at Sacred Shrine for permanent stat boosts
-  - Old Map: View dungeon layout
-  - Bone Key: Quest item for crypt areas
-- Secret room system with legendary loot
-- Special room types: Hidden Alcove, Locked Vault, Sacred Shrine
-- Context-sensitive interactions (items work in specific rooms)
+```bash
+cd labyrinth
+python main.py
+```
 
-### ITEM MANAGEMENT - SEPARATE COMMANDS:
-- `heal` - Use healing items (health potions restore HP, magic scrolls restore mana)
-- `exp` or `experience` - Use experience items (gems give instant XP)
-- `equip` or `wear` - Equip wearable stat-boosting items
-- `use <item>` - Use special interactive items (torch, keys, medallion)
-- Items LOCKED until all enemies in room are defeated
-- Cannot pick up loot while enemies present (strategic gameplay)
-- Inventory capacity increases with level and class tier
+**Flags:**
+```bash
+python main.py --debug    # Enable debug commands (warp, give, levelup, fullheal)
+python main.py --mature   # Enable mature content (opt-in only)
+```
 
-### ENHANCED DROP RATES:
-- 40% chance for weapon cache drops from defeated enemies
-- 35% base item drop chance (scales with weapon rarity)
-- Multiple weapon caches per room (2-3 in armories/warrior halls)
-- Approximately 10-15 weapon opportunities per floor
-- Golden Gun can drop from any weapon cache (0.02% chance)
-- 60% gold coin drop rate from enemies
+---
 
-### CONTEXT-AWARE HELP SYSTEM (NEW):
-- Help command shows only relevant actions
-- Combat commands appear only when enemies present
-- Item commands adjust based on inventory contents
-- Shop command only shows when you have gold coins
-- Special item usage hints when you have interactive items
-- No menu clutter - clean, situational interface
+## Character Classes
 
-### FUZZY COMMAND MATCHING:
-- Typo-tolerant command system using similarity matching
-- "inventroy" → suggests "inventory"
-- "atack goblin" → suggests "attack"
-- Shortcuts available: 'inv', 'n/s/e/w', 'get', 'drop', etc.
-- Direction commands work standalone: 'north', 'south', 'east', 'west'
-- Cutoff threshold: 60% similarity for matches
+Six playable classes, each with distinct stat growth, weapon types, and a unique boss ability:
 
-### GOLD COIN ECONOMY:
-- Enemies drop 2-10 gold coins (60% drop rate)
-- Merchant shop available throughout dungeon
-- Purchase healing items, stat boosters, experience gems
-- Prices scale from 5g (health potion) to 40g (soul crystal)
-- Shop inventory adjusts by class (mages can buy magic scrolls)
+| Class | HP/Lvl | Identity | Boss Ability |
+|---|---|---|---|
+| **Warrior** | +15 | High HP, melee, steady scaling | Titan Strike |
+| **Mage** | +8 | Fragile, arcane power, mana system | Arcane Nova |
+| **Rogue** | +12 | Highest crit rate, stealth weapons | Shadow Step |
+| **Paladin** | +13 | Holy melee, Smite costs mana | Divine Smite |
+| **Berserker** | +18 | Tankiest class, rage scales with missing HP | Berserker Rage |
+| **Void Walker** *(unlock)* | +7 | 2.5× crits, vampiric heals, Phase | Phase |
 
-### SAVE/LOAD SYSTEM:
-- Complete game state persistence to JSON file
-- Saves: player stats, inventory, floor layouts, room states
-- Version checking prevents corrupted saves from old versions
-- Auto-saves progress including visited rooms and defeated enemies
-- Golden Gun uses tracked and restored properly
-- Secret room unlock states preserved
+Void Walker unlocks after your first game clear.
 
-### INTERACTIVE MAP:
-- View entire dungeon with 'map' command
-- Shows all ten floors separately
-- Tracks visited rooms with >>> current location marker
-- Displays available exits for each discovered room
-- Progress counter: visited/total rooms per floor
-- Undiscovered room hints
+Each class has 5 tiers with unique titles:
+- Tier upgrades at **Level 6, 10, 14, 18**
+- Tier 5 unlocks Class Fusion in New Game Plus
 
-## ROOM TYPES (30+ Templates, Thematically Organized)
+---
 
-### FLOORS 1-2: DUNGEON/PRISON THEME
-- Damp Prison Cell - Rusted bars and decay
-- Guard Barracks - Abandoned military quarters
-- Torture Chamber - Implements of pain
-- Long Hallway - Common corridor
+## Class Fusion (New Game Plus)
 
-### FLOORS 3-4: CRYPT/NECROMANCY THEME
-- Ancient Crypt - Stone sarcophagi
-- Necromancer's Study - Forbidden tomes
-- Burial Chamber - Rows of burial niches
-- Tomb passages
+At Tier 5 in NG+, any two classes can be fused into one of **15 unique fusion classes**. Each fusion has:
+- Averaged parent stats + a unique bonus
+- A passive that applies in all combat
+- A unique boss ability
+- 5 additional prestige tiers (T6–T10) with unique titles, capping at a **Mythic** title
 
-### FLOORS 5-6: ELEMENTAL THEME
-- Inferno Chamber - Lava pools and heat
-- Frozen Cavern - Ice and cold
-- Storm Hall - Lightning and electricity
-- Elemental nexus points
+Example fusions: Void Phantom (Rogue + Void Walker), War Incarnate (Warrior + Berserker), Reality Sorcerer (Mage + Void Walker)
 
-### FLOORS 7-8: DARK MAGIC THEME
-- Ritual Chamber - Blasphemous symbols
-- Shadow Realm Gate - Portal to darkness
-- Corrupted Sanctum - Desecrated holy sites
-- Cultist hideouts
+---
 
-### FLOORS 9-10: COSMIC/ANCIENT THEME
-- Primordial Vault - Prehistoric architecture
-- Cosmic Observatory - Reality-bending spaces
-- Hall of Eternity - Time anomalies
-- Ancient monuments
+## Combat
 
-### SPECIAL ROOMS (ALL FLOORS):
-- Treasure Room - Guarded wealth
-- Hidden Alcove - Secret room trigger (torch puzzle)
-- Locked Vault - Key puzzle room
-- Sacred Shrine - Medallion offering puzzle
-- Ancient Armory - Weapon caches
-- Boss Chambers - Ten unique arenas
+**Regular combat:** Turn-based, one action per turn. Enemies have unique behaviours — some regenerate HP, some resist damage, some inflict status effects, some buff allies.
 
+**Boss combat:** Full action menu — Attack, Class Ability, Defend, Heal, Swap Weapon. Each boss has a named special attack and a pre-fight monologue.
 
-## COMPLETE ENEMY ROSTER (20+ TYPES)
+**Status effects:** Bleed (8 dmg/turn, 3 turns), Poison (6 dmg/turn, 4 turns), Weaken (75% damage, 2 turns). Effects tick between rooms.
 
-### FLOORS 1-2 ENEMIES:
-- Sewer Rat: 15 HP, 5 damage, 15 XP - Disease-ridden vermin
-- Goblin: 25 HP, 8 damage, 25 XP - Small green creatures
-- Skeleton: 30 HP, 10 damage, 30 XP - Animated bones
-- Prison Guard: 40 HP, 12 damage, 35 XP - Corrupted guards
+---
 
-### FLOORS 3-4 ENEMIES:
-- Armored Skeleton: 45 HP, 14 damage, 45 XP - Warrior undead
-- Shadow Wraith: 50 HP, 18 damage, 55 XP - Spectral beings
-- Corrupted Mage: 40 HP, 20 damage, 60 XP - Fallen spellcasters
-- Ghoul: 55 HP, 16 damage, 50 XP - Flesh-eating undead
+## Weapons & Loot
 
-### FLOORS 5-6 ENEMIES:
-- Fire Elemental: 60 HP, 22 damage, 70 XP - Living flame
-- Ice Elemental: 58 HP, 20 damage, 68 XP - Crystalline cold
-- Lightning Wisp: 50 HP, 25 damage, 75 XP - Crackling energy
-- Stone Golem: 80 HP, 18 damage, 65 XP - Animated stone
+Weapons have **rarities** (Common → Mythic) and up to 3 **traits** from a pool of 13 including Bleeding, Vampiric, Holy, Void, Executioner, Berserker, Precise, and more. Each trait has a passive combat effect.
 
-### FLOORS 7-8 ENEMIES:
-- Lesser Demon: 70 HP, 26 damage, 85 XP - Abyssal horrors
-- Dark Cultist: 65 HP, 24 damage, 80 XP - Dark fanatics
-- Shadow Beast: 75 HP, 28 damage, 90 XP - Monstrous predators
-- Void Spawn: 80 HP, 30 damage, 95 XP - Reality aberrations
+Floor rarity caps apply in early floors — Common/Uncommon on F1–F2, Rare cap on F3–F4. Boss drops are uncapped.
 
-### FLOORS 9-10 ENEMIES:
-- Ancient Guardian: 90 HP, 32 damage, 110 XP - Eternal sentinels
-- Cosmic Horror: 85 HP, 35 damage, 120 XP - Incomprehensible beings
-- Titan Spawn: 100 HP, 30 damage, 105 XP - Primordial offspring
-- Celestial Knight: 95 HP, 34 damage, 115 XP - Fallen heavenly warriors
+---
 
-### SPECIAL ENEMY:
-- Treasure Guardian: 60 HP, 20 damage, 65 XP - Magical construct
+## Items
 
+**Healing:** Health potion, Vitality tonic, Elixir of life, Ultimate health potion, Magic scroll
 
-## TEN BOSS ENCOUNTERS (DETAILED)
+**Conditional consumables:** Elixir of Desperation (heals 60% of missing HP), Void Tonic (converts next hit to MP), Berserker's Draught (heals 40% of fight damage), Antidote (clears status), Battle Tincture (+30% damage, 3 turns)
 
-### Floor 1 - Arena Champion:
-- Health: 120 + (level × 8)
-- Special: CHAMPION'S FURY
-- Rewards: Gladius of Victory / Champion's Scepter / Twin Blades
-- Minimum Level: 2
+**Wearables:** Passive stat bonuses. Stack cap scales with level (1 copy at L1-4, up to 4 copies at L15+). Cursed wearables give large bonuses with a cost.
 
-### Floor 2 - Necromancer Lord:
-- Health: 140 + (level × 9)
-- Special: DEATH CURSE
-- Rewards: Soul Reaper / Death Staff / Shadow Fang
-- Minimum Level: 4
+**Quest items:** Torch, Rusty Key, Bone Key, Demon Seal, Crystal Shard, Void Essence, Primordial Rune, Ancient Medallion — each unlocks a secret room when used in the right place.
 
-### Floor 3 - Crypt Overlord:
-- Health: 160 + (level × 10)
-- Special: SOUL DRAIN
-- Rewards: Bone Crusher / Crypt Scepter / Grave Shiv
-- Minimum Level: 6
+---
 
-### Floor 4 - Shadow King:
-- Health: 180 + (level × 11)
-- Special: SHADOW STRIKE
-- Rewards: Shadowbane / Dark Orb / Night Piercer
-- Minimum Level: 8
+## Special Rooms
 
-### Floor 5 - Flame Lord:
-- Health: 200 + (level × 12)
-- Special: INFERNO
-- Rewards: Flamebringer / Inferno Staff / Cinder Bow
-- Minimum Level: 10
+| Room | Key Item | Reward |
+|---|---|---|
+| Hidden Alcove | Torch | Secret treasure |
+| Locked Vault | Rusty Key | Gold + items |
+| Bone Crypt | Bone Key | XP + rare items |
+| Demon Gate | Demon Seal | Power ring + healing |
+| Crystal Chamber | Crystal Shard | +3 all stats, +20 HP |
+| Void Tear | Void Essence | +5 INT, +3 LCK, +300 XP |
+| Primordial Monument | Primordial Rune | +2 all stats, +30 HP |
+| Sacred Shrine | Ancient Medallion | +50 HP, +4 STR/VIT, rarity boost |
+| Forgotten Game Room | — | Gambler's d20 (DnD easter egg) |
 
-### Floor 6 - Frost Titan:
-- Health: 220 + (level × 13)
-- Special: GLACIAL STORM
-- Rewards: Frostbane Greatsword / Staff of Eternal Winter / Icicle Piercer
-- Minimum Level: 12
+---
 
-### Floor 7 - Demon Prince:
-- Health: 240 + (level × 14)
-- Special: HELLFIRE
-- Rewards: Demon's Edge / Abyssal Staff / Soul Piercer
-- Minimum Level: 14
+## The Shop (Adamus the Loyal)
 
-### Floor 8 - Void Archon:
-- Health: 260 + (level × 15)
-- Special: VOID RIFT
-- Rewards: Voidreaver / Reality Staff / Oblivion Blade
-- Minimum Level: 16
+Available at each floor's start room. Buy items scaled to your floor, sell stored weapons for gold. Adamus has 15 rotating insults. He acknowledges you exactly once after your first game clear — and never again.
 
-### Floor 9 - Primordial Beast:
-- Health: 280 + (level × 16)
-- Special: ANCIENT WRATH
-- Rewards: Titan Slayer / Primordial Staff / Beast Fang
-- Minimum Level: 18
+---
 
-### Floor 10 - Reality Breaker:
-- Health: 300 + (level × 18)
-- Special: COSMIC ANNIHILATION
-- Rewards: Worldender / Cosmos Staff / Reality Ripper
-- Minimum Level: 20
+## New Game Plus
 
-## EXPERIENCE REQUIREMENTS (PROGRESSIVE):
-- Level 1→2: 100 XP
-- Level 2→3: 140 XP (1.4x multiplier)
-- Level 3→4: 196 XP
-- Level 4→5: 274 XP
-- Level 5→6: 384 XP
-- Level 6→7: 538 XP
-- Level 7→8: 753 XP
-- Each floor provides ~1200-1800 XP (ensures 2-3 levels per floor)
+Beating the Reality Breaker triggers a full NG+ transition. One of 5 themed worlds is randomly selected:
 
+- **The Fractured Labyrinth** — reality is breaking down
+- **The Drowned Kingdom** — submerged ruins, coral, and drowned soldiers
+- **The Ashen Wastes** — scorched world, fire and ash
+- **The Mechanical Depths** — clockwork dungeon, constructs and automata
+- **The Plague Cathedral** — corrupted holy ground, pestilence
 
-## COMMANDS REFERENCE (CONTEXT-AWARE)
+Each world has 19 unique enemies, 10 unique bosses, distinct room templates, and a unique title screen. NG+ is harder than the base game — HP scales +40% per cycle, damage +20%.
 
-### ALWAYS AVAILABLE:
-- `help` - Show relevant commands for current situation
-- `look` - Examine current room
-- `go <direction>` - Move (north/south/east/west/up/down)
-- `inventory` or `inv` - Show items
-- `stats` or `status` - Show character sheet
-- `map` - View dungeon layout
-- `save` or `load` - Save or load game
-- `quit` or `exit` - Exit game
+---
 
-### COMBAT (when enemies present):
-- `fight <enemy>` or `attack <enemy>` - Engage in combat
+## Lore
 
-### ITEMS (context-dependent):
-- `take <item>` - Pick up item (after combat)
-- `takeall` - Pick up all items
-- `heal` - Use healing items
-- `exp`/`experience` - Use experience items
-- `equip`/`wear` - Equip wearable items
-- `use <item>` - Use special interactive items (torch, keys, etc.)
-- `switch <weapon>` - Change equipped weapon
-- `discard/drop <item>` - Remove item
+- **Floor entry text** on every descent
+- **Boss monologues** before each fight
+- **5 discoverable journals** from Researcher Varek (floors 2, 4, 5, 7, 9) — piece together why the dungeon exists and what the Reality Breaker actually is
 
-SHOP (when you have gold):
-- `shop/buy` - Open merchant interface
+---
 
-PROGRESSION (when available):
-- `upgrade` - Advance class tier
+## Hall of Records
 
+Persistent cross-run stats: bosses defeated, deaths, floors cleared, runs completed, best floor, first clear. Accessible from the main menu.
 
-## TECHNICAL CLASSES & ARCHITECTURE
+---
 
-- GameConstants - All configuration values, enemy data, boss data, item definitions
-- Player - Character state, progression, inventory, stats management
-- Room - Dungeon location with items, enemies, exits, description, atmosphere
-- RoomTemplates - Centralized themed room definitions for procedural generation
-- WeaponSystem - Weapon generation, rarity calculation, Golden Gun mechanics
-- CombatSystem - Turn-based combat, damage calculation, boss fights with all 10 bosses
-- CommandHandler - Command processing with fuzzy matching
-- Game - Main controller, world generation, game loop, save/load, puzzle systems
+## Save System
 
+5 save slots, JSON format. Automatic migration — old saves load and update to the current version. Saves store exact room names, items, and exits so reloading always returns you to precisely where you left off.
 
-## BALANCE NOTES
+---
 
-- Starting weapons balanced against early enemies (goblins: 25 HP)
-- ~15-25 enemies per floor ensures 2-3 level gains minimum
-- Boss minimum levels: 2, 4, 6, 8, 10, 12, 14, 16, 18, 20
-- Weapon rarity chances increase with level and class tier
-- Magic costs 15 mana, deals 10-25 + intelligence damage
-- Defending reduces boss damage by 50%
-- Agility reduces incoming damage by random(1, agility/3)
-- Boss health scales: base + (player_level × scaling_factor)
-- Experience multiplier reduced to 1.4x (from 1.5x) for better pacing
+## Commands
+
+```
+Movement:    n/s/e/w/up/down   go <dir>
+Combat:      fight / f         fightall / fa
+Inventory:   inventory / i     take <item>     takeall
+             equip <item>      discard <item>  use <item>    switch
+Character:   stats / s         upgrade         fuse
+World:       look / l          map / m         shop
+Game:        save              quit / q        help / h      help all
+```
+
+---
+
+## Debug Mode (`--debug`)
+
+```
+warp <floor>         Teleport to any floor
+give <item>          Add item (routes through normal pickup)
+give gold <amount>   Add gold directly
+levelup <n>          Set target level
+fullheal             Restore HP and MP
+unlock voidwalker    Unlock Void Walker class
+debugfuse <c1> <c2>  Force class fusion at T5
+```
+
+---
+
+## Changelog
+
+### v7.7.0 — Balance, Polish & Architecture
+- Full scaling overhaul: XP curve, boss HP/damage, enemy XP all redesigned for target level per floor
+- NG+ cycle damage/HP split — HP scales +40%/cycle, damage only +20%
+- Floor rarity caps: F1-F2 max Uncommon, F3-F4 max Rare
+- Tier upgrade levels pushed to L6/10/14/18 (was L4/8/12/16)
+- Save migration: recalibrates old saves to new baseline, enforces wearable cap, strips unknown stats
+- Separate weapon inventory slots (10 max), no longer competing with item slots
+- `safe_input()` wrapper across all files — EOF-safe for piped/headless environments
+- Debug flag `--debug` with warp, give, levelup, fullheal, unlock, debugfuse
+- `--mature` opt-in flag for mature content
+- Map spoiler fix — unexplored rooms show as `???`
+- Shop Leave pinned to `0` — invariant across all floor tiers
+- `fight` auto-selects when only one enemy present
+- First shop visit uses neutral greeting, quips start on second visit
+- Consume-on-pickup items (gold, XP gems) bypass full inventory check
+
+### v7.6.5 — Modularisation Pass 2 + Bug Fixes
+- `game.py` split into 6 focused mixins: actions, shop, save_load, ng_plus, dungeon, game
+- `constants.py` split into 6 data modules: items_data, enemies_data, weapons_data, lore_data, world_data, constants
+- Package: 22 files, ~8,700 lines
+- Separate weapon slots — weapons no longer compete with item inventory
+- Wearable stack cap gated by level
+- All special room double-triggers fixed (Demon Gate, Bone Crypt, Crystal Chamber, etc.)
+- Boss weapon pools extended to all 6 classes (Paladin, Berserker, Void Walker were missing)
+- Paladin mana regen in boss combat (+8 MP/turn)
+- Smite rebalanced for early floors
+- MAGIC_MULTIPLIERS fixed (was dict, caused TypeError on magic attacks)
+- shop.py buy display fixed — items were silently not printing
+- Save files now store exact room name/description — no random regeneration on load
+
+### v7.6.0 — Modularisation Pass 1
+- Split from single 7,400-line file into modular package
+- 14 initial modules, all imports resolved
+
+### v7.5.2 — Combat Depth, Lore & Items
+- 15 enemy behaviour patterns (regen, resistance, status inflict, buff-others)
+- Player status effects: Bleed, Poison, Weaken — tick between rooms
+- Conditional consumables: Elixir of Desperation, Void Tonic, Berserker's Draught, Antidote, Battle Tincture
+- Cursed wearables with meaningful tradeoffs
+- Floor entry text (all 10 floors), boss intro monologues
+- 5 discoverable Varek journals with lore arc
+- Class fusion tier progression T6-T10 with unique titles, caps at Mythic T10
+- Forgotten Game Room (DnD easter egg with Welventier campaign lore)
+
+### v7.5.0 — Code Architecture
+- `fight_boss` refactored from 425 lines into focused helpers
+- `use_special_item` refactored from 344-line if/elif chain into dispatch table
+- All inline imports moved to module level
+
+### v7.0.2 — Quality of Life
+- Item hint system — wrong-room use gives location hints
+- Legacy save compatibility for pre-NG+ saves
+- NG+ weapon warning system with keep/discard options
+- Shop sell feature with Adamus rarity reactions
+- Weapon swap during boss fights
+- Switch weapon fix for weapons without labels
+
+### v7.0.1 — Balance & Bug Fixes
+- Enemy HP raised ~35% across board
+- Weapon scaling bug fixed (double rarity multiplication)
+- Boss weapon hard damage caps on all 10 floors
+- upgrade_class stat preservation fix
+
+### v7.0.0 — New Game Plus
+- 5 NG+ worlds with unique enemies, bosses, room templates
+- Void Walker class (unlocks after first clear)
+- Class Fusion system (15 combinations, available at T5 in NG+)
+- Hall of Records (persistent cross-run stats)
+- Adamus one-time acknowledgment after game clear
+- NG+ cycle difficulty scaling
+- NG+ weapon audit system
+
+### v6.9.0 — Base Game Complete
+- 6 character classes with 5-tier progression
+- 10-floor dungeon with procedural generation
+- Turn-based boss combat with class abilities
+- Weapon rarity system (7 tiers), trait system (13 traits)
+- Special rooms and quest items
+- Compass-style map with depth arrows
+- 5 save slots with migration
+- Adamus the Loyal shop
+
+---
+
+*Built with Python. No external dependencies. Runs on Pythonista (iOS) and any Python 3.8+ environment.*

@@ -1,22 +1,49 @@
 """LABYRINTH — Save/Load/Delete"""
 from __future__ import annotations
 import random, json, os, logging
-from typing import Dict, List, Optional, Set, Tuple, Any, TYPE_CHECKING, Callable
-from difflib import get_close_matches
-from dataclasses import dataclass, field
+from typing import Dict, List, Optional, TYPE_CHECKING
 if TYPE_CHECKING:
     from game import Game
 
 logger = logging.getLogger(__name__)
 
 from constants import GameConstants, BossConfig, RoomTemplateConfig
+from utils import safe_input
 from records import RecordsManager
+from combat  import CombatSystem
 from player import Player
 from room import Room
 
 
 class SaveLoadMixin:
     """Save, load and delete methods. Mixed into Game."""
+
+    def _list_save_slots(self) -> list:
+        """List all save slots with their contents. Returns list of occupied slot numbers.
+
+        Prints a formatted slot listing as a side effect — used by save_game,
+        load_game, and delete_save to avoid duplicating the same 15-line loop.
+        """
+        occupied = []
+        for slot in range(1, GameConstants.MAX_SAVE_SLOTS + 1):
+            save_path = os.path.join(GameConstants.SAVE_DIRECTORY, f"save{slot}.json")
+            if os.path.exists(save_path):
+                try:
+                    with open(save_path, 'r') as f:
+                        data        = json.load(f)
+                        p           = data.get('player', {})
+                        name        = p.get('name', 'Unknown')
+                        char_class  = p.get('character_class', 'warrior').title()
+                        level       = p.get('level', 1)
+                        floor       = p.get('current_floor', 1)
+                        print(f"{slot}. {name} — {char_class} Lvl {level} — Floor {floor}")
+                        occupied.append(slot)
+                except (json.JSONDecodeError, OSError, KeyError, TypeError):
+                    print(f"{slot}. [Corrupted Save]")
+                    occupied.append(slot)
+            else:
+                print(f"{slot}. [Empty Slot]")
+        return occupied
 
     def save_game(self):
         """Save game state to selected slot"""
@@ -30,27 +57,11 @@ class SaveLoadMixin:
             print("SAVE GAME")
             print("="*40)
             
-            # List existing saves
-            for slot in range(1, GameConstants.MAX_SAVE_SLOTS + 1):
-                save_path = os.path.join(GameConstants.SAVE_DIRECTORY, f"save{slot}.json")
-                if os.path.exists(save_path):
-                    try:
-                        with open(save_path, 'r') as f:
-                            save_data = json.load(f)
-                            player_data = save_data.get('player', {})
-                            name = player_data.get('name', 'Unknown')
-                            level = player_data.get('level', 1)
-                            floor = player_data.get('current_floor', 1)
-                            print(f"{slot}. {name} - Lvl {level} - Floor {floor}")
-                    except (json.JSONDecodeError, OSError, KeyError, TypeError):
-                        print(f"{slot}. [Corrupted Save]")
-                else:
-                    print(f"{slot}. [Empty Slot]")
-            
+            self._list_save_slots()
             print(f"{GameConstants.MAX_SAVE_SLOTS + 1}. Cancel")
             
             try:
-                choice = int(input(f"\nChoose slot (1-{GameConstants.MAX_SAVE_SLOTS}): ").strip())
+                choice = int(safe_input(f"\nChoose slot (1-{GameConstants.MAX_SAVE_SLOTS}): ").strip())
                 if choice == GameConstants.MAX_SAVE_SLOTS + 1:
                     print("Cancelled.")
                     return
@@ -66,7 +77,7 @@ class SaveLoadMixin:
             # Confirm overwrite if slot exists
             if os.path.exists(save_path):
                 try:
-                    confirm = input(f"Overwrite slot {choice}? (y/n): ").strip().lower()
+                    confirm = safe_input(f"Overwrite slot {choice}? (y/n): ").strip().lower()
                     if confirm not in ['y', 'yes']:
                         print("Cancelled.")
                         return
@@ -116,33 +127,14 @@ class SaveLoadMixin:
             print("LOAD GAME")
             print("="*40)
             
-            available_saves = []
-            for slot in range(1, GameConstants.MAX_SAVE_SLOTS + 1):
-                save_path = os.path.join(GameConstants.SAVE_DIRECTORY, f"save{slot}.json")
-                if os.path.exists(save_path):
-                    try:
-                        with open(save_path, 'r') as f:
-                            save_data = json.load(f)
-                            player_data = save_data.get('player', {})
-                            name = player_data.get('name', 'Unknown')
-                            level = player_data.get('level', 1)
-                            char_class = player_data.get('character_class', 'warrior')
-                            floor = player_data.get('current_floor', 1)
-                            print(f"{slot}. {name} - {char_class.title()} Lvl {level} - Floor {floor}")
-                            available_saves.append(slot)
-                    except (json.JSONDecodeError, OSError, KeyError, TypeError):
-                        print(f"{slot}. [Corrupted Save]")
-                else:
-                    print(f"{slot}. [Empty Slot]")
-            
+            available_saves = self._list_save_slots()
             if not available_saves:
                 print("\nNo save files found!")
                 return False
-            
             print(f"{GameConstants.MAX_SAVE_SLOTS + 1}. Cancel")
             
             try:
-                choice = int(input(f"\nChoose slot (1-{GameConstants.MAX_SAVE_SLOTS}): ").strip())
+                choice = int(safe_input(f"\nChoose slot (1-{GameConstants.MAX_SAVE_SLOTS}): ").strip())
                 if choice == GameConstants.MAX_SAVE_SLOTS + 1:
                     return False
                 if choice not in available_saves:
@@ -221,7 +213,7 @@ class SaveLoadMixin:
             if len(self.player.bosses_defeated) >= GameConstants.NUM_FLOORS:
                 print("\n★ All bosses defeated detected — loading victory screen...")
                 try:
-                    input("  [ Press Enter to continue ]")
+                    safe_input("  [ Press Enter to continue ]")
                 except KeyboardInterrupt:
                     pass
                 self.combat = CombatSystem(self)
@@ -240,3 +232,44 @@ class SaveLoadMixin:
             print(f"✗ Load failed: {e}")
             return False
     
+    def delete_save(self):
+        """Delete a save file"""
+        try:
+            if not os.path.exists(GameConstants.SAVE_DIRECTORY):
+                print("No save files found!")
+                return
+            
+            print("\n" + "="*40)
+            print("DELETE SAVE")
+            print("="*40)
+            
+            available_saves = self._list_save_slots()
+            if not available_saves:
+                print("\nNo save files to delete!")
+                return
+            print(f"{GameConstants.MAX_SAVE_SLOTS + 1}. Cancel")
+            
+            try:
+                choice = int(safe_input(f"\nDelete slot (1-{GameConstants.MAX_SAVE_SLOTS}): ").strip())
+                if choice == GameConstants.MAX_SAVE_SLOTS + 1:
+                    return
+                if choice not in available_saves:
+                    print("Invalid or empty slot!")
+                    return
+            except (ValueError, KeyboardInterrupt):
+                return
+            
+            save_path = os.path.join(GameConstants.SAVE_DIRECTORY, f"save{choice}.json")
+            
+            confirm = safe_input(f"Delete slot {choice}? This cannot be undone! (y/n): ").strip().lower()
+            if confirm in ['y', 'yes']:
+                os.remove(save_path)
+                print(f"✓ Slot {choice} deleted!")
+                logger.info(f"Save file deleted: slot {choice}")
+            else:
+                print("Cancelled.")
+        except OSError as e:
+            logging.error(f"Delete save error: {e}", exc_info=True)
+            print(f"✗ Delete failed: {e}")
+    
+

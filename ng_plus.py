@@ -1,16 +1,16 @@
 """LABYRINTH — New Game Plus"""
 from __future__ import annotations
-import random, json, os, logging
-from typing import Dict, List, Optional, Set, Tuple, Any, TYPE_CHECKING, Callable
-from difflib import get_close_matches
-from dataclasses import dataclass, field
+import random, logging
+from typing import Dict, List, Optional, TYPE_CHECKING
 if TYPE_CHECKING:
     from game import Game
 
 logger = logging.getLogger(__name__)
 
 from constants import GameConstants
+from utils import safe_input
 from records import RecordsManager
+from combat  import CombatSystem
 
 
 class NGPlusMixin:
@@ -24,8 +24,11 @@ class NGPlusMixin:
         Players can keep them (enemies/bosses scale up to match) or discard them
         (normal scaling preserved).
         """
-        THRESHOLD = 250   # above the legitimate floor-10 cap of 220
-        NORMAL_CEILING = 220   # used to compute the scale factor
+        # True weapon ceiling = FLOOR_CAPS[10] × max tier mult = 220 × 1.30 = 286.
+        # THRESHOLD sits just above that so only genuine legacy/compounding weapons
+        # (which pre-date the damage rewrite and routinely exceeded 300+) are flagged.
+        THRESHOLD = 295
+        NORMAL_CEILING = 286   # floor-10 cap (220) × INSANE tier mult (1.30)
 
         p = self.player
 
@@ -72,7 +75,7 @@ class NGPlusMixin:
         print()
 
         try:
-            choice = input("  Choice: ").strip()
+            choice = safe_input("  Choice: ").strip()
         except KeyboardInterrupt:
             choice = '1'
 
@@ -100,7 +103,7 @@ class NGPlusMixin:
                 name = w.get('name', w.get('base_name', 'Unknown'))
                 dmg  = w.get('damage', 0)
                 try:
-                    keep = input(f"  Keep [{loc}] {name} ({dmg} dmg)? (yes/no): ").strip().lower()
+                    keep = safe_input(f"  Keep [{loc}] {name} ({dmg} dmg)? (yes/no): ").strip().lower()
                 except KeyboardInterrupt:
                     keep = 'yes'
                 if keep not in ('yes', 'y'):
@@ -132,28 +135,82 @@ class NGPlusMixin:
             print(f"\n  Keeping all weapons. NG+ scale factor: x{scale:.2f}")
 
         try:
-            input("\n  [ Press Enter to continue ]")
+            safe_input("\n  [ Press Enter to continue ]")
         except KeyboardInterrupt:
             pass
 
     def _victory_screen(self):
-        """Display the endgame victory screen and credits."""
-        p = self.player
-        bosses = len(p.bosses_defeated)
-        turns  = getattr(p, 'total_turns', '?')
+        """Display the endgame victory screen.
 
-        # Update records on first call
-        rec = RecordsManager.load()
-        first_clear = rec['first_clear_name'] is None
+        Base game (ng_plus == 0): full LABYRINTH CONQUERED banner with credits.
+        NG+ cycles  (ng_plus  > 0): world-specific ending narrative followed by
+                                    a compact cycle-complete screen.
+        """
+        p   = self.player
+        ng  = getattr(p, 'ng_plus', 0)
+
         RecordsManager.update(
             runs_completed=1,
             void_walker_unlocked=True,
-            first_clear_name=rec['first_clear_name'] or p.name,
-            # Retroactively credit bosses and floor for this run
-            # (in case mid-run tracking was missing from older code)
+            first_clear_name=RecordsManager.load()['first_clear_name'] or p.name,
             total_bosses_defeated=len(p.bosses_defeated),
             best_floor_reached=GameConstants.NUM_FLOORS,
         )
+
+        def pause():
+            try:
+                safe_input("")
+            except (KeyboardInterrupt, EOFError):
+                pass
+
+        # ── NG+ cycle ending ──────────────────────────────────────
+        if ng > 0:
+            world_key  = getattr(p, 'ng_world', 'fractured_labyrinth')
+            world_data = GameConstants.NG_PLUS_WORLDS.get(
+                             world_key,
+                             GameConstants.NG_PLUS_WORLDS['fractured_labyrinth'])
+            world_name   = world_data['display_name']
+            victory_text = world_data.get('victory_text', '')
+
+            # World-specific ending narrative — each paragraph separated by a pause
+            print("\n" + "─" * 60)
+            pause()
+            for paragraph in victory_text.split('\n\n'):
+                print()
+                print(paragraph)
+                pause()
+
+            # Compact cycle-complete stats card
+            bosses = len(p.bosses_defeated)
+            print("\n" + "═" * 60)
+            print(f"  {world_name.upper()} — CLEARED")
+            print("═" * 60)
+            print(f"  {p.name} the {p.get_class_title()}")
+            print(f"  NG+ Cycle {ng}  |  Level {p.level}  |  Bosses: {bosses}/10")
+            print(f"  Gold earned this run: {getattr(p, 'total_gold_earned', p.gold_coins)}g")
+            print("═" * 60)
+            pause()
+
+            print(f"\n  1. NG+ Cycle {ng + 1}  (another cycle — each one harder than the last)")
+            print("  2. Return to Main Menu")
+            print("  3. Quit")
+            print()
+            try:
+                choice = safe_input("  Choice: ").strip()
+            except KeyboardInterrupt:
+                choice = '3'
+
+            if choice == '1':
+                self._start_new_game_plus()
+            elif choice == '2':
+                self.player = None
+                self.floors = None
+            else:
+                self.quit_game()
+            return
+
+        # ── Base-game first clear ─────────────────────────────────
+        bosses = len(p.bosses_defeated)
 
         print("\n" + "█" * 70)
         print("█" + " " * 68 + "█")
@@ -196,15 +253,12 @@ class NGPlusMixin:
 ║                                                                      ║
 ╚══════════════════════════════════════════════════════════════════════╝""")
 
-        ng = getattr(p, 'ng_plus', 0)
-        ng_label = f"New Game+ Cycle {ng + 1}" if ng > 0 else "New Game+"
-        ng_desc  = "a completely different dungeon — harder, stranger, wrong" if ng == 0 else f"another cycle — each one harder than the last"
-        print(f"\n  1. {ng_label}  ({ng_desc})")
+        print(f"\n  1. New Game+  (a completely different dungeon — harder, stranger, wrong)")
         print("  2. Return to Main Menu")
         print("  3. Quit")
         print()
         try:
-            choice = input("  Choice: ").strip()
+            choice = safe_input("  Choice: ").strip()
         except KeyboardInterrupt:
             choice = '3'
 
@@ -213,10 +267,9 @@ class NGPlusMixin:
         elif choice == '2':
             self.player = None
             self.floors = None
-            # Don't call start_game() recursively — just return.
-            # The original start_game loop will handle the menu naturally.
         else:
             self.quit_game()
+
 
     def _start_new_game_plus(self, preselected_world: str = None):
         """Transition into New Game+ with glitch narrative sequence."""
@@ -224,7 +277,7 @@ class NGPlusMixin:
 
         def pause(t=1.2):
             try:
-                input("")
+                safe_input("")
             except (KeyboardInterrupt, EOFError):
                 pass
 
@@ -232,11 +285,25 @@ class NGPlusMixin:
         if preselected_world:
             chosen_world = preselected_world
         else:
-            all_worlds   = list(GameConstants.NG_PLUS_WORLDS.keys())
-            random.shuffle(all_worlds)
-            prev_world   = getattr(p, 'ng_world', None)
-            choices      = [w for w in all_worlds if w != prev_world] or all_worlds
-            chosen_world = random.choice(choices)
+            # Guaranteed rotation — cycle through all 5 worlds in a shuffled order
+            # before any world repeats.  The queue is stored on the player so it
+            # survives saves and stays consistent across sessions.
+            queue = list(getattr(p, 'ng_world_queue', []))
+
+            if not queue:
+                # Build a fresh shuffled queue of ALL 5 worlds.
+                # If the first entry would immediately repeat the last-played world,
+                # swap it with the second entry — this guarantees no back-to-back
+                # repeats at cycle boundaries while keeping full 5-world coverage.
+                all_worlds = list(GameConstants.NG_PLUS_WORLDS.keys())
+                random.shuffle(all_worlds)
+                prev_world = getattr(p, 'ng_world', None)
+                if prev_world and all_worlds[0] == prev_world and len(all_worlds) > 1:
+                    all_worlds[0], all_worlds[1] = all_worlds[1], all_worlds[0]
+                queue = all_worlds
+
+            chosen_world     = queue.pop(0)
+            p.ng_world_queue = queue   # persist remaining queue on player
         world_data    = GameConstants.NG_PLUS_WORLDS[chosen_world]
         world_display = world_data['display_name']
         # Set ng_world NOW so every subsequent call sees the correct world

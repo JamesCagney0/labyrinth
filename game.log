@@ -1,395 +1,392 @@
-2026-05-16 20:36:48,579 [INFO] delete_save:2008 - Save file deleted: slot 1
-2026-05-16 20:48:53,829 [ERROR] _create_character:395 - Character creation error: 'berserker'
+2026-05-20 16:37:41,089 [INFO] New character: J (rogue) with Notched Sword
+2026-05-20 16:37:41,089 [INFO] Starting dungeon generation (NG+0)...
+2026-05-20 16:37:41,091 [INFO] Dungeon generated: 10 floors, 144 total rooms
+2026-05-21 16:36:54,568 [WARNING] Save version mismatch: 7.6.5 vs 7.7.0
+2026-05-21 16:36:54,569 [INFO] Game loaded from slot 1: Deku (Lvl 16, Floor 8)
+2026-05-21 16:37:42,726 [INFO] Combat: Deku vs dark cultist (HP 88)
+2026-05-21 16:37:42,726 [INFO] Victory: Deku defeated dark cultist in 1 turns
+2026-05-21 16:37:42,726 [INFO] Player gained 120 XP. Total: 497/4289
+2026-05-21 16:37:42,727 [INFO] Combat: Deku vs void spawn (HP 108)
+2026-05-21 16:37:42,727 [INFO] Victory: Deku defeated void spawn in 1 turns
+2026-05-21 16:37:42,731 [INFO] Player gained 135 XP. Total: 632/4289
+2026-05-21 16:37:55,502 [INFO] Combat: Deku vs dark cultist (HP 88)
+2026-05-21 16:37:55,503 [INFO] Victory: Deku defeated dark cultist in 1 turns
+2026-05-21 16:37:55,503 [INFO] Player gained 120 XP. Total: 752/4289
+2026-05-21 16:37:55,503 [INFO] Combat: Deku vs void spawn (HP 108)
+2026-05-21 16:37:55,504 [INFO] Victory: Deku defeated void spawn in 1 turns
+2026-05-21 16:37:55,504 [INFO] Player gained 135 XP. Total: 887/4289
+2026-05-21 16:38:01,625 [INFO] Combat: Deku vs shadow beast (HP 101)
+2026-05-21 16:38:01,626 [INFO] Victory: Deku defeated shadow beast in 1 turns
+2026-05-21 16:38:01,626 [INFO] Player gained 132 XP. Total: 1019/4289
+2026-05-21 16:38:01,626 [INFO] Combat: Deku vs void spawn (HP 108)
+2026-05-21 16:38:01,626 [INFO] Victory: Deku defeated void spawn in 1 turns
+2026-05-21 16:38:01,627 [INFO] Player gained 135 XP. Total: 1154/4289
+2026-05-21 16:39:02,625 [INFO] Combat: Deku vs dark cultist (HP 88)
+2026-05-21 16:39:02,626 [INFO] Victory: Deku defeated dark cultist in 1 turns
+2026-05-21 16:39:02,626 [INFO] Player gained 120 XP. Total: 1274/4289
+2026-05-21 16:46:00,793 [INFO] Combat: Deku vs lesser demon (HP 95)
+2026-05-21 16:46:00,794 [INFO] Victory: Deku defeated lesser demon in 1 turns
+2026-05-21 16:46:00,794 [INFO] Player gained 118 XP. Total: 1392/4289
+2026-05-21 16:46:00,794 [INFO] Combat: Deku vs void spawn (HP 108)
+2026-05-21 16:46:00,795 [INFO] Victory: Deku defeated void spawn in 1 turns
+2026-05-21 16:46:00,795 [INFO] Player gained 135 XP. Total: 1527/4289
+2026-05-21 16:46:42,038 [INFO] Player gained 150 XP. Total: 1677/4289
+2026-05-21 16:46:52,351 [INFO] Combat: Deku vs void spawn (HP 108)
+2026-05-21 16:46:52,352 [INFO] Victory: Deku defeated void spawn in 1 turns
+2026-05-21 16:46:52,352 [INFO] Player gained 135 XP. Total: 1812/4289
+2026-05-21 16:46:52,352 [INFO] Combat: Deku vs shadow beast (HP 101)
+2026-05-21 16:46:52,353 [INFO] Victory: Deku defeated shadow beast in 1 turns
+2026-05-21 16:46:52,353 [INFO] Player gained 132 XP. Total: 1944/4289
+2026-05-21 16:47:41,367 [INFO] Combat: Deku vs lesser demon (HP 95)
+2026-05-21 16:47:41,368 [INFO] Victory: Deku defeated lesser demon in 1 turns
+2026-05-21 16:47:41,368 [INFO] Player gained 118 XP. Total: 2062/4289
+2026-05-21 16:47:41,368 [INFO] Combat: Deku vs dark cultist (HP 88)
+2026-05-21 16:47:41,369 [INFO] Victory: Deku defeated dark cultist in 1 turns
+2026-05-21 16:47:41,369 [INFO] Player gained 120 XP. Total: 2182/4289
+2026-05-21 16:47:45,987 [INFO] Player gained 50 XP. Total: 2232/4289
+2026-05-21 16:47:50,547 [INFO] Player gained 50 XP. Total: 2282/4289
+2026-05-21 16:47:58,488 [INFO] Combat: Deku vs shadow beast (HP 101)
+2026-05-21 16:47:58,488 [INFO] Victory: Deku defeated shadow beast in 1 turns
+2026-05-21 16:47:58,488 [INFO] Player gained 132 XP. Total: 2414/4289
+2026-05-21 16:48:33,586 [INFO] Combat: Deku vs lesser demon (HP 95)
+2026-05-21 16:48:33,587 [INFO] Victory: Deku defeated lesser demon in 1 turns
+2026-05-21 16:48:33,587 [INFO] Player gained 118 XP. Total: 2532/4289
+2026-05-21 16:48:33,587 [INFO] Combat: Deku vs shadow beast (HP 101)
+2026-05-21 16:48:33,587 [INFO] Victory: Deku defeated shadow beast in 1 turns
+2026-05-21 16:48:33,587 [INFO] Player gained 132 XP. Total: 2664/4289
+2026-05-21 16:49:40,163 [INFO] BOSS FIGHT: Deku (Lvl 16, HP 425) vs Void Archon on floor 8
+2026-05-21 16:51:33,239 [INFO] BOSS VICTORY: Deku defeated Void Archon in 6 turns on floor 8
+2026-05-21 16:51:33,239 [INFO] Player gained 1100 XP. Total: 3764/4289
+2026-05-21 16:51:33,241 [INFO] Boss reward: Deku received Blessed Purifier Sword (162 dmg)
+2026-05-21 16:54:08,347 [INFO] Player gained 150 XP. Total: 3914/4289
+2026-05-21 16:54:10,736 [INFO] Player gained 150 XP. Total: 4064/4289
+2026-05-21 16:54:13,737 [INFO] Player gained 150 XP. Total: 4214/4289
+2026-05-21 16:54:16,089 [INFO] Player gained 150 XP. Total: 4364/4289
+2026-05-21 16:54:16,089 [INFO] LEVEL UP: Deku reached level 17. HP: 438
+2026-05-21 16:54:20,423 [INFO] Player gained 150 XP. Total: 225/5232
+2026-05-21 16:57:16,202 [INFO] Game saved to slot 1: Deku (Lvl 17, Floor 9)
+2026-05-21 16:58:26,377 [INFO] Game loaded from slot 1: Deku (Lvl 17, Floor 9)
+2026-05-21 16:58:48,085 [INFO] Combat: Deku vs titan spawn (HP 135)
+2026-05-21 16:58:48,085 [INFO] Victory: Deku defeated titan spawn in 1 turns
+2026-05-21 16:58:48,085 [INFO] Player gained 160 XP. Total: 385/5232
+2026-05-21 16:59:15,606 [INFO] Combat: Deku vs titan spawn (HP 135)
+2026-05-21 16:59:15,606 [INFO] Victory: Deku defeated titan spawn in 1 turns
+2026-05-21 16:59:15,607 [INFO] Player gained 160 XP. Total: 545/5232
+2026-05-21 16:59:15,607 [INFO] Combat: Deku vs ancient guardian (HP 122)
+2026-05-21 16:59:15,607 [INFO] Victory: Deku defeated ancient guardian in 1 turns
+2026-05-21 16:59:15,607 [INFO] Player gained 146 XP. Total: 691/5232
+2026-05-21 16:59:36,116 [INFO] Combat: Deku vs titan spawn (HP 135)
+2026-05-21 16:59:36,116 [INFO] Victory: Deku defeated titan spawn in 1 turns
+2026-05-21 16:59:36,116 [INFO] Player gained 160 XP. Total: 851/5232
+2026-05-21 16:59:36,117 [INFO] Combat: Deku vs cosmic horror (HP 115)
+2026-05-21 16:59:36,117 [INFO] Victory: Deku defeated cosmic horror in 1 turns
+2026-05-21 16:59:36,117 [INFO] Player gained 162 XP. Total: 1013/5232
+2026-05-21 17:00:45,279 [INFO] Combat: Deku vs celestial knight (HP 128)
+2026-05-21 17:00:45,280 [INFO] Victory: Deku defeated celestial knight in 1 turns
+2026-05-21 17:00:45,280 [INFO] Player gained 160 XP. Total: 1173/5232
+2026-05-21 17:00:45,280 [INFO] Combat: Deku vs titan spawn (HP 135)
+2026-05-21 17:00:45,280 [INFO] Victory: Deku defeated titan spawn in 1 turns
+2026-05-21 17:00:45,281 [INFO] Player gained 160 XP. Total: 1333/5232
+2026-05-21 17:01:22,769 [INFO] Combat: Deku vs ancient guardian (HP 122)
+2026-05-21 17:01:22,769 [INFO] Victory: Deku defeated ancient guardian in 1 turns
+2026-05-21 17:01:22,769 [INFO] Player gained 146 XP. Total: 1479/5232
+2026-05-21 17:01:22,770 [INFO] Combat: Deku vs cosmic horror (HP 115)
+2026-05-21 17:01:22,770 [INFO] Victory: Deku defeated cosmic horror in 1 turns
+2026-05-21 17:01:22,770 [INFO] Player gained 162 XP. Total: 1641/5232
+2026-05-21 17:01:29,528 [INFO] Combat: Deku vs titan spawn (HP 135)
+2026-05-21 17:01:29,528 [INFO] Victory: Deku defeated titan spawn in 1 turns
+2026-05-21 17:01:29,528 [INFO] Player gained 160 XP. Total: 1801/5232
+2026-05-21 17:01:29,529 [INFO] Combat: Deku vs celestial knight (HP 128)
+2026-05-21 17:01:29,529 [INFO] Victory: Deku defeated celestial knight in 1 turns
+2026-05-21 17:01:29,529 [INFO] Player gained 160 XP. Total: 1961/5232
+2026-05-21 17:01:33,758 [INFO] Player gained 50 XP. Total: 2011/5232
+2026-05-21 17:01:41,822 [INFO] Combat: Deku vs titan spawn (HP 135)
+2026-05-21 17:01:41,823 [INFO] Victory: Deku defeated titan spawn in 1 turns
+2026-05-21 17:01:41,823 [INFO] Player gained 160 XP. Total: 2171/5232
+2026-05-21 17:01:51,762 [INFO] Combat: Deku vs cosmic horror (HP 115)
+2026-05-21 17:01:51,763 [INFO] Victory: Deku defeated cosmic horror in 1 turns
+2026-05-21 17:01:51,763 [INFO] Player gained 162 XP. Total: 2333/5232
+2026-05-21 17:02:57,836 [INFO] Combat: Deku vs celestial knight (HP 128)
+2026-05-21 17:02:57,837 [INFO] Victory: Deku defeated celestial knight in 1 turns
+2026-05-21 17:02:57,837 [INFO] Player gained 160 XP. Total: 2493/5232
+2026-05-21 17:02:57,838 [INFO] Combat: Deku vs titan spawn (HP 135)
+2026-05-21 17:02:57,838 [INFO] Victory: Deku defeated titan spawn in 1 turns
+2026-05-21 17:02:57,838 [INFO] Player gained 160 XP. Total: 2653/5232
+2026-05-21 17:03:01,876 [INFO] Player gained 150 XP. Total: 2803/5232
+2026-05-21 17:03:13,422 [INFO] Combat: Deku vs ancient guardian (HP 122)
+2026-05-21 17:03:13,431 [INFO] Victory: Deku defeated ancient guardian in 1 turns
+2026-05-21 17:03:13,432 [INFO] Player gained 146 XP. Total: 2949/5232
+2026-05-21 17:03:31,462 [INFO] Player gained 50 XP. Total: 2999/5232
+2026-05-21 17:04:12,804 [INFO] Combat: Deku vs treasure guardian (HP 81)
+2026-05-21 17:04:12,805 [INFO] Victory: Deku defeated treasure guardian in 1 turns
+2026-05-21 17:04:12,805 [INFO] Player gained 80 XP. Total: 3079/5232
+2026-05-21 17:04:12,805 [INFO] Combat: Deku vs cosmic horror (HP 115)
+2026-05-21 17:04:12,806 [INFO] Victory: Deku defeated cosmic horror in 1 turns
+2026-05-21 17:04:12,806 [INFO] Player gained 162 XP. Total: 3241/5232
+2026-05-21 17:04:53,077 [INFO] BOSS FIGHT: Deku (Lvl 17, HP 488) vs Primordial Beast on floor 9
+2026-05-21 17:08:15,979 [INFO] BOSS VICTORY: Deku defeated Primordial Beast in 5 turns on floor 9
+2026-05-21 17:08:15,979 [INFO] Player gained 1260 XP. Total: 4501/5232
+2026-05-21 17:08:15,980 [INFO] Boss reward: Deku received Divine Void Bane (190 dmg)
+2026-05-21 17:09:58,240 [INFO] Combat: Deku vs ancient guardian (HP 122)
+2026-05-21 17:09:58,240 [INFO] Victory: Deku defeated ancient guardian in 1 turns
+2026-05-21 17:09:58,240 [INFO] Player gained 146 XP. Total: 4647/5232
+2026-05-21 17:09:58,241 [INFO] Combat: Deku vs titan spawn (HP 135)
+2026-05-21 17:09:58,241 [INFO] Victory: Deku defeated titan spawn in 1 turns
+2026-05-21 17:09:58,241 [INFO] Player gained 160 XP. Total: 4807/5232
+2026-05-21 17:10:08,429 [INFO] Player gained 100 XP. Total: 4907/5232
+2026-05-21 17:10:14,905 [INFO] Combat: Deku vs celestial knight (HP 128)
+2026-05-21 17:10:14,906 [INFO] Victory: Deku defeated celestial knight in 1 turns
+2026-05-21 17:10:14,906 [INFO] Player gained 160 XP. Total: 5067/5232
+2026-05-21 17:10:14,906 [INFO] Combat: Deku vs cosmic horror (HP 115)
+2026-05-21 17:10:14,907 [INFO] Victory: Deku defeated cosmic horror in 1 turns
+2026-05-21 17:10:14,907 [INFO] Player gained 162 XP. Total: 5229/5232
+2026-05-21 17:10:20,644 [INFO] Combat: Deku vs celestial knight (HP 128)
+2026-05-21 17:10:20,645 [INFO] Victory: Deku defeated celestial knight in 1 turns
+2026-05-21 17:10:20,645 [INFO] Player gained 160 XP. Total: 5389/5232
+2026-05-21 17:10:20,645 [INFO] LEVEL UP: Deku reached level 18. HP: 501
+2026-05-21 17:10:20,646 [INFO] Combat: Deku vs ancient guardian (HP 122)
+2026-05-21 17:10:20,646 [INFO] Victory: Deku defeated ancient guardian in 1 turns
+2026-05-21 17:10:20,646 [INFO] Player gained 146 XP. Total: 303/6383
+2026-05-21 17:10:45,847 [INFO] Combat: Deku vs celestial knight (HP 128)
+2026-05-21 17:10:45,848 [INFO] Victory: Deku defeated celestial knight in 1 turns
+2026-05-21 17:10:45,848 [INFO] Player gained 160 XP. Total: 463/6383
+2026-05-21 17:10:45,848 [INFO] Combat: Deku vs cosmic horror (HP 115)
+2026-05-21 17:10:45,849 [INFO] Victory: Deku defeated cosmic horror in 1 turns
+2026-05-21 17:10:45,849 [INFO] Player gained 162 XP. Total: 625/6383
+2026-05-21 17:10:54,427 [INFO] Combat: Deku vs celestial knight (HP 128)
+2026-05-21 17:10:54,427 [INFO] Victory: Deku defeated celestial knight in 1 turns
+2026-05-21 17:10:54,428 [INFO] Player gained 160 XP. Total: 785/6383
+2026-05-21 17:10:54,428 [INFO] Combat: Deku vs titan spawn (HP 135)
+2026-05-21 17:10:54,428 [INFO] Victory: Deku defeated titan spawn in 1 turns
+2026-05-21 17:10:54,428 [INFO] Player gained 160 XP. Total: 945/6383
+2026-05-21 17:12:27,908 [INFO] Combat: Deku vs celestial knight (HP 128)
+2026-05-21 17:12:27,908 [INFO] Victory: Deku defeated celestial knight in 1 turns
+2026-05-21 17:12:27,908 [INFO] Player gained 160 XP. Total: 1105/6383
+2026-05-21 17:12:27,909 [INFO] Combat: Deku vs ancient guardian (HP 122)
+2026-05-21 17:12:27,909 [INFO] Victory: Deku defeated ancient guardian in 1 turns
+2026-05-21 17:12:27,909 [INFO] Player gained 146 XP. Total: 1251/6383
+2026-05-21 17:12:33,839 [INFO] Combat: Deku vs cosmic horror (HP 115)
+2026-05-21 17:12:33,839 [INFO] Victory: Deku defeated cosmic horror in 1 turns
+2026-05-21 17:12:33,839 [INFO] Player gained 162 XP. Total: 1413/6383
+2026-05-21 17:12:33,840 [INFO] Combat: Deku vs ancient guardian (HP 122)
+2026-05-21 17:12:33,840 [INFO] Victory: Deku defeated ancient guardian in 1 turns
+2026-05-21 17:12:33,840 [INFO] Player gained 146 XP. Total: 1559/6383
+2026-05-21 17:13:01,456 [INFO] Player gained 150 XP. Total: 1709/6383
+2026-05-21 17:13:09,734 [INFO] Combat: Deku vs celestial knight (HP 128)
+2026-05-21 17:13:09,734 [INFO] Victory: Deku defeated celestial knight in 1 turns
+2026-05-21 17:13:09,734 [INFO] Player gained 160 XP. Total: 1869/6383
+2026-05-21 17:13:51,534 [INFO] Game saved to slot 1: Deku (Lvl 18, Floor 10)
+2026-05-21 17:13:58,103 [INFO] BOSS FIGHT: Deku (Lvl 18, HP 501) vs Reality Breaker on floor 10
+2026-05-21 17:13:58,104 [WARNING] Player Deku (Lvl 18) attempting Reality Breaker (recommended Lvl 19)
+2026-05-21 17:14:34,522 [INFO] BOSS VICTORY: Deku defeated Reality Breaker in 6 turns on floor 10
+2026-05-21 17:14:34,522 [INFO] Player gained 1440 XP. Total: 3309/6383
+2026-05-21 17:14:34,529 [INFO] Boss reward: Deku received Sacred Cosmos Hammer (220 dmg)
+2026-05-21 17:14:44,789 [INFO] GAME COMPLETE: Deku defeated all bosses!
+2026-05-21 17:14:50,867 [ERROR] Command error: 'CombatSystem' object has no attribute '_victory_screen'
 Traceback (most recent call last):
-  File "C:\Users\James Cagney\labyrinth\labyrinth\game.py", line 371, in _create_character
-    weapons = WeaponSystem.create_starting_weapons()[char_class]
-              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
-KeyError: 'berserker'
-2026-05-16 20:48:53,830 [INFO] _generate_dungeon:410 - Starting dungeon generation (NG+0)...
-2026-05-16 20:48:53,832 [ERROR] main:25 - Fatal error: 'floor10_start'
-Traceback (most recent call last):
-  File "C:\Users\James Cagney\labyrinth\labyrinth\game.py", line 371, in _create_character
-    weapons = WeaponSystem.create_starting_weapons()[char_class]
-              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
-KeyError: 'berserker'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\James Cagney\labyrinth\labyrinth\main.py", line 21, in main
-    game.start_game()
-    ~~~~~~~~~~~~~~~^^
-  File "C:\Users\James Cagney\labyrinth\labyrinth\game.py", line 261, in start_game
-    self._create_character()
-    ~~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\James Cagney\labyrinth\labyrinth\game.py", line 397, in _create_character
-    self._generate_dungeon()
-    ~~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\James Cagney\labyrinth\labyrinth\game.py", line 548, in _generate_dungeon
-    self._connect_rooms(rooms, start_id)
-    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\James Cagney\labyrinth\labyrinth\game.py", line 595, in _connect_rooms
-    available = [d for d in directions if d not in rooms[current].exits]
-                                                   ~~~~~^^^^^^^^^
-KeyError: 'floor10_start'
-2026-05-16 20:54:12,650 [ERROR] _create_character:415 - Character creation error: 'berserker'
-Traceback (most recent call last):
-  File "C:\Users\James Cagney\labyrinth\labyrinth\game.py", line 391, in _create_character
-    weapons = WeaponSystem.create_starting_weapons()[char_class]
-              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
-KeyError: 'berserker'
-2026-05-16 20:54:12,652 [INFO] _generate_dungeon:430 - Starting dungeon generation (NG+0)...
-2026-05-16 20:54:12,655 [INFO] _generate_dungeon:581 - Dungeon generated: 10 floors, 127 total rooms
-2026-05-16 21:17:55,896 [ERROR] _create_character:415 - Character creation error: 'berserker'
-Traceback (most recent call last):
-  File "C:\Users\James Cagney\labyrinth\labyrinth\game.py", line 391, in _create_character
-    weapons = WeaponSystem.create_starting_weapons()[char_class]
-              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
-KeyError: 'berserker'
-2026-05-16 21:17:55,897 [INFO] _generate_dungeon:430 - Starting dungeon generation (NG+0)...
-2026-05-16 21:17:55,899 [INFO] _generate_dungeon:581 - Dungeon generated: 10 floors, 125 total rooms
-2026-05-16 21:22:32,808 [INFO] _create_character:405 - New character: Deku (berserker) with Titan Club
-2026-05-16 21:22:32,808 [INFO] _generate_dungeon:430 - Starting dungeon generation (NG+0)...
-2026-05-16 21:22:32,810 [INFO] _generate_dungeon:581 - Dungeon generated: 10 floors, 150 total rooms
-2026-05-16 21:22:55,800 [INFO] fight_enemy:264 - Combat: Deku vs prison guard (HP 54)
-2026-05-16 21:22:55,800 [INFO] fight_enemy:358 - Victory: Deku defeated prison guard in 2 turns
-2026-05-16 21:22:55,800 [INFO] gain_experience:62 - Player gained 35 XP. Total: 35/80
-2026-05-16 21:22:55,800 [INFO] fight_enemy:264 - Combat: Deku vs goblin (HP 34)
-2026-05-16 21:22:55,801 [INFO] fight_enemy:358 - Victory: Deku defeated goblin in 1 turns
-2026-05-16 21:22:55,801 [INFO] gain_experience:62 - Player gained 25 XP. Total: 60/80
-2026-05-16 21:25:09,389 [INFO] fight_enemy:264 - Combat: Deku vs goblin (HP 34)
-2026-05-16 21:25:09,389 [INFO] fight_enemy:358 - Victory: Deku defeated goblin in 1 turns
-2026-05-16 21:25:09,389 [INFO] gain_experience:62 - Player gained 25 XP. Total: 85/80
-2026-05-16 21:25:09,390 [INFO] _level_up:91 - LEVEL UP: Deku reached level 2. HP: 158
-2026-05-16 21:25:09,390 [INFO] fight_enemy:264 - Combat: Deku vs skeleton (HP 41)
-2026-05-16 21:25:09,390 [INFO] fight_enemy:358 - Victory: Deku defeated skeleton in 1 turns
-2026-05-16 21:25:09,391 [INFO] gain_experience:62 - Player gained 30 XP. Total: 35/108
-2026-05-16 21:26:21,181 [INFO] fight_enemy:264 - Combat: Deku vs skeleton (HP 41)
-2026-05-16 21:26:21,182 [INFO] fight_enemy:358 - Victory: Deku defeated skeleton in 1 turns
-2026-05-16 21:26:21,182 [INFO] gain_experience:62 - Player gained 30 XP. Total: 65/108
-2026-05-16 21:26:21,182 [INFO] fight_enemy:264 - Combat: Deku vs prison guard (HP 54)
-2026-05-16 21:26:21,182 [INFO] fight_enemy:358 - Victory: Deku defeated prison guard in 1 turns
-2026-05-16 21:26:21,182 [INFO] gain_experience:62 - Player gained 35 XP. Total: 100/108
-2026-05-16 21:27:25,209 [INFO] fight_enemy:264 - Combat: Deku vs prison guard (HP 54)
-2026-05-16 21:27:25,209 [INFO] fight_enemy:358 - Victory: Deku defeated prison guard in 1 turns
-2026-05-16 21:27:25,209 [INFO] gain_experience:62 - Player gained 35 XP. Total: 135/108
-2026-05-16 21:27:25,209 [INFO] _level_up:91 - LEVEL UP: Deku reached level 3. HP: 176
-2026-05-16 21:27:30,963 [INFO] gain_experience:62 - Player gained 200 XP. Total: 227/145
-2026-05-16 21:27:30,963 [INFO] _level_up:91 - LEVEL UP: Deku reached level 4. HP: 194
-2026-05-16 21:27:48,742 [INFO] gain_experience:62 - Player gained 100 XP. Total: 182/195
-2026-05-16 21:28:18,368 [INFO] fight_enemy:264 - Combat: Deku vs skeleton (HP 41)
-2026-05-16 21:28:18,368 [INFO] fight_enemy:358 - Victory: Deku defeated skeleton in 1 turns
-2026-05-16 21:28:18,369 [INFO] gain_experience:62 - Player gained 30 XP. Total: 212/195
-2026-05-16 21:28:18,369 [INFO] _level_up:91 - LEVEL UP: Deku reached level 5. HP: 212
-2026-05-16 21:28:18,369 [INFO] fight_enemy:264 - Combat: Deku vs sewer rat (HP 20)
-2026-05-16 21:28:18,369 [INFO] fight_enemy:358 - Victory: Deku defeated sewer rat in 1 turns
-2026-05-16 21:28:18,369 [INFO] gain_experience:62 - Player gained 15 XP. Total: 32/263
-2026-05-16 21:28:33,488 [INFO] gain_experience:62 - Player gained 150 XP. Total: 182/263
-2026-05-16 21:32:28,761 [INFO] _create_character:405 - New character: Deku (berserker) with Titan Club
-2026-05-16 21:32:28,761 [INFO] _generate_dungeon:430 - Starting dungeon generation (NG+0)...
-2026-05-16 21:32:28,763 [INFO] _generate_dungeon:581 - Dungeon generated: 10 floors, 135 total rooms
-2026-05-16 21:32:46,781 [INFO] fight_enemy:264 - Combat: Deku vs sewer rat (HP 20)
-2026-05-16 21:32:46,782 [INFO] fight_enemy:358 - Victory: Deku defeated sewer rat in 1 turns
-2026-05-16 21:32:46,782 [INFO] gain_experience:62 - Player gained 15 XP. Total: 15/80
-2026-05-16 21:33:00,797 [INFO] fight_enemy:264 - Combat: Deku vs skeleton (HP 41)
-2026-05-16 21:33:00,797 [INFO] fight_enemy:358 - Victory: Deku defeated skeleton in 2 turns
-2026-05-16 21:33:00,797 [INFO] gain_experience:62 - Player gained 30 XP. Total: 45/80
-2026-05-16 21:33:00,798 [INFO] fight_enemy:264 - Combat: Deku vs sewer rat (HP 20)
-2026-05-16 21:33:00,798 [INFO] fight_enemy:358 - Victory: Deku defeated sewer rat in 1 turns
-2026-05-16 21:33:00,798 [INFO] gain_experience:62 - Player gained 15 XP. Total: 60/80
-2026-05-16 21:33:04,804 [INFO] gain_experience:62 - Player gained 150 XP. Total: 210/80
-2026-05-16 21:33:04,804 [INFO] _level_up:91 - LEVEL UP: Deku reached level 2. HP: 158
-2026-05-16 21:33:04,804 [INFO] _level_up:91 - LEVEL UP: Deku reached level 3. HP: 176
-2026-05-16 21:35:45,814 [INFO] _create_character:405 - New character: Deku (berserker) with Titan Club
-2026-05-16 21:35:45,814 [INFO] _generate_dungeon:430 - Starting dungeon generation (NG+0)...
-2026-05-16 21:35:45,817 [INFO] _generate_dungeon:581 - Dungeon generated: 10 floors, 135 total rooms
-2026-05-16 21:36:02,251 [INFO] fight_enemy:264 - Combat: Deku vs sewer rat (HP 20)
-2026-05-16 21:36:02,252 [INFO] fight_enemy:358 - Victory: Deku defeated sewer rat in 1 turns
-2026-05-16 21:36:02,252 [INFO] gain_experience:62 - Player gained 15 XP. Total: 15/80
-2026-05-16 21:36:02,252 [INFO] fight_enemy:264 - Combat: Deku vs skeleton (HP 41)
-2026-05-16 21:36:02,253 [INFO] fight_enemy:358 - Victory: Deku defeated skeleton in 2 turns
-2026-05-16 21:36:02,253 [INFO] gain_experience:62 - Player gained 30 XP. Total: 45/80
-2026-05-16 21:36:16,699 [INFO] fight_enemy:264 - Combat: Deku vs skeleton (HP 41)
-2026-05-16 21:36:16,699 [INFO] fight_enemy:358 - Victory: Deku defeated skeleton in 2 turns
-2026-05-16 21:36:16,700 [INFO] gain_experience:62 - Player gained 30 XP. Total: 75/80
-2026-05-16 21:36:16,700 [INFO] fight_enemy:264 - Combat: Deku vs sewer rat (HP 20)
-2026-05-16 21:36:16,700 [INFO] fight_enemy:358 - Victory: Deku defeated sewer rat in 1 turns
-2026-05-16 21:36:16,700 [INFO] gain_experience:62 - Player gained 15 XP. Total: 90/80
-2026-05-16 21:36:16,700 [INFO] _level_up:91 - LEVEL UP: Deku reached level 2. HP: 158
-2026-05-16 21:36:34,363 [INFO] fight_enemy:264 - Combat: Deku vs sewer rat (HP 20)
-2026-05-16 21:36:34,363 [INFO] fight_enemy:358 - Victory: Deku defeated sewer rat in 1 turns
-2026-05-16 21:36:34,364 [INFO] gain_experience:62 - Player gained 15 XP. Total: 25/108
-2026-05-16 21:36:37,969 [INFO] gain_experience:62 - Player gained 50 XP. Total: 75/108
-2026-05-16 21:37:08,741 [INFO] fight_enemy:264 - Combat: Deku vs prison guard (HP 54)
-2026-05-16 21:37:08,741 [INFO] fight_enemy:358 - Victory: Deku defeated prison guard in 2 turns
-2026-05-16 21:37:08,741 [INFO] gain_experience:62 - Player gained 35 XP. Total: 110/108
-2026-05-16 21:37:08,741 [INFO] _level_up:91 - LEVEL UP: Deku reached level 3. HP: 206
-2026-05-16 21:37:08,742 [INFO] fight_enemy:264 - Combat: Deku vs goblin (HP 34)
-2026-05-16 21:37:08,742 [INFO] fight_enemy:358 - Victory: Deku defeated goblin in 2 turns
-2026-05-16 21:37:08,742 [INFO] gain_experience:62 - Player gained 25 XP. Total: 27/145
-2026-05-16 21:37:49,006 [INFO] fight_enemy:264 - Combat: Deku vs skeleton (HP 41)
-2026-05-16 21:37:49,006 [INFO] fight_enemy:358 - Victory: Deku defeated skeleton in 1 turns
-2026-05-16 21:37:49,006 [INFO] gain_experience:62 - Player gained 30 XP. Total: 57/145
-2026-05-16 21:37:49,007 [INFO] fight_enemy:264 - Combat: Deku vs goblin (HP 34)
-2026-05-16 21:37:49,007 [INFO] fight_enemy:358 - Victory: Deku defeated goblin in 1 turns
-2026-05-16 21:37:49,007 [INFO] gain_experience:62 - Player gained 25 XP. Total: 82/145
-2026-05-16 21:38:02,062 [INFO] gain_experience:62 - Player gained 50 XP. Total: 132/145
-2026-05-16 21:38:14,512 [INFO] fight_enemy:264 - Combat: Deku vs sewer rat (HP 20)
-2026-05-16 21:38:14,512 [INFO] fight_enemy:358 - Victory: Deku defeated sewer rat in 1 turns
-2026-05-16 21:38:14,512 [INFO] gain_experience:62 - Player gained 15 XP. Total: 147/145
-2026-05-16 21:38:14,512 [INFO] _level_up:91 - LEVEL UP: Deku reached level 4. HP: 224
-2026-05-16 21:38:14,513 [INFO] fight_enemy:264 - Combat: Deku vs goblin (HP 34)
-2026-05-16 21:38:14,513 [INFO] fight_enemy:358 - Victory: Deku defeated goblin in 1 turns
-2026-05-16 21:38:14,513 [INFO] gain_experience:62 - Player gained 25 XP. Total: 27/195
-2026-05-16 21:38:52,977 [INFO] upgrade_class:247 - CLASS UPGRADE: Deku advanced from tier 1 to 2 (Bloodrage)
-2026-05-16 21:39:15,281 [INFO] fight_enemy:264 - Combat: Deku vs goblin (HP 34)
-2026-05-16 21:39:15,281 [INFO] fight_enemy:358 - Victory: Deku defeated goblin in 1 turns
-2026-05-16 21:39:15,281 [INFO] gain_experience:62 - Player gained 25 XP. Total: 52/195
-2026-05-16 21:39:15,281 [INFO] fight_enemy:264 - Combat: Deku vs sewer rat (HP 20)
-2026-05-16 21:39:15,281 [INFO] fight_enemy:358 - Victory: Deku defeated sewer rat in 1 turns
-2026-05-16 21:39:15,282 [INFO] gain_experience:62 - Player gained 15 XP. Total: 67/195
-2026-05-16 21:39:29,015 [INFO] fight_enemy:264 - Combat: Deku vs goblin (HP 34)
-2026-05-16 21:39:29,015 [INFO] fight_enemy:358 - Victory: Deku defeated goblin in 1 turns
-2026-05-16 21:39:29,015 [INFO] gain_experience:62 - Player gained 25 XP. Total: 92/195
-2026-05-16 21:39:29,016 [INFO] fight_enemy:264 - Combat: Deku vs skeleton (HP 41)
-2026-05-16 21:39:29,016 [INFO] fight_enemy:358 - Victory: Deku defeated skeleton in 1 turns
-2026-05-16 21:39:29,016 [INFO] gain_experience:62 - Player gained 30 XP. Total: 122/195
-2026-05-16 21:39:33,781 [INFO] gain_experience:62 - Player gained 150 XP. Total: 272/195
-2026-05-16 21:39:33,781 [INFO] _level_up:91 - LEVEL UP: Deku reached level 5. HP: 242
-2026-05-16 21:40:24,117 [INFO] fight_enemy:264 - Combat: Deku vs skeleton (HP 41)
-2026-05-16 21:40:24,117 [INFO] fight_enemy:358 - Victory: Deku defeated skeleton in 1 turns
-2026-05-16 21:40:24,117 [INFO] gain_experience:62 - Player gained 30 XP. Total: 107/263
-2026-05-16 21:40:24,117 [INFO] fight_enemy:264 - Combat: Deku vs goblin (HP 34)
-2026-05-16 21:40:24,118 [INFO] fight_enemy:358 - Victory: Deku defeated goblin in 1 turns
-2026-05-16 21:40:24,118 [INFO] gain_experience:62 - Player gained 25 XP. Total: 132/263
-2026-05-16 21:41:40,123 [INFO] fight_enemy:264 - Combat: Deku vs skeleton (HP 41)
-2026-05-16 21:41:40,123 [INFO] fight_enemy:358 - Victory: Deku defeated skeleton in 1 turns
-2026-05-16 21:41:40,123 [INFO] gain_experience:62 - Player gained 30 XP. Total: 162/263
-2026-05-16 21:41:40,123 [INFO] fight_enemy:264 - Combat: Deku vs prison guard (HP 54)
-2026-05-16 21:41:40,124 [INFO] fight_enemy:358 - Victory: Deku defeated prison guard in 1 turns
-2026-05-16 21:41:40,124 [INFO] gain_experience:62 - Player gained 35 XP. Total: 197/263
-2026-05-16 21:42:39,406 [INFO] fight_enemy:264 - Combat: Deku vs goblin (HP 34)
-2026-05-16 21:42:39,406 [INFO] fight_enemy:358 - Victory: Deku defeated goblin in 1 turns
-2026-05-16 21:42:39,406 [INFO] gain_experience:62 - Player gained 25 XP. Total: 222/263
-2026-05-16 21:42:50,349 [INFO] fight_enemy:264 - Combat: Deku vs skeleton (HP 41)
-2026-05-16 21:42:50,350 [INFO] fight_enemy:358 - Victory: Deku defeated skeleton in 1 turns
-2026-05-16 21:42:50,350 [INFO] gain_experience:62 - Player gained 30 XP. Total: 252/263
-2026-05-16 21:43:55,888 [INFO] fight_boss:713 - BOSS FIGHT: Deku (Lvl 5, HP 242) vs Arena Champion on floor 1
-2026-05-16 21:44:31,817 [INFO] fight_boss:856 - BOSS VICTORY: Deku defeated Arena Champion in 4 turns on floor 1
-2026-05-16 21:44:31,818 [INFO] gain_experience:62 - Player gained 150 XP. Total: 402/263
-2026-05-16 21:44:31,818 [INFO] _level_up:91 - LEVEL UP: Deku reached level 6. HP: 260
-2026-05-16 21:44:31,820 [ERROR] execute:44 - Command error: 'berserker'
-Traceback (most recent call last):
-  File "C:\Users\James Cagney\labyrinth\labyrinth\game.py", line 42, in execute
+  File "C:\Users\James Cagney\labyrinth\game.py", line 47, in execute
     self.commands[cmd](game, *args)
     ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File "C:\Users\James Cagney\labyrinth\labyrinth\game.py", line 136, in cmd_fight
+  File "C:\Users\James Cagney\labyrinth\game.py", line 150, in cmd_fight
     g._fight_enemy_command(' '.join(args))
     ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
-  File "C:\Users\James Cagney\labyrinth\labyrinth\game.py", line 1048, in _fight_enemy_command
+  File "C:\Users\James Cagney\labyrinth\actions.py", line 496, in _fight_enemy_command
     success = self.combat.fight_boss(matching, self.player, room)
-  File "C:\Users\James Cagney\labyrinth\labyrinth\combat.py", line 878, in fight_boss
+  File "C:\Users\James Cagney\labyrinth\combat.py", line 977, in fight_boss
+    self._victory_screen()
+    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'CombatSystem' object has no attribute '_victory_screen'
+2026-05-21 17:22:12,908 [INFO] Game loaded from slot 1: Deku (Lvl 18, Floor 10)
+2026-05-21 17:27:04,199 [INFO] BOSS FIGHT: Deku (Lvl 18, HP 501) vs Reality Breaker on floor 10
+2026-05-21 17:27:04,199 [WARNING] Player Deku (Lvl 18) attempting Reality Breaker (recommended Lvl 19)
+2026-05-21 17:27:50,863 [INFO] BOSS VICTORY: Deku defeated Reality Breaker in 6 turns on floor 10
+2026-05-21 17:27:50,864 [INFO] Player gained 1440 XP. Total: 3309/6383
+2026-05-21 17:27:50,870 [INFO] Boss reward: Deku received Sacred Cosmos Hammer (220 dmg)
+2026-05-21 17:27:57,529 [INFO] GAME COMPLETE: Deku defeated all bosses!
+2026-05-21 17:28:56,569 [INFO] Starting dungeon generation (NG+1)...
+2026-05-21 17:28:56,571 [INFO] NG+ dungeon generated (The Mechanical Depths): 109 rooms
+2026-05-21 17:29:18,561 [INFO] Game loaded from slot 1: Deku (Lvl 18, Floor 10)
+2026-05-21 17:29:34,300 [INFO] BOSS FIGHT: Deku (Lvl 18, HP 501) vs Reality Breaker on floor 10
+2026-05-21 17:29:34,301 [WARNING] Player Deku (Lvl 18) attempting Reality Breaker (recommended Lvl 19)
+2026-05-21 17:29:54,960 [INFO] BOSS VICTORY: Deku defeated Reality Breaker in 5 turns on floor 10
+2026-05-21 17:29:54,960 [INFO] Player gained 1440 XP. Total: 3309/6383
+2026-05-21 17:29:54,966 [INFO] Boss reward: Deku received Holy Cosmos Blade (252 dmg)
+2026-05-21 17:29:59,513 [INFO] GAME COMPLETE: Deku defeated all bosses!
+2026-05-21 17:37:30,777 [INFO] Starting dungeon generation (NG+1)...
+2026-05-21 17:37:30,779 [INFO] NG+ dungeon generated (The Mechanical Depths): 109 rooms
+2026-05-21 17:46:17,358 [INFO] Game loaded from slot 1: Deku (Lvl 18, Floor 10)
+2026-05-21 17:46:22,466 [INFO] BOSS FIGHT: Deku (Lvl 18, HP 501) vs Reality Breaker on floor 10
+2026-05-21 17:46:22,466 [WARNING] Player Deku (Lvl 18) attempting Reality Breaker (recommended Lvl 19)
+2026-05-21 17:46:42,185 [INFO] BOSS VICTORY: Deku defeated Reality Breaker in 5 turns on floor 10
+2026-05-21 17:46:42,185 [INFO] Player gained 1440 XP. Total: 3309/6383
+2026-05-21 17:46:42,191 [INFO] Boss reward: Deku received Divine Eternal Warden (264 dmg)
+2026-05-21 17:46:48,541 [INFO] GAME COMPLETE: Deku defeated all bosses!
+2026-05-21 17:47:06,932 [INFO] Starting dungeon generation (NG+1)...
+2026-05-21 17:47:06,934 [INFO] NG+ dungeon generated (The Ashen Wastes): 109 rooms
+2026-05-21 18:07:49,312 [INFO] Combat: Deku vs ash walker (HP 78)
+2026-05-21 18:07:49,312 [INFO] Victory: Deku defeated ash walker in 1 turns
+2026-05-21 18:07:49,313 [INFO] Player gained 54 XP. Total: 3363/6383
+2026-05-21 18:07:49,313 [INFO] Combat: Deku vs cinder hound (HP 95)
+2026-05-21 18:07:49,313 [INFO] Victory: Deku defeated cinder hound in 1 turns
+2026-05-21 18:07:49,313 [INFO] Player gained 70 XP. Total: 3433/6383
+2026-05-21 18:07:56,655 [ERROR] Command error: 'shadow_knight'
+Traceback (most recent call last):
+  File "C:\Users\James Cagney\labyrinth\game.py", line 47, in execute
+    self.commands[cmd](game, *args)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\James Cagney\labyrinth\game.py", line 135, in cmd_takeall
+    g.take_all_items()
+    ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\James Cagney\labyrinth\actions.py", line 337, in take_all_items
+    self._handle_weapon_cache()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\James Cagney\labyrinth\actions.py", line 354, in _handle_weapon_cache
+    new_weapon = WeaponSystem.generate_weapon(self.player, floor_cap=_floor_cap)
+  File "C:\Users\James Cagney\labyrinth\weapons.py", line 37, in generate_weapon
+    weapon_type = random.choice(GameConstants.CLASSES[player.character_class]['weapon_types'])
+                                ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'shadow_knight'
+2026-05-21 18:08:44,286 [INFO] Game saved to slot 1: Deku (Lvl 18, Floor 1)
+2026-05-21 18:13:58,527 [ERROR] Load error: 'shadow_knight'
+Traceback (most recent call last):
+  File "C:\Users\James Cagney\labyrinth\save_load.py", line 155, in load_game
+    self.player = Player.from_dict(save_data['player'])
+                  ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\James Cagney\labyrinth\player.py", line 530, in from_dict
+    player = cls(data['name'], data['character_class'])
+  File "C:\Users\James Cagney\labyrinth\player.py", line 25, in __init__
+    config = GameConstants.CLASSES[character_class]
+             ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+KeyError: 'shadow_knight'
+2026-05-21 18:16:29,604 [INFO] Game loaded from slot 1: Deku (Lvl 18, Floor 1)
+2026-05-21 18:16:34,187 [INFO] Player gained 50 XP. Total: 3483/6383
+2026-05-21 18:16:34,188 [ERROR] Command error: 'shadow_knight'
+Traceback (most recent call last):
+  File "C:\Users\James Cagney\labyrinth\game.py", line 47, in execute
+    self.commands[cmd](game, *args)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\James Cagney\labyrinth\game.py", line 135, in cmd_takeall
+    g.take_all_items()
+    ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\James Cagney\labyrinth\actions.py", line 337, in take_all_items
+    self._handle_weapon_cache()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\James Cagney\labyrinth\actions.py", line 354, in _handle_weapon_cache
+    new_weapon = WeaponSystem.generate_weapon(self.player, floor_cap=_floor_cap)
+  File "C:\Users\James Cagney\labyrinth\weapons.py", line 37, in generate_weapon
+    weapon_type = random.choice(GameConstants.CLASSES[player.character_class]['weapon_types'])
+                                ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'shadow_knight'
+2026-05-21 18:20:06,883 [INFO] Game loaded from slot 1: Deku (Lvl 18, Floor 1)
+2026-05-21 18:20:10,191 [INFO] Player gained 50 XP. Total: 3483/6383
+2026-05-21 18:20:29,792 [INFO] Combat: Deku vs cinder hound (HP 95)
+2026-05-21 18:20:29,792 [INFO] Victory: Deku defeated cinder hound in 1 turns
+2026-05-21 18:20:29,792 [INFO] Player gained 70 XP. Total: 3553/6383
+2026-05-21 18:20:29,793 [INFO] Combat: Deku vs soot wraith (HP 118)
+2026-05-21 18:20:29,793 [INFO] Victory: Deku defeated soot wraith in 1 turns
+2026-05-21 18:20:29,793 [INFO] Player gained 120 XP. Total: 3673/6383
+2026-05-21 18:20:57,729 [INFO] Combat: Deku vs soot wraith (HP 118)
+2026-05-21 18:20:57,730 [INFO] Victory: Deku defeated soot wraith in 1 turns
+2026-05-21 18:20:57,730 [INFO] Player gained 120 XP. Total: 3793/6383
+2026-05-21 18:20:57,730 [INFO] Combat: Deku vs ash walker (HP 78)
+2026-05-21 18:20:57,730 [INFO] Victory: Deku defeated ash walker in 1 turns
+2026-05-21 18:20:57,730 [INFO] Player gained 54 XP. Total: 3847/6383
+2026-05-21 18:21:08,576 [INFO] Combat: Deku vs soot wraith (HP 118)
+2026-05-21 18:21:08,577 [INFO] Victory: Deku defeated soot wraith in 1 turns
+2026-05-21 18:21:08,577 [INFO] Player gained 120 XP. Total: 3967/6383
+2026-05-21 18:21:08,577 [INFO] Combat: Deku vs cinder hound (HP 95)
+2026-05-21 18:21:08,577 [INFO] Victory: Deku defeated cinder hound in 1 turns
+2026-05-21 18:21:08,577 [INFO] Player gained 70 XP. Total: 4037/6383
+2026-05-21 18:21:37,576 [INFO] Combat: Deku vs cinder hound (HP 95)
+2026-05-21 18:21:37,576 [INFO] Victory: Deku defeated cinder hound in 1 turns
+2026-05-21 18:21:37,576 [INFO] Player gained 70 XP. Total: 4107/6383
+2026-05-21 18:21:37,577 [INFO] Combat: Deku vs soot wraith (HP 118)
+2026-05-21 18:21:37,577 [INFO] Victory: Deku defeated soot wraith in 1 turns
+2026-05-21 18:21:37,577 [INFO] Player gained 120 XP. Total: 4227/6383
+2026-05-21 18:21:42,273 [INFO] Player gained 50 XP. Total: 4277/6383
+2026-05-21 18:21:55,934 [INFO] Combat: Deku vs ash walker (HP 78)
+2026-05-21 18:21:55,935 [INFO] Victory: Deku defeated ash walker in 1 turns
+2026-05-21 18:21:55,935 [INFO] Player gained 54 XP. Total: 4331/6383
+2026-05-21 18:21:55,935 [INFO] Combat: Deku vs soot wraith (HP 118)
+2026-05-21 18:21:55,935 [INFO] Victory: Deku defeated soot wraith in 1 turns
+2026-05-21 18:21:55,935 [INFO] Player gained 120 XP. Total: 4451/6383
+2026-05-21 18:22:11,510 [INFO] Combat: Deku vs ash walker (HP 78)
+2026-05-21 18:22:11,510 [INFO] Victory: Deku defeated ash walker in 1 turns
+2026-05-21 18:22:11,511 [INFO] Player gained 54 XP. Total: 4505/6383
+2026-05-21 18:22:11,511 [INFO] Combat: Deku vs cinder hound (HP 95)
+2026-05-21 18:22:11,511 [INFO] Victory: Deku defeated cinder hound in 1 turns
+2026-05-21 18:22:11,511 [INFO] Player gained 70 XP. Total: 4575/6383
+2026-05-21 18:22:27,167 [INFO] Combat: Deku vs soot wraith (HP 118)
+2026-05-21 18:22:27,168 [INFO] Victory: Deku defeated soot wraith in 1 turns
+2026-05-21 18:22:27,168 [INFO] Player gained 120 XP. Total: 4695/6383
+2026-05-21 18:22:27,168 [INFO] Combat: Deku vs cinder hound (HP 95)
+2026-05-21 18:22:27,169 [INFO] Victory: Deku defeated cinder hound in 1 turns
+2026-05-21 18:22:27,169 [INFO] Player gained 70 XP. Total: 4765/6383
+2026-05-21 18:22:44,320 [INFO] BOSS FIGHT: Deku (Lvl 18, HP 705) vs The Cinder King on floor 1
+2026-05-21 18:22:58,583 [INFO] BOSS VICTORY: Deku defeated The Cinder King in 1 turns on floor 1
+2026-05-21 18:22:58,584 [INFO] Player gained 480 XP. Total: 5245/6383
+2026-05-21 18:22:58,586 [ERROR] Command error: 'shadow_knight'
+Traceback (most recent call last):
+  File "C:\Users\James Cagney\labyrinth\game.py", line 47, in execute
+    self.commands[cmd](game, *args)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\James Cagney\labyrinth\game.py", line 150, in cmd_fight
+    g._fight_enemy_command(' '.join(args))
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\James Cagney\labyrinth\actions.py", line 496, in _fight_enemy_command
+    success = self.combat.fight_boss(matching, self.player, room)
+  File "C:\Users\James Cagney\labyrinth\combat.py", line 935, in fight_boss
     boss_weapon = BossConfig.generate_boss_weapon(floor, player)
-  File "C:\Users\James Cagney\labyrinth\labyrinth\constants.py", line 2503, in generate_boss_weapon
-    pool = cls.BOSS_WEAPON_POOLS[floor][player.character_class]
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
-KeyError: 'berserker'
-2026-05-17 15:48:34,829 [INFO] _create_character:405 - New character: Deku (berserker) with Titan Club
-2026-05-17 15:48:34,831 [INFO] _generate_dungeon:430 - Starting dungeon generation (NG+0)...
-2026-05-17 15:48:34,833 [INFO] _generate_dungeon:581 - Dungeon generated: 10 floors, 134 total rooms
-2026-05-17 15:49:34,245 [INFO] fight_enemy:264 - Combat: Deku vs prison guard (HP 54)
-2026-05-17 15:49:34,246 [INFO] fight_enemy:358 - Victory: Deku defeated prison guard in 2 turns
-2026-05-17 15:49:34,246 [INFO] gain_experience:62 - Player gained 35 XP. Total: 35/80
-2026-05-17 15:49:34,246 [INFO] fight_enemy:264 - Combat: Deku vs sewer rat (HP 20)
-2026-05-17 15:49:34,246 [INFO] fight_enemy:358 - Victory: Deku defeated sewer rat in 1 turns
-2026-05-17 15:49:34,246 [INFO] gain_experience:62 - Player gained 15 XP. Total: 50/80
-2026-05-17 15:49:41,910 [INFO] gain_experience:62 - Player gained 150 XP. Total: 200/80
-2026-05-17 15:49:41,910 [INFO] _level_up:91 - LEVEL UP: Deku reached level 2. HP: 158
-2026-05-17 15:49:41,911 [INFO] _level_up:91 - LEVEL UP: Deku reached level 3. HP: 176
-2026-05-17 15:50:35,081 [INFO] fight_enemy:264 - Combat: Deku vs skeleton (HP 41)
-2026-05-17 15:50:35,082 [INFO] fight_enemy:358 - Victory: Deku defeated skeleton in 2 turns
-2026-05-17 15:50:35,082 [INFO] gain_experience:62 - Player gained 30 XP. Total: 42/145
-2026-05-17 15:51:09,510 [INFO] fight_enemy:264 - Combat: Deku vs skeleton (HP 41)
-2026-05-17 15:51:09,511 [INFO] fight_enemy:358 - Victory: Deku defeated skeleton in 2 turns
-2026-05-17 15:51:09,511 [INFO] gain_experience:62 - Player gained 30 XP. Total: 72/145
-2026-05-17 15:51:09,511 [INFO] fight_enemy:264 - Combat: Deku vs prison guard (HP 54)
-2026-05-17 15:51:09,511 [INFO] fight_enemy:358 - Victory: Deku defeated prison guard in 2 turns
-2026-05-17 15:51:09,512 [INFO] gain_experience:62 - Player gained 35 XP. Total: 107/145
-2026-05-17 15:52:36,118 [INFO] fight_enemy:264 - Combat: Deku vs prison guard (HP 54)
-2026-05-17 15:52:36,119 [INFO] fight_enemy:358 - Victory: Deku defeated prison guard in 2 turns
-2026-05-17 15:52:36,119 [INFO] gain_experience:62 - Player gained 35 XP. Total: 142/145
-2026-05-17 15:52:36,119 [INFO] fight_enemy:264 - Combat: Deku vs sewer rat (HP 20)
-2026-05-17 15:52:36,119 [INFO] fight_enemy:358 - Victory: Deku defeated sewer rat in 1 turns
-2026-05-17 15:52:36,120 [INFO] gain_experience:62 - Player gained 15 XP. Total: 157/145
-2026-05-17 15:52:36,120 [INFO] _level_up:91 - LEVEL UP: Deku reached level 4. HP: 194
-2026-05-17 15:54:56,229 [INFO] save_game:1816 - Game saved to slot 1: Deku (Lvl 4, Floor 1)
-2026-05-17 15:55:14,257 [INFO] load_game:1976 - Game loaded from slot 1: Deku (Lvl 4, Floor 1)
-2026-05-17 15:55:49,761 [INFO] fight_enemy:264 - Combat: Deku vs skeleton (HP 41)
-2026-05-17 15:55:49,761 [INFO] fight_enemy:358 - Victory: Deku defeated skeleton in 1 turns
-2026-05-17 15:55:49,761 [INFO] gain_experience:62 - Player gained 30 XP. Total: 42/195
-2026-05-17 15:55:59,245 [INFO] fight_enemy:264 - Combat: Deku vs skeleton (HP 41)
-2026-05-17 15:55:59,246 [INFO] fight_enemy:358 - Victory: Deku defeated skeleton in 1 turns
-2026-05-17 15:55:59,246 [INFO] gain_experience:62 - Player gained 30 XP. Total: 72/195
-2026-05-17 15:55:59,246 [INFO] fight_enemy:264 - Combat: Deku vs goblin (HP 34)
-2026-05-17 15:55:59,246 [INFO] fight_enemy:358 - Victory: Deku defeated goblin in 1 turns
-2026-05-17 15:55:59,246 [INFO] gain_experience:62 - Player gained 25 XP. Total: 97/195
-2026-05-17 15:56:08,301 [INFO] gain_experience:62 - Player gained 150 XP. Total: 247/195
-2026-05-17 15:56:08,301 [INFO] _level_up:91 - LEVEL UP: Deku reached level 5. HP: 212
-2026-05-17 15:56:41,225 [INFO] fight_enemy:264 - Combat: Deku vs sewer rat (HP 20)
-2026-05-17 15:56:41,225 [INFO] fight_enemy:358 - Victory: Deku defeated sewer rat in 1 turns
-2026-05-17 15:56:41,226 [INFO] gain_experience:62 - Player gained 15 XP. Total: 67/263
-2026-05-17 15:56:41,226 [INFO] fight_enemy:264 - Combat: Deku vs skeleton (HP 41)
-2026-05-17 15:56:41,226 [INFO] fight_enemy:358 - Victory: Deku defeated skeleton in 1 turns
-2026-05-17 15:56:41,226 [INFO] gain_experience:62 - Player gained 30 XP. Total: 97/263
-2026-05-17 15:56:47,859 [INFO] gain_experience:62 - Player gained 200 XP. Total: 297/263
-2026-05-17 15:56:47,859 [INFO] _level_up:91 - LEVEL UP: Deku reached level 6. HP: 230
-2026-05-17 15:56:53,578 [INFO] gain_experience:62 - Player gained 100 XP. Total: 134/355
-2026-05-17 15:58:08,305 [INFO] fight_enemy:264 - Combat: Deku vs sewer rat (HP 20)
-2026-05-17 15:58:08,305 [INFO] fight_enemy:358 - Victory: Deku defeated sewer rat in 1 turns
-2026-05-17 15:58:08,306 [INFO] gain_experience:62 - Player gained 15 XP. Total: 149/355
-2026-05-17 15:58:21,983 [INFO] gain_experience:62 - Player gained 50 XP. Total: 199/355
-2026-05-17 16:09:01,766 [INFO] load_game:1992 - Game loaded from slot 1: Deku (Lvl 4, Floor 1)
-2026-05-17 16:09:20,961 [INFO] fight_enemy:264 - Combat: Deku vs prison guard (HP 54)
-2026-05-17 16:09:20,961 [INFO] fight_enemy:358 - Victory: Deku defeated prison guard in 1 turns
-2026-05-17 16:09:20,961 [INFO] gain_experience:62 - Player gained 35 XP. Total: 47/195
-2026-05-17 16:09:20,961 [INFO] fight_enemy:264 - Combat: Deku vs skeleton (HP 41)
-2026-05-17 16:09:20,962 [INFO] fight_enemy:358 - Victory: Deku defeated skeleton in 1 turns
-2026-05-17 16:09:20,962 [INFO] gain_experience:62 - Player gained 30 XP. Total: 77/195
-2026-05-17 16:17:24,268 [INFO] save_game:1839 - Game saved to slot 1: Deku (Lvl 4, Floor 1)
-2026-05-17 16:17:45,886 [INFO] load_game:1959 - Game loaded from slot 1: Deku (Lvl 4, Floor 1)
-2026-05-17 16:20:51,685 [INFO] fight_enemy:264 - Combat: Deku vs sewer rat (HP 20)
-2026-05-17 16:20:51,686 [INFO] fight_enemy:358 - Victory: Deku defeated sewer rat in 1 turns
-2026-05-17 16:20:51,686 [INFO] gain_experience:62 - Player gained 15 XP. Total: 92/195
-2026-05-17 16:20:51,686 [INFO] fight_enemy:264 - Combat: Deku vs prison guard (HP 54)
-2026-05-17 16:20:51,686 [INFO] fight_enemy:358 - Victory: Deku defeated prison guard in 1 turns
-2026-05-17 16:20:51,686 [INFO] gain_experience:62 - Player gained 35 XP. Total: 127/195
-2026-05-17 16:21:50,982 [INFO] fight_enemy:264 - Combat: Deku vs sewer rat (HP 20)
-2026-05-17 16:21:50,983 [INFO] fight_enemy:358 - Victory: Deku defeated sewer rat in 1 turns
-2026-05-17 16:21:50,983 [INFO] gain_experience:62 - Player gained 15 XP. Total: 142/195
-2026-05-17 16:21:50,983 [INFO] fight_enemy:264 - Combat: Deku vs skeleton (HP 41)
-2026-05-17 16:21:50,983 [INFO] fight_enemy:358 - Victory: Deku defeated skeleton in 1 turns
-2026-05-17 16:21:50,983 [INFO] gain_experience:62 - Player gained 30 XP. Total: 172/195
-2026-05-17 16:22:20,332 [INFO] fight_enemy:264 - Combat: Deku vs sewer rat (HP 20)
-2026-05-17 16:22:20,333 [INFO] fight_enemy:358 - Victory: Deku defeated sewer rat in 1 turns
-2026-05-17 16:22:20,333 [INFO] gain_experience:62 - Player gained 15 XP. Total: 187/195
-2026-05-17 16:25:31,828 [INFO] load_game:1959 - Game loaded from slot 1: Deku (Lvl 4, Floor 1)
-2026-05-17 16:25:39,052 [INFO] fight_enemy:264 - Combat: Deku vs sewer rat (HP 20)
-2026-05-17 16:25:39,053 [INFO] fight_enemy:358 - Victory: Deku defeated sewer rat in 1 turns
-2026-05-17 16:25:39,053 [INFO] gain_experience:62 - Player gained 15 XP. Total: 92/195
-2026-05-17 16:25:39,053 [INFO] fight_enemy:264 - Combat: Deku vs prison guard (HP 54)
-2026-05-17 16:25:39,053 [INFO] fight_enemy:358 - Victory: Deku defeated prison guard in 1 turns
-2026-05-17 16:25:39,054 [INFO] gain_experience:62 - Player gained 35 XP. Total: 127/195
-2026-05-17 16:26:09,275 [INFO] fight_enemy:264 - Combat: Deku vs sewer rat (HP 20)
-2026-05-17 16:26:09,276 [INFO] fight_enemy:358 - Victory: Deku defeated sewer rat in 1 turns
-2026-05-17 16:26:09,276 [INFO] gain_experience:62 - Player gained 15 XP. Total: 142/195
-2026-05-17 16:26:09,276 [INFO] fight_enemy:264 - Combat: Deku vs skeleton (HP 41)
-2026-05-17 16:26:09,276 [INFO] fight_enemy:358 - Victory: Deku defeated skeleton in 1 turns
-2026-05-17 16:26:09,276 [INFO] gain_experience:62 - Player gained 30 XP. Total: 172/195
-2026-05-17 16:26:58,935 [INFO] gain_experience:62 - Player gained 50 XP. Total: 222/195
-2026-05-17 16:26:58,936 [INFO] _level_up:91 - LEVEL UP: Deku reached level 5. HP: 212
-2026-05-17 16:27:45,724 [INFO] fight_boss:713 - BOSS FIGHT: Deku (Lvl 5, HP 212) vs Arena Champion on floor 1
-2026-05-17 16:28:09,752 [INFO] fight_boss:856 - BOSS VICTORY: Deku defeated Arena Champion in 4 turns on floor 1
-2026-05-17 16:28:09,753 [INFO] gain_experience:62 - Player gained 150 XP. Total: 177/263
-2026-05-17 16:28:09,767 [INFO] fight_boss:879 - Boss reward: Deku received Carnage Axe (54 dmg)
-2026-05-17 16:28:09,767 [ERROR] execute:44 - Command error: name 'WeaponComparison' is not defined
-Traceback (most recent call last):
-  File "C:\Users\James Cagney\labyrinth\labyrinth\game.py", line 42, in execute
-    self.commands[cmd](game, *args)
-    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File "C:\Users\James Cagney\labyrinth\labyrinth\game.py", line 136, in cmd_fight
-    g._fight_enemy_command(' '.join(args))
-    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
-  File "C:\Users\James Cagney\labyrinth\labyrinth\game.py", line 1064, in _fight_enemy_command
-    success = self.combat.fight_boss(matching, self.player, room)
-  File "C:\Users\James Cagney\labyrinth\labyrinth\combat.py", line 889, in fight_boss
-    comparison = WeaponComparison.compare_weapons(boss_weapon, player.weapon, player)
-                 ^^^^^^^^^^^^^^^^
-NameError: name 'WeaponComparison' is not defined
-2026-05-17 16:29:48,052 [INFO] load_game:1959 - Game loaded from slot 1: Deku (Lvl 4, Floor 1)
-2026-05-17 16:29:52,903 [INFO] fight_enemy:265 - Combat: Deku vs sewer rat (HP 20)
-2026-05-17 16:29:52,903 [INFO] fight_enemy:359 - Victory: Deku defeated sewer rat in 1 turns
-2026-05-17 16:29:52,904 [INFO] gain_experience:62 - Player gained 15 XP. Total: 92/195
-2026-05-17 16:29:52,904 [INFO] fight_enemy:265 - Combat: Deku vs prison guard (HP 54)
-2026-05-17 16:29:52,904 [INFO] fight_enemy:359 - Victory: Deku defeated prison guard in 1 turns
-2026-05-17 16:29:52,904 [INFO] gain_experience:62 - Player gained 35 XP. Total: 127/195
-2026-05-17 16:30:21,902 [INFO] fight_enemy:265 - Combat: Deku vs sewer rat (HP 20)
-2026-05-17 16:30:21,903 [INFO] fight_enemy:359 - Victory: Deku defeated sewer rat in 1 turns
-2026-05-17 16:30:21,903 [INFO] gain_experience:62 - Player gained 15 XP. Total: 142/195
-2026-05-17 16:30:21,903 [INFO] fight_enemy:265 - Combat: Deku vs skeleton (HP 41)
-2026-05-17 16:30:21,903 [INFO] fight_enemy:359 - Victory: Deku defeated skeleton in 1 turns
-2026-05-17 16:30:21,903 [INFO] gain_experience:62 - Player gained 30 XP. Total: 172/195
-2026-05-17 16:30:55,665 [INFO] fight_enemy:265 - Combat: Deku vs sewer rat (HP 20)
-2026-05-17 16:30:55,666 [INFO] fight_enemy:359 - Victory: Deku defeated sewer rat in 1 turns
-2026-05-17 16:30:55,666 [INFO] gain_experience:62 - Player gained 15 XP. Total: 187/195
-2026-05-17 16:31:55,072 [INFO] delete_save:2038 - Save file deleted: slot 1
-2026-05-17 16:32:13,369 [INFO] _create_character:405 - New character: Deku (berserker) with Titan Club
-2026-05-17 16:32:13,369 [INFO] _generate_dungeon:430 - Starting dungeon generation (NG+0)...
-2026-05-17 16:32:13,371 [INFO] _generate_dungeon:597 - Dungeon generated: 10 floors, 138 total rooms
-2026-05-17 16:32:43,313 [INFO] fight_enemy:265 - Combat: Deku vs prison guard (HP 54)
-2026-05-17 16:32:43,314 [INFO] fight_enemy:359 - Victory: Deku defeated prison guard in 1 turns
-2026-05-17 16:32:43,314 [INFO] gain_experience:62 - Player gained 35 XP. Total: 35/80
-2026-05-17 16:32:56,381 [INFO] fight_enemy:265 - Combat: Deku vs goblin (HP 34)
-2026-05-17 16:32:56,382 [INFO] fight_enemy:359 - Victory: Deku defeated goblin in 1 turns
-2026-05-17 16:32:56,382 [INFO] gain_experience:62 - Player gained 25 XP. Total: 60/80
-2026-05-17 16:32:56,382 [INFO] fight_enemy:265 - Combat: Deku vs skeleton (HP 41)
-2026-05-17 16:32:56,382 [INFO] fight_enemy:359 - Victory: Deku defeated skeleton in 2 turns
-2026-05-17 16:32:56,383 [INFO] gain_experience:62 - Player gained 30 XP. Total: 90/80
-2026-05-17 16:32:56,383 [INFO] _level_up:91 - LEVEL UP: Deku reached level 2. HP: 158
-2026-05-17 16:33:35,843 [INFO] fight_enemy:265 - Combat: Deku vs skeleton (HP 41)
-2026-05-17 16:33:35,844 [INFO] fight_enemy:359 - Victory: Deku defeated skeleton in 2 turns
-2026-05-17 16:33:35,844 [INFO] gain_experience:62 - Player gained 30 XP. Total: 40/108
-2026-05-17 16:33:35,844 [INFO] fight_enemy:265 - Combat: Deku vs sewer rat (HP 20)
-2026-05-17 16:33:35,844 [INFO] fight_enemy:359 - Victory: Deku defeated sewer rat in 1 turns
-2026-05-17 16:33:35,844 [INFO] gain_experience:62 - Player gained 15 XP. Total: 55/108
-2026-05-17 16:33:46,516 [INFO] fight_enemy:265 - Combat: Deku vs prison guard (HP 54)
-2026-05-17 16:33:46,516 [INFO] fight_enemy:359 - Victory: Deku defeated prison guard in 2 turns
-2026-05-17 16:33:46,516 [INFO] gain_experience:62 - Player gained 35 XP. Total: 90/108
-2026-05-17 16:33:46,517 [INFO] fight_enemy:265 - Combat: Deku vs sewer rat (HP 20)
-2026-05-17 16:33:46,517 [INFO] fight_enemy:359 - Victory: Deku defeated sewer rat in 1 turns
-2026-05-17 16:33:46,517 [INFO] gain_experience:62 - Player gained 15 XP. Total: 105/108
-2026-05-17 16:34:05,450 [INFO] fight_enemy:265 - Combat: Deku vs treasure guardian (HP 81)
-2026-05-17 16:34:05,450 [INFO] fight_enemy:359 - Victory: Deku defeated treasure guardian in 3 turns
-2026-05-17 16:34:05,450 [INFO] gain_experience:62 - Player gained 65 XP. Total: 170/108
-2026-05-17 16:34:05,450 [INFO] _level_up:91 - LEVEL UP: Deku reached level 3. HP: 176
-2026-05-17 16:34:05,451 [INFO] fight_enemy:265 - Combat: Deku vs skeleton (HP 41)
-2026-05-17 16:34:05,451 [INFO] fight_enemy:359 - Victory: Deku defeated skeleton in 2 turns
-2026-05-17 16:34:05,451 [INFO] gain_experience:62 - Player gained 30 XP. Total: 92/145
-2026-05-17 16:34:10,910 [INFO] gain_experience:62 - Player gained 50 XP. Total: 142/145
-2026-05-17 16:34:46,119 [INFO] fight_enemy:265 - Combat: Deku vs goblin (HP 34)
-2026-05-17 16:34:46,120 [INFO] fight_enemy:359 - Victory: Deku defeated goblin in 1 turns
-2026-05-17 16:34:46,120 [INFO] gain_experience:62 - Player gained 25 XP. Total: 167/145
-2026-05-17 16:34:46,120 [INFO] _level_up:91 - LEVEL UP: Deku reached level 4. HP: 194
-2026-05-17 16:34:57,890 [INFO] fight_enemy:265 - Combat: Deku vs sewer rat (HP 20)
-2026-05-17 16:34:57,890 [INFO] fight_enemy:359 - Victory: Deku defeated sewer rat in 1 turns
-2026-05-17 16:34:57,890 [INFO] gain_experience:62 - Player gained 15 XP. Total: 37/195
-2026-05-17 16:34:57,891 [INFO] fight_enemy:265 - Combat: Deku vs skeleton (HP 41)
-2026-05-17 16:34:57,891 [INFO] fight_enemy:359 - Victory: Deku defeated skeleton in 2 turns
-2026-05-17 16:34:57,891 [INFO] gain_experience:62 - Player gained 30 XP. Total: 67/195
-2026-05-17 16:36:01,380 [INFO] fight_enemy:265 - Combat: Deku vs goblin (HP 34)
-2026-05-17 16:36:01,380 [INFO] fight_enemy:359 - Victory: Deku defeated goblin in 1 turns
-2026-05-17 16:36:01,380 [INFO] gain_experience:62 - Player gained 25 XP. Total: 92/195
-2026-05-17 16:36:01,380 [INFO] fight_enemy:265 - Combat: Deku vs skeleton (HP 41)
-2026-05-17 16:36:01,380 [INFO] fight_enemy:359 - Victory: Deku defeated skeleton in 1 turns
-2026-05-17 16:36:01,381 [INFO] gain_experience:62 - Player gained 30 XP. Total: 122/195
-2026-05-17 16:36:08,245 [INFO] gain_experience:62 - Player gained 50 XP. Total: 172/195
-2026-05-17 16:36:27,951 [INFO] fight_enemy:265 - Combat: Deku vs goblin (HP 34)
-2026-05-17 16:36:27,952 [INFO] fight_enemy:359 - Victory: Deku defeated goblin in 1 turns
-2026-05-17 16:36:27,952 [INFO] gain_experience:62 - Player gained 25 XP. Total: 197/195
-2026-05-17 16:36:27,952 [INFO] _level_up:91 - LEVEL UP: Deku reached level 5. HP: 212
-2026-05-17 16:36:27,952 [INFO] fight_enemy:265 - Combat: Deku vs prison guard (HP 54)
-2026-05-17 16:36:27,952 [INFO] fight_enemy:359 - Victory: Deku defeated prison guard in 1 turns
-2026-05-17 16:36:27,953 [INFO] gain_experience:62 - Player gained 35 XP. Total: 37/263
-2026-05-17 16:37:04,659 [INFO] gain_experience:62 - Player gained 50 XP. Total: 87/263
-2026-05-17 16:37:39,217 [INFO] gain_experience:62 - Player gained 50 XP. Total: 137/263
-2026-05-17 16:37:56,173 [INFO] fight_enemy:265 - Combat: Deku vs skeleton (HP 41)
-2026-05-17 16:37:56,174 [INFO] fight_enemy:359 - Victory: Deku defeated skeleton in 1 turns
-2026-05-17 16:37:56,174 [INFO] gain_experience:62 - Player gained 30 XP. Total: 167/263
-2026-05-17 16:37:56,174 [INFO] fight_enemy:265 - Combat: Deku vs goblin (HP 34)
-2026-05-17 16:37:56,174 [INFO] fight_enemy:359 - Victory: Deku defeated goblin in 1 turns
-2026-05-17 16:37:56,174 [INFO] gain_experience:62 - Player gained 25 XP. Total: 192/263
-2026-05-17 16:38:22,907 [INFO] upgrade_class:247 - CLASS UPGRADE: Deku advanced from tier 1 to 2 (Bloodrage)
-2026-05-17 16:38:36,558 [INFO] fight_boss:714 - BOSS FIGHT: Deku (Lvl 5, HP 242) vs Arena Champion on floor 1
-2026-05-17 16:38:51,445 [INFO] fight_boss:857 - BOSS VICTORY: Deku defeated Arena Champion in 2 turns on floor 1
-2026-05-17 16:38:51,445 [INFO] gain_experience:62 - Player gained 150 XP. Total: 342/263
-2026-05-17 16:38:51,445 [INFO] _level_up:91 - LEVEL UP: Deku reached level 6. HP: 260
-2026-05-17 16:38:51,446 [INFO] fight_boss:880 - Boss reward: Deku received Bloodlust Cleaver (50 dmg)
+  File "C:\Users\James Cagney\labyrinth\constants.py", line 1477, in generate_boss_weapon
+    weapon_type = GameConstants.CLASSES[player.character_class]['weapon_types'][0]
+                  ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'shadow_knight'
+2026-05-21 18:33:29,720 [INFO] Game loaded from slot 1: Deku (Lvl 18, Floor 1)
+2026-05-21 18:33:33,961 [INFO] Player gained 50 XP. Total: 3483/6383
+2026-05-21 18:33:44,124 [INFO] Combat: Deku vs cinder hound (HP 95)
+2026-05-21 18:33:44,124 [INFO] Victory: Deku defeated cinder hound in 1 turns
+2026-05-21 18:33:44,124 [INFO] Player gained 70 XP. Total: 3553/6383
+2026-05-21 18:33:44,125 [INFO] Combat: Deku vs soot wraith (HP 118)
+2026-05-21 18:33:44,125 [INFO] Victory: Deku defeated soot wraith in 1 turns
+2026-05-21 18:33:44,125 [INFO] Player gained 120 XP. Total: 3673/6383
+2026-05-21 18:33:52,568 [INFO] BOSS FIGHT: Deku (Lvl 18, HP 705) vs The Cinder King on floor 1
+2026-05-21 18:33:57,513 [INFO] BOSS VICTORY: Deku defeated The Cinder King in 1 turns on floor 1
+2026-05-21 18:33:57,513 [INFO] Player gained 480 XP. Total: 4153/6383
+2026-05-21 18:33:57,514 [INFO] Boss reward: Deku received Blessed Combat Spear (50 dmg)
+2026-05-21 18:34:26,370 [INFO] Combat: Deku vs soot wraith (HP 118)
+2026-05-21 18:34:26,370 [INFO] Victory: Deku defeated soot wraith in 1 turns
+2026-05-21 18:34:26,371 [INFO] Player gained 120 XP. Total: 4273/6383
+2026-05-21 18:34:26,371 [INFO] Combat: Deku vs ash walker (HP 78)
+2026-05-21 18:34:26,371 [INFO] Victory: Deku defeated ash walker in 1 turns
+2026-05-21 18:34:26,371 [INFO] Player gained 54 XP. Total: 4327/6383
+2026-05-21 18:34:34,342 [INFO] Combat: Deku vs soot wraith (HP 118)
+2026-05-21 18:34:34,342 [INFO] Victory: Deku defeated soot wraith in 1 turns
+2026-05-21 18:34:34,342 [INFO] Player gained 120 XP. Total: 4447/6383
+2026-05-21 18:34:34,342 [INFO] Combat: Deku vs cinder hound (HP 95)
+2026-05-21 18:34:34,343 [INFO] Victory: Deku defeated cinder hound in 1 turns
+2026-05-21 18:34:34,343 [INFO] Player gained 70 XP. Total: 4517/6383
+2026-05-21 18:34:40,262 [INFO] Combat: Deku vs cinder hound (HP 95)
+2026-05-21 18:34:40,263 [INFO] Victory: Deku defeated cinder hound in 1 turns
+2026-05-21 18:34:40,263 [INFO] Player gained 70 XP. Total: 4587/6383
+2026-05-21 18:34:40,263 [INFO] Combat: Deku vs soot wraith (HP 118)
+2026-05-21 18:34:40,263 [INFO] Victory: Deku defeated soot wraith in 1 turns
+2026-05-21 18:34:40,264 [INFO] Player gained 120 XP. Total: 4707/6383
+2026-05-21 18:34:46,599 [INFO] Combat: Deku vs ash walker (HP 78)
+2026-05-21 18:34:46,599 [INFO] Victory: Deku defeated ash walker in 1 turns
+2026-05-21 18:34:46,599 [INFO] Player gained 54 XP. Total: 4761/6383
+2026-05-21 18:34:46,599 [INFO] Combat: Deku vs soot wraith (HP 118)
+2026-05-21 18:34:46,600 [INFO] Victory: Deku defeated soot wraith in 1 turns
+2026-05-21 18:34:46,600 [INFO] Player gained 120 XP. Total: 4881/6383
+2026-05-21 18:35:10,588 [INFO] Game saved to slot 1: Deku (Lvl 18, Floor 2)
+2026-05-21 18:35:19,407 [INFO] Game saved to slot 1: Deku (Lvl 18, Floor 2)
+2026-05-21 18:57:18,496 [WARNING] Save version mismatch: 7.0.2 vs 7.7.0
+2026-05-21 18:57:18,497 [INFO] Game loaded from slot 2: Jessie (Lvl 13, Floor 1)
+2026-05-21 19:06:09,648 [WARNING] Save version mismatch: 7.0.2 vs 7.7.0
+2026-05-21 19:06:09,650 [INFO] Game loaded from slot 2: Jessie (Lvl 13, Floor 1)
+2026-05-21 19:08:14,121 [INFO] Starting dungeon generation (NG+2)...
+2026-05-21 19:08:14,123 [INFO] NG+ dungeon generated (The Ashen Wastes): 109 rooms
+2026-05-21 19:10:02,313 [WARNING] Save version mismatch: 7.0.2 vs 7.7.0
+2026-05-21 19:10:02,314 [INFO] Game loaded from slot 2: Jessie (Lvl 13, Floor 1)
+2026-05-21 19:10:45,162 [INFO] Starting dungeon generation (NG+2)...
+2026-05-21 19:10:45,164 [INFO] NG+ dungeon generated (The Ashen Wastes): 109 rooms
+2026-05-21 19:11:30,580 [INFO] Game saved to slot 2: Jessie (Lvl 13, Floor 1)

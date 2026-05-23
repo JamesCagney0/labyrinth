@@ -2,10 +2,7 @@
 LABYRINTH — Hall of Records (persistent cross-run stats)
 """
 from __future__ import annotations
-import random, json, os, logging
-from typing import Dict, List, Optional, Set, Tuple, Any, TYPE_CHECKING, Callable
-from difflib import get_close_matches
-from dataclasses import dataclass, field
+import json, os, logging
 
 logger = logging.getLogger(__name__)
 
@@ -83,7 +80,4 @@ class RecordsManager:
             print("  [ Beat the game to unlock the Void Walker class ]")
         print("═"*50)
 
-#################################################################################
-# COMMAND REGISTRY
-#################################################################################
 

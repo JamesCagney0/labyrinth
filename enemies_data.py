@@ -1,9 +1,7 @@
 """LABYRINTH — Enemy definitions"""
 from __future__ import annotations
-import random, json, os, logging
-from typing import Dict, List, Optional, Set, Tuple, Any, TYPE_CHECKING, Callable
-from difflib import get_close_matches
-from dataclasses import dataclass, field
+import logging
+from typing import Dict
 
 logger = logging.getLogger(__name__)
 
@@ -12,27 +10,27 @@ class EnemiesData:
     """All enemy-related constants. Imported into GameConstants."""
 
     ENEMIES = {
-        'sewer rat':        {'health':  20, 'damage':  7, 'exp':  15, 'desc': 'A disease-ridden rat with glowing red eyes'},
-        'goblin':           {'health':  34, 'damage': 10, 'exp':  25, 'desc': 'A small, green-skinned creature wielding a crude club'},
-        'skeleton':         {'health':  41, 'damage': 13, 'exp':  30, 'desc': 'Animated bones held together by dark magic'},
-        'prison guard':     {'health':  54, 'damage': 15, 'exp':  35, 'desc': 'A corrupted guard in tattered armor'},
-        'armored skeleton': {'health':  61, 'damage': 18, 'exp':  45, 'desc': 'A skeleton warrior clad in ancient armor'},
-        'shadow wraith':    {'health':  68, 'damage': 23, 'exp':  55, 'desc': 'A spectral being that feeds on fear'},
-        'corrupted mage':   {'health':  54, 'damage': 25, 'exp':  60, 'desc': 'A once-noble mage consumed by forbidden magic'},
-        'ghoul':            {'health':  74, 'damage': 20, 'exp':  50, 'desc': 'A flesh-eating undead creature'},
-        'fire elemental':   {'health':  81, 'damage': 28, 'exp':  70, 'desc': 'A being of pure flame and rage'},
-        'ice elemental':    {'health':  78, 'damage': 25, 'exp':  68, 'desc': 'A crystalline creature radiating freezing cold'},
-        'lightning wisp':   {'health':  68, 'damage': 31, 'exp':  75, 'desc': 'Crackling energy given form'},
-        'stone golem':      {'health': 108, 'damage': 23, 'exp':  65, 'desc': 'A massive construct of animated stone'},
-        'lesser demon':     {'health':  95, 'damage': 33, 'exp':  85, 'desc': 'A horned creature from the abyss'},
-        'dark cultist':     {'health':  88, 'damage': 30, 'exp':  80, 'desc': 'A fanatic devoted to dark powers'},
-        'shadow beast':     {'health': 101, 'damage': 35, 'exp':  90, 'desc': 'A monstrous predator born of darkness'},
-        'void spawn':       {'health': 108, 'damage': 38, 'exp':  95, 'desc': 'An aberration from beyond reality'},
-        'ancient guardian': {'health': 122, 'damage': 40, 'exp': 110, 'desc': 'An eternal sentinel of forgotten secrets'},
-        'cosmic horror':    {'health': 115, 'damage': 44, 'exp': 120, 'desc': 'An incomprehensible being from the void'},
-        'titan spawn':      {'health': 135, 'damage': 38, 'exp': 105, 'desc': 'Offspring of the primordial titans'},
-        'celestial knight': {'health': 128, 'damage': 43, 'exp': 115, 'desc': 'A fallen warrior of the heavens'},
-        'treasure guardian':{'health':  81, 'damage': 25, 'exp':  65, 'desc': 'A magical construct protecting valuable treasure'}
+        'sewer rat':        {'health':  20, 'damage':  7, 'exp':  35, 'desc': 'A disease-ridden rat with glowing red eyes'},
+        'goblin':           {'health':  34, 'damage': 10, 'exp':  48, 'desc': 'A small, green-skinned creature wielding a crude club'},
+        'skeleton':         {'health':  41, 'damage': 13, 'exp':  48, 'desc': 'Animated bones held together by dark magic'},
+        'prison guard':     {'health':  54, 'damage': 15, 'exp':  50, 'desc': 'A corrupted guard in tattered armor'},
+        'armored skeleton': {'health':  61, 'damage': 18, 'exp':  62, 'desc': 'A skeleton warrior clad in ancient armor'},
+        'shadow wraith':    {'health':  68, 'damage': 23, 'exp':  65, 'desc': 'A spectral being that feeds on fear'},
+        'corrupted mage':   {'health':  54, 'damage': 25, 'exp':  78, 'desc': 'A once-noble mage consumed by forbidden magic'},
+        'ghoul':            {'health':  74, 'damage': 20, 'exp':  76, 'desc': 'A flesh-eating undead creature'},
+        'fire elemental':   {'health':  81, 'damage': 28, 'exp':  90, 'desc': 'A being of pure flame and rage'},
+        'ice elemental':    {'health':  78, 'damage': 25, 'exp':  90, 'desc': 'A crystalline creature radiating freezing cold'},
+        'lightning wisp':   {'health':  68, 'damage': 31, 'exp':  104, 'desc': 'Crackling energy given form'},
+        'stone golem':      {'health': 108, 'damage': 23, 'exp':  106, 'desc': 'A massive construct of animated stone'},
+        'lesser demon':     {'health':  95, 'damage': 33, 'exp':  118, 'desc': 'A horned creature from the abyss'},
+        'dark cultist':     {'health':  88, 'damage': 30, 'exp':  120, 'desc': 'A fanatic devoted to dark powers'},
+        'shadow beast':     {'health': 101, 'damage': 35, 'exp':  132, 'desc': 'A monstrous predator born of darkness'},
+        'void spawn':       {'health': 108, 'damage': 38, 'exp':  135, 'desc': 'An aberration from beyond reality'},
+        'ancient guardian': {'health': 122, 'damage': 40, 'exp': 146, 'desc': 'An eternal sentinel of forgotten secrets'},
+        'cosmic horror':    {'health': 115, 'damage': 44, 'exp': 162, 'desc': 'An incomprehensible being from the void'},
+        'titan spawn':      {'health': 135, 'damage': 38, 'exp': 160, 'desc': 'Offspring of the primordial titans'},
+        'celestial knight': {'health': 128, 'damage': 43, 'exp': 160, 'desc': 'A fallen warrior of the heavens'},
+        'treasure guardian':{'health':  81, 'damage': 25, 'exp':  80, 'desc': 'A magical construct protecting valuable treasure'}
     }
     
 

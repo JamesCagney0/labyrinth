@@ -1,9 +1,7 @@
 """LABYRINTH — NG+ worlds and fusion class definitions"""
 from __future__ import annotations
-import random, json, os, logging
-from typing import Dict, List, Optional, Set, Tuple, Any, TYPE_CHECKING, Callable
-from difflib import get_close_matches
-from dataclasses import dataclass, field
+import logging
+from typing import Dict, List
 
 logger = logging.getLogger(__name__)
 
@@ -254,7 +252,7 @@ class WorldData:
     }
 
     # Stat bonus granted on each fusion tier upgrade
-    FUSION_TIER_STAT_BONUS: int = 8
+    FUSION_TIER_STAT_BONUS: int = 5  # +5 per stat per tier (T5->T10 = +25 total per stat)
 
     NG_PLUS_WORLDS = {
 
@@ -269,26 +267,43 @@ class WorldData:
                 "The enemies here have never seen sunlight\n"
                 "— they've never seen anything that still exists."
             ),
+            'victory_text': (
+                "The Origin Breaker falls.\n\n"
+                "Not dramatically. Not with an explosion or a final scream.\n"
+                "It simply resolves — like a corrupted file finally processing.\n"
+                "One moment it was there. Then it was data. Then it was nothing.\n\n"
+                "The room is quiet.\n\n"
+                "For the first time since you entered the Fractured Labyrinth,\n"
+                "the walls are where they should be.\n"
+                "The floor is flat. The ceiling is a ceiling.\n"
+                "Nothing is overlapping. Nothing is wrong.\n\n"
+                "You breathe.\n\n"
+                "The dungeon breathes back.\n\n"
+                "Something ticks.\n"
+                "Not a clock — something deeper than a clock.\n"
+                "The labyrinth, finding its next instruction.\n\n"
+                "The walls begin to change."
+            ),
             'enemies': {
-                'fracture imp':       {'health': 85,  'damage': 35, 'exp':  60, 'desc': 'A glitching imp with reality-distorted limbs'},
-                'void rat':           {'health': 70,  'damage': 30, 'exp':  50, 'desc': 'A massive rat whose fur phases in and out of existence'},
-                'corrupted soldier':  {'health': 140, 'damage': 48, 'exp':  90, 'desc': 'A soldier whose armor is fused to his corroded body'},
-                'mirror skeleton':    {'health': 120, 'damage': 55, 'exp': 100, 'desc': 'A skeleton that reflects your own fighting style back at you'},
-                'null knight':        {'health': 175, 'damage': 62, 'exp': 130, 'desc': 'A knight made of compressed absence'},
-                'echo wraith':        {'health': 160, 'damage': 70, 'exp': 145, 'desc': 'A wraith that screams in a voice you recognise as your own'},
-                'void mage':          {'health': 130, 'damage': 78, 'exp': 155, 'desc': 'A mage who draws power from the spaces between realities'},
-                'flesh horror':       {'health': 190, 'damage': 58, 'exp': 140, 'desc': 'A mass of wrong-angled meat that moves against gravity'},
-                'plasma elemental':   {'health': 200, 'damage': 75, 'exp': 175, 'desc': 'An elemental born from collapsed dimensions'},
-                'crystal wraith':     {'health': 185, 'damage': 68, 'exp': 165, 'desc': 'A wraith crystallised mid-scream, still screaming'},
-                'storm titan':        {'health': 160, 'damage': 85, 'exp': 185, 'desc': 'A titan of living lightning, fractured across a dozen bodies'},
-                'void golem':         {'health': 260, 'damage': 65, 'exp': 160, 'desc': 'A golem of solidified void-matter'},
-                'fracture demon':     {'health': 220, 'damage': 90, 'exp': 200, 'desc': 'A demon from the wrong dimension, furious about it'},
-                'null cultist':       {'health': 195, 'damage': 82, 'exp': 190, 'desc': 'A cultist who contacted the void and survived'},
-                'shadow devourer':    {'health': 240, 'damage': 95, 'exp': 215, 'desc': 'A predator that eats shadows and leaves nothing'},
-                'entropy spawn':      {'health': 255, 'damage': 100,'exp': 225, 'desc': 'Born from pure entropy — the end of all things, walking'},
-                'void titan':         {'health': 300, 'damage': 88, 'exp': 240, 'desc': 'A primordial titan fully consumed by the void'},
-                'fractured celestial':{'health': 280, 'damage': 105,'exp': 260, 'desc': 'A celestial knight whose divinity has been inverted'},
-                'null guardian':      {'health': 320, 'damage': 92, 'exp': 255, 'desc': 'The guardian of a place that no longer exists'},
+                'fracture imp':       {'health': 85,  'damage': 29, 'exp':  60, 'desc': 'A glitching imp with reality-distorted limbs'},
+                'void rat':           {'health': 70,  'damage': 25, 'exp':  50, 'desc': 'A massive rat whose fur phases in and out of existence'},
+                'corrupted soldier':  {'health': 140, 'damage': 40, 'exp':  90, 'desc': 'A soldier whose armor is fused to his corroded body'},
+                'mirror skeleton':    {'health': 120, 'damage': 46, 'exp': 120, 'desc': 'A skeleton that reflects your own fighting style back at you'},
+                'null knight':        {'health': 175, 'damage': 52, 'exp': 156, 'desc': 'A knight made of compressed absence'},
+                'echo wraith':        {'health': 160, 'damage': 59, 'exp': 174, 'desc': 'A wraith that screams in a voice you recognise as your own'},
+                'void mage':          {'health': 130, 'damage': 66, 'exp': 186, 'desc': 'A mage who draws power from the spaces between realities'},
+                'flesh horror':       {'health': 190, 'damage': 49, 'exp': 168, 'desc': 'A mass of wrong-angled meat that moves against gravity'},
+                'plasma elemental':   {'health': 200, 'damage': 63, 'exp': 210, 'desc': 'An elemental born from collapsed dimensions'},
+                'crystal wraith':     {'health': 185, 'damage': 57, 'exp': 198, 'desc': 'A wraith crystallised mid-scream, still screaming'},
+                'storm titan':        {'health': 160, 'damage': 72, 'exp': 222, 'desc': 'A titan of living lightning, fractured across a dozen bodies'},
+                'void golem':         {'health': 260, 'damage': 55, 'exp': 192, 'desc': 'A golem of solidified void-matter'},
+                'fracture demon':     {'health': 220, 'damage': 76, 'exp': 240, 'desc': 'A demon from the wrong dimension, furious about it'},
+                'null cultist':       {'health': 195, 'damage': 69, 'exp': 228, 'desc': 'A cultist who contacted the void and survived'},
+                'shadow devourer':    {'health': 240, 'damage': 80, 'exp': 258, 'desc': 'A predator that eats shadows and leaves nothing'},
+                'entropy spawn':      {'health': 255, 'damage': 85,'exp': 270, 'desc': 'Born from pure entropy — the end of all things, walking'},
+                'void titan':         {'health': 300, 'damage': 74, 'exp': 288, 'desc': 'A primordial titan fully consumed by the void'},
+                'fractured celestial':{'health': 280, 'damage': 89,'exp': 312, 'desc': 'A celestial knight whose divinity has been inverted'},
+                'null guardian':      {'health': 320, 'damage': 78, 'exp': 306, 'desc': 'The guardian of a place that no longer exists'},
             },
             'floor_themes': {
                 1:  ['fracture imp', 'void rat', 'corrupted soldier'],
@@ -303,16 +318,16 @@ class WorldData:
                 10: ['null guardian', 'void titan', 'fractured celestial'],
             },
             'boss_data': {
-                1:  {'name': 'The Glitch',            'special': 'REALITY STUTTER',    'base_health': 380,  'health_scaling': 22, 'damage': 55,  'exp_reward': 400,  'special_bonus': 35, 'stat_bonus': 4, 'min_level': 4},
-                2:  {'name': 'The Undying Architect', 'special': 'VOID CONSTRUCTION',  'base_health': 460,  'health_scaling': 25, 'damage': 62,  'exp_reward': 480,  'special_bonus': 40, 'stat_bonus': 4, 'min_level': 6},
-                3:  {'name': 'The Hollow King',       'special': 'EMPTINESS WAVE',     'base_health': 540,  'health_scaling': 28, 'damage': 70,  'exp_reward': 560,  'special_bonus': 46, 'stat_bonus': 5, 'min_level': 8},
-                4:  {'name': 'The Shadow Itself',     'special': 'ABSOLUTE DARKNESS',  'base_health': 620,  'health_scaling': 31, 'damage': 78,  'exp_reward': 640,  'special_bonus': 52, 'stat_bonus': 5, 'min_level': 10},
-                5:  {'name': 'The Infernal Echo',     'special': 'RECURSIVE INFERNO',  'base_health': 720,  'health_scaling': 34, 'damage': 86,  'exp_reward': 720,  'special_bonus': 58, 'stat_bonus': 6, 'min_level': 12},
-                6:  {'name': 'Absolute Zero',         'special': 'HEAT DEATH',         'base_health': 820,  'health_scaling': 37, 'damage': 95,  'exp_reward': 820,  'special_bonus': 65, 'stat_bonus': 6, 'min_level': 14},
-                7:  {'name': 'The Void Prince',       'special': 'ANNIHILATION FIELD', 'base_health': 940,  'health_scaling': 40, 'damage': 105, 'exp_reward': 940,  'special_bonus': 72, 'stat_bonus': 7, 'min_level': 16},
-                8:  {'name': 'The Fracture God',      'special': 'DIMENSIONAL SPLIT',  'base_health': 1080, 'health_scaling': 44, 'damage': 115, 'exp_reward': 1080, 'special_bonus': 80, 'stat_bonus': 7, 'min_level': 18},
-                9:  {'name': 'The First Beast',       'special': 'PRIMORDIAL SCREAM',  'base_health': 1240, 'health_scaling': 48, 'damage': 128, 'exp_reward': 1240, 'special_bonus': 90, 'stat_bonus': 8, 'min_level': 20},
-                10: {'name': 'The Origin Breaker',    'special': 'ERASURE',            'base_health': 1500, 'health_scaling': 55, 'damage': 145, 'exp_reward': 1500, 'special_bonus': 105,'stat_bonus': 10,'min_level': 22},
+                1:  {'name': 'The Glitch',            'special': 'REALITY STUTTER',    'base_health': 380,  'health_scaling': 22, 'damage': 34,  'exp_reward': 480,  'special_bonus': 35, 'stat_bonus': 4, 'min_level': 4},
+                2:  {'name': 'The Undying Architect', 'special': 'VOID CONSTRUCTION',  'base_health': 460,  'health_scaling': 25, 'damage': 39,  'exp_reward': 580,  'special_bonus': 40, 'stat_bonus': 4, 'min_level': 6},
+                3:  {'name': 'The Hollow King',       'special': 'EMPTINESS WAVE',     'base_health': 540,  'health_scaling': 28, 'damage': 44,  'exp_reward': 700,  'special_bonus': 46, 'stat_bonus': 5, 'min_level': 8},
+                4:  {'name': 'The Shadow Itself',     'special': 'ABSOLUTE DARKNESS',  'base_health': 620,  'health_scaling': 31, 'damage': 49,  'exp_reward': 840,  'special_bonus': 52, 'stat_bonus': 5, 'min_level': 10},
+                5:  {'name': 'The Infernal Echo',     'special': 'RECURSIVE INFERNO',  'base_health': 720,  'health_scaling': 34, 'damage': 55,  'exp_reward': 1000,  'special_bonus': 58, 'stat_bonus': 6, 'min_level': 12},
+                6:  {'name': 'Absolute Zero',         'special': 'HEAT DEATH',         'base_health': 820,  'health_scaling': 37, 'damage': 61,  'exp_reward': 1180,  'special_bonus': 65, 'stat_bonus': 6, 'min_level': 14},
+                7:  {'name': 'The Void Prince',       'special': 'ANNIHILATION FIELD', 'base_health': 940,  'health_scaling': 40, 'damage': 68, 'exp_reward': 1380,  'special_bonus': 72, 'stat_bonus': 7, 'min_level': 16},
+                8:  {'name': 'The Fracture God',      'special': 'DIMENSIONAL SPLIT',  'base_health': 1080, 'health_scaling': 44, 'damage': 74, 'exp_reward': 1600, 'special_bonus': 80, 'stat_bonus': 7, 'min_level': 18},
+                9:  {'name': 'The First Beast',       'special': 'PRIMORDIAL SCREAM',  'base_health': 1240, 'health_scaling': 48, 'damage': 82, 'exp_reward': 1840, 'special_bonus': 90, 'stat_bonus': 8, 'min_level': 20},
+                10: {'name': 'The Origin Breaker',    'special': 'ERASURE',            'base_health': 1500, 'health_scaling': 55, 'damage': 123, 'exp_reward': 1500, 'special_bonus': 105,'stat_bonus': 10,'min_level': 22},
             },
             'boss_rooms': {
                 1:  ("The Glitch Arena",     "The arena flickers between states of existence.",         "The Glitch manifests from a cascade of corrupted reality."),
@@ -339,26 +354,41 @@ class WorldData:
                 "Something vast moves in the distance.\n"
                 "Something that has been waiting for someone foolish enough to descend."
             ),
+            'victory_text': (
+                "The Drowned Eternal is gone.\n\n"
+                "The water doesn't drain dramatically.\n"
+                "It just accepts that it is finished.\n\n"
+                "The pressure releases. You feel it in your ears, your chest,\n"
+                "the ache behind your eyes that you had stopped noticing.\n\n"
+                "For a moment the dungeon is just stone.\n"
+                "Cold, old, salt-stained stone.\n"
+                "No kingdom. No court. No current.\n\n"
+                "You stand in the silence of water that has forgotten how to move.\n\n"
+                "Then the stone begins to change.\n"
+                "Not wet. Something else entirely.\n"
+                "Something that has been waiting under the water\n"
+                "for the water to finish with it."
+            ),
             'enemies': {
-                'tide crawler':      {'health': 80,  'damage': 32, 'exp':  55, 'desc': 'A crab-thing the size of a horse with eyes that glow teal'},
-                'drowned soldier':   {'health': 135, 'damage': 46, 'exp':  88, 'desc': 'A soldier preserved by cold water, still following orders from a dead king'},
-                'sea wraith':        {'health': 115, 'damage': 52, 'exp':  98, 'desc': 'The ghost of a sailor who forgot to surface'},
-                'coral horror':      {'health': 180, 'damage': 60, 'exp': 128, 'desc': 'Coral that grew through a living body and decided it preferred this form'},
-                'depth stalker':     {'health': 165, 'damage': 68, 'exp': 140, 'desc': 'Hunts by the pressure displacement of your footsteps'},
-                'tide mage':         {'health': 125, 'damage': 76, 'exp': 152, 'desc': 'Commands water as a weapon and considers drowning mercy'},
-                'abyssal shark':     {'health': 195, 'damage': 82, 'exp': 172, 'desc': 'Adapted to depths where light is a myth'},
-                'kraken spawn':      {'health': 210, 'damage': 72, 'exp': 168, 'desc': 'A child of something much larger, still growing'},
-                'current golem':     {'health': 255, 'damage': 62, 'exp': 158, 'desc': 'A golem made of concentrated ocean current'},
-                'siren wraith':      {'health': 175, 'damage': 88, 'exp': 182, 'desc': 'Its song draws you closer. Do not get closer.'},
-                'pressure elemental':{'health': 195, 'damage': 78, 'exp': 178, 'desc': 'Born from the pressure that crushes ships to planks'},
-                'deep cultist':      {'health': 188, 'damage': 80, 'exp': 186, 'desc': 'Worships something ancient that lives in the lowest trench'},
-                'tide demon':        {'health': 218, 'damage': 88, 'exp': 198, 'desc': 'A demon that crossed over through the deepest part of the sea'},
-                'abyss devourer':    {'health': 238, 'damage': 93, 'exp': 212, 'desc': 'Swallows light. Swallows everything eventually.'},
-                'void leviathan':    {'health': 292, 'damage': 86, 'exp': 236, 'desc': 'The skeleton of a creature that predates oceans'},
-                'drowned titan':     {'health': 268, 'damage': 102,'exp': 256, 'desc': 'A titan that sank and adapted rather than die'},
-                'abyssal guardian':  {'health': 312, 'damage': 90, 'exp': 252, 'desc': 'Guards the thing at the very bottom. Has never failed.'},
-                'sea horror':        {'health': 245, 'damage': 97, 'exp': 220, 'desc': 'Resembles nothing that should exist'},
-                'the drowned king':  {'health': 330, 'damage': 108,'exp': 270, 'desc': 'The king of this place. Still giving commands. Still being obeyed.'},
+                'tide crawler':      {'health': 80,  'damage': 27, 'exp':  55, 'desc': 'A crab-thing the size of a horse with eyes that glow teal'},
+                'drowned soldier':   {'health': 135, 'damage': 39, 'exp':  88, 'desc': 'A soldier preserved by cold water, still following orders from a dead king'},
+                'sea wraith':        {'health': 115, 'damage': 44, 'exp':  98, 'desc': 'The ghost of a sailor who forgot to surface'},
+                'coral horror':      {'health': 180, 'damage': 51, 'exp': 153, 'desc': 'Coral that grew through a living body and decided it preferred this form'},
+                'depth stalker':     {'health': 165, 'damage': 57, 'exp': 168, 'desc': 'Hunts by the pressure displacement of your footsteps'},
+                'tide mage':         {'health': 125, 'damage': 64, 'exp': 182, 'desc': 'Commands water as a weapon and considers drowning mercy'},
+                'abyssal shark':     {'health': 195, 'damage': 69, 'exp': 206, 'desc': 'Adapted to depths where light is a myth'},
+                'kraken spawn':      {'health': 210, 'damage': 61, 'exp': 201, 'desc': 'A child of something much larger, still growing'},
+                'current golem':     {'health': 255, 'damage': 52, 'exp': 189, 'desc': 'A golem made of concentrated ocean current'},
+                'siren wraith':      {'health': 175, 'damage': 74, 'exp': 218, 'desc': 'Its song draws you closer. Do not get closer.'},
+                'pressure elemental':{'health': 195, 'damage': 66, 'exp': 213, 'desc': 'Born from the pressure that crushes ships to planks'},
+                'deep cultist':      {'health': 188, 'damage': 68, 'exp': 223, 'desc': 'Worships something ancient that lives in the lowest trench'},
+                'tide demon':        {'health': 218, 'damage': 74, 'exp': 237, 'desc': 'A demon that crossed over through the deepest part of the sea'},
+                'abyss devourer':    {'health': 238, 'damage': 79, 'exp': 254, 'desc': 'Swallows light. Swallows everything eventually.'},
+                'void leviathan':    {'health': 292, 'damage': 73, 'exp': 283, 'desc': 'The skeleton of a creature that predates oceans'},
+                'drowned titan':     {'health': 268, 'damage': 86,'exp': 307, 'desc': 'A titan that sank and adapted rather than die'},
+                'abyssal guardian':  {'health': 312, 'damage': 76, 'exp': 302, 'desc': 'Guards the thing at the very bottom. Has never failed.'},
+                'sea horror':        {'health': 245, 'damage': 82, 'exp': 264, 'desc': 'Resembles nothing that should exist'},
+                'the drowned king':  {'health': 330, 'damage': 91,'exp': 324, 'desc': 'The king of this place. Still giving commands. Still being obeyed.'},
             },
             'floor_themes': {
                 1:  ['tide crawler', 'drowned soldier', 'sea wraith'],
@@ -373,16 +403,16 @@ class WorldData:
                 10: ['abyssal guardian', 'the drowned king', 'void leviathan'],
             },
             'boss_data': {
-                1:  {'name': 'The Tide Warden',     'special': 'RIPTIDE',           'base_health': 370,  'health_scaling': 21, 'damage': 53,  'exp_reward': 390,  'special_bonus': 34, 'stat_bonus': 4, 'min_level': 4},
-                2:  {'name': 'The Drowned Admiral', 'special': 'DEAD FLEET',        'base_health': 448,  'health_scaling': 24, 'damage': 61,  'exp_reward': 472,  'special_bonus': 39, 'stat_bonus': 4, 'min_level': 6},
-                3:  {'name': 'The Coral Throne',    'special': 'REEF CRUSH',        'base_health': 528,  'health_scaling': 27, 'damage': 69,  'exp_reward': 552,  'special_bonus': 45, 'stat_bonus': 5, 'min_level': 8},
-                4:  {'name': 'The Siren Queen',     'special': 'DEATH SONG',        'base_health': 610,  'health_scaling': 30, 'damage': 77,  'exp_reward': 630,  'special_bonus': 51, 'stat_bonus': 5, 'min_level': 10},
-                5:  {'name': 'The Pressure God',    'special': 'DEEP CRUSH',        'base_health': 708,  'health_scaling': 33, 'damage': 85,  'exp_reward': 710,  'special_bonus': 57, 'stat_bonus': 6, 'min_level': 12},
-                6:  {'name': 'The Abyssal Duke',    'special': 'TRENCH SURGE',      'base_health': 808,  'health_scaling': 36, 'damage': 94,  'exp_reward': 810,  'special_bonus': 64, 'stat_bonus': 6, 'min_level': 14},
-                7:  {'name': 'The Leviathan Prince','special': 'WORLD SWALLOW',     'base_health': 928,  'health_scaling': 39, 'damage': 104, 'exp_reward': 930,  'special_bonus': 71, 'stat_bonus': 7, 'min_level': 16},
-                8:  {'name': 'The Sunken God',      'special': 'TIDAL OBLITERATION','base_health': 1068, 'health_scaling': 43, 'damage': 114, 'exp_reward': 1070, 'special_bonus': 79, 'stat_bonus': 7, 'min_level': 18},
-                9:  {'name': 'The Deep Ancient',    'special': 'VOID TIDE',         'base_health': 1228, 'health_scaling': 47, 'damage': 127, 'exp_reward': 1230, 'special_bonus': 89, 'stat_bonus': 8, 'min_level': 20},
-                10: {'name': 'The Drowned Eternal', 'special': 'THE FINAL FLOOD',   'base_health': 1488, 'health_scaling': 54, 'damage': 144, 'exp_reward': 1490, 'special_bonus': 104,'stat_bonus': 10,'min_level': 22},
+                1:  {'name': 'The Tide Warden',     'special': 'RIPTIDE',           'base_health': 370,  'health_scaling': 21, 'damage': 34,  'exp_reward': 480,  'special_bonus': 34, 'stat_bonus': 4, 'min_level': 4},
+                2:  {'name': 'The Drowned Admiral', 'special': 'DEAD FLEET',        'base_health': 448,  'health_scaling': 24, 'damage': 39,  'exp_reward': 580,  'special_bonus': 39, 'stat_bonus': 4, 'min_level': 6},
+                3:  {'name': 'The Coral Throne',    'special': 'REEF CRUSH',        'base_health': 528,  'health_scaling': 27, 'damage': 44,  'exp_reward': 700,  'special_bonus': 45, 'stat_bonus': 5, 'min_level': 8},
+                4:  {'name': 'The Siren Queen',     'special': 'DEATH SONG',        'base_health': 610,  'health_scaling': 30, 'damage': 49,  'exp_reward': 840,  'special_bonus': 51, 'stat_bonus': 5, 'min_level': 10},
+                5:  {'name': 'The Pressure God',    'special': 'DEEP CRUSH',        'base_health': 708,  'health_scaling': 33, 'damage': 55,  'exp_reward': 1000,  'special_bonus': 57, 'stat_bonus': 6, 'min_level': 12},
+                6:  {'name': 'The Abyssal Duke',    'special': 'TRENCH SURGE',      'base_health': 808,  'health_scaling': 36, 'damage': 61,  'exp_reward': 1180,  'special_bonus': 64, 'stat_bonus': 6, 'min_level': 14},
+                7:  {'name': 'The Leviathan Prince','special': 'WORLD SWALLOW',     'base_health': 928,  'health_scaling': 39, 'damage': 68, 'exp_reward': 1380,  'special_bonus': 71, 'stat_bonus': 7, 'min_level': 16},
+                8:  {'name': 'The Sunken God',      'special': 'TIDAL OBLITERATION','base_health': 1068, 'health_scaling': 43, 'damage': 74, 'exp_reward': 1600, 'special_bonus': 79, 'stat_bonus': 7, 'min_level': 18},
+                9:  {'name': 'The Deep Ancient',    'special': 'VOID TIDE',         'base_health': 1228, 'health_scaling': 47, 'damage': 82, 'exp_reward': 1840, 'special_bonus': 89, 'stat_bonus': 8, 'min_level': 20},
+                10: {'name': 'The Drowned Eternal', 'special': 'THE FINAL FLOOD',   'base_health': 1488, 'health_scaling': 54, 'damage': 122, 'exp_reward': 1490, 'special_bonus': 104,'stat_bonus': 10,'min_level': 22},
             },
             'boss_rooms': {
                 1:  ("The Flooded Gate",       "Seawater pours from the walls in sheets.",              "The Tide Warden rises from the flood."),
@@ -410,26 +440,42 @@ class WorldData:
                 "The things that live here weren't born here.\n"
                 "They were forged here."
             ),
+            'victory_text': (
+                "The First Fire goes out.\n\n"
+                "All of it. All at once.\n\n"
+                "Every flame in the Ashen Wastes — every torch, every ember,\n"
+                "every smouldering ruin, every vent of volcanic heat —\n"
+                "extinguished simultaneously.\n\n"
+                "In the dark, you hear ash settling.\n"
+                "The longest, quietest sound you have ever heard.\n\n"
+                "The cold is immediate and absolute.\n"
+                "You had not realised how much of your warmth was borrowed.\n\n"
+                "You stand in the pure, complete dark of a place\n"
+                "that has forgotten what it was for.\n\n"
+                "Then something below you begins to glow.\n"
+                "Not fire.\n"
+                "Something older than fire, and colder, and worse."
+            ),
             'enemies': {
-                'ash walker':        {'health': 78,  'damage': 33, 'exp':  54, 'desc': 'Held together by char and something that refuses to let it rest'},
-                'cinder hound':      {'health': 95,  'damage': 42, 'exp':  70, 'desc': 'Runs on burning paws, leaves scorched prints on stone'},
-                'ember knight':      {'health': 145, 'damage': 50, 'exp':  92, 'desc': 'A knight whose armour melted and resolidified around them'},
-                'soot wraith':       {'health': 118, 'damage': 54, 'exp': 100, 'desc': 'A ghost made of smoke — burns you by proximity'},
-                'pyro cultist':      {'health': 138, 'damage': 62, 'exp': 120, 'desc': 'Set themselves on fire first. The fire agreed it was a good idea.'},
-                'lava golem':        {'health': 270, 'damage': 64, 'exp': 156, 'desc': 'Stone animated by magma in its veins'},
-                'ashen titan':       {'health': 185, 'damage': 72, 'exp': 168, 'desc': 'A titan that walked through the apocalypse and came out the other side'},
-                'cinder mage':       {'health': 128, 'damage': 80, 'exp': 158, 'desc': 'Casts fire from a place inside them that has never been put out'},
-                'fire elemental':    {'health': 202, 'damage': 78, 'exp': 178, 'desc': 'Born from the original fire that started all of this'},
-                'smoldering demon':  {'health': 225, 'damage': 88, 'exp': 196, 'desc': 'Arrived through a portal made of flame, considers this an upgrade'},
-                'pyroclast spawn':   {'health': 248, 'damage': 98, 'exp': 220, 'desc': 'A volcanic eruption given legs and a grievance'},
-                'slag guardian':     {'health': 295, 'damage': 85, 'exp': 234, 'desc': 'Guards the coolest part of this place. Still hot enough to melt iron.'},
-                'infernal knight':   {'health': 198, 'damage': 92, 'exp': 205, 'desc': 'Sworn to a lord who burned. Still keeps the oath.'},
-                'char beast':        {'health': 232, 'damage': 96, 'exp': 216, 'desc': 'Larger than it should be, angrier than anything should be'},
-                'the last flame':    {'health': 158, 'damage': 105,'exp': 228, 'desc': 'The fire that started everything. Still burning. Still spreading.'},
-                'ash titan':         {'health': 308, 'damage': 90, 'exp': 244, 'desc': 'A titan made entirely of compressed ash and ancient heat'},
-                'infernal guardian': {'health': 318, 'damage': 94, 'exp': 254, 'desc': 'Guards the heat at the core. Has never let it out.'},
-                'pyre elemental':    {'health': 275, 'damage': 100,'exp': 238, 'desc': 'Born when a funeral pyre refused to go out'},
-                'the burning throne':{'health': 285, 'damage': 108,'exp': 265, 'desc': 'The throne of the king of this place. The king never left it. Neither did the fire.'},
+                'ash walker':        {'health': 78,  'damage': 28, 'exp':  54, 'desc': 'Held together by char and something that refuses to let it rest'},
+                'cinder hound':      {'health': 95,  'damage': 35, 'exp':  70, 'desc': 'Runs on burning paws, leaves scorched prints on stone'},
+                'ember knight':      {'health': 145, 'damage': 42, 'exp':  92, 'desc': 'A knight whose armour melted and resolidified around them'},
+                'soot wraith':       {'health': 118, 'damage': 45, 'exp': 120, 'desc': 'A ghost made of smoke — burns you by proximity'},
+                'pyro cultist':      {'health': 138, 'damage': 52, 'exp': 144, 'desc': 'Set themselves on fire first. The fire agreed it was a good idea.'},
+                'lava golem':        {'health': 270, 'damage': 54, 'exp': 187, 'desc': 'Stone animated by magma in its veins'},
+                'ashen titan':       {'health': 185, 'damage': 61, 'exp': 201, 'desc': 'A titan that walked through the apocalypse and came out the other side'},
+                'cinder mage':       {'health': 128, 'damage': 68, 'exp': 189, 'desc': 'Casts fire from a place inside them that has never been put out'},
+                'fire elemental':    {'health': 202, 'damage': 66, 'exp': 213, 'desc': 'Born from the original fire that started all of this'},
+                'smoldering demon':  {'health': 225, 'damage': 74, 'exp': 235, 'desc': 'Arrived through a portal made of flame, considers this an upgrade'},
+                'pyroclast spawn':   {'health': 248, 'damage': 83, 'exp': 264, 'desc': 'A volcanic eruption given legs and a grievance'},
+                'slag guardian':     {'health': 295, 'damage': 72, 'exp': 280, 'desc': 'Guards the coolest part of this place. Still hot enough to melt iron.'},
+                'infernal knight':   {'health': 198, 'damage': 78, 'exp': 246, 'desc': 'Sworn to a lord who burned. Still keeps the oath.'},
+                'char beast':        {'health': 232, 'damage': 81, 'exp': 259, 'desc': 'Larger than it should be, angrier than anything should be'},
+                'the last flame':    {'health': 158, 'damage': 89,'exp': 273, 'desc': 'The fire that started everything. Still burning. Still spreading.'},
+                'ash titan':         {'health': 308, 'damage': 76, 'exp': 292, 'desc': 'A titan made entirely of compressed ash and ancient heat'},
+                'infernal guardian': {'health': 318, 'damage': 79, 'exp': 304, 'desc': 'Guards the heat at the core. Has never let it out.'},
+                'pyre elemental':    {'health': 275, 'damage': 85,'exp': 285, 'desc': 'Born when a funeral pyre refused to go out'},
+                'the burning throne':{'health': 285, 'damage': 91,'exp': 318, 'desc': 'The throne of the king of this place. The king never left it. Neither did the fire.'},
             },
             'floor_themes': {
                 1:  ['ash walker', 'cinder hound', 'soot wraith'],
@@ -444,16 +490,16 @@ class WorldData:
                 10: ['infernal guardian', 'the last flame', 'the burning throne'],
             },
             'boss_data': {
-                1:  {'name': 'The Cinder King',     'special': 'EMBER STORM',       'base_health': 372,  'health_scaling': 21, 'damage': 54,  'exp_reward': 392,  'special_bonus': 35, 'stat_bonus': 4, 'min_level': 4},
-                2:  {'name': 'The Pyre Lord',       'special': 'FUNERAL FIRE',      'base_health': 452,  'health_scaling': 24, 'damage': 62,  'exp_reward': 474,  'special_bonus': 40, 'stat_bonus': 4, 'min_level': 6},
-                3:  {'name': 'The Char Warden',     'special': 'ASH TSUNAMI',       'base_health': 532,  'health_scaling': 27, 'damage': 70,  'exp_reward': 554,  'special_bonus': 46, 'stat_bonus': 5, 'min_level': 8},
-                4:  {'name': 'The Slag Queen',      'special': 'MAGMA SURGE',       'base_health': 614,  'health_scaling': 30, 'damage': 78,  'exp_reward': 634,  'special_bonus': 52, 'stat_bonus': 5, 'min_level': 10},
-                5:  {'name': 'The Infernal Titan',  'special': 'PYROCLASTIC WAVE',  'base_health': 712,  'health_scaling': 33, 'damage': 87,  'exp_reward': 714,  'special_bonus': 58, 'stat_bonus': 6, 'min_level': 12},
-                6:  {'name': 'The Ash God',         'special': 'TOTAL INCINERATION','base_health': 812,  'health_scaling': 36, 'damage': 96,  'exp_reward': 814,  'special_bonus': 65, 'stat_bonus': 6, 'min_level': 14},
-                7:  {'name': 'The Burning Prince',  'special': 'HELLFIRE CROWN',    'base_health': 932,  'health_scaling': 39, 'damage': 106, 'exp_reward': 934,  'special_bonus': 72, 'stat_bonus': 7, 'min_level': 16},
-                8:  {'name': 'The Last Conflagration','special':'WORLD BURN',       'base_health': 1072, 'health_scaling': 43, 'damage': 116, 'exp_reward': 1074, 'special_bonus': 80, 'stat_bonus': 7, 'min_level': 18},
-                9:  {'name': 'The Eternal Pyre',    'special': 'UNDYING FLAME',     'base_health': 1232, 'health_scaling': 47, 'damage': 129, 'exp_reward': 1234, 'special_bonus': 90, 'stat_bonus': 8, 'min_level': 20},
-                10: {'name': 'The First Fire',      'special': 'ORIGIN BURN',       'base_health': 1492, 'health_scaling': 54, 'damage': 146, 'exp_reward': 1494, 'special_bonus': 105,'stat_bonus': 10,'min_level': 22},
+                1:  {'name': 'The Cinder King',     'special': 'EMBER STORM',       'base_health': 372,  'health_scaling': 21, 'damage': 34,  'exp_reward': 480,  'special_bonus': 35, 'stat_bonus': 4, 'min_level': 4},
+                2:  {'name': 'The Pyre Lord',       'special': 'FUNERAL FIRE',      'base_health': 452,  'health_scaling': 24, 'damage': 39,  'exp_reward': 580,  'special_bonus': 40, 'stat_bonus': 4, 'min_level': 6},
+                3:  {'name': 'The Char Warden',     'special': 'ASH TSUNAMI',       'base_health': 532,  'health_scaling': 27, 'damage': 44,  'exp_reward': 700,  'special_bonus': 46, 'stat_bonus': 5, 'min_level': 8},
+                4:  {'name': 'The Slag Queen',      'special': 'MAGMA SURGE',       'base_health': 614,  'health_scaling': 30, 'damage': 49,  'exp_reward': 840,  'special_bonus': 52, 'stat_bonus': 5, 'min_level': 10},
+                5:  {'name': 'The Infernal Titan',  'special': 'PYROCLASTIC WAVE',  'base_health': 712,  'health_scaling': 33, 'damage': 55,  'exp_reward': 1000,  'special_bonus': 58, 'stat_bonus': 6, 'min_level': 12},
+                6:  {'name': 'The Ash God',         'special': 'TOTAL INCINERATION','base_health': 812,  'health_scaling': 36, 'damage': 61,  'exp_reward': 1180,  'special_bonus': 65, 'stat_bonus': 6, 'min_level': 14},
+                7:  {'name': 'The Burning Prince',  'special': 'HELLFIRE CROWN',    'base_health': 932,  'health_scaling': 39, 'damage': 68, 'exp_reward': 1380,  'special_bonus': 72, 'stat_bonus': 7, 'min_level': 16},
+                8:  {'name': 'The Last Conflagration','special':'WORLD BURN',       'base_health': 1072, 'health_scaling': 43, 'damage': 74, 'exp_reward': 1600, 'special_bonus': 80, 'stat_bonus': 7, 'min_level': 18},
+                9:  {'name': 'The Eternal Pyre',    'special': 'UNDYING FLAME',     'base_health': 1232, 'health_scaling': 47, 'damage': 82, 'exp_reward': 1840, 'special_bonus': 90, 'stat_bonus': 8, 'min_level': 20},
+                10: {'name': 'The First Fire',      'special': 'ORIGIN BURN',       'base_health': 1492, 'health_scaling': 54, 'damage': 124, 'exp_reward': 1494, 'special_bonus': 105,'stat_bonus': 10,'min_level': 22},
             },
             'boss_rooms': {
                 1:  ("The Scorched Gate",   "The entrance has been on fire for so long it forgot how to stop.",     "The Cinder King steps from the flame."),
@@ -483,26 +529,42 @@ class WorldData:
                 "about what should live here.\n\n"
                 "You will not enjoy meeting their creations."
             ),
+            'victory_text': (
+                "Every gear in the Mechanical Depths stops.\n\n"
+                "All of them. At exactly the same moment.\n\n"
+                "The silence arrives like a physical thing —\n"
+                "like a wall you walk into.\n"
+                "You had been hearing the Depths for so long\n"
+                "that the sound had become the absence of silence.\n\n"
+                "Now: nothing.\n\n"
+                "The blueprints on every surface dissolve.\n"
+                "Not burned. Not torn. Dissolved,\n"
+                "the way a dream dissolves when you try to remember it.\n\n"
+                "The Prime Constructor had a plan for everything.\n"
+                "The plan is gone.\n\n"
+                "The walls stand in the silence, waiting for new instructions.\n\n"
+                "They begin to receive them."
+            ),
             'enemies': {
-                'clockwork rat':     {'health': 72,  'damage': 31, 'exp':  52, 'desc': 'Built to replace vermin. More dangerous than the original.'},
-                'gear spider':       {'health': 88,  'damage': 38, 'exp':  65, 'desc': 'Eight legs of interlocking gears. Runs on something that is not blood.'},
-                'brass soldier':     {'health': 142, 'damage': 48, 'exp':  89, 'desc': 'A soldier-automaton that was never given a deactivation command'},
-                'iron skeleton':     {'health': 125, 'damage': 53, 'exp':  98, 'desc': 'Skeleton rebuilt in steel. More obedient than when it was alive.'},
-                'steam knight':      {'health': 178, 'damage': 63, 'exp': 132, 'desc': 'Knight-automaton powered by pressurised steam. Vents at uncomfortable moments.'},
-                'arc wraith':        {'health': 155, 'damage': 70, 'exp': 143, 'desc': 'The ghost of an engineer that became indistinguishable from their invention'},
-                'piston mage':       {'health': 132, 'damage': 77, 'exp': 152, 'desc': 'Casts spells through mechanical focii that hit harder than hands ever could'},
-                'gear golem':        {'health': 262, 'damage': 64, 'exp': 158, 'desc': 'Eighteen thousand moving parts. Counts them constantly.'},
-                'clock demon':       {'health': 215, 'damage': 86, 'exp': 196, 'desc': 'A demon that arrived when someone wound a clock backwards'},
-                'automaton hunter':  {'health': 188, 'damage': 82, 'exp': 186, 'desc': 'Designed specifically for hunting humans. Well-designed.'},
-                'turbine elemental': {'health': 198, 'damage': 76, 'exp': 176, 'desc': 'Born when a turbine achieved critical mass of motion'},
-                'null engineer':     {'health': 192, 'damage': 84, 'exp': 192, 'desc': 'An engineer who decided to improve themselves. Did not stop improving.'},
-                'iron titan':        {'health': 305, 'damage': 88, 'exp': 242, 'desc': 'A titan made entirely of iron. Took two hundred years to build. One hour to wake.'},
-                'brass celestial':   {'health': 275, 'damage': 104,'exp': 258, 'desc': 'Designed to be divine. Got most of the way there.'},
-                'mechanism guardian':{'health': 315, 'damage': 91, 'exp': 252, 'desc': 'Guarding the Grand Mechanism. Has never been successfully breached.'},
-                'clockwork beast':   {'health': 235, 'damage': 95, 'exp': 214, 'desc': 'A beast made of parts from other creatures. Disagrees with this arrangement.'},
-                'engine spawn':      {'health': 252, 'damage': 100,'exp': 224, 'desc': 'Spawned when the engine ran too hot. Carries that heat with it.'},
-                'the overseer':      {'health': 282, 'damage': 106,'exp': 262, 'desc': 'Watches everything. Has been watching since before you arrived.'},
-                'prime automaton':   {'health': 325, 'damage': 93, 'exp': 256, 'desc': 'The first. The template. Every other automaton is a pale copy.'},
+                'clockwork rat':     {'health': 72,  'damage': 26, 'exp':  52, 'desc': 'Built to replace vermin. More dangerous than the original.'},
+                'gear spider':       {'health': 88,  'damage': 32, 'exp':  65, 'desc': 'Eight legs of interlocking gears. Runs on something that is not blood.'},
+                'brass soldier':     {'health': 142, 'damage': 40, 'exp':  89, 'desc': 'A soldier-automaton that was never given a deactivation command'},
+                'iron skeleton':     {'health': 125, 'damage': 45, 'exp':  98, 'desc': 'Skeleton rebuilt in steel. More obedient than when it was alive.'},
+                'steam knight':      {'health': 178, 'damage': 53, 'exp': 158, 'desc': 'Knight-automaton powered by pressurised steam. Vents at uncomfortable moments.'},
+                'arc wraith':        {'health': 155, 'damage': 59, 'exp': 171, 'desc': 'The ghost of an engineer that became indistinguishable from their invention'},
+                'piston mage':       {'health': 132, 'damage': 65, 'exp': 182, 'desc': 'Casts spells through mechanical focii that hit harder than hands ever could'},
+                'gear golem':        {'health': 262, 'damage': 54, 'exp': 189, 'desc': 'Eighteen thousand moving parts. Counts them constantly.'},
+                'clock demon':       {'health': 215, 'damage': 73, 'exp': 235, 'desc': 'A demon that arrived when someone wound a clock backwards'},
+                'automaton hunter':  {'health': 188, 'damage': 69, 'exp': 223, 'desc': 'Designed specifically for hunting humans. Well-designed.'},
+                'turbine elemental': {'health': 198, 'damage': 64, 'exp': 211, 'desc': 'Born when a turbine achieved critical mass of motion'},
+                'null engineer':     {'health': 192, 'damage': 71, 'exp': 230, 'desc': 'An engineer who decided to improve themselves. Did not stop improving.'},
+                'iron titan':        {'health': 305, 'damage': 74, 'exp': 290, 'desc': 'A titan made entirely of iron. Took two hundred years to build. One hour to wake.'},
+                'brass celestial':   {'health': 275, 'damage': 88,'exp': 309, 'desc': 'Designed to be divine. Got most of the way there.'},
+                'mechanism guardian':{'health': 315, 'damage': 77, 'exp': 302, 'desc': 'Guarding the Grand Mechanism. Has never been successfully breached.'},
+                'clockwork beast':   {'health': 235, 'damage': 80, 'exp': 256, 'desc': 'A beast made of parts from other creatures. Disagrees with this arrangement.'},
+                'engine spawn':      {'health': 252, 'damage': 85,'exp': 268, 'desc': 'Spawned when the engine ran too hot. Carries that heat with it.'},
+                'the overseer':      {'health': 282, 'damage': 90,'exp': 314, 'desc': 'Watches everything. Has been watching since before you arrived.'},
+                'prime automaton':   {'health': 325, 'damage': 79, 'exp': 307, 'desc': 'The first. The template. Every other automaton is a pale copy.'},
             },
             'floor_themes': {
                 1:  ['clockwork rat', 'gear spider', 'brass soldier'],
@@ -517,16 +579,16 @@ class WorldData:
                 10: ['mechanism guardian', 'prime automaton', 'the overseer'],
             },
             'boss_data': {
-                1:  {'name': 'The First Foreman',    'special': 'GEAR GRIND',        'base_health': 368,  'health_scaling': 21, 'damage': 53,  'exp_reward': 388,  'special_bonus': 34, 'stat_bonus': 4, 'min_level': 4},
-                2:  {'name': 'The Iron Warden',      'special': 'PISTON SLAM',       'base_health': 448,  'health_scaling': 24, 'damage': 61,  'exp_reward': 470,  'special_bonus': 39, 'stat_bonus': 4, 'min_level': 6},
-                3:  {'name': 'The Brass Overlord',   'special': 'MECHANISM CRUSH',   'base_health': 528,  'health_scaling': 27, 'damage': 69,  'exp_reward': 550,  'special_bonus': 45, 'stat_bonus': 5, 'min_level': 8},
-                4:  {'name': 'The Clock King',       'special': 'TIME STOP',         'base_health': 610,  'health_scaling': 30, 'damage': 77,  'exp_reward': 630,  'special_bonus': 51, 'stat_bonus': 5, 'min_level': 10},
-                5:  {'name': 'The Steam Titan',      'special': 'PRESSURE BURST',    'base_health': 708,  'health_scaling': 33, 'damage': 86,  'exp_reward': 710,  'special_bonus': 58, 'stat_bonus': 6, 'min_level': 12},
-                6:  {'name': 'The Gear God',         'special': 'TOTAL MECHANISM',   'base_health': 808,  'health_scaling': 36, 'damage': 95,  'exp_reward': 810,  'special_bonus': 65, 'stat_bonus': 6, 'min_level': 14},
-                7:  {'name': 'The Iron Prince',      'special': 'IRON DECREE',       'base_health': 928,  'health_scaling': 39, 'damage': 105, 'exp_reward': 930,  'special_bonus': 72, 'stat_bonus': 7, 'min_level': 16},
-                8:  {'name': 'The Grand Mechanism',  'special': 'TOTAL AUTOMATION',  'base_health': 1068, 'health_scaling': 43, 'damage': 115, 'exp_reward': 1070, 'special_bonus': 80, 'stat_bonus': 7, 'min_level': 18},
-                9:  {'name': 'The Eternal Engine',   'special': 'PERPETUAL FORCE',   'base_health': 1228, 'health_scaling': 47, 'damage': 128, 'exp_reward': 1230, 'special_bonus': 90, 'stat_bonus': 8, 'min_level': 20},
-                10: {'name': 'The Prime Constructor','special': 'FINAL BLUEPRINT',   'base_health': 1488, 'health_scaling': 54, 'damage': 145, 'exp_reward': 1490, 'special_bonus': 105,'stat_bonus': 10,'min_level': 22},
+                1:  {'name': 'The First Foreman',    'special': 'GEAR GRIND',        'base_health': 368,  'health_scaling': 21, 'damage': 34,  'exp_reward': 480,  'special_bonus': 34, 'stat_bonus': 4, 'min_level': 4},
+                2:  {'name': 'The Iron Warden',      'special': 'PISTON SLAM',       'base_health': 448,  'health_scaling': 24, 'damage': 39,  'exp_reward': 580,  'special_bonus': 39, 'stat_bonus': 4, 'min_level': 6},
+                3:  {'name': 'The Brass Overlord',   'special': 'MECHANISM CRUSH',   'base_health': 528,  'health_scaling': 27, 'damage': 44,  'exp_reward': 700,  'special_bonus': 45, 'stat_bonus': 5, 'min_level': 8},
+                4:  {'name': 'The Clock King',       'special': 'TIME STOP',         'base_health': 610,  'health_scaling': 30, 'damage': 49,  'exp_reward': 840,  'special_bonus': 51, 'stat_bonus': 5, 'min_level': 10},
+                5:  {'name': 'The Steam Titan',      'special': 'PRESSURE BURST',    'base_health': 708,  'health_scaling': 33, 'damage': 55,  'exp_reward': 1000,  'special_bonus': 58, 'stat_bonus': 6, 'min_level': 12},
+                6:  {'name': 'The Gear God',         'special': 'TOTAL MECHANISM',   'base_health': 808,  'health_scaling': 36, 'damage': 61,  'exp_reward': 1180,  'special_bonus': 65, 'stat_bonus': 6, 'min_level': 14},
+                7:  {'name': 'The Iron Prince',      'special': 'IRON DECREE',       'base_health': 928,  'health_scaling': 39, 'damage': 68, 'exp_reward': 1380,  'special_bonus': 72, 'stat_bonus': 7, 'min_level': 16},
+                8:  {'name': 'The Grand Mechanism',  'special': 'TOTAL AUTOMATION',  'base_health': 1068, 'health_scaling': 43, 'damage': 74, 'exp_reward': 1600, 'special_bonus': 80, 'stat_bonus': 7, 'min_level': 18},
+                9:  {'name': 'The Eternal Engine',   'special': 'PERPETUAL FORCE',   'base_health': 1228, 'health_scaling': 47, 'damage': 82, 'exp_reward': 1840, 'special_bonus': 90, 'stat_bonus': 8, 'min_level': 20},
+                10: {'name': 'The Prime Constructor','special': 'FINAL BLUEPRINT',   'base_health': 1488, 'health_scaling': 54, 'damage': 123, 'exp_reward': 1490, 'special_bonus': 105,'stat_bonus': 10,'min_level': 22},
             },
             'boss_rooms': {
                 1:  ("The Foreman's Floor",  "Blueprints cover every surface. Most are circled in red.",            "The First Foreman boots up for the last time."),
@@ -556,26 +618,42 @@ class WorldData:
                 "You are about to walk deeper into a place that prays\n"
                 "and believes its prayers are answered."
             ),
+            'victory_text': (
+                "The faith breaks.\n\n"
+                "Not the building — the belief.\n"
+                "You feel the moment it goes:\n"
+                "a collective exhaling, like the entire Cathedral had been holding its breath,\n"
+                "and now remembers it is stone and not devotion.\n\n"
+                "The prayers stop.\n\n"
+                "The incense dissipates.\n\n"
+                "For the first time since you descended into the Plague Cathedral,\n"
+                "the air is clean. Just air. Just old stone and extinguished candles.\n\n"
+                "You stand in the nave and breathe it in.\n\n"
+                "You have time for exactly one breath of clean air.\n\n"
+                "Then something that is not air begins to move through the corridors.\n"
+                "Something that has been waiting for the Cathedral to finish\n"
+                "before it could begin."
+            ),
             'enemies': {
-                'plague rat':        {'health': 75,  'damage': 34, 'exp':  54, 'desc': 'Carries something worse than disease — a belief system'},
-                'infected novice':   {'health': 105, 'damage': 42, 'exp':  75, 'desc': 'Newly ordained. Newly infected. Equally committed to both.'},
-                'plague monk':       {'health': 138, 'damage': 49, 'exp':  88, 'desc': 'Spreads the faith by touch. The faith is not metaphorical.'},
-                'diseased knight':   {'health': 155, 'damage': 57, 'exp': 104, 'desc': 'Still armoured, still disciplined, still knight-shaped. No longer sanitary.'},
-                'rot wraith':        {'health': 145, 'damage': 65, 'exp': 135, 'desc': 'The ghost of someone who died of something communicable'},
-                'plague inquisitor': {'health': 162, 'damage': 72, 'exp': 148, 'desc': 'Investigates heresy. Considers health heretical.'},
-                'pus mage':          {'health': 128, 'damage': 79, 'exp': 154, 'desc': 'Casts spells through a medium that is better not described'},
-                'blight golem':      {'health': 258, 'damage': 63, 'exp': 155, 'desc': 'A golem shaped from concentrated disease, held together by faith'},
-                'contagion demon':   {'health': 218, 'damage': 87, 'exp': 198, 'desc': 'A demon that crossed over through an infected wound'},
-                'blessed plague':    {'health': 175, 'damage': 90, 'exp': 188, 'desc': 'The disease itself, given form, grateful to be worshipped'},
-                'fever elemental':   {'health': 195, 'damage': 80, 'exp': 180, 'desc': 'Born from the fever of a thousand dying faithful'},
-                'null bishop':       {'health': 192, 'damage': 83, 'exp': 190, 'desc': 'A bishop who achieved communion with something that has no name'},
-                'plague titan':      {'health': 298, 'damage': 87, 'exp': 238, 'desc': 'A titan that welcomed the plague and became its avatar'},
-                'saint of rot':      {'health': 278, 'damage': 103,'exp': 256, 'desc': 'Canonised after death. The cathedral considers this an improvement.'},
-                'rot guardian':      {'health': 312, 'damage': 91, 'exp': 252, 'desc': 'Guarding the high altar. Has never been successfully challenged.'},
-                'cathedral spawn':   {'health': 245, 'damage': 97, 'exp': 218, 'desc': 'Born from the cathedral itself — the building is trying to protect itself'},
-                'divine plague':     {'health': 268, 'damage': 104,'exp': 260, 'desc': 'The disease that the cathedral worships. It is flattered.'},
-                'the high inquisitor':{'health': 288, 'damage': 107,'exp': 264, 'desc': 'Oldest member of the order. Has outlived everyone else by decades. This is suspicious.'},
-                'eternal pestilence':{'health': 322, 'damage': 93, 'exp': 257, 'desc': 'The original plague. The one that started all the others. Still spreading.'},
+                'plague rat':        {'health': 75,  'damage': 28, 'exp':  54, 'desc': 'Carries something worse than disease — a belief system'},
+                'infected novice':   {'health': 105, 'damage': 35, 'exp':  75, 'desc': 'Newly ordained. Newly infected. Equally committed to both.'},
+                'plague monk':       {'health': 138, 'damage': 41, 'exp':  88, 'desc': 'Spreads the faith by touch. The faith is not metaphorical.'},
+                'diseased knight':   {'health': 155, 'damage': 48, 'exp': 124, 'desc': 'Still armoured, still disciplined, still knight-shaped. No longer sanitary.'},
+                'rot wraith':        {'health': 145, 'damage': 55, 'exp': 162, 'desc': 'The ghost of someone who died of something communicable'},
+                'plague inquisitor': {'health': 162, 'damage': 61, 'exp': 177, 'desc': 'Investigates heresy. Considers health heretical.'},
+                'pus mage':          {'health': 128, 'damage': 67, 'exp': 184, 'desc': 'Casts spells through a medium that is better not described'},
+                'blight golem':      {'health': 258, 'damage': 53, 'exp': 186, 'desc': 'A golem shaped from concentrated disease, held together by faith'},
+                'contagion demon':   {'health': 218, 'damage': 73, 'exp': 237, 'desc': 'A demon that crossed over through an infected wound'},
+                'blessed plague':    {'health': 175, 'damage': 76, 'exp': 225, 'desc': 'The disease itself, given form, grateful to be worshipped'},
+                'fever elemental':   {'health': 195, 'damage': 68, 'exp': 216, 'desc': 'Born from the fever of a thousand dying faithful'},
+                'null bishop':       {'health': 192, 'damage': 70, 'exp': 228, 'desc': 'A bishop who achieved communion with something that has no name'},
+                'plague titan':      {'health': 298, 'damage': 73, 'exp': 285, 'desc': 'A titan that welcomed the plague and became its avatar'},
+                'saint of rot':      {'health': 278, 'damage': 87,'exp': 307, 'desc': 'Canonised after death. The cathedral considers this an improvement.'},
+                'rot guardian':      {'health': 312, 'damage': 77, 'exp': 302, 'desc': 'Guarding the high altar. Has never been successfully challenged.'},
+                'cathedral spawn':   {'health': 245, 'damage': 82, 'exp': 261, 'desc': 'Born from the cathedral itself — the building is trying to protect itself'},
+                'divine plague':     {'health': 268, 'damage': 88,'exp': 312, 'desc': 'The disease that the cathedral worships. It is flattered.'},
+                'the high inquisitor':{'health': 288, 'damage': 90,'exp': 316, 'desc': 'Oldest member of the order. Has outlived everyone else by decades. This is suspicious.'},
+                'eternal pestilence':{'health': 322, 'damage': 79, 'exp': 308, 'desc': 'The original plague. The one that started all the others. Still spreading.'},
             },
             'floor_themes': {
                 1:  ['plague rat', 'infected novice', 'plague monk'],
@@ -590,16 +668,16 @@ class WorldData:
                 10: ['rot guardian', 'eternal pestilence', 'the high inquisitor'],
             },
             'boss_data': {
-                1:  {'name': 'The First Abbot',     'special': 'BLESSED INFECTION',  'base_health': 375,  'health_scaling': 21, 'damage': 54,  'exp_reward': 394,  'special_bonus': 35, 'stat_bonus': 4, 'min_level': 4},
-                2:  {'name': 'The Plague Bishop',   'special': 'COMMUNION OF ROT',   'base_health': 454,  'health_scaling': 24, 'damage': 62,  'exp_reward': 476,  'special_bonus': 40, 'stat_bonus': 4, 'min_level': 6},
-                3:  {'name': 'The Blight Cardinal', 'special': 'HOLY CONTAGION',     'base_health': 534,  'health_scaling': 27, 'damage': 70,  'exp_reward': 556,  'special_bonus': 46, 'stat_bonus': 5, 'min_level': 8},
-                4:  {'name': 'The Rot Archon',      'special': 'PESTILENCE WAVE',    'base_health': 616,  'health_scaling': 30, 'damage': 78,  'exp_reward': 636,  'special_bonus': 52, 'stat_bonus': 5, 'min_level': 10},
-                5:  {'name': 'The Plague Titan',    'special': 'DIVINE PESTILENCE',  'base_health': 714,  'health_scaling': 33, 'damage': 87,  'exp_reward': 716,  'special_bonus': 58, 'stat_bonus': 6, 'min_level': 12},
-                6:  {'name': 'The Cathedral God',   'special': 'SERMON OF SUFFERING','base_health': 814,  'health_scaling': 36, 'damage': 96,  'exp_reward': 816,  'special_bonus': 65, 'stat_bonus': 6, 'min_level': 14},
-                7:  {'name': 'The Plague Prince',   'special': 'CROWN OF THORNS',    'base_health': 934,  'health_scaling': 39, 'damage': 106, 'exp_reward': 936,  'special_bonus': 72, 'stat_bonus': 7, 'min_level': 16},
-                8:  {'name': 'The High Inquisitor', 'special': 'DIVINE JUDGEMENT',   'base_health': 1074, 'health_scaling': 43, 'damage': 116, 'exp_reward': 1076, 'special_bonus': 80, 'stat_bonus': 7, 'min_level': 18},
-                9:  {'name': 'The Plague Saint',    'special': 'MARTYRS PLAGUE',     'base_health': 1234, 'health_scaling': 47, 'damage': 129, 'exp_reward': 1236, 'special_bonus': 90, 'stat_bonus': 8, 'min_level': 20},
-                10: {'name': 'The Eternal Pestilence','special':'THE LAST SERMON',   'base_health': 1494, 'health_scaling': 54, 'damage': 146, 'exp_reward': 1496, 'special_bonus': 105,'stat_bonus': 10,'min_level': 22},
+                1:  {'name': 'The First Abbot',     'special': 'BLESSED INFECTION',  'base_health': 375,  'health_scaling': 21, 'damage': 34,  'exp_reward': 480,  'special_bonus': 35, 'stat_bonus': 4, 'min_level': 4},
+                2:  {'name': 'The Plague Bishop',   'special': 'COMMUNION OF ROT',   'base_health': 454,  'health_scaling': 24, 'damage': 39,  'exp_reward': 580,  'special_bonus': 40, 'stat_bonus': 4, 'min_level': 6},
+                3:  {'name': 'The Blight Cardinal', 'special': 'HOLY CONTAGION',     'base_health': 534,  'health_scaling': 27, 'damage': 44,  'exp_reward': 700,  'special_bonus': 46, 'stat_bonus': 5, 'min_level': 8},
+                4:  {'name': 'The Rot Archon',      'special': 'PESTILENCE WAVE',    'base_health': 616,  'health_scaling': 30, 'damage': 49,  'exp_reward': 840,  'special_bonus': 52, 'stat_bonus': 5, 'min_level': 10},
+                5:  {'name': 'The Plague Titan',    'special': 'DIVINE PESTILENCE',  'base_health': 714,  'health_scaling': 33, 'damage': 55,  'exp_reward': 1000,  'special_bonus': 58, 'stat_bonus': 6, 'min_level': 12},
+                6:  {'name': 'The Cathedral God',   'special': 'SERMON OF SUFFERING','base_health': 814,  'health_scaling': 36, 'damage': 61,  'exp_reward': 1180,  'special_bonus': 65, 'stat_bonus': 6, 'min_level': 14},
+                7:  {'name': 'The Plague Prince',   'special': 'CROWN OF THORNS',    'base_health': 934,  'health_scaling': 39, 'damage': 68, 'exp_reward': 1380,  'special_bonus': 72, 'stat_bonus': 7, 'min_level': 16},
+                8:  {'name': 'The High Inquisitor', 'special': 'DIVINE JUDGEMENT',   'base_health': 1074, 'health_scaling': 43, 'damage': 74, 'exp_reward': 1600, 'special_bonus': 80, 'stat_bonus': 7, 'min_level': 18},
+                9:  {'name': 'The Plague Saint',    'special': 'MARTYRS PLAGUE',     'base_health': 1234, 'health_scaling': 47, 'damage': 82, 'exp_reward': 1840, 'special_bonus': 90, 'stat_bonus': 8, 'min_level': 20},
+                10: {'name': 'The Eternal Pestilence','special':'THE LAST SERMON',   'base_health': 1494, 'health_scaling': 54, 'damage': 124, 'exp_reward': 1496, 'special_bonus': 105,'stat_bonus': 10,'min_level': 22},
             },
             'boss_rooms': {
                 1:  ("The Novice Chapel",     "Where new members of the order are welcomed. And infected.",          "The First Abbot gives the welcoming sermon."),
@@ -623,8 +701,5 @@ class WorldData:
     NG_PLUS_FLOOR_THEMES = NG_PLUS_WORLDS['fractured_labyrinth']['floor_themes']
     NG_PLUS_BOSS_DATA   = NG_PLUS_WORLDS['fractured_labyrinth']['boss_data']
 
-#################################################################################
-# DATA-DRIVEN ROOM TEMPLATES
-#################################################################################
 
 

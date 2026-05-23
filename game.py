@@ -1,12 +1,11 @@
 """
-LABYRINTH — Game Orchestrator v7.6.5
+LABYRINTH — Game Orchestrator
 The Game class wires all systems together via focused mixins.
 """
 from __future__ import annotations
-import random, json, os, logging
-from typing import Dict, List, Optional, Set, Tuple, Any, TYPE_CHECKING, Callable
+import logging
+from typing import Dict, List, Optional, TYPE_CHECKING
 from difflib import get_close_matches
-from dataclasses import dataclass, field
 
 logger = logging.getLogger(__name__)
 
@@ -23,8 +22,7 @@ from shop        import ShopMixin
 from save_load   import SaveLoadMixin
 from ng_plus     import NGPlusMixin
 from dungeon     import DungeonMixin
-
-
+from utils       import safe_input
 class CommandRegistry:
     """Command registration and fuzzy dispatch system."""
 
@@ -65,10 +63,6 @@ class CommandRegistry:
             print("Unknown command. Type 'help'")
 
 
-#################################################################################
-# HALL OF RECORDS — persistent cross-run stats
-#################################################################################
-
 
 
 
@@ -89,6 +83,9 @@ class Game(DungeonMixin, SaveLoadMixin, NGPlusMixin, ShopMixin, ActionsMixin):
         self.running = True
         self.combat = None
         self.registry = CommandRegistry()
+        self._last_input = ''
+        self.debug_mode  = True
+        self.mature_mode  = True
         self._register_commands()
         
     def _register_commands(self):
@@ -96,7 +93,7 @@ class Game(DungeonMixin, SaveLoadMixin, NGPlusMixin, ShopMixin, ActionsMixin):
         r = self.registry.register
         
         @r('help', 'h')
-        def cmd_help(g): g.show_help()
+        def cmd_help(g): g.show_help(full='all' in g._last_input)
         
         @r('look', 'l')
         def cmd_look(g): 
@@ -234,13 +231,17 @@ class Game(DungeonMixin, SaveLoadMixin, NGPlusMixin, ShopMixin, ActionsMixin):
             g.show_room_summary()
         
         @r('map')
-        def cmd_map(g): 
+        def cmd_map(g):
             if g.player.has_map():
                 g.show_map()
                 g.show_room_summary()
             else:
-                print("You need a map to use this command!")
-                print("Look for one on the ground or buy one from a merchant.")
+                room = g.get_current_room()
+                if 'old map' in room.items:
+                    print("You need a map — there's one right here. Try 'take old map' or 'takeall'.")
+                else:
+                    print("You need a map to use this command.")
+                    print("Look for one on the ground or buy one from a merchant.")
         
         @r('save')
         def cmd_save(g): g.save_game()
@@ -257,6 +258,132 @@ class Game(DungeonMixin, SaveLoadMixin, NGPlusMixin, ShopMixin, ActionsMixin):
         @r('fuse', 'fusion')
         def cmd_fuse(g): g.fuse_class_menu()
     
+
+        # ── Debug commands (only active when game.debug_mode = True) ──
+        @r('warp')
+        def cmd_warp(g, *args):
+            if not g.debug_mode:
+                print("Unknown command. Type 'help'")
+                return
+            try:
+                floor = int(args[0]) if args else 1
+                if floor < 1 or floor > GameConstants.NUM_FLOORS:
+                    print(f"  Floor must be 1-{GameConstants.NUM_FLOORS}")
+                    return
+                g.player.current_floor = floor
+                start = 'start' if floor == 1 else f'floor{floor}_start'
+                if start in g.floors.get(floor, {}):
+                    g.player.current_room = start
+                else:
+                    g.player.current_room = next(iter(g.floors[floor]))
+                g.player.visited_rooms.add(g.player.current_room)
+                print(f"  [DEBUG] Warped to floor {floor}")
+                g.look_around()
+                g.show_room_summary()
+            except (IndexError, ValueError):
+                print("  Usage: warp <floor>")
+
+        @r('give')
+        def cmd_give(g, *args):
+            if not g.debug_mode:
+                print("Unknown command. Type 'help'")
+                return
+            if not args:
+                print("  Usage: give <item>  |  give gold <amount>")
+                return
+            item = ' '.join(args)
+            # Special case: give gold <amount>
+            parts = item.split()
+            if parts[0] == 'gold' and len(parts) > 1:
+                try:
+                    amount = int(parts[1])
+                    g.player.gold_coins += amount
+                    print(f"  [DEBUG] +{amount} gold (now {g.player.gold_coins}g)")
+                    return
+                except ValueError:
+                    pass
+            # Route through the regular item handler directly — no room round-trip
+            # so failed adds don't leave debris in the room's item list
+            g._handle_regular_item(item)
+
+        @r('levelup')
+        def cmd_levelup(g, *args):
+            if not g.debug_mode:
+                print("Unknown command. Type 'help'")
+                return
+            try:
+                target = int(args[0]) if args else g.player.level + 1
+                while g.player.level < target:
+                    g.player.experience = g.player.experience_to_next
+                    g.player.gain_experience(0)
+                print(f"  [DEBUG] Now Level {g.player.level}")
+            except (IndexError, ValueError):
+                print("  Usage: levelup <target_level>")
+
+        @r('fullheal')
+        def cmd_fullheal(g, *args):
+            if not g.debug_mode:
+                print("Unknown command. Type 'help'")
+                return
+            g.player.health = g.player.max_health
+            g.player.mana   = g.player.max_mana
+            print(f"  [DEBUG] HP and MP fully restored")
+
+        @r('unlock')
+        def cmd_unlock(g, *args):
+            if not g.debug_mode:
+                print("Unknown command. Type 'help'")
+                return
+            target = args[0].lower() if args else ''
+            if target in ('voidwalker', 'void_walker', 'void walker'):
+                from records import RecordsManager
+                RecordsManager.update(void_walker_unlocked=True, runs_completed=1)
+                print("  [DEBUG] Void Walker unlocked")
+            elif target == 'all':
+                from records import RecordsManager
+                RecordsManager.update(void_walker_unlocked=True, runs_completed=1)
+                print("  [DEBUG] All unlocks applied")
+            else:
+                print("  Usage: unlock voidwalker | unlock all")
+
+        @r('debugfuse')
+        def cmd_debugfuse(g, *args):
+            if not g.debug_mode:
+                print("Unknown command. Type 'help'")
+                return
+            if len(args) < 2:
+                print("  Usage: debugfuse <class1> <class2>")
+                print("  Classes: warrior mage rogue paladin berserker void_walker")
+                return
+            c1 = args[0].lower().replace(' ', '_')
+            c2 = args[1].lower().replace(' ', '_')
+            p  = g.player
+            # Force to tier 5 first
+            p.class_tier = 5
+            if p.fuse_class(c2 if p.character_class == c1 else c1):
+                print(f"  [DEBUG] Fused {c1} + {c2} → {p.get_class_title()}")
+            else:
+                print(f"  [DEBUG] Fusion failed — check class names")
+
+        @r('debugngplus')
+        def cmd_debugngplus(g, *args):
+            if not g.debug_mode:
+                print("Unknown command. Type 'help'")
+                return
+            valid_worlds = list(GameConstants.NG_PLUS_WORLDS.keys())
+            world = args[0].lower() if args else None
+            if world and world not in valid_worlds:
+                print(f"  Unknown world. Valid options:")
+                for w in valid_worlds:
+                    print(f"    {w}")
+                return
+            print(f"  [DEBUG] Forcing NG+ transition{' → ' + world if world else ''}...")
+            # Clear state exactly as a real NG+ transition would
+            p = g.player
+            p.bosses_defeated = []
+            p.ng_plus = max(0, getattr(p, 'ng_plus', 0))  # preserve if already set
+            g._start_new_game_plus(preselected_world=world)
+
     def start_game(self):
         """Start game with looping menu"""
         TITLE = """
@@ -292,7 +419,7 @@ class Game(DungeonMixin, SaveLoadMixin, NGPlusMixin, ShopMixin, ActionsMixin):
             print()
             
             try:
-                choice = input("\nChoice: ").strip()
+                choice = safe_input("\nChoice: ")
                 
                 if choice == '1':
                     self._create_character()
@@ -311,7 +438,7 @@ class Game(DungeonMixin, SaveLoadMixin, NGPlusMixin, ShopMixin, ActionsMixin):
                 elif choice == '4':
                     RecordsManager.display()
                     try:
-                        input("  [ Press Enter to return ]")
+                        safe_input("  [ Press Enter to return ]")
                     except KeyboardInterrupt:
                         pass
                     continue
@@ -335,6 +462,11 @@ class Game(DungeonMixin, SaveLoadMixin, NGPlusMixin, ShopMixin, ActionsMixin):
             return
         self.running = True
         self.combat = CombatSystem(self)
+        # Show mature content notice once if --mature not passed
+        if not getattr(self, 'mature_mode', False):
+            if not getattr(self, '_mature_asked', False):
+                self._mature_asked = True
+                # Mature content is opt-in only — default is family-friendly
         print("\nType 'help' for commands")
         self.look_around()
         self.show_room_summary()
@@ -350,7 +482,8 @@ class Game(DungeonMixin, SaveLoadMixin, NGPlusMixin, ShopMixin, ActionsMixin):
                 cmd_input = input("\n> ").strip().lower()
                 if not cmd_input:
                     continue
-                
+
+                self._last_input = cmd_input  # track for help all and debug
                 parts = cmd_input.split()
                 command = parts[0]
                 args = parts[1:]
@@ -360,6 +493,8 @@ class Game(DungeonMixin, SaveLoadMixin, NGPlusMixin, ShopMixin, ActionsMixin):
                 if self.player and self.running:
                     self.player.show_status_summary()
                     
+            except EOFError:
+                break  # stdin closed — exit cleanly
             except KeyboardInterrupt:
                 logger.info("Game interrupted by user")
                 print("\n\nInterrupted. Save before quitting!")
@@ -371,7 +506,7 @@ class Game(DungeonMixin, SaveLoadMixin, NGPlusMixin, ShopMixin, ActionsMixin):
     def _create_character(self):
         """Create new character"""
         try:
-            name = input("Name: ").strip() or "Adventurer"
+            name = safe_input("Name: ") or "Adventurer"
             
             rec = RecordsManager.load()
             void_unlocked = rec.get('void_walker_unlocked', False)
@@ -388,7 +523,7 @@ class Game(DungeonMixin, SaveLoadMixin, NGPlusMixin, ShopMixin, ActionsMixin):
             else:
                 print("║ 6. ???          — [Beat the game]      ║")
             print("╚════════════════════════════════════════╝")
-            choice = input("Class: ").strip()
+            choice = safe_input("Class: ")
             class_map = {'1': 'warrior', '2': 'mage', '3': 'rogue',
                          '4': 'paladin', '5': 'berserker'}
             if choice == '6' and void_unlocked:
@@ -416,7 +551,7 @@ class Game(DungeonMixin, SaveLoadMixin, NGPlusMixin, ShopMixin, ActionsMixin):
                 print(f"  {i}. {w['name']:22} {w['damage']:2} dmg{t_str}")
             print("╚════════════════════════════════════════════════════╝")
             try:
-                wchoice = int(input("Choose (1-8): ").strip()) - 1
+                wchoice = int(safe_input("Choose (1-8): ") or "0") - 1
                 weapon = weapons[wchoice] if 0 <= wchoice < len(weapons) else weapons[0]
             except (ValueError, IndexError):
                 weapon = weapons[0]
@@ -440,7 +575,7 @@ class Game(DungeonMixin, SaveLoadMixin, NGPlusMixin, ShopMixin, ActionsMixin):
     def quit_game(self):
         """Exit game"""
         try:
-            if input("\nSave before quitting? (y/n): ").strip().lower() in ['y', 'yes']:
+            if safe_input("\nSave before quitting? (y/n): ").lower() in ['y', 'yes']:
                 self.save_game()
         except KeyboardInterrupt:
             pass
@@ -458,7 +593,4 @@ class Game(DungeonMixin, SaveLoadMixin, NGPlusMixin, ShopMixin, ActionsMixin):
         print("="*56)
         self.running = False
 
-#################################################################################
-# MAIN ENTRY POINT
-#################################################################################
 

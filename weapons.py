@@ -2,10 +2,8 @@
 LABYRINTH — Weapon systems
 """
 from __future__ import annotations
-import random, json, os, logging
-from typing import Dict, List, Optional, Set, Tuple, Any, TYPE_CHECKING, Callable
-from difflib import get_close_matches
-from dataclasses import dataclass, field
+import random, logging
+from typing import Dict, List, Optional, TYPE_CHECKING
 
 logger = logging.getLogger(__name__)
 
@@ -17,18 +15,31 @@ class WeaponSystem:
     """Weapon generation and management"""
     
     @classmethod
-    def generate_weapon(cls, player: Player, force_rarity: Optional[str] = None) -> Dict:
-        """Generate random weapon"""
+    def generate_weapon(cls, player: Player, force_rarity: Optional[str] = None,
+                        floor_cap: Optional[str] = None) -> Dict:
+        """Generate random weapon — floor_cap limits max rarity (e.g. 'uncommon' for F1-F2)"""
         if not force_rarity and random.random() < GameConstants.GOLDEN_GUN_DROP_RATE:
             logger.warning(f"GOLDEN GUN GENERATED for {player.name} at level {player.level}!")
             return cls._create_golden_gun()
-        
+
         equipped_rarity = None
         if player.weapon and not force_rarity:
             equipped_rarity = player.weapon.get('rarity', 'common')
-        
+
         rarity = force_rarity or cls._calculate_rarity(player.level, player.rarity_boost, equipped_rarity)
-        weapon_type = random.choice(GameConstants.CLASSES[player.character_class]['weapon_types'])
+
+        # Floor rarity cap — prevents rare/epic/legendary drops trivialising early floors
+        if floor_cap and not force_rarity:
+            cap_idx = GameConstants.RARITY_ORDER.index(floor_cap)
+            rar_idx = GameConstants.RARITY_ORDER.index(rarity)
+            if rar_idx > cap_idx:
+                rarity = floor_cap
+        # Fusion classes aren't in CLASSES — fall back to first parent's weapon type
+        cls_key = player.character_class
+        if cls_key not in GameConstants.CLASSES:
+            parents = getattr(player, 'fusion_parents', None)
+            cls_key = parents[0] if parents else 'warrior'
+        weapon_type = random.choice(GameConstants.CLASSES[cls_key]['weapon_types'])
         
         material = random.choice(GameConstants.WEAPON_MATERIALS[rarity])
         weapon_name = random.choice(GameConstants.WEAPON_TYPES[weapon_type])
@@ -40,9 +51,12 @@ class WeaponSystem:
         final_damage = int(base_damage * multiplier)
         
         # Assign traits: 1 always, 2nd for epic+, 3rd for mythic+
+        # splooge is excluded — it only belongs on its specific mature-content weapon,
+        # not in the general random pool.
         eligible_traits = [
             k for k, td in GameConstants.WEAPON_TRAITS.items()
-            if GameConstants.RARITY_ORDER.index(rarity) >=
+            if k != 'splooge' and
+               GameConstants.RARITY_ORDER.index(rarity) >=
                GameConstants.RARITY_ORDER.index(td.get('rarity_min', 'common'))
         ]
         num_traits = 1
@@ -234,21 +248,22 @@ class WeaponSystem:
             'void_walker': void_pool[:8],
         }
 
-#################################################################################
-# COMBAT SYSTEM
-#################################################################################
-
 
 class WeaponComparison:
     """Compare weapons and show detailed stats"""
     
     @staticmethod
     def compare_weapons(new_weapon: Dict, current_weapon: Optional[Dict], player: 'Player') -> str:
-        """Generate detailed weapon comparison"""
+        """Generate detailed weapon comparison.
+
+        Width is capped at 44 chars — safe for Pythonista on iPhone without
+        the separator overflowing onto a second line.
+        """
+        W = 44   # display width — fits Pythonista on iPhone
         lines = []
-        lines.append("\n" + "="*50)
+        lines.append("\n" + "="*W)
         lines.append("WEAPON COMPARISON")
-        lines.append("="*50)
+        lines.append("="*W)
         
         # New weapon stats
         new_dmg = new_weapon['damage']
@@ -298,10 +313,6 @@ class WeaponComparison:
             lines.append(f"\nCURRENT: None (unarmed)")
             lines.append(f">>> HUGE UPGRADE!")
 
-        lines.append("="*50)
+        lines.append("="*W)
         return '\n'.join(lines)
-
-#################################################################################
-# VISUAL MAP GENERATOR (COMPASS STYLE)
-#################################################################################
 

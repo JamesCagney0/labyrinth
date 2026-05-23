@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>LABYRINTH</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Cinzel:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+<!-- Animated background particles -->
+<canvas id="bg-canvas"></canvas>
+
+<!-- Title screen -->
+<div id="title-screen">
+  <div class="title-glow-ring"></div>
+  <div class="title-content">
+    <pre class="ascii-title">
+██╗      █████╗ ██████╗ ██╗   ██╗██████╗ ██╗███╗   ██╗████████╗██╗  ██╗
+██║     ██╔══██╗██╔══██╗╚██╗ ██╔╝██╔══██╗██║████╗  ██║╚══██╔══╝██║  ██║
+██║     ███████║██████╔╝ ╚████╔╝ ██████╔╝██║██╔██╗ ██║   ██║   ███████║
+██║     ██╔══██║██╔══██╗  ╚██╔╝  ██╔══██╗██║██║╚██╗██║   ██║   ██╔══██║
+███████╗██║  ██║██████╔╝   ██║   ██║  ██║██║██║ ╚████║   ██║   ██║  ██║
+╚══════╝╚═╝  ╚═╝╚═════╝    ╚═╝   ╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝
+    </pre>
+    <p class="tagline">The Dungeon Does Not Forgive. Will You?</p>
+
+    <div class="title-options">
+      <button class="btn-primary" onclick="startGame(false)">
+        <span class="btn-icon">⚔</span> Enter the Dungeon
+      </button>
+      <button class="btn-secondary" onclick="startGame(true)">
+        <span class="btn-icon">🔞</span> Enter (Mature)
+      </button>
+      <div class="save-actions">
+        <button class="btn-ghost" onclick="showSaves()">
+          <span class="btn-icon">📂</span> Import Save
+        </button>
+        <button class="btn-ghost" onclick="exportSave()">
+          <span class="btn-icon">💾</span> Export Save
+        </button>
+      </div>
+    </div>
+
+    <div id="save-panel" class="save-panel hidden">
+      <h3>Save Files</h3>
+      <div id="save-list"></div>
+      <label class="upload-label">
+        <input type="file" id="save-upload" accept=".json" onchange="uploadSave(this)">
+        <span>📁 Upload Save File</span>
+      </label>
+      <button class="btn-ghost small" onclick="hideSaves()">✕ Close</button>
+    </div>
+
+    <p class="version-tag">v7.7.0</p>
+  </div>
+</div>
+
+<!-- Game terminal -->
+<div id="game-screen" class="hidden">
+  <div class="game-header">
+    <span class="header-title">⚔ LABYRINTH</span>
+    <div class="header-actions">
+      <button class="hdr-btn" onclick="exportSave()" title="Export Save">💾</button>
+      <label class="hdr-btn" title="Import Save">
+        📂<input type="file" id="save-upload-ingame" accept=".json" onchange="uploadSave(this)" style="display:none">
+      </label>
+      <button class="hdr-btn" onclick="returnToTitle()" title="Return to Title">✕</button>
+    </div>
+  </div>
+
+  <div id="terminal" class="terminal">
+    <div id="output"></div>
+    <div class="input-line" id="input-line">
+      <span class="prompt-char">&gt;</span>
+      <input type="text" id="cmd-input" autocomplete="off"
+             autocorrect="off" autocapitalize="off" spellcheck="false"
+             placeholder="type a command..." onkeydown="handleKey(event)">
+    </div>
+  </div>
+
+  <!-- Command history buttons (mobile quick-access) -->
+  <div id="quick-cmds" class="quick-cmds">
+    <button onclick="sendCmd('look')">look</button>
+    <button onclick="sendCmd('stats')">stats</button>
+    <button onclick="sendCmd('map')">map</button>
+    <button onclick="sendCmd('inventory')">inv</button>
+    <button onclick="sendCmd('help')">help</button>
+  </div>
+</div>
+
+<!-- Connection status -->
+<div id="status-bar" class="status-bar">
+  <span id="status-dot" class="dot disconnected"></span>
+  <span id="status-text">Connecting...</span>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.min.js"></script>
+<script src="/static/js/game.js"></script>
+</body>
+</html>

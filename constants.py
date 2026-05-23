@@ -3,9 +3,8 @@ LABYRINTH — Core constants and aggregator
 Imports data from sub-modules and re-exports through GameConstants.
 """
 from __future__ import annotations
-import random, json, os, logging
-from typing import Dict, List, Optional, Set, Tuple, Any, TYPE_CHECKING, Callable
-from difflib import get_close_matches
+import random, logging
+from typing import Dict, List, Optional, Any, TYPE_CHECKING
 from dataclasses import dataclass, field
 
 logger = logging.getLogger(__name__)
@@ -28,7 +27,7 @@ class GameConstants(ItemsData, EnemiesData, WeaponsData, LoreData, WorldData):
     """
 
     # ── Core game parameters ──────────────────────────────────────
-    VERSION = "7.6.5"
+    VERSION = "7.7.0"
     SAVE_FILE = "savegame.json"
     SAVE_DIRECTORY = "saves"
     MAX_SAVE_SLOTS = 5
@@ -37,6 +36,20 @@ class GameConstants(ItemsData, EnemiesData, WeaponsData, LoreData, WorldData):
     NUM_FLOORS = 10
     MIN_ROOMS_PER_FLOOR = 10
     MAX_ROOMS_PER_FLOOR = 15
+
+    # Mature content settings (requires --mature flag)
+    SEX_DUNGEON_SPAWN_CHANCE = 0.28
+
+    SPECIAL_WEAPONS = {
+        'the eternal splooger': {
+            'name': "The Eternal Splooger",
+            'damage': 68,
+            'type': 'melee',
+            'rarity': 'mythic',
+            'base_name': "The Eternal Splooger",
+            'traits': ['splooge', 'vampiric'],
+        }
+    }
     
     # Class definitions with enhanced inventory
 
@@ -45,17 +58,17 @@ class GameConstants(ItemsData, EnemiesData, WeaponsData, LoreData, WorldData):
         'warrior': {
             'base_health': 120, 'base_mana': 0,
             'base_stats': {'strength': 15, 'intelligence': 8, 'agility': 10,
-                           'luck': 8, 'vitality': 14, 'arcane': 5, 'faith': 5},
+                           'luck': 8, 'vitality': 14, 'arcane': 5, 'faith': 5, 'lust': 5},
             'health_per_level': 15, 'inventory_slots': 5,
             'weapon_types': ['melee'],
             'stat_growth': {'strength': 3, 'intelligence': 1, 'agility': 1,
-                            'luck': 0, 'vitality': 2, 'arcane': 0, 'faith': 0},
+                            'luck': 0, 'vitality': 2, 'arcane': 0, 'faith': 0, 'lust': 0},
         },
         'mage': {
             'base_health': 80, 'base_mana': 150,
             # Arcane 14 → reduces mana cost, multiplies magic damage
             'base_stats': {'strength': 8, 'intelligence': 15, 'agility': 10,
-                           'luck': 12, 'vitality': 6, 'arcane': 14, 'faith': 5},
+                           'luck': 12, 'vitality': 6, 'arcane': 14, 'faith': 5, 'lust': 5},
             'health_per_level': 8, 'inventory_slots': 5,
             'weapon_types': ['magic'],
             'stat_growth': {'strength': 1, 'intelligence': 3, 'agility': 1,
@@ -64,11 +77,11 @@ class GameConstants(ItemsData, EnemiesData, WeaponsData, LoreData, WorldData):
         'rogue': {
             'base_health': 100, 'base_mana': 0,
             'base_stats': {'strength': 10, 'intelligence': 10, 'agility': 15,
-                           'luck': 16, 'vitality': 10, 'arcane': 5, 'faith': 5},
+                           'luck': 16, 'vitality': 10, 'arcane': 5, 'faith': 5, 'lust': 5},
             'health_per_level': 12, 'inventory_slots': 5,
             'weapon_types': ['stealth'],
             'stat_growth': {'strength': 1, 'intelligence': 1, 'agility': 3,
-                            'luck': 2, 'vitality': 1, 'arcane': 0, 'faith': 0},
+                            'luck': 2, 'vitality': 1, 'arcane': 0, 'faith': 0, 'lust': 0},
         },
         'paladin': {
             'base_health': 110, 'base_mana': 60,
@@ -76,11 +89,11 @@ class GameConstants(ItemsData, EnemiesData, WeaponsData, LoreData, WorldData):
             # Passive: holy weapons deal an extra +25% (stacks with trait bonus)
             # Boss ability: Divine Smite (costs 20 mana, guaranteed holy damage)
             'base_stats': {'strength': 13, 'intelligence': 10, 'agility': 8,
-                           'luck': 10, 'vitality': 15, 'arcane': 5, 'faith': 14},
+                           'luck': 10, 'vitality': 15, 'arcane': 5, 'faith': 14, 'lust': 5},
             'health_per_level': 13, 'inventory_slots': 5,
             'weapon_types': ['melee'],
             'stat_growth': {'strength': 2, 'intelligence': 1, 'agility': 1,
-                            'luck': 1, 'vitality': 2, 'arcane': 0, 'faith': 2},
+                            'luck': 1, 'vitality': 2, 'arcane': 0, 'faith': 2, 'lust': 0},
         },
         'berserker': {
             'base_health': 140, 'base_mana': 0,
@@ -88,11 +101,11 @@ class GameConstants(ItemsData, EnemiesData, WeaponsData, LoreData, WorldData):
             # Passive: berserker scaling always applies regardless of weapon trait
             # Boss ability: Rage (free, boosts next attack by 50%, usable once per fight)
             'base_stats': {'strength': 18, 'intelligence': 5, 'agility': 7,
-                           'luck': 6, 'vitality': 18, 'arcane': 5, 'faith': 5},
+                           'luck': 6, 'vitality': 18, 'arcane': 5, 'faith': 5, 'lust': 5},
             'health_per_level': 18, 'inventory_slots': 5,
             'weapon_types': ['melee'],
             'stat_growth': {'strength': 4, 'intelligence': 0, 'agility': 1,
-                            'luck': 0, 'vitality': 3, 'arcane': 0, 'faith': 0},
+                            'luck': 0, 'vitality': 3, 'arcane': 0, 'faith': 0, 'lust': 0},
         },
         'void_walker': {
             # Unlocked after first game clear. Lowest HP, no mana — uses Void Essence.
@@ -101,11 +114,11 @@ class GameConstants(ItemsData, EnemiesData, WeaponsData, LoreData, WorldData):
             # Boss ability — Phase: once per fight, skip the next enemy attack entirely.
             'base_health': 65, 'base_mana': 0,
             'base_stats': {'strength': 9, 'intelligence': 12, 'agility': 18,
-                           'luck': 14, 'vitality': 6, 'arcane': 5, 'faith': 5},
+                           'luck': 14, 'vitality': 6, 'arcane': 5, 'faith': 5, 'lust': 5},
             'health_per_level': 7, 'inventory_slots': 6,
             'weapon_types': ['stealth'],
             'stat_growth': {'strength': 1, 'intelligence': 2, 'agility': 2,
-                            'luck': 2, 'vitality': 0, 'arcane': 0, 'faith': 0},
+                            'luck': 2, 'vitality': 0, 'arcane': 0, 'faith': 0, 'lust': 0},
         },
     }
     
@@ -128,10 +141,15 @@ class GameConstants(ItemsData, EnemiesData, WeaponsData, LoreData, WorldData):
     # Level 12 → Tier 4 (floors 5-6)
     # Level 16 → Tier 5 (floors 7-8)
     # Level 20 → Tier 5 complete (floor 9-10, no further upgrade)
-    CLASS_UPGRADE_LEVELS = [4, 8, 12, 16]
+    CLASS_UPGRADE_LEVELS = [6, 10, 14, 18]  # T2@L6, T3@L10, T4@L14, T5@L18
     RARITY_BOOST_PER_TIER = 0.05
     
     # Weapon rarity system
+
+    # ── Inventory parameters ────────────────────────────────────
+    MAX_WEAPON_SLOTS        = 10   # stored weapons (separate from item inventory)
+    WEAPON_SLOTS_PER_LEVEL  = 0    # weapons slots don't grow with level
+    ITEM_SLOTS_PER_LEVEL    = 1    # regular item slots per level (existing behaviour)
 
     # ── Combat parameters ─────────────────────────────────────────
     WEAPON_DROP_CHANCE = 0.65       # 65% of item drops are weapon caches
@@ -141,8 +159,8 @@ class GameConstants(ItemsData, EnemiesData, WeaponsData, LoreData, WorldData):
     GOLD_DROP_MAX = 10
     
     # Progression
-    BASE_EXPERIENCE_NEEDED = 80    # Reduced to make early levels feel rewarding
-    EXPERIENCE_MULTIPLIER = 1.35   # Gentler curve — level 20 reachable by floor 10
+    BASE_EXPERIENCE_NEEDED = 120   # Tuned for target level per floor
+    EXPERIENCE_MULTIPLIER = 1.22   # Designed for L18 entry into NG+
     MANA_PER_LEVEL = 10
     INVENTORY_SLOTS_PER_LEVEL = 1
     INVENTORY_SLOTS_PER_TIER = 3
@@ -157,9 +175,7 @@ class GameConstants(ItemsData, EnemiesData, WeaponsData, LoreData, WorldData):
     MAGIC_DAMAGE_RANGE = (10, 25)
     
     # Magic scaling — mage only (warrior/rogue cannot cast magic)
-    MAGIC_MULTIPLIERS = {
-        'mage': 1.5,
-    }
+    MAGIC_MULTIPLIERS = [1.0, 1.2, 1.5, 1.8, 2.0, 2.5]  # random spell power variance
 
     # ── Weapon Traits ────────────────────────────────────────────
     # effect_type tags: crit_boost | on_hit_dot | lifesteal |
@@ -172,6 +188,22 @@ class GameConstants(ItemsData, EnemiesData, WeaponsData, LoreData, WorldData):
         """Return fusion data for two classes, checking both orderings."""
         key = (class1.lower(), class2.lower())
         return cls.FUSION_CLASSES.get(key) or cls.FUSION_CLASSES.get((key[1], key[0]))
+
+    # ── Wearable stack cap ────────────────────────────────────────
+    @staticmethod
+    def get_wearable_stack_cap(level: int) -> int:
+        """Max copies of one wearable a player may equip, gated by level.
+
+        L<5  → 1 copy  (early game: one of each)
+        L<10 → 2 copies
+        L<15 → 3 copies
+        L15+ → 4 copies (late game: full stacking)
+        Cursed items are always exempt — callers must check that case.
+        """
+        if level < 5:  return 1
+        if level < 10: return 2
+        if level < 15: return 3
+        return 4
 
 
 @dataclass
@@ -885,7 +917,14 @@ class RoomTemplateConfig:
                    ['void essence', 'weapon cache'], 1, 'void_portal'),
         RoomTemplate("Primordial Monument", "An ancient stone monument covered in runic inscriptions.",
                    "The runes glow faintly, waiting for the right key.",
-                   ['primordial rune', 'legendary artifact'], 1, 'rune_monument')
+                   ['primordial rune', 'legendary artifact'], 1, 'rune_monument'),
+        # Destination-only — spawned dynamically when the torch is used in a Hidden Alcove.
+        # Never enters the random pool; guarded by DEST_NAMES in dungeon generation.
+        RoomTemplate("Secret Vault",
+                   "A hidden chamber undisturbed for centuries. Dust covers extraordinary riches.",
+                   "Shelves of forgotten treasure line every wall. Someone hid this well.",
+                   ['ultimate health potion', 'weapon cache', 'power ring', 'experience gem'],
+                   0, 'secret_vault'),
     ]
 
     # Standalone — never enters the random room pool.
@@ -1329,17 +1368,22 @@ class BossConfig:
     def generate(cls, floor: int) -> Dict[str, Any]:
         """Generate complete boss configuration"""
         data = cls.BOSS_DATA[floor]
+        # Tuned boss stats — designed for target level per floor
+        # F1:L4, F2:L6, F3:L8, F4:L10, F5:L12, F6:L13, F7:L14, F8:L15, F9:L16, F10:L17
+        hp_table  = {1:280, 2:420, 3:580, 4:760, 5:960, 6:1100, 7:1260, 8:1440, 9:1640, 10:1860}
+        dmg_table = {1:18,  2:22,  3:27,  4:32,  5:37,  6:42,   7:47,   8:52,   9:57,   10:63}
+        xp_table  = {1:220, 2:310, 3:420, 4:550, 5:700, 6:820,  7:960,  8:1100, 9:1260, 10:1440}
         return {
             'floor': floor,
             'name': data['name'],
-            'base_health': 120 + (floor - 1) * 20,
+            'base_health': hp_table.get(floor, 280 + (floor-1) * 180),
             'health_scaling': 8 + (floor - 1),
-            'damage': 22 + (floor - 1) * 2,
-            'exp_reward': 150 + (floor - 1) * 30,
+            'damage': dmg_table.get(floor, 18 + (floor-1) * 5),
+            'exp_reward': xp_table.get(floor, 220 + (floor-1) * 140),
             'special_attack': data['special'],
-            'special_bonus': 12 + (floor - 1) * 2,
+            'special_bonus': 1.4 + (floor - 1) * 0.06,
             'stat_bonus': 2 + (floor - 1) // 2,
-            'min_level': floor * 2,
+            'min_level': floor * 2 - 1,
         }
 
     @classmethod
@@ -1357,15 +1401,19 @@ class BossConfig:
         else:
             data = GameConstants.NG_PLUS_BOSS_DATA[floor]
         cycle_mult = 1 + (ng_cycle - 1) * 0.20
+        # HP scales harder than damage per cycle — player can build tankier but spike damage stays threatening
+        hp_cycle_mult  = 1.0 + (ng_cycle - 1) * 0.40   # +40% HP per cycle
+        dmg_cycle_mult = 1.0 + (ng_cycle - 1) * 0.20   # +20% DMG per cycle
+        xp_cycle_mult  = 1.0 + (ng_cycle - 1) * 0.30   # +30% XP per cycle
         return {
             'floor': floor,
             'name': data['name'],
-            'base_health': int(data['base_health'] * cycle_mult * weapon_scale),
-            'health_scaling': int(data['health_scaling'] * cycle_mult),
-            'damage': int(data['damage'] * cycle_mult),
-            'exp_reward': int(data['exp_reward'] * cycle_mult),
+            'base_health': int(data['base_health'] * hp_cycle_mult * weapon_scale),
+            'health_scaling': int(data['health_scaling'] * hp_cycle_mult),
+            'damage': int(data['damage'] * dmg_cycle_mult),
+            'exp_reward': int(data['exp_reward'] * xp_cycle_mult),
             'special_attack': data['special'],
-            'special_bonus': int(data['special_bonus'] * cycle_mult),
+            'special_bonus': int(data['special_bonus'] * dmg_cycle_mult),
             'stat_bonus': data['stat_bonus'],
             'min_level': data['min_level'],
         }
@@ -1426,7 +1474,8 @@ class BossConfig:
         else:
             tier_label, rarity = 'INSANE', 'mythic'
 
-        weapon_type = GameConstants.CLASSES[player.character_class]['weapon_types'][0]
+        # cls_key already resolved to a base class above (handles fusion fallback)
+        weapon_type = GameConstants.CLASSES[cls_key]['weapon_types'][0]
 
         # Level-based scaling only — no more compounding off the player's weapon.
         # base_weapon_damage already includes the legendary rarity multiplier so
@@ -1449,6 +1498,20 @@ class BossConfig:
         # Tier multiplier (reduced from old 1.60-1.70 to prevent one-shots)
         final_damage = int(final_damage * tier_mult)
 
+        # Boss weapons always have traits — legendary gets 1-2, mythic gets 2-3.
+        # splooge excluded (belongs only on its specific mature-content weapon).
+        eligible_traits = [
+            k for k, td in GameConstants.WEAPON_TRAITS.items()
+            if k != 'splooge' and
+               GameConstants.RARITY_ORDER.index(rarity) >=
+               GameConstants.RARITY_ORDER.index(td.get('rarity_min', 'common'))
+        ]
+        if rarity == 'mythic':
+            num_traits = random.choice([2, 2, 3])
+        else:  # legendary (GOOD and GREAT tiers)
+            num_traits = 2 if random.random() < 0.5 else 1
+        traits = random.sample(eligible_traits, min(num_traits, len(eligible_traits)))
+
         boss_weapon = {
             'name': weapon_name,
             'damage': final_damage,
@@ -1456,6 +1519,7 @@ class BossConfig:
             'rarity': rarity,
             'base_name': weapon_name,
             'tier_label': tier_label,
+            'traits': traits,
         }
         return boss_weapon
     
@@ -1469,6 +1533,3 @@ class BossConfig:
             enemy_count=0, special_type='boss'
         )
 
-#################################################################################
-# UNIFIED ITEM HANDLER
-#################################################################################

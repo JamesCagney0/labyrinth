@@ -2,14 +2,13 @@
 LABYRINTH — Combat systems (DamageCalculator + CombatSystem)
 """
 from __future__ import annotations
-import random, json, os, logging
-from typing import Dict, List, Optional, Set, Tuple, Any, TYPE_CHECKING, Callable
-from difflib import get_close_matches
-from dataclasses import dataclass, field
+import random, logging
+from typing import Dict, List, Optional, Set, Tuple, Any, TYPE_CHECKING
 
 logger = logging.getLogger(__name__)
 
 from constants import GameConstants, BossConfig
+from utils import safe_input
 from weapons import WeaponSystem, WeaponComparison
 from items import ItemHandler
 from records import RecordsManager
@@ -139,6 +138,20 @@ class DamageCalculator:
                 damage *= built_in_berserk
                 trait_notes.append(f"BERSERKER RAGE +{int((built_in_berserk-1)*100)}%!")
 
+        # ── Lust aura (mature content — requires --mature flag) ───
+        lust = player.stats.get('lust', 5)
+        if lust > 5:
+            damage = int(damage * (1 + (lust - 5) * 0.035))
+            trait_notes.append(f"LUST AURA (+{int((lust-5)*3.5)}% dmg)")
+
+        # ── Splooge trait: splash damage on heavy hits ────────────
+        for trait_key in traits:
+            if trait_key == 'splooge':
+                td = GameConstants.WEAPON_TRAITS.get('splooge', {})
+                if td and damage >= td.get('threshold', 40):
+                    damage += td.get('splash', 25)
+                    trait_notes.append(f"*** SPL00GE! +{td.get('splash',25)} splash damage ***")
+
         # Print any trait proc messages
         for note in trait_notes:
             print(f"  ✦ {note}")
@@ -163,10 +176,18 @@ class DamageCalculator:
     @staticmethod
     def calculate_enemy_damage(base_damage: int, player: 'Player', is_boss: bool = False) -> int:
         """Calculate enemy damage scaling with agility defense and player weapon power.
-        
+
         Regular enemies apply weapon-aware pressure: the harder the player hits,
         the harder enemies fight back, keeping healing items relevant throughout.
         Bosses use their own scaling and are not affected by weapon pressure.
+
+        Boss damage floor (50% rule):
+            Total reductions (AGI + VIT + shield) are capped so that a boss
+            attack always deals at least 50% of its rolled incoming value.
+            This prevents high-AGI / heavy-wearable builds from trivializing
+            late-game bosses — stacking defenses still matters, but no combination
+            of stats or items can reduce a floor-8+ boss to single-digit hits.
+            Regular-enemy attacks are unaffected by this cap.
         """
         agility_defense = random.randint(1, player.stats['agility'] // (2 if is_boss else 3))
 
@@ -188,6 +209,18 @@ class DamageCalculator:
             for trait_key in player.weapon.get('traits', []):
                 if GameConstants.WEAPON_TRAITS.get(trait_key, {}).get('effect') == 'damage_reduction':
                     shield_reduction += GameConstants.WEAPON_TRAITS[trait_key]['reduction']
+
+        # Boss 50% floor: combined reductions cannot exceed half the incoming damage.
+        # AGI, VIT, and shield all still contribute — they're scaled down proportionally
+        # when the total would exceed the cap, so their relative value is preserved.
+        if is_boss:
+            max_reduction = base_damage // 2
+            total_reduction = agility_defense + vitality_reduction + shield_reduction
+            if total_reduction > max_reduction:
+                scale = max_reduction / total_reduction
+                agility_defense    = int(agility_defense    * scale)
+                vitality_reduction = int(vitality_reduction * scale)
+                shield_reduction   = int(shield_reduction   * scale)
 
         final = base_damage + weapon_pressure - agility_defense - vitality_reduction - shield_reduction
 
@@ -294,6 +327,11 @@ class CombatSystem:
                 print(f"  ✦ {enemy_name} chants — other enemies in this room grow stronger!")
 
             # ── Apply active enemy DoTs ───────────────────────────
+            # dtype is set inside the loop; the guard below (hp <= 0 after
+            # the loop) can only fire if the loop ran at least once, but we
+            # pre-assign a fallback to avoid any future NameError if the
+            # control flow ever changes.
+            dtype = 'dot'
             new_stack = []
             for dot in dot_stack:
                 hp -= dot['damage']
@@ -462,7 +500,7 @@ class CombatSystem:
 
                 # Filter out wearables the player is already capped on
                 lvl = player.level
-                max_stack = 1 if lvl < 5 else 2 if lvl < 10 else 3 if lvl < 15 else 4
+                max_stack = GameConstants.get_wearable_stack_cap(lvl)
                 def _at_cap(item_name):
                     if item_name not in GameConstants.WEARABLE_ITEMS:
                         return False
@@ -529,8 +567,8 @@ class CombatSystem:
                 player.mana -= 20
                 faith      = player.stats.get('faith', 5)
                 str_bonus  = player.stats['strength']
-                smite_mult = 1.25 + (faith / 100)
-                player_dmg = int((str_bonus * 1.5 + faith * 2) * smite_mult)
+                smite_mult = 1.10 + (faith / 150)
+                player_dmg = int((str_bonus * 1.2 + faith * 1.2) * smite_mult)
                 print(f"*** DIVINE SMITE! Holy power: {player_dmg} damage!")
             else:
                 print(f"Not enough mana! ({player.mana}/20 MP)")
@@ -635,8 +673,9 @@ class CombatSystem:
             phase_used = True
             print(f"*** PHASE SPELL! {player_dmg} magic damage — enemy retaliation skipped!")
         elif ab == 'holy_backstab':
-            base = DamageCalculator.calculate_player_damage(player, skip_rarity_mult=True)
-            player_dmg = int(base * 2.0) + player.stats.get('faith', 0) * 2
+            base  = DamageCalculator.calculate_player_damage(player, skip_rarity_mult=True)
+            faith = player.stats.get('faith', 0)
+            player_dmg = int(base * 1.4) + faith
             print(f"*** HOLY BACKSTAB! Executioner + Holy Aura — {player_dmg} damage!")
         elif ab == 'frenzy':
             hits = [int(DamageCalculator.calculate_player_damage(player, skip_rarity_mult=True) * 0.6) for _ in range(3)]
@@ -744,7 +783,7 @@ class CombatSystem:
             )
             print(f"! WARNING: Recommended level {boss_config['min_level']}+!")
             try:
-                if input("Continue? (y/n): ").strip().lower() not in ['y', 'yes']:
+                if safe_input("Continue? (y/n): ").strip().lower() not in ['y', 'yes']:
                     return True
             except KeyboardInterrupt:
                 return True
@@ -757,7 +796,7 @@ class CombatSystem:
                 print(f"  {i}. {w['name']} ({w['damage']} dmg, {w.get('rarity','common')})")
             print("  0. Keep current weapon")
             try:
-                sw_choice = input("  Swap weapon before fight? (0 to skip): ").strip()
+                sw_choice = safe_input("  Swap weapon before fight? (0 to skip): ").strip()
                 if sw_choice != '0' and sw_choice.isdigit():
                     idx = int(sw_choice) - 1
                     if 0 <= idx < len(player.inventory_weapons):
@@ -804,6 +843,11 @@ class CombatSystem:
                             print("*** The curse claims you! GAME OVER!")
                             return False
 
+            # Paladin mana regen — 8 MP per turn so Smite is usable every ~3 turns
+            if player.character_class == 'paladin' and turn > 1:
+                regen = 8
+                player.mana = min(player.mana + regen, player.max_mana)
+
             # HUD
             if player.character_class in ('mage', 'paladin'):
                 print(f"You: {player.health}/{player.max_health} HP | {player.mana}/{player.max_mana} MP")
@@ -836,7 +880,7 @@ class CombatSystem:
             print("  (type the number or word, e.g. 'attack' or '1')")
 
             try:
-                action = input("Action: ").strip().lower()
+                action = safe_input("Action: ").strip().lower()
             except KeyboardInterrupt:
                 action = "defend"
 
@@ -904,7 +948,7 @@ class CombatSystem:
         print(comparison)
 
         try:
-            equip = input("  Equip new weapon? (y/n): ").strip().lower()
+            equip = safe_input("  Equip new weapon? (y/n): ").strip().lower()
         except KeyboardInterrupt:
             equip = 'n'
 
@@ -928,15 +972,12 @@ class CombatSystem:
         if floor == GameConstants.NUM_FLOORS:
             logger.info(f"GAME COMPLETE: {player.name} defeated all bosses!")
             try:
-                input("\n  [ Press Enter to see your victory screen... ]")
+                safe_input("\n  [ Press Enter to see your victory screen... ]")
             except KeyboardInterrupt:
                 pass
-            self._victory_screen()
+            self.game._victory_screen()
 
         return True
 
 
-#################################################################################
-# COMMAND REGISTRY
-#################################################################################
 
